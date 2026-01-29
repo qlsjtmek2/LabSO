@@ -390,7 +390,7 @@ export default function CalculatorPage() {
                 </div>
             </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }
