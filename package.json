@@ -1,5 +1,5 @@
 {
-  "name": "lol-adaptive-build-optimizer",
+  "name": "rabso",
   "version": "0.1.0",
   "private": true,
   "scripts": {

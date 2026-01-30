@@ -18,6 +18,11 @@ export const getItems = async (version: string) => {
   return res.data.data;
 };
 
+export const getRuneReforged = async (version: string) => {
+  const res = await axios.get(`${DDragon_BASE_URL}/cdn/${version}/data/ko_KR/runesReforged.json`);
+  return res.data;
+};
+
 // 특정 챔피언의 상세 데이터(스킬 계수 등)를 가져옵니다.
 export const getChampionDetail = async (version: string, championId: string) => {
   const res = await axios.get(`${DDragon_BASE_URL}/cdn/${version}/data/ko_KR/champion/${championId}.json`);

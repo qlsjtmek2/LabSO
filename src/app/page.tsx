@@ -72,6 +72,23 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-[#0a0a0c] text-white font-sans selection:bg-blue-500 selection:text-white">
+      {/* Header */}
+      <header className="border-b border-gray-800 bg-gray-900/50 backdrop-blur-md sticky top-0 z-40">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+          <a href="/" className="text-2xl font-black italic text-white hover:text-blue-400 transition">
+            LabSO
+          </a>
+          <nav className="flex gap-6">
+            <a href="/" className="text-blue-400 text-sm font-bold">
+              홈
+            </a>
+            <a href="/build-advisor" className="text-gray-400 hover:text-white transition text-sm font-medium">
+              빌드 추천
+            </a>
+          </nav>
+        </div>
+      </header>
+
       {/* Hero Section & Search */}
       <section className="relative py-20 px-6 overflow-hidden">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-blue-600/20 blur-[120px] rounded-full pointer-events-none" />
