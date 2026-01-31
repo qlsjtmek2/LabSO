@@ -1,0 +1,109 @@
+{
+  "id": "Kassadin",
+  "name": "Kassadin",
+  "baseStats": {
+    "hp": 646,
+    "hpPerLevel": 119,
+    "mp": 400,
+    "mpPerLevel": 87,
+    "ad": 59,
+    "adPerLevel": 3.9,
+    "armor": 21,
+    "armorPerLevel": 4,
+    "mr": 30,
+    "mrPerLevel": 1.3,
+    "attackSpeed": 0.64,
+    "attackSpeedRatio": 3.7,
+    "range": 150
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Void Stone",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Null Sphere",
+      "cooldown": [
+        10,
+        9.5,
+        9,
+        8.5,
+        8
+      ],
+      "cost": [
+        60,
+        65,
+        70,
+        75,
+        80
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Nether Blade",
+      "cooldown": [
+        7
+      ],
+      "cost": [
+        1
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Force Pulse",
+      "cooldown": [
+        21,
+        20,
+        19,
+        18,
+        17
+      ],
+      "cost": [
+        60,
+        65,
+        70,
+        75,
+        80
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              50,
+              60,
+              70,
+              80,
+              90
+            ],
+            "ratios": []
+          }
+        }
+      ]
+    },
+    "R": {
+      "id": "R",
+      "name": "Riftwalk",
+      "cooldown": [
+        5,
+        3.5,
+        2
+      ],
+      "cost": [
+        40
+      ],
+      "effects": []
+    }
+  }
+}

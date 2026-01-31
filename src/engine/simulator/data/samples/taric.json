@@ -1,0 +1,108 @@
+{
+  "id": "Taric",
+  "name": "Taric",
+  "baseStats": {
+    "hp": 645,
+    "hpPerLevel": 99,
+    "mp": 300,
+    "mpPerLevel": 60,
+    "ad": 55,
+    "adPerLevel": 3.5,
+    "armor": 40,
+    "armorPerLevel": 4.3,
+    "mr": 28,
+    "mrPerLevel": 2.05,
+    "attackSpeed": 0.625,
+    "attackSpeedRatio": 2,
+    "range": 150
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Bravado",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Starlight's Touch",
+      "cooldown": [
+        3
+      ],
+      "cost": [
+        60
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Bastion",
+      "cooldown": [
+        15
+      ],
+      "cost": [
+        60
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Physical",
+            "base": [
+              7,
+              8,
+              9,
+              10,
+              11
+            ],
+            "ratios": []
+          }
+        }
+      ]
+    },
+    "E": {
+      "id": "E",
+      "name": "Dazzle",
+      "cooldown": [
+        16,
+        15,
+        14,
+        13,
+        12
+      ],
+      "cost": [
+        40
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              1.5
+            ],
+            "ratios": []
+          }
+        }
+      ]
+    },
+    "R": {
+      "id": "R",
+      "name": "Cosmic Radiance",
+      "cooldown": [
+        180,
+        150,
+        120
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

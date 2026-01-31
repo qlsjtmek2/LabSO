@@ -1,0 +1,100 @@
+{
+  "id": "Swain",
+  "name": "Swain",
+  "baseStats": {
+    "hp": 595,
+    "hpPerLevel": 99,
+    "mp": 400,
+    "mpPerLevel": 29,
+    "ad": 58,
+    "adPerLevel": 2.7,
+    "armor": 25,
+    "armorPerLevel": 4.7,
+    "mr": 31,
+    "mrPerLevel": 1.55,
+    "attackSpeed": 0.625,
+    "attackSpeedRatio": 2.11,
+    "range": 525
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Ravenous Flock",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Death's Hand",
+      "cooldown": [
+        7,
+        6,
+        5,
+        4,
+        3
+      ],
+      "cost": [
+        40,
+        45,
+        50,
+        55,
+        60
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Vision of Empire",
+      "cooldown": [
+        22,
+        21,
+        20,
+        19,
+        18
+      ],
+      "cost": [
+        60,
+        65,
+        70,
+        75,
+        80
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Nevermove",
+      "cooldown": [
+        12,
+        11.5,
+        11,
+        10.5,
+        10
+      ],
+      "cost": [
+        50,
+        55,
+        60,
+        65,
+        70
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Demonic Ascension",
+      "cooldown": [
+        120
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

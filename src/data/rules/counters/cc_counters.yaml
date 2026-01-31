@@ -1,0 +1,22 @@
+# 카운터 아이템 규칙 정의
+
+- id: counter-point-click-cc
+  name: 확정 CC 카운터 (스펠 쉴드)
+  description: 트페 골드 카드 등 피할 수 없는 CC기가 있을 때 스펠 쉴드 아이템을 추천합니다.
+  priority: 100 # CRITICAL 단계
+  triggers:
+    - PointClickCC # 팩트 엔진이 감지하면 실행
+  
+  # 조건: 팩트에 hasPointClickCC가 true일 때
+  condition:
+    type: FactIsTrue
+    fact: hasPointClickCC
+
+  # 행동: 동적 아이템 추천 (내 챔피언 타입에 따라 다름)
+  action:
+    type: RecommendItems
+    items:
+      - dynamicId: SpellShield # AD면 밤끝, AP면 밴시 자동 선택
+        slot: situational
+        reason: "상대 확정 CC(트페 골카 등)를 막기 위해 필수입니다."
+        score: 0.9

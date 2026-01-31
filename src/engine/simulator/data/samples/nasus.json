@@ -1,0 +1,105 @@
+{
+  "id": "Nasus",
+  "name": "Nasus",
+  "baseStats": {
+    "hp": 650,
+    "hpPerLevel": 104,
+    "mp": 326,
+    "mpPerLevel": 62,
+    "ad": 67,
+    "adPerLevel": 4,
+    "armor": 34,
+    "armorPerLevel": 4.7,
+    "mr": 32,
+    "mrPerLevel": 2.05,
+    "attackSpeed": 0.638,
+    "attackSpeedRatio": 3.48,
+    "range": 125
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Soul Eater",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Siphoning Strike",
+      "cooldown": [
+        7.5,
+        6.5,
+        5.5,
+        4.5,
+        3.5
+      ],
+      "cost": [
+        20
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Wither",
+      "cooldown": [
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "cost": [
+        80
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Spirit Fire",
+      "cooldown": [
+        12
+      ],
+      "cost": [
+        60,
+        70,
+        80,
+        90,
+        100
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              30,
+              35,
+              40,
+              45,
+              50
+            ],
+            "ratios": []
+          }
+        }
+      ]
+    },
+    "R": {
+      "id": "R",
+      "name": "Fury of the Sands",
+      "cooldown": [
+        120,
+        100,
+        80
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

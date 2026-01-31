@@ -1,0 +1,82 @@
+{
+  "id": "Rammus",
+  "name": "Rammus",
+  "baseStats": {
+    "hp": 645,
+    "hpPerLevel": 100,
+    "mp": 310,
+    "mpPerLevel": 33,
+    "ad": 65,
+    "adPerLevel": 2.75,
+    "armor": 35,
+    "armorPerLevel": 4.5,
+    "mr": 32,
+    "mrPerLevel": 2.05,
+    "attackSpeed": 0.7,
+    "attackSpeedRatio": 2.215,
+    "range": 125
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Spiked Shell",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Powerball",
+      "cooldown": [
+        12,
+        10.5,
+        9,
+        7.5,
+        6
+      ],
+      "cost": [
+        60
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Defensive Ball Curl",
+      "cooldown": [
+        7
+      ],
+      "cost": [
+        40
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Frenzying Taunt",
+      "cooldown": [
+        12
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Soaring Slam",
+      "cooldown": [
+        120,
+        105,
+        90
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "id": "Nautilus",
+  "name": "Nautilus",
+  "baseStats": {
+    "hp": 646,
+    "hpPerLevel": 100,
+    "mp": 400,
+    "mpPerLevel": 47,
+    "ad": 61,
+    "adPerLevel": 3.3,
+    "armor": 39,
+    "armorPerLevel": 4.95,
+    "mr": 32,
+    "mrPerLevel": 2.05,
+    "attackSpeed": 0.706,
+    "attackSpeedRatio": 1,
+    "range": 175
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Staggering Blow",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Dredge Line",
+      "cooldown": [
+        14,
+        13,
+        12,
+        11,
+        10
+      ],
+      "cost": [
+        60
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Titan's Wrath",
+      "cooldown": [
+        12
+      ],
+      "cost": [
+        60
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Riptide",
+      "cooldown": [
+        7,
+        6.5,
+        6,
+        5.5,
+        5
+      ],
+      "cost": [
+        50,
+        60,
+        70,
+        80,
+        90
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Depth Charge",
+      "cooldown": [
+        120,
+        100,
+        80
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

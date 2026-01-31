@@ -1,0 +1,98 @@
+{
+  "id": "Skarner",
+  "name": "Skarner",
+  "baseStats": {
+    "hp": 630,
+    "hpPerLevel": 110,
+    "mp": 320,
+    "mpPerLevel": 40,
+    "ad": 63,
+    "adPerLevel": 5,
+    "armor": 33,
+    "armorPerLevel": 4.5,
+    "mr": 32,
+    "mrPerLevel": 2.05,
+    "attackSpeed": 0.625,
+    "attackSpeedRatio": 2,
+    "range": 150
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Threads of Vibration",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Shattered Earth / Upheaval",
+      "cooldown": [
+        8,
+        6.75,
+        5.5,
+        4.25,
+        3
+      ],
+      "cost": [
+        45
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Seismic Bastion",
+      "cooldown": [
+        10,
+        9,
+        8,
+        7,
+        6
+      ],
+      "cost": [
+        60,
+        65,
+        70,
+        75,
+        80
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Ixtal's Impact",
+      "cooldown": [
+        22,
+        21,
+        20,
+        19,
+        18
+      ],
+      "cost": [
+        50,
+        55,
+        60,
+        65,
+        70
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Impale",
+      "cooldown": [
+        120,
+        105,
+        90
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "id": "Chogath",
+  "name": "Cho'Gath",
+  "baseStats": {
+    "hp": 644,
+    "hpPerLevel": 94,
+    "mp": 270,
+    "mpPerLevel": 60,
+    "ad": 69,
+    "adPerLevel": 4.2,
+    "armor": 38,
+    "armorPerLevel": 4.5,
+    "mr": 32,
+    "mrPerLevel": 2.05,
+    "attackSpeed": 0.658,
+    "attackSpeedRatio": 1.44,
+    "range": 125
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Carnivore",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Rupture",
+      "cooldown": [
+        6
+      ],
+      "cost": [
+        50
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              60
+            ],
+            "ratios": []
+          }
+        }
+      ]
+    },
+    "W": {
+      "id": "W",
+      "name": "Feral Scream",
+      "cooldown": [
+        11,
+        10.5,
+        10,
+        9.5,
+        9
+      ],
+      "cost": [
+        70,
+        75,
+        80,
+        85,
+        90
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              1.6,
+              1.7,
+              1.8,
+              1.9,
+              2
+            ],
+            "ratios": []
+          }
+        }
+      ]
+    },
+    "E": {
+      "id": "E",
+      "name": "Vorpal Spikes",
+      "cooldown": [
+        8,
+        7,
+        6,
+        5,
+        4
+      ],
+      "cost": [
+        30
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Feast",
+      "cooldown": [
+        80,
+        70,
+        60
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "id": "Twitch",
+  "name": "Twitch",
+  "baseStats": {
+    "hp": 630,
+    "hpPerLevel": 104,
+    "mp": 300,
+    "mpPerLevel": 40,
+    "ad": 59,
+    "adPerLevel": 3,
+    "armor": 27,
+    "armorPerLevel": 4.2,
+    "mr": 30,
+    "mrPerLevel": 1.3,
+    "attackSpeed": 0.679,
+    "attackSpeedRatio": 3,
+    "range": 550
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Deadly Venom",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Ambush",
+      "cooldown": [
+        16
+      ],
+      "cost": [
+        40
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Venom Cask",
+      "cooldown": [
+        13,
+        12,
+        11,
+        10,
+        9
+      ],
+      "cost": [
+        70
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Contaminate",
+      "cooldown": [
+        12,
+        11,
+        10,
+        9,
+        8
+      ],
+      "cost": [
+        50,
+        60,
+        70,
+        80,
+        90
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Spray and Pray",
+      "cooldown": [
+        90
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

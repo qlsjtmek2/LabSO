@@ -1,0 +1,86 @@
+{
+  "id": "Viego",
+  "name": "Viego",
+  "baseStats": {
+    "hp": 630,
+    "hpPerLevel": 109,
+    "mp": 10000,
+    "mpPerLevel": 0,
+    "ad": 57,
+    "adPerLevel": 3.5,
+    "armor": 34,
+    "armorPerLevel": 4.6,
+    "mr": 32,
+    "mrPerLevel": 2.05,
+    "attackSpeed": 0.658,
+    "attackSpeedRatio": 2.75,
+    "range": 200
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Sovereign's Domination",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Blade of the Ruined King",
+      "cooldown": [
+        5,
+        4.5,
+        4,
+        3.5,
+        3
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Spectral Maw",
+      "cooldown": [
+        8
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Harrowed Path",
+      "cooldown": [
+        14,
+        12,
+        10,
+        8,
+        6
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Heartbreaker",
+      "cooldown": [
+        120,
+        100,
+        80
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    }
+  }
+}

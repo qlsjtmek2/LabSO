@@ -1,0 +1,94 @@
+{
+  "id": "Zed",
+  "name": "Zed",
+  "baseStats": {
+    "hp": 654,
+    "hpPerLevel": 99,
+    "mp": 200,
+    "mpPerLevel": 0,
+    "ad": 63,
+    "adPerLevel": 3.4,
+    "armor": 32,
+    "armorPerLevel": 4.7,
+    "mr": 29,
+    "mrPerLevel": 2.05,
+    "attackSpeed": 0.651,
+    "attackSpeedRatio": 3.3,
+    "range": 125
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Contempt for the Weak",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Razor Shuriken",
+      "cooldown": [
+        6
+      ],
+      "cost": [
+        75,
+        70,
+        65,
+        60,
+        55
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Living Shadow",
+      "cooldown": [
+        20,
+        19,
+        18,
+        17,
+        16
+      ],
+      "cost": [
+        40,
+        35,
+        30,
+        25,
+        20
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Shadow Slash",
+      "cooldown": [
+        5,
+        4.5,
+        4,
+        3.5,
+        3
+      ],
+      "cost": [
+        40
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Death Mark",
+      "cooldown": [
+        120,
+        110,
+        100
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    }
+  }
+}

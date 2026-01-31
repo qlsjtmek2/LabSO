@@ -1,0 +1,101 @@
+{
+  "id": "Katarina",
+  "name": "Katarina",
+  "baseStats": {
+    "hp": 672,
+    "hpPerLevel": 108,
+    "mp": 0,
+    "mpPerLevel": 0,
+    "ad": 58,
+    "adPerLevel": 3.2,
+    "armor": 32,
+    "armorPerLevel": 4.7,
+    "mr": 32,
+    "mrPerLevel": 2.05,
+    "attackSpeed": 0.658,
+    "attackSpeedRatio": 2.74,
+    "range": 125
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Voracity",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Bouncing Blade",
+      "cooldown": [
+        11,
+        10,
+        9,
+        8,
+        7
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Preparation",
+      "cooldown": [
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "cost": [
+        0
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Physical",
+            "base": [
+              1.25
+            ],
+            "ratios": []
+          }
+        }
+      ]
+    },
+    "E": {
+      "id": "E",
+      "name": "Shunpo",
+      "cooldown": [
+        12,
+        11,
+        10,
+        9,
+        8
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Death Lotus",
+      "cooldown": [
+        75,
+        60,
+        45
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    }
+  }
+}

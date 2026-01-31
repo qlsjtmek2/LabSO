@@ -1,0 +1,94 @@
+{
+  "id": "Milio",
+  "name": "Milio",
+  "baseStats": {
+    "hp": 560,
+    "hpPerLevel": 88,
+    "mp": 365,
+    "mpPerLevel": 43,
+    "ad": 48,
+    "adPerLevel": 3.2,
+    "armor": 26,
+    "armorPerLevel": 4.6,
+    "mr": 30,
+    "mrPerLevel": 1.3,
+    "attackSpeed": 0.625,
+    "attackSpeedRatio": 3,
+    "range": 525
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Fired Up!",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Ultra Mega Fire Kick",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50,
+        55,
+        60,
+        65,
+        70
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Cozy Campfire",
+      "cooldown": [
+        29,
+        27,
+        25,
+        23,
+        21
+      ],
+      "cost": [
+        90,
+        100,
+        110,
+        120,
+        130
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Warm Hugs",
+      "cooldown": [
+        0.5
+      ],
+      "cost": [
+        50,
+        60,
+        70,
+        80,
+        90
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Breath of Life",
+      "cooldown": [
+        160,
+        145,
+        130
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

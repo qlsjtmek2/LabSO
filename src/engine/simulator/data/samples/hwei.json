@@ -1,0 +1,102 @@
+{
+  "id": "Hwei",
+  "name": "Hwei",
+  "baseStats": {
+    "hp": 580,
+    "hpPerLevel": 109,
+    "mp": 480,
+    "mpPerLevel": 30,
+    "ad": 54,
+    "adPerLevel": 3.3,
+    "armor": 21,
+    "armorPerLevel": 4.7,
+    "mr": 30,
+    "mrPerLevel": 1.3,
+    "attackSpeed": 0.69,
+    "attackSpeedRatio": 2.5,
+    "range": 550
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Signature of the Visionary",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Subject: Disaster",
+      "cooldown": [
+        10,
+        9,
+        8,
+        7,
+        6
+      ],
+      "cost": [
+        80,
+        90,
+        100,
+        110,
+        120
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Subject: Serenity",
+      "cooldown": [
+        18,
+        17.5,
+        17,
+        16.5,
+        16
+      ],
+      "cost": [
+        90,
+        95,
+        100,
+        105,
+        110
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Subject: Torment",
+      "cooldown": [
+        13,
+        12.5,
+        12,
+        11.5,
+        11
+      ],
+      "cost": [
+        50,
+        55,
+        60,
+        65,
+        70
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Spiraling Despair",
+      "cooldown": [
+        140,
+        115,
+        80
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

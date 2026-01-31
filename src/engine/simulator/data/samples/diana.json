@@ -1,0 +1,98 @@
+{
+  "id": "Diana",
+  "name": "Diana",
+  "baseStats": {
+    "hp": 640,
+    "hpPerLevel": 109,
+    "mp": 375,
+    "mpPerLevel": 25,
+    "ad": 57,
+    "adPerLevel": 3,
+    "armor": 31,
+    "armorPerLevel": 4.3,
+    "mr": 32,
+    "mrPerLevel": 2.05,
+    "attackSpeed": 0.625,
+    "attackSpeedRatio": 2,
+    "range": 150
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Moonsilver Blade",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Crescent Strike",
+      "cooldown": [
+        8,
+        7.5,
+        7,
+        6.5,
+        6
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Pale Cascade",
+      "cooldown": [
+        15,
+        13.5,
+        12,
+        10.5,
+        9
+      ],
+      "cost": [
+        40,
+        45,
+        50,
+        55,
+        60
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Lunar Rush",
+      "cooldown": [
+        22,
+        20,
+        18,
+        16,
+        14
+      ],
+      "cost": [
+        40,
+        45,
+        50,
+        55,
+        60
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Moonfall",
+      "cooldown": [
+        100,
+        90,
+        80
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

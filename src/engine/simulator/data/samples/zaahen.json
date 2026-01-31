@@ -1,0 +1,90 @@
+{
+  "id": "Zaahen",
+  "name": "Zaahen",
+  "baseStats": {
+    "hp": 640,
+    "hpPerLevel": 114,
+    "mp": 350,
+    "mpPerLevel": 55,
+    "ad": 63,
+    "adPerLevel": 4,
+    "armor": 36,
+    "armorPerLevel": 5,
+    "mr": 32,
+    "mrPerLevel": 2.05,
+    "attackSpeed": 0.625,
+    "attackSpeedRatio": 2.5,
+    "range": 175
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Cultivation of War",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "The Darkin Glaive",
+      "cooldown": [
+        10,
+        9,
+        8,
+        7,
+        6
+      ],
+      "cost": [
+        25
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Dreaded Return",
+      "cooldown": [
+        16,
+        15,
+        14,
+        13,
+        12
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Aureate Rush",
+      "cooldown": [
+        10,
+        9.5,
+        9,
+        8.5,
+        8
+      ],
+      "cost": [
+        40
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Grim Deliverance",
+      "cooldown": [
+        110,
+        95,
+        80
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

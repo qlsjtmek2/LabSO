@@ -1,0 +1,86 @@
+{
+  "id": "Khazix",
+  "name": "Kha'Zix",
+  "baseStats": {
+    "hp": 643,
+    "hpPerLevel": 99,
+    "mp": 327,
+    "mpPerLevel": 40,
+    "ad": 60,
+    "adPerLevel": 3.1,
+    "armor": 32,
+    "armorPerLevel": 4.2,
+    "mr": 32,
+    "mrPerLevel": 2.05,
+    "attackSpeed": 0.668,
+    "attackSpeedRatio": 2.7,
+    "range": 125
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Unseen Threat",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Taste Their Fear",
+      "cooldown": [
+        4
+      ],
+      "cost": [
+        20
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Void Spike",
+      "cooldown": [
+        9
+      ],
+      "cost": [
+        55,
+        60,
+        65,
+        70,
+        75
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Leap",
+      "cooldown": [
+        20,
+        18,
+        16,
+        14,
+        12
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Void Assault",
+      "cooldown": [
+        100,
+        85,
+        70
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

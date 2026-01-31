@@ -1,0 +1,94 @@
+{
+  "id": "Ziggs",
+  "name": "Ziggs",
+  "baseStats": {
+    "hp": 606,
+    "hpPerLevel": 106,
+    "mp": 480,
+    "mpPerLevel": 23.5,
+    "ad": 55,
+    "adPerLevel": 3.1,
+    "armor": 21,
+    "armorPerLevel": 4.7,
+    "mr": 30,
+    "mrPerLevel": 1.3,
+    "attackSpeed": 0.656,
+    "attackSpeedRatio": 2,
+    "range": 550
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Short Fuse",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Bouncing Bomb",
+      "cooldown": [
+        6,
+        5.5,
+        5,
+        4.5,
+        4
+      ],
+      "cost": [
+        50,
+        55,
+        60,
+        65,
+        70
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Satchel Charge",
+      "cooldown": [
+        20,
+        18,
+        16,
+        14,
+        12
+      ],
+      "cost": [
+        80
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Hexplosive Minefield",
+      "cooldown": [
+        16
+      ],
+      "cost": [
+        70,
+        80,
+        90,
+        100,
+        110
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Mega Inferno Bomb",
+      "cooldown": [
+        120,
+        95,
+        70
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

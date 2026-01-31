@@ -1,0 +1,94 @@
+{
+  "id": "Jax",
+  "name": "Jax",
+  "baseStats": {
+    "hp": 650,
+    "hpPerLevel": 103,
+    "mp": 339,
+    "mpPerLevel": 52,
+    "ad": 68,
+    "adPerLevel": 4.25,
+    "armor": 36,
+    "armorPerLevel": 4.2,
+    "mr": 32,
+    "mrPerLevel": 2.05,
+    "attackSpeed": 0.638,
+    "attackSpeedRatio": 3.4,
+    "range": 125
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Relentless Assault",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Leap Strike",
+      "cooldown": [
+        8,
+        7.5,
+        7,
+        6.5,
+        6
+      ],
+      "cost": [
+        65
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Empower",
+      "cooldown": [
+        7,
+        6,
+        5,
+        4,
+        3
+      ],
+      "cost": [
+        30
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Counter Strike",
+      "cooldown": [
+        17,
+        15,
+        13,
+        11,
+        9
+      ],
+      "cost": [
+        50,
+        60,
+        70,
+        80,
+        90
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Grandmaster-at-Arms",
+      "cooldown": [
+        110,
+        100,
+        90
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

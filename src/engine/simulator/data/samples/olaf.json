@@ -1,0 +1,90 @@
+{
+  "id": "Olaf",
+  "name": "Olaf",
+  "baseStats": {
+    "hp": 645,
+    "hpPerLevel": 119,
+    "mp": 316,
+    "mpPerLevel": 50,
+    "ad": 68,
+    "adPerLevel": 4.7,
+    "armor": 35,
+    "armorPerLevel": 4.2,
+    "mr": 32,
+    "mrPerLevel": 2.05,
+    "attackSpeed": 0.694,
+    "attackSpeedRatio": 2.7,
+    "range": 125
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Berserker Rage",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Undertow",
+      "cooldown": [
+        9
+      ],
+      "cost": [
+        50,
+        55,
+        60,
+        65,
+        70
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Tough It Out",
+      "cooldown": [
+        16,
+        15,
+        14,
+        13,
+        12
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Reckless Swing",
+      "cooldown": [
+        11,
+        10,
+        9,
+        8,
+        7
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Ragnarok",
+      "cooldown": [
+        100,
+        90,
+        80
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

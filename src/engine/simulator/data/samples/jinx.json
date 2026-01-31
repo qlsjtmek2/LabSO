@@ -1,0 +1,90 @@
+{
+  "id": "Jinx",
+  "name": "Jinx",
+  "baseStats": {
+    "hp": 630,
+    "hpPerLevel": 105,
+    "mp": 260,
+    "mpPerLevel": 50,
+    "ad": 59,
+    "adPerLevel": 3.25,
+    "armor": 26,
+    "armorPerLevel": 4.7,
+    "mr": 30,
+    "mrPerLevel": 1.3,
+    "attackSpeed": 0.625,
+    "attackSpeedRatio": 1,
+    "range": 525
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Get Excited!",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Switcheroo!",
+      "cooldown": [
+        0.9
+      ],
+      "cost": [
+        20
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Zap!",
+      "cooldown": [
+        8,
+        7,
+        6,
+        5,
+        4
+      ],
+      "cost": [
+        40,
+        45,
+        50,
+        55,
+        60
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Flame Chompers!",
+      "cooldown": [
+        24,
+        20.5,
+        17,
+        13.5,
+        10
+      ],
+      "cost": [
+        90
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Super Mega Death Rocket!",
+      "cooldown": [
+        85,
+        65,
+        45
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

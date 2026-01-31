@@ -1,0 +1,86 @@
+{
+  "id": "Riven",
+  "name": "Riven",
+  "baseStats": {
+    "hp": 630,
+    "hpPerLevel": 100,
+    "mp": 0,
+    "mpPerLevel": 0,
+    "ad": 64,
+    "adPerLevel": 3,
+    "armor": 33,
+    "armorPerLevel": 4.4,
+    "mr": 32,
+    "mrPerLevel": 2.05,
+    "attackSpeed": 0.625,
+    "attackSpeedRatio": 3.5,
+    "range": 125
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Runic Blade",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Broken Wings",
+      "cooldown": [
+        13
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Ki Burst",
+      "cooldown": [
+        11,
+        10,
+        9,
+        8,
+        7
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Valor",
+      "cooldown": [
+        10,
+        9,
+        8,
+        7,
+        6
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Blade of the Exile",
+      "cooldown": [
+        120,
+        90,
+        60
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    }
+  }
+}

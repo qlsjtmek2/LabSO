@@ -1,0 +1,86 @@
+{
+  "id": "Vayne",
+  "name": "Vayne",
+  "baseStats": {
+    "hp": 550,
+    "hpPerLevel": 103,
+    "mp": 232,
+    "mpPerLevel": 35,
+    "ad": 60,
+    "adPerLevel": 2.35,
+    "armor": 23,
+    "armorPerLevel": 4.6,
+    "mr": 30,
+    "mrPerLevel": 1.3,
+    "attackSpeed": 0.658,
+    "attackSpeedRatio": 3.3,
+    "range": 550
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Night Hunter",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Tumble",
+      "cooldown": [
+        6,
+        5,
+        4,
+        3,
+        2
+      ],
+      "cost": [
+        30
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Silver Bolts",
+      "cooldown": [
+        0
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Condemn",
+      "cooldown": [
+        20,
+        18,
+        16,
+        14,
+        12
+      ],
+      "cost": [
+        90
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Final Hour",
+      "cooldown": [
+        100,
+        85,
+        70
+      ],
+      "cost": [
+        80
+      ],
+      "effects": []
+    }
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "id": "Heimerdinger",
+  "name": "Heimerdinger",
+  "baseStats": {
+    "hp": 558,
+    "hpPerLevel": 101,
+    "mp": 385,
+    "mpPerLevel": 20,
+    "ad": 56,
+    "adPerLevel": 2.7,
+    "armor": 19,
+    "armorPerLevel": 4.2,
+    "mr": 30,
+    "mrPerLevel": 1.3,
+    "attackSpeed": 0.658,
+    "attackSpeedRatio": 1.36,
+    "range": 550
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Hextech Affinity",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "H-28 G Evolution Turret",
+      "cooldown": [
+        1
+      ],
+      "cost": [
+        20
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Hextech Micro-Rockets",
+      "cooldown": [
+        11,
+        10,
+        9,
+        8,
+        7
+      ],
+      "cost": [
+        50,
+        60,
+        70,
+        80,
+        90
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "CH-2 Electron Storm Grenade",
+      "cooldown": [
+        11
+      ],
+      "cost": [
+        85
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "UPGRADE!!!",
+      "cooldown": [
+        100,
+        85,
+        70
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

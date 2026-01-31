@@ -1,0 +1,84 @@
+{
+  "id": "Shyvana",
+  "name": "Shyvana",
+  "baseStats": {
+    "hp": 665,
+    "hpPerLevel": 104,
+    "mp": 100,
+    "mpPerLevel": 0,
+    "ad": 66,
+    "adPerLevel": 3,
+    "armor": 38,
+    "armorPerLevel": 4.55,
+    "mr": 32,
+    "mrPerLevel": 1.5,
+    "attackSpeed": 0.658,
+    "attackSpeedRatio": 2.5,
+    "range": 125
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Fury of the Dragonborn",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Twin Bite",
+      "cooldown": [
+        8,
+        7.5,
+        7,
+        6.5,
+        6
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Burnout",
+      "cooldown": [
+        12
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Flame Breath",
+      "cooldown": [
+        12,
+        11,
+        10,
+        9,
+        8
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Dragon's Descent",
+      "cooldown": [
+        0
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    }
+  }
+}

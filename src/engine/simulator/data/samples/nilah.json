@@ -1,0 +1,86 @@
+{
+  "id": "Nilah",
+  "name": "Nilah",
+  "baseStats": {
+    "hp": 570,
+    "hpPerLevel": 101,
+    "mp": 350,
+    "mpPerLevel": 35,
+    "ad": 60,
+    "adPerLevel": 2,
+    "armor": 27,
+    "armorPerLevel": 4.5,
+    "mr": 32,
+    "mrPerLevel": 2.05,
+    "attackSpeed": 0.697,
+    "attackSpeedRatio": 1.25,
+    "range": 225
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Joy Unending",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Formless Blade",
+      "cooldown": [
+        4
+      ],
+      "cost": [
+        30
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Jubilant Veil",
+      "cooldown": [
+        26,
+        25,
+        24,
+        23,
+        22
+      ],
+      "cost": [
+        60,
+        45,
+        30,
+        15,
+        0
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Slipstream",
+      "cooldown": [
+        0.5
+      ],
+      "cost": [
+        40
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Apotheosis",
+      "cooldown": [
+        110,
+        95,
+        80
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "id": "Karthus",
+  "name": "Karthus",
+  "baseStats": {
+    "hp": 620,
+    "hpPerLevel": 110,
+    "mp": 467,
+    "mpPerLevel": 31,
+    "ad": 46,
+    "adPerLevel": 3.25,
+    "armor": 21,
+    "armorPerLevel": 4.7,
+    "mr": 30,
+    "mrPerLevel": 1.3,
+    "attackSpeed": 0.625,
+    "attackSpeedRatio": 2.11,
+    "range": 450
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Death Defied",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Lay Waste",
+      "cooldown": [
+        0
+      ],
+      "cost": [
+        20,
+        25,
+        30,
+        35,
+        40
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Wall of Pain",
+      "cooldown": [
+        15
+      ],
+      "cost": [
+        70
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Physical",
+            "base": [
+              25
+            ],
+            "ratios": []
+          }
+        }
+      ]
+    },
+    "E": {
+      "id": "E",
+      "name": "Defile",
+      "cooldown": [
+        0.5
+      ],
+      "cost": [
+        30,
+        42,
+        54,
+        66,
+        78
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              10,
+              20,
+              30,
+              40,
+              50
+            ],
+            "ratios": []
+          }
+        }
+      ]
+    },
+    "R": {
+      "id": "R",
+      "name": "Requiem",
+      "cooldown": [
+        200,
+        180,
+        160
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

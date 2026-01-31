@@ -1,0 +1,98 @@
+{
+  "id": "Sion",
+  "name": "Sion",
+  "baseStats": {
+    "hp": 655,
+    "hpPerLevel": 87,
+    "mp": 400,
+    "mpPerLevel": 52,
+    "ad": 68,
+    "adPerLevel": 4,
+    "armor": 36,
+    "armorPerLevel": 4.2,
+    "mr": 32,
+    "mrPerLevel": 2.05,
+    "attackSpeed": 0.679,
+    "attackSpeedRatio": 1.3,
+    "range": 175
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Glory in Death",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Decimating Smash",
+      "cooldown": [
+        10,
+        9,
+        8,
+        7,
+        6
+      ],
+      "cost": [
+        45
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Soul Furnace",
+      "cooldown": [
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "cost": [
+        65,
+        70,
+        75,
+        80,
+        85
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Roar of the Slayer",
+      "cooldown": [
+        12,
+        11,
+        10,
+        9,
+        8
+      ],
+      "cost": [
+        35,
+        40,
+        45,
+        50,
+        55
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Unstoppable Onslaught",
+      "cooldown": [
+        140,
+        100,
+        60
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

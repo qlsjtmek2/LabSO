@@ -1,0 +1,101 @@
+{
+  "id": "Gragas",
+  "name": "Gragas",
+  "baseStats": {
+    "hp": 640,
+    "hpPerLevel": 115,
+    "mp": 400,
+    "mpPerLevel": 47,
+    "ad": 64,
+    "adPerLevel": 3.5,
+    "armor": 38,
+    "armorPerLevel": 5,
+    "mr": 32,
+    "mrPerLevel": 2.05,
+    "attackSpeed": 0.675,
+    "attackSpeedRatio": 2.05,
+    "range": 125
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Happy Hour",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Barrel Roll",
+      "cooldown": [
+        10,
+        9,
+        8,
+        7,
+        6
+      ],
+      "cost": [
+        80
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              40,
+              45,
+              50,
+              55,
+              60
+            ],
+            "ratios": []
+          }
+        }
+      ]
+    },
+    "W": {
+      "id": "W",
+      "name": "Drunken Rage",
+      "cooldown": [
+        5
+      ],
+      "cost": [
+        30
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Body Slam",
+      "cooldown": [
+        14,
+        13.5,
+        13,
+        12.5,
+        12
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Explosive Cask",
+      "cooldown": [
+        100,
+        85,
+        70
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

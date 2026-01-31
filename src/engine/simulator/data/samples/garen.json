@@ -1,0 +1,86 @@
+{
+  "id": "Garen",
+  "name": "Garen",
+  "baseStats": {
+    "hp": 690,
+    "hpPerLevel": 98,
+    "mp": 0,
+    "mpPerLevel": 0,
+    "ad": 69,
+    "adPerLevel": 4.5,
+    "armor": 38,
+    "armorPerLevel": 4.2,
+    "mr": 32,
+    "mrPerLevel": 1.55,
+    "attackSpeed": 0.625,
+    "attackSpeedRatio": 3.65,
+    "range": 175
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Perseverance",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Decisive Strike",
+      "cooldown": [
+        8
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Courage",
+      "cooldown": [
+        22,
+        19.5,
+        17,
+        14.5,
+        12
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Judgment",
+      "cooldown": [
+        9,
+        8.25,
+        7.5,
+        6.75,
+        6
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Demacian Justice",
+      "cooldown": [
+        120,
+        100,
+        80
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    }
+  }
+}

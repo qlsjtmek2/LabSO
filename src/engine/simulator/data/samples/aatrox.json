@@ -1,0 +1,90 @@
+{
+  "id": "Aatrox",
+  "name": "Aatrox",
+  "baseStats": {
+    "hp": 650,
+    "hpPerLevel": 114,
+    "mp": 0,
+    "mpPerLevel": 0,
+    "ad": 60,
+    "adPerLevel": 5,
+    "armor": 38,
+    "armorPerLevel": 4.8,
+    "mr": 32,
+    "mrPerLevel": 2.05,
+    "attackSpeed": 0.651,
+    "attackSpeedRatio": 2.5,
+    "range": 175
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Deathbringer Stance",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "The Darkin Blade",
+      "cooldown": [
+        14,
+        12,
+        10,
+        8,
+        6
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Infernal Chains",
+      "cooldown": [
+        20,
+        18,
+        16,
+        14,
+        12
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Umbral Dash",
+      "cooldown": [
+        9,
+        8,
+        7,
+        6,
+        5
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "World Ender",
+      "cooldown": [
+        120,
+        100,
+        80
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    }
+  }
+}

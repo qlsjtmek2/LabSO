@@ -1,0 +1,102 @@
+{
+  "id": "Alistar",
+  "name": "Alistar",
+  "baseStats": {
+    "hp": 685,
+    "hpPerLevel": 120,
+    "mp": 350,
+    "mpPerLevel": 40,
+    "ad": 62,
+    "adPerLevel": 3.75,
+    "armor": 40,
+    "armorPerLevel": 4.7,
+    "mr": 32,
+    "mrPerLevel": 2.05,
+    "attackSpeed": 0.625,
+    "attackSpeedRatio": 2.125,
+    "range": 125
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Triumphant Roar",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Pulverize",
+      "cooldown": [
+        14,
+        13,
+        12,
+        11,
+        10
+      ],
+      "cost": [
+        50,
+        55,
+        60,
+        65,
+        70
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Headbutt",
+      "cooldown": [
+        14,
+        13,
+        12,
+        11,
+        10
+      ],
+      "cost": [
+        50,
+        55,
+        60,
+        65,
+        70
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Trample",
+      "cooldown": [
+        12,
+        11.5,
+        11,
+        10.5,
+        10
+      ],
+      "cost": [
+        50,
+        55,
+        60,
+        65,
+        70
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Unbreakable Will",
+      "cooldown": [
+        120,
+        100,
+        80
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

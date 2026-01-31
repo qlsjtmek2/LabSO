@@ -1,0 +1,76 @@
+{
+  "id": "Udyr",
+  "name": "Udyr",
+  "baseStats": {
+    "hp": 664,
+    "hpPerLevel": 92,
+    "mp": 271,
+    "mpPerLevel": 50,
+    "ad": 62,
+    "adPerLevel": 4,
+    "armor": 31,
+    "armorPerLevel": 4.7,
+    "mr": 32,
+    "mrPerLevel": 2.05,
+    "attackSpeed": 0.65,
+    "attackSpeedRatio": 3,
+    "range": 125
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Bridge Between",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Wilding Claw",
+      "cooldown": [
+        6
+      ],
+      "cost": [
+        20
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Iron Mantle",
+      "cooldown": [
+        6
+      ],
+      "cost": [
+        40
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Blazing Stampede",
+      "cooldown": [
+        6
+      ],
+      "cost": [
+        40
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Wingborne Storm",
+      "cooldown": [
+        6
+      ],
+      "cost": [
+        40
+      ],
+      "effects": []
+    }
+  }
+}

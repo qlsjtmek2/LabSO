@@ -1,0 +1,94 @@
+{
+  "id": "Illaoi",
+  "name": "Illaoi",
+  "baseStats": {
+    "hp": 656,
+    "hpPerLevel": 115,
+    "mp": 350,
+    "mpPerLevel": 50,
+    "ad": 65,
+    "adPerLevel": 5,
+    "armor": 35,
+    "armorPerLevel": 5,
+    "mr": 32,
+    "mrPerLevel": 2.05,
+    "attackSpeed": 0.625,
+    "attackSpeedRatio": 2.5,
+    "range": 125
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Prophet of an Elder God",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Tentacle Smash",
+      "cooldown": [
+        10,
+        9,
+        8,
+        7,
+        6
+      ],
+      "cost": [
+        40,
+        45,
+        50,
+        55,
+        60
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Harsh Lesson",
+      "cooldown": [
+        4
+      ],
+      "cost": [
+        30
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Test of Spirit",
+      "cooldown": [
+        16,
+        15,
+        14,
+        13,
+        12
+      ],
+      "cost": [
+        35,
+        40,
+        45,
+        50,
+        55
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Leap of Faith",
+      "cooldown": [
+        120,
+        95,
+        70
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

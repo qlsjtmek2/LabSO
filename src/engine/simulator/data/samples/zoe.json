@@ -1,0 +1,90 @@
+{
+  "id": "Zoe",
+  "name": "Zoe",
+  "baseStats": {
+    "hp": 630,
+    "hpPerLevel": 106,
+    "mp": 425,
+    "mpPerLevel": 25,
+    "ad": 58,
+    "adPerLevel": 3.3,
+    "armor": 21,
+    "armorPerLevel": 4.7,
+    "mr": 30,
+    "mrPerLevel": 1.3,
+    "attackSpeed": 0.658,
+    "attackSpeedRatio": 2.5,
+    "range": 550
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "More Sparkles!",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Paddle Star!",
+      "cooldown": [
+        8.5,
+        8,
+        7.5,
+        7,
+        6.5
+      ],
+      "cost": [
+        40,
+        45,
+        50,
+        55,
+        60
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Spell Thief",
+      "cooldown": [
+        0.25
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Sleepy Trouble Bubble",
+      "cooldown": [
+        16,
+        15,
+        14,
+        13,
+        12
+      ],
+      "cost": [
+        80
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Portal Jump",
+      "cooldown": [
+        11,
+        8,
+        5
+      ],
+      "cost": [
+        40
+      ],
+      "effects": []
+    }
+  }
+}

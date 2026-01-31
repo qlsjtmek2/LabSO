@@ -1,0 +1,86 @@
+{
+  "id": "Jayce",
+  "name": "Jayce",
+  "baseStats": {
+    "hp": 590,
+    "hpPerLevel": 109,
+    "mp": 375,
+    "mpPerLevel": 45,
+    "ad": 59,
+    "adPerLevel": 4.25,
+    "armor": 22,
+    "armorPerLevel": 5,
+    "mr": 30,
+    "mrPerLevel": 1.3,
+    "attackSpeed": 0.658,
+    "attackSpeedRatio": 3,
+    "range": 125
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Hextech Capacitor",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "To the Skies! / Shock Blast",
+      "cooldown": [
+        16,
+        14,
+        12,
+        10,
+        8,
+        6
+      ],
+      "cost": [
+        40
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Lightning Field / Hyper Charge",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        40
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Thundering Blow / Acceleration Gate",
+      "cooldown": [
+        20,
+        18,
+        16,
+        14,
+        12,
+        10
+      ],
+      "cost": [
+        55
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Mercury Cannon / Mercury Hammer",
+      "cooldown": [
+        6
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    }
+  }
+}

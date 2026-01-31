@@ -1,0 +1,88 @@
+{
+  "id": "Qiyana",
+  "name": "Qiyana",
+  "baseStats": {
+    "hp": 590,
+    "hpPerLevel": 121,
+    "mp": 375,
+    "mpPerLevel": 60,
+    "ad": 64,
+    "adPerLevel": 3.1,
+    "armor": 31,
+    "armorPerLevel": 4.5,
+    "mr": 32,
+    "mrPerLevel": 2.05,
+    "attackSpeed": 0.688,
+    "attackSpeedRatio": 2.1,
+    "range": 150
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Royal Privilege",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Elemental Wrath / Edge of Ixtal",
+      "cooldown": [
+        7
+      ],
+      "cost": [
+        35
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Terrashape",
+      "cooldown": [
+        7
+      ],
+      "cost": [
+        25,
+        30,
+        35,
+        40,
+        45
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Audacity",
+      "cooldown": [
+        11,
+        10,
+        9,
+        8,
+        7
+      ],
+      "cost": [
+        40,
+        45,
+        50,
+        55,
+        60
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Supreme Display of Talent",
+      "cooldown": [
+        120
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

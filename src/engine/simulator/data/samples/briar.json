@@ -1,0 +1,86 @@
+{
+  "id": "Briar",
+  "name": "Briar",
+  "baseStats": {
+    "hp": 625,
+    "hpPerLevel": 95,
+    "mp": 0,
+    "mpPerLevel": 0,
+    "ad": 60,
+    "adPerLevel": 2.5,
+    "armor": 30,
+    "armorPerLevel": 4.2,
+    "mr": 32,
+    "mrPerLevel": 2.05,
+    "attackSpeed": 0.644,
+    "attackSpeedRatio": 2,
+    "range": 125
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Crimson Curse",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Head Rush",
+      "cooldown": [
+        13,
+        12,
+        11,
+        10,
+        9
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Blood Frenzy / Snack Attack",
+      "cooldown": [
+        14,
+        13,
+        12,
+        11,
+        10
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Chilling Scream",
+      "cooldown": [
+        16
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Certain Death",
+      "cooldown": [
+        120,
+        100,
+        80
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    }
+  }
+}

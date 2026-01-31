@@ -1,0 +1,116 @@
+{
+  "id": "Kayn",
+  "name": "Kayn",
+  "baseStats": {
+    "hp": 655,
+    "hpPerLevel": 103,
+    "mp": 410,
+    "mpPerLevel": 50,
+    "ad": 68,
+    "adPerLevel": 3.3,
+    "armor": 38,
+    "armorPerLevel": 4.5,
+    "mr": 32,
+    "mrPerLevel": 2.05,
+    "attackSpeed": 0.669,
+    "attackSpeedRatio": 2.7,
+    "range": 175
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "The Darkin Scythe",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Reaping Slash",
+      "cooldown": [
+        7,
+        6.5,
+        6,
+        5.5,
+        5
+      ],
+      "cost": [
+        40
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Blade's Reach",
+      "cooldown": [
+        13,
+        12,
+        11,
+        10,
+        9
+      ],
+      "cost": [
+        40,
+        45,
+        50,
+        55,
+        60
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Physical",
+            "base": [
+              1
+            ],
+            "ratios": []
+          }
+        }
+      ]
+    },
+    "E": {
+      "id": "E",
+      "name": "Shadow Step",
+      "cooldown": [
+        21,
+        19,
+        17,
+        15,
+        13
+      ],
+      "cost": [
+        90
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Physical",
+            "base": [
+              40
+            ],
+            "ratios": []
+          }
+        }
+      ]
+    },
+    "R": {
+      "id": "R",
+      "name": "Umbral Trespass",
+      "cooldown": [
+        120,
+        100,
+        80
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

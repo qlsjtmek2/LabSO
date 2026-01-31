@@ -1,0 +1,102 @@
+{
+  "id": "Soraka",
+  "name": "Soraka",
+  "baseStats": {
+    "hp": 605,
+    "hpPerLevel": 88,
+    "mp": 425,
+    "mpPerLevel": 40,
+    "ad": 50,
+    "adPerLevel": 3,
+    "armor": 32,
+    "armorPerLevel": 5,
+    "mr": 30,
+    "mrPerLevel": 1.3,
+    "attackSpeed": 0.625,
+    "attackSpeedRatio": 2.14,
+    "range": 550
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Salvation",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Starcall",
+      "cooldown": [
+        8,
+        7,
+        6,
+        5,
+        4
+      ],
+      "cost": [
+        45,
+        50,
+        55,
+        60,
+        65
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Astral Infusion",
+      "cooldown": [
+        6,
+        5,
+        4,
+        3,
+        2
+      ],
+      "cost": [
+        40,
+        45,
+        50,
+        55,
+        60
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Equinox",
+      "cooldown": [
+        20,
+        19,
+        18,
+        17,
+        16
+      ],
+      "cost": [
+        70,
+        75,
+        80,
+        85,
+        90
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Wish",
+      "cooldown": [
+        150,
+        135,
+        120
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "id": "Galio",
+  "name": "Galio",
+  "baseStats": {
+    "hp": 600,
+    "hpPerLevel": 126,
+    "mp": 410,
+    "mpPerLevel": 40,
+    "ad": 59,
+    "adPerLevel": 3.5,
+    "armor": 24,
+    "armorPerLevel": 4.7,
+    "mr": 32,
+    "mrPerLevel": 2.05,
+    "attackSpeed": 0.625,
+    "attackSpeedRatio": 1.5,
+    "range": 150
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Colossal Smash",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Winds of War",
+      "cooldown": [
+        11,
+        10,
+        9,
+        8,
+        7
+      ],
+      "cost": [
+        70,
+        75,
+        80,
+        85,
+        90
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Shield of Durand",
+      "cooldown": [
+        18,
+        17,
+        16,
+        15,
+        14
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Justice Punch",
+      "cooldown": [
+        11,
+        10,
+        9,
+        8,
+        7
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Hero's Entrance",
+      "cooldown": [
+        180,
+        160,
+        140
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

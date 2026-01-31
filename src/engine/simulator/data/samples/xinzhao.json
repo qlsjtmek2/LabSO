@@ -1,0 +1,101 @@
+{
+  "id": "XinZhao",
+  "name": "Xin Zhao",
+  "baseStats": {
+    "hp": 620,
+    "hpPerLevel": 106,
+    "mp": 274,
+    "mpPerLevel": 55,
+    "ad": 63,
+    "adPerLevel": 3,
+    "armor": 35,
+    "armorPerLevel": 4.4,
+    "mr": 32,
+    "mrPerLevel": 2.05,
+    "attackSpeed": 0.645,
+    "attackSpeedRatio": 3.5,
+    "range": 175
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Determination",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Three Talon Strike",
+      "cooldown": [
+        7,
+        6.5,
+        6,
+        5.5,
+        5
+      ],
+      "cost": [
+        30
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Physical",
+            "base": [
+              0.75
+            ],
+            "ratios": []
+          }
+        }
+      ]
+    },
+    "W": {
+      "id": "W",
+      "name": "Wind Becomes Lightning",
+      "cooldown": [
+        12,
+        11,
+        10,
+        9,
+        8
+      ],
+      "cost": [
+        60,
+        55,
+        50,
+        45,
+        40
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Audacious Charge",
+      "cooldown": [
+        11
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Crescent Guard",
+      "cooldown": [
+        120,
+        110,
+        100
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

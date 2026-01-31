@@ -200,7 +200,7 @@ export const MINOR_RUNES: Record<string, RuneInfo> = {
     longDescription: '챔피언에게 피해를 입히면 마나나 기력을 회복합니다.',
     tree: 'Precision',
     slot: 1,
-    icon: 'perk-images/Styles/Precision/PresenceOfMind.png',
+    icon: 'perk-images/Styles/Precision/PresenceOfMind/PresenceOfMind.png',
   },
 
   // 정밀 슬롯 2
@@ -211,7 +211,7 @@ export const MINOR_RUNES: Record<string, RuneInfo> = {
     longDescription: '챔피언 처치 시 스택을 얻어 공격 속도가 증가합니다.',
     tree: 'Precision',
     slot: 2,
-    icon: 'perk-images/Styles/Precision/LegendAlacrity.png',
+    icon: 'perk-images/Styles/Precision/LegendAlacrity/LegendAlacrity.png',
   },
   LegendTenacity: {
     id: 'LegendTenacity',
@@ -220,7 +220,7 @@ export const MINOR_RUNES: Record<string, RuneInfo> = {
     longDescription: '챔피언 처치 시 스택을 얻어 강인함이 증가합니다.',
     tree: 'Precision',
     slot: 2,
-    icon: 'perk-images/Styles/Precision/LegendTenacity.png',
+    icon: 'perk-images/Styles/Precision/LegendTenacity/LegendTenacity.png',
   },
   LegendBloodline: {
     id: 'LegendBloodline',
@@ -229,7 +229,7 @@ export const MINOR_RUNES: Record<string, RuneInfo> = {
     longDescription: '챔피언 처치 시 스택을 얻어 생명력 흡수가 증가합니다.',
     tree: 'Precision',
     slot: 2,
-    icon: 'perk-images/Styles/Precision/LegendBloodline.png',
+    icon: 'perk-images/Styles/Precision/LegendBloodline/LegendBloodline.png',
   },
 
   // 정밀 슬롯 3
@@ -240,7 +240,7 @@ export const MINOR_RUNES: Record<string, RuneInfo> = {
     longDescription: '체력이 40% 이하인 챔피언에게 추가 피해를 입힙니다.',
     tree: 'Precision',
     slot: 3,
-    icon: 'perk-images/Styles/Precision/CoupDeGrace.png',
+    icon: 'perk-images/Styles/Precision/CoupDeGrace/CoupDeGrace.png',
   },
   CutDown: {
     id: 'CutDown',
@@ -249,7 +249,7 @@ export const MINOR_RUNES: Record<string, RuneInfo> = {
     longDescription: '최대 체력이 나보다 높은 챔피언에게 추가 피해를 입힙니다.',
     tree: 'Precision',
     slot: 3,
-    icon: 'perk-images/Styles/Precision/CutDown.png',
+    icon: 'perk-images/Styles/Precision/CutDown/CutDown.png',
   },
   LastStand: {
     id: 'LastStand',
@@ -269,7 +269,7 @@ export const MINOR_RUNES: Record<string, RuneInfo> = {
     longDescription: '이동이 불가하거나 둔화된 챔피언에게 추가 고정 피해를 입힙니다.',
     tree: 'Domination',
     slot: 1,
-    icon: 'perk-images/Styles/Domination/CheapShot.png',
+    icon: 'perk-images/Styles/Domination/CheapShot/CheapShot.png',
   },
   TasteOfBlood: {
     id: 'TasteOfBlood',
@@ -278,7 +278,7 @@ export const MINOR_RUNES: Record<string, RuneInfo> = {
     longDescription: '챔피언에게 피해를 입히면 체력을 회복합니다.',
     tree: 'Domination',
     slot: 1,
-    icon: 'perk-images/Styles/Domination/TasteOfBlood.png',
+    icon: 'perk-images/Styles/Domination/TasteOfBlood/GreenTerror_TasteOfBlood.png',
   },
   SuddenImpact: {
     id: 'SuddenImpact',
@@ -287,7 +287,7 @@ export const MINOR_RUNES: Record<string, RuneInfo> = {
     longDescription: '돌진, 점멸, 잠복 해제 후 치명타 확률과 관통력이 증가합니다.',
     tree: 'Domination',
     slot: 1,
-    icon: 'perk-images/Styles/Domination/SuddenImpact.png',
+    icon: 'perk-images/Styles/Domination/SuddenImpact/SuddenImpact.png',
   },
 
   // 지배 슬롯 2
@@ -298,7 +298,7 @@ export const MINOR_RUNES: Record<string, RuneInfo> = {
     longDescription: '적 와드를 파괴하면 그 자리에 좀비 와드가 생성됩니다.',
     tree: 'Domination',
     slot: 2,
-    icon: 'perk-images/Styles/Domination/ZombieWard.png',
+    icon: 'perk-images/Styles/Domination/ZombieWard/ZombieWard.png',
   },
   GhostPoro: {
     id: 'GhostPoro',
@@ -307,7 +307,7 @@ export const MINOR_RUNES: Record<string, RuneInfo> = {
     longDescription: '와드가 만료되면 유령 포로가 소환되어 시야를 제공합니다.',
     tree: 'Domination',
     slot: 2,
-    icon: 'perk-images/Styles/Domination/GhostPoro.png',
+    icon: 'perk-images/Styles/Domination/GhostPoro/GhostPoro.png',
   },
   EyeballCollection: {
     id: 'EyeballCollection',
@@ -316,7 +316,7 @@ export const MINOR_RUNES: Record<string, RuneInfo> = {
     longDescription: '챔피언 처치 시 안구를 수집하여 적응형 능력치가 증가합니다.',
     tree: 'Domination',
     slot: 2,
-    icon: 'perk-images/Styles/Domination/EyeballCollection.png',
+    icon: 'perk-images/Styles/Domination/EyeballCollection/EyeballCollection.png',
   },
 
   // 지배 슬롯 3
@@ -327,7 +327,7 @@ export const MINOR_RUNES: Record<string, RuneInfo> = {
     longDescription: '각 적 챔피언을 처음 처치할 때마다 추가 골드를 획득합니다.',
     tree: 'Domination',
     slot: 3,
-    icon: 'perk-images/Styles/Domination/TreasureHunter.png',
+    icon: 'perk-images/Styles/Domination/TreasureHunter/TreasureHunter.png',
   },
   IngeniousHunter: {
     id: 'IngeniousHunter',
@@ -336,7 +336,7 @@ export const MINOR_RUNES: Record<string, RuneInfo> = {
     longDescription: '고유 처치 시 아이템 쿨다운 감소가 증가합니다.',
     tree: 'Domination',
     slot: 3,
-    icon: 'perk-images/Styles/Domination/IngeniousHunter.png',
+    icon: 'perk-images/Styles/Domination/IngeniousHunter/IngeniousHunter.png',
   },
   RelentlessHunter: {
     id: 'RelentlessHunter',
@@ -345,7 +345,7 @@ export const MINOR_RUNES: Record<string, RuneInfo> = {
     longDescription: '고유 처치 시 비전투 시 이동 속도가 증가합니다.',
     tree: 'Domination',
     slot: 3,
-    icon: 'perk-images/Styles/Domination/RelentlessHunter.png',
+    icon: 'perk-images/Styles/Domination/RelentlessHunter/RelentlessHunter.png',
   },
   UltimateHunter: {
     id: 'UltimateHunter',
@@ -354,7 +354,7 @@ export const MINOR_RUNES: Record<string, RuneInfo> = {
     longDescription: '고유 처치 시 궁극기 쿨다운 감소가 증가합니다.',
     tree: 'Domination',
     slot: 3,
-    icon: 'perk-images/Styles/Domination/UltimateHunter.png',
+    icon: 'perk-images/Styles/Domination/UltimateHunter/UltimateHunter.png',
   },
 
   // 마법 슬롯 1-3 (주요만)
@@ -365,7 +365,7 @@ export const MINOR_RUNES: Record<string, RuneInfo> = {
     longDescription: '체력이 낮을 때 마법 피해를 받으면 보호막이 생성됩니다.',
     tree: 'Sorcery',
     slot: 1,
-    icon: 'perk-images/Styles/Sorcery/NullifyingOrb.png',
+    icon: 'perk-images/Styles/Sorcery/NullifyingOrb/Pokeshield.png',
   },
   ManaflowBand: {
     id: 'ManaflowBand',
@@ -374,7 +374,7 @@ export const MINOR_RUNES: Record<string, RuneInfo> = {
     longDescription: '챔피언에게 스킬로 피해를 입히면 최대 마나가 증가합니다.',
     tree: 'Sorcery',
     slot: 1,
-    icon: 'perk-images/Styles/Sorcery/ManaflowBand.png',
+    icon: 'perk-images/Styles/Sorcery/ManaflowBand/ManaflowBand.png',
   },
   NimbusCloak: {
     id: 'NimbusCloak',
@@ -383,7 +383,7 @@ export const MINOR_RUNES: Record<string, RuneInfo> = {
     longDescription: '소환사 주문 사용 시 잠시 이동 속도가 증가합니다.',
     tree: 'Sorcery',
     slot: 1,
-    icon: 'perk-images/Styles/Sorcery/NimbusCloak.png',
+    icon: 'perk-images/Styles/Sorcery/NimbusCloak/6361.png',
   },
   Transcendence: {
     id: 'Transcendence',
@@ -392,7 +392,7 @@ export const MINOR_RUNES: Record<string, RuneInfo> = {
     longDescription: '레벨업 시 스킬 가속이 증가하고, 처치 시 스킬 쿨다운이 감소합니다.',
     tree: 'Sorcery',
     slot: 2,
-    icon: 'perk-images/Styles/Sorcery/Transcendence.png',
+    icon: 'perk-images/Styles/Sorcery/Transcendence/Transcendence.png',
   },
   Celerity: {
     id: 'Celerity',
@@ -401,7 +401,7 @@ export const MINOR_RUNES: Record<string, RuneInfo> = {
     longDescription: '모든 이동 속도 보너스가 증가합니다.',
     tree: 'Sorcery',
     slot: 2,
-    icon: 'perk-images/Styles/Sorcery/Celerity.png',
+    icon: 'perk-images/Styles/Sorcery/Celerity/CelerityTemp.png',
   },
   AbsoluteFocus: {
     id: 'AbsoluteFocus',
@@ -410,7 +410,7 @@ export const MINOR_RUNES: Record<string, RuneInfo> = {
     longDescription: '체력이 70% 이상일 때 적응형 능력치가 증가합니다.',
     tree: 'Sorcery',
     slot: 2,
-    icon: 'perk-images/Styles/Sorcery/AbsoluteFocus.png',
+    icon: 'perk-images/Styles/Sorcery/AbsoluteFocus/AbsoluteFocus.png',
   },
   Scorch: {
     id: 'Scorch',
@@ -419,7 +419,7 @@ export const MINOR_RUNES: Record<string, RuneInfo> = {
     longDescription: '챔피언에게 스킬로 피해를 입히면 화상 피해를 입힙니다.',
     tree: 'Sorcery',
     slot: 3,
-    icon: 'perk-images/Styles/Sorcery/Scorch.png',
+    icon: 'perk-images/Styles/Sorcery/Scorch/Scorch.png',
   },
   Waterwalking: {
     id: 'Waterwalking',
@@ -428,7 +428,7 @@ export const MINOR_RUNES: Record<string, RuneInfo> = {
     longDescription: '강에서 이동 속도와 적응형 능력치가 증가합니다.',
     tree: 'Sorcery',
     slot: 3,
-    icon: 'perk-images/Styles/Sorcery/Waterwalking.png',
+    icon: 'perk-images/Styles/Sorcery/Waterwalking/Waterwalking.png',
   },
   GatheringStorm: {
     id: 'GatheringStorm',
@@ -437,7 +437,7 @@ export const MINOR_RUNES: Record<string, RuneInfo> = {
     longDescription: '게임이 진행됨에 따라 적응형 능력치가 증가합니다.',
     tree: 'Sorcery',
     slot: 3,
-    icon: 'perk-images/Styles/Sorcery/GatheringStorm.png',
+    icon: 'perk-images/Styles/Sorcery/GatheringStorm/GatheringStorm.png',
   },
 
   // 결의 슬롯 1-3 (주요만)
@@ -448,7 +448,7 @@ export const MINOR_RUNES: Record<string, RuneInfo> = {
     longDescription: '포탑 근처에서 충전하여 강력한 포탑 공격을 합니다.',
     tree: 'Resolve',
     slot: 1,
-    icon: 'perk-images/Styles/Resolve/Demolish.png',
+    icon: 'perk-images/Styles/Resolve/Demolish/Demolish.png',
   },
   FontOfLife: {
     id: 'FontOfLife',
@@ -457,7 +457,7 @@ export const MINOR_RUNES: Record<string, RuneInfo> = {
     longDescription: '적에게 이동 불가 효과를 적용하면 아군이 그 적을 공격할 때 체력을 회복합니다.',
     tree: 'Resolve',
     slot: 1,
-    icon: 'perk-images/Styles/Resolve/FontOfLife.png',
+    icon: 'perk-images/Styles/Resolve/FontOfLife/FontOfLife.png',
   },
   ShieldBash: {
     id: 'ShieldBash',
@@ -466,7 +466,7 @@ export const MINOR_RUNES: Record<string, RuneInfo> = {
     longDescription: '보호막이 있을 때 다음 기본 공격이 강화됩니다.',
     tree: 'Resolve',
     slot: 1,
-    icon: 'perk-images/Styles/Resolve/ShieldBash.png',
+    icon: 'perk-images/Styles/Resolve/ShieldBash/ShieldBash.png',
   },
   Conditioning: {
     id: 'Conditioning',
@@ -475,7 +475,7 @@ export const MINOR_RUNES: Record<string, RuneInfo> = {
     longDescription: '12분 후 방어력과 마법 저항력이 증가하고, 보너스 방어력/마저의 비율이 증가합니다.',
     tree: 'Resolve',
     slot: 2,
-    icon: 'perk-images/Styles/Resolve/Conditioning.png',
+    icon: 'perk-images/Styles/Resolve/Conditioning/Conditioning.png',
   },
   SecondWind: {
     id: 'SecondWind',
@@ -484,7 +484,7 @@ export const MINOR_RUNES: Record<string, RuneInfo> = {
     longDescription: '챔피언에게 피해를 받은 후 잃은 체력의 일부를 회복합니다.',
     tree: 'Resolve',
     slot: 2,
-    icon: 'perk-images/Styles/Resolve/SecondWind.png',
+    icon: 'perk-images/Styles/Resolve/SecondWind/SecondWind.png',
   },
   BonePlating: {
     id: 'BonePlating',
@@ -493,7 +493,7 @@ export const MINOR_RUNES: Record<string, RuneInfo> = {
     longDescription: '챔피언에게 피해를 받은 후 다음 3회의 공격/스킬 피해가 감소합니다.',
     tree: 'Resolve',
     slot: 2,
-    icon: 'perk-images/Styles/Resolve/BonePlating.png',
+    icon: 'perk-images/Styles/Resolve/BonePlating/BonePlating.png',
   },
   Overgrowth: {
     id: 'Overgrowth',
@@ -502,7 +502,7 @@ export const MINOR_RUNES: Record<string, RuneInfo> = {
     longDescription: '근처에서 미니언이 사망할 때마다 영구적으로 최대 체력이 증가합니다.',
     tree: 'Resolve',
     slot: 3,
-    icon: 'perk-images/Styles/Resolve/Overgrowth.png',
+    icon: 'perk-images/Styles/Resolve/Overgrowth/Overgrowth.png',
   },
   Revitalize: {
     id: 'Revitalize',
@@ -511,7 +511,7 @@ export const MINOR_RUNES: Record<string, RuneInfo> = {
     longDescription: '회복 및 보호막 효과가 증가합니다. 체력이 낮을 때 더욱 증가합니다.',
     tree: 'Resolve',
     slot: 3,
-    icon: 'perk-images/Styles/Resolve/Revitalize.png',
+    icon: 'perk-images/Styles/Resolve/Revitalize/Revitalize.png',
   },
   Unflinching: {
     id: 'Unflinching',
@@ -520,7 +520,7 @@ export const MINOR_RUNES: Record<string, RuneInfo> = {
     longDescription: '체력이 낮을 때 강인함과 둔화 저항이 증가합니다.',
     tree: 'Resolve',
     slot: 3,
-    icon: 'perk-images/Styles/Resolve/Unflinching.png',
+    icon: 'perk-images/Styles/Resolve/Unflinching/Unflinching.png',
   },
 
   // 영감 슬롯 1-3 (주요만)
@@ -531,7 +531,7 @@ export const MINOR_RUNES: Record<string, RuneInfo> = {
     longDescription: '점멸이 쿨다운일 때 마법공학 점멸기를 충전하여 사용할 수 있습니다.',
     tree: 'Inspiration',
     slot: 1,
-    icon: 'perk-images/Styles/Inspiration/HextechFlashtraption.png',
+    icon: 'perk-images/Styles/Inspiration/HextechFlashtraption/HextechFlashtraption.png',
   },
   MagicalFootwear: {
     id: 'MagicalFootwear',
@@ -540,7 +540,7 @@ export const MINOR_RUNES: Record<string, RuneInfo> = {
     longDescription: '12분 후 무료로 약간 빠른 장화를 획득합니다. 처치 시 시간이 단축됩니다.',
     tree: 'Inspiration',
     slot: 1,
-    icon: 'perk-images/Styles/Inspiration/MagicalFootwear.png',
+    icon: 'perk-images/Styles/Inspiration/MagicalFootwear/MagicalFootwear.png',
   },
   PerfectTiming: {
     id: 'PerfectTiming',
@@ -549,7 +549,7 @@ export const MINOR_RUNES: Record<string, RuneInfo> = {
     longDescription: '14분에 일회용 시계를 획득합니다. 처치 시 시간이 단축됩니다.',
     tree: 'Inspiration',
     slot: 1,
-    icon: 'perk-images/Styles/Inspiration/PerfectTiming.png',
+    icon: 'perk-images/Styles/Inspiration/PerfectTiming/PerfectTiming.png',
   },
   FuturesMarket: {
     id: 'FuturesMarket',
@@ -558,7 +558,7 @@ export const MINOR_RUNES: Record<string, RuneInfo> = {
     longDescription: '골드가 부족해도 빚을 내서 아이템을 구매할 수 있습니다.',
     tree: 'Inspiration',
     slot: 2,
-    icon: 'perk-images/Styles/Inspiration/FuturesMarket.png',
+    icon: 'perk-images/Styles/Inspiration/FuturesMarket/FuturesMarket.png',
   },
   MinionDematerializer: {
     id: 'MinionDematerializer',
@@ -567,7 +567,7 @@ export const MINOR_RUNES: Record<string, RuneInfo> = {
     longDescription: '미니언 해체분석기로 미니언을 즉시 처치하고, 해당 유형에 추가 피해를 입힙니다.',
     tree: 'Inspiration',
     slot: 2,
-    icon: 'perk-images/Styles/Inspiration/MinionDematerializer.png',
+    icon: 'perk-images/Styles/Inspiration/MinionDematerializer/MinionDematerializer.png',
   },
   BiscuitDelivery: {
     id: 'BiscuitDelivery',
@@ -576,7 +576,7 @@ export const MINOR_RUNES: Record<string, RuneInfo> = {
     longDescription: '게임 초반에 비스킷을 획득하여 체력과 마나를 회복하고, 영구 마나가 증가합니다.',
     tree: 'Inspiration',
     slot: 2,
-    icon: 'perk-images/Styles/Inspiration/BiscuitDelivery.png',
+    icon: 'perk-images/Styles/Inspiration/BiscuitDelivery/BiscuitDelivery.png',
   },
   CosmicInsight: {
     id: 'CosmicInsight',
@@ -585,7 +585,7 @@ export const MINOR_RUNES: Record<string, RuneInfo> = {
     longDescription: '소환사 주문 가속과 아이템 가속이 증가합니다.',
     tree: 'Inspiration',
     slot: 3,
-    icon: 'perk-images/Styles/Inspiration/CosmicInsight.png',
+    icon: 'perk-images/Styles/Inspiration/CosmicInsight/CosmicInsight.png',
   },
   ApproachVelocity: {
     id: 'ApproachVelocity',
@@ -594,7 +594,7 @@ export const MINOR_RUNES: Record<string, RuneInfo> = {
     longDescription: '이동이 저해된 적 챔피언에게 접근할 때 이동 속도가 증가합니다.',
     tree: 'Inspiration',
     slot: 3,
-    icon: 'perk-images/Styles/Inspiration/ApproachVelocity.png',
+    icon: 'perk-images/Styles/Inspiration/ApproachVelocity/ApproachVelocity.png',
   },
   TimeWarpTonic: {
     id: 'TimeWarpTonic',
@@ -603,7 +603,7 @@ export const MINOR_RUNES: Record<string, RuneInfo> = {
     longDescription: '물약이나 비스킷 사용 시 효과가 즉시 일부 적용되고 이동 속도가 증가합니다.',
     tree: 'Inspiration',
     slot: 3,
-    icon: 'perk-images/Styles/Inspiration/TimeWarpTonic.png',
+    icon: 'perk-images/Styles/Inspiration/TimeWarpTonic/TimeWarpTonic.png',
   },
 };
 

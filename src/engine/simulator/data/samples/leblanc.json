@@ -1,0 +1,90 @@
+{
+  "id": "Leblanc",
+  "name": "LeBlanc",
+  "baseStats": {
+    "hp": 598,
+    "hpPerLevel": 108,
+    "mp": 400,
+    "mpPerLevel": 25,
+    "ad": 55,
+    "adPerLevel": 2.2,
+    "armor": 22,
+    "armorPerLevel": 4.2,
+    "mr": 30,
+    "mrPerLevel": 1.3,
+    "attackSpeed": 0.658,
+    "attackSpeedRatio": 2.35,
+    "range": 525
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Mirror Image",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Sigil of Malice",
+      "cooldown": [
+        6
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Distortion",
+      "cooldown": [
+        15,
+        13.75,
+        12.5,
+        11.25,
+        10
+      ],
+      "cost": [
+        60,
+        70,
+        80,
+        90,
+        100
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Ethereal Chains",
+      "cooldown": [
+        14,
+        13.25,
+        12.5,
+        11.75,
+        11
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Mimic",
+      "cooldown": [
+        45,
+        35,
+        25
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    }
+  }
+}

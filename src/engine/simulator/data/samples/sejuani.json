@@ -1,0 +1,112 @@
+{
+  "id": "Sejuani",
+  "name": "Sejuani",
+  "baseStats": {
+    "hp": 630,
+    "hpPerLevel": 114,
+    "mp": 400,
+    "mpPerLevel": 40,
+    "ad": 66,
+    "adPerLevel": 4,
+    "armor": 34,
+    "armorPerLevel": 5.45,
+    "mr": 32,
+    "mrPerLevel": 2.05,
+    "attackSpeed": 0.688,
+    "attackSpeedRatio": 3.5,
+    "range": 150
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Fury of the North",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Arctic Assault",
+      "cooldown": [
+        18,
+        16.5,
+        15,
+        13.5,
+        12
+      ],
+      "cost": [
+        60,
+        65,
+        70,
+        75,
+        80
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Winter's Wrath",
+      "cooldown": [
+        9,
+        8,
+        7,
+        6,
+        5
+      ],
+      "cost": [
+        60
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Permafrost",
+      "cooldown": [
+        1.5
+      ],
+      "cost": [
+        20
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              1
+            ],
+            "ratios": []
+          }
+        }
+      ]
+    },
+    "R": {
+      "id": "R",
+      "name": "Glacial Prison",
+      "cooldown": [
+        120,
+        105,
+        90
+      ],
+      "cost": [
+        100
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              1
+            ],
+            "ratios": []
+          }
+        }
+      ]
+    }
+  }
+}

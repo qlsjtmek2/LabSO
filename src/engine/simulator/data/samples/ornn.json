@@ -1,0 +1,98 @@
+{
+  "id": "Ornn",
+  "name": "Ornn",
+  "baseStats": {
+    "hp": 660,
+    "hpPerLevel": 109,
+    "mp": 341,
+    "mpPerLevel": 65,
+    "ad": 69,
+    "adPerLevel": 3.5,
+    "armor": 33,
+    "armorPerLevel": 5.2,
+    "mr": 32,
+    "mrPerLevel": 2.05,
+    "attackSpeed": 0.625,
+    "attackSpeedRatio": 2,
+    "range": 175
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Living Forge",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Volcanic Rupture",
+      "cooldown": [
+        9,
+        8.5,
+        8,
+        7.5,
+        7
+      ],
+      "cost": [
+        45
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Bellows Breath",
+      "cooldown": [
+        12,
+        11.5,
+        11,
+        10.5,
+        10
+      ],
+      "cost": [
+        45,
+        50,
+        55,
+        60,
+        65
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Searing Charge",
+      "cooldown": [
+        14,
+        13.5,
+        13,
+        12.5,
+        12
+      ],
+      "cost": [
+        35,
+        40,
+        45,
+        50,
+        55
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Call of the Forge God",
+      "cooldown": [
+        140,
+        120,
+        100
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

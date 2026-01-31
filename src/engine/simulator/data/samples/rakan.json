@@ -1,0 +1,116 @@
+{
+  "id": "Rakan",
+  "name": "Rakan",
+  "baseStats": {
+    "hp": 610,
+    "hpPerLevel": 99,
+    "mp": 315,
+    "mpPerLevel": 50,
+    "ad": 62,
+    "adPerLevel": 3.5,
+    "armor": 30,
+    "armorPerLevel": 4.9,
+    "mr": 32,
+    "mrPerLevel": 2.05,
+    "attackSpeed": 0.635,
+    "attackSpeedRatio": 3,
+    "range": 300
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Fey Feathers",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Gleaming Quill",
+      "cooldown": [
+        11,
+        10,
+        9,
+        8,
+        7
+      ],
+      "cost": [
+        45
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Grand Entrance",
+      "cooldown": [
+        14,
+        13,
+        12,
+        11,
+        10
+      ],
+      "cost": [
+        50,
+        60,
+        70,
+        80,
+        90
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Battle Dance",
+      "cooldown": [
+        0
+      ],
+      "cost": [
+        40,
+        45,
+        50,
+        55,
+        60
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Physical",
+            "base": [
+              5
+            ],
+            "ratios": []
+          }
+        }
+      ]
+    },
+    "R": {
+      "id": "R",
+      "name": "The Quickness",
+      "cooldown": [
+        130,
+        110,
+        90
+      ],
+      "cost": [
+        100
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              4
+            ],
+            "ratios": []
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "id": "Zac",
+  "name": "Zac",
+  "baseStats": {
+    "hp": 685,
+    "hpPerLevel": 109,
+    "mp": 0,
+    "mpPerLevel": 0,
+    "ad": 60,
+    "adPerLevel": 3.4,
+    "armor": 33,
+    "armorPerLevel": 4.7,
+    "mr": 32,
+    "mrPerLevel": 2.05,
+    "attackSpeed": 0.736,
+    "attackSpeedRatio": 1.6,
+    "range": 175
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Cell Division",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Stretching Strikes",
+      "cooldown": [
+        14,
+        12.5,
+        11,
+        9.5,
+        8
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Unstable Matter",
+      "cooldown": [
+        5
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Elastic Slingshot",
+      "cooldown": [
+        22,
+        19,
+        16,
+        13,
+        10
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Let's Bounce!",
+      "cooldown": [
+        120,
+        105,
+        90
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    }
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "id": "Gangplank",
+  "name": "Gangplank",
+  "baseStats": {
+    "hp": 630,
+    "hpPerLevel": 114,
+    "mp": 280,
+    "mpPerLevel": 60,
+    "ad": 64,
+    "adPerLevel": 4.2,
+    "armor": 31,
+    "armorPerLevel": 4.7,
+    "mr": 32,
+    "mrPerLevel": 2.05,
+    "attackSpeed": 0.658,
+    "attackSpeedRatio": 3.2,
+    "range": 125
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Trial by Fire",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Parrrley",
+      "cooldown": [
+        4.5
+      ],
+      "cost": [
+        50,
+        45,
+        40,
+        35,
+        30
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Remove Scurvy",
+      "cooldown": [
+        22,
+        20,
+        18,
+        16,
+        14
+      ],
+      "cost": [
+        60,
+        70,
+        80,
+        90,
+        100
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Physical",
+            "base": [
+              13
+            ],
+            "ratios": []
+          }
+        }
+      ]
+    },
+    "E": {
+      "id": "E",
+      "name": "Powder Keg",
+      "cooldown": [
+        0
+      ],
+      "cost": [
+        0
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Physical",
+            "base": [
+              2
+            ],
+            "ratios": []
+          }
+        }
+      ]
+    },
+    "R": {
+      "id": "R",
+      "name": "Cannon Barrage",
+      "cooldown": [
+        160,
+        140,
+        120
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

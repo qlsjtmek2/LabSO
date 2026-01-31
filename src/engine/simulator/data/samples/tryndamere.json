@@ -1,0 +1,95 @@
+{
+  "id": "Tryndamere",
+  "name": "Tryndamere",
+  "baseStats": {
+    "hp": 696,
+    "hpPerLevel": 108,
+    "mp": 100,
+    "mpPerLevel": 0,
+    "ad": 66,
+    "adPerLevel": 4,
+    "armor": 33,
+    "armorPerLevel": 4.8,
+    "mr": 32,
+    "mrPerLevel": 2.05,
+    "attackSpeed": 0.67,
+    "attackSpeedRatio": 3.4,
+    "range": 175
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Battle Fury",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Bloodlust",
+      "cooldown": [
+        12
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Mocking Shout",
+      "cooldown": [
+        14
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Spinning Slash",
+      "cooldown": [
+        12,
+        11,
+        10,
+        9,
+        8
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Undying Rage",
+      "cooldown": [
+        120,
+        100,
+        80
+      ],
+      "cost": [
+        0
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Physical",
+            "base": [
+              50,
+              75,
+              100
+            ],
+            "ratios": []
+          }
+        }
+      ]
+    }
+  }
+}

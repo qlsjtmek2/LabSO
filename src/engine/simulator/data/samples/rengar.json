@@ -1,0 +1,78 @@
+{
+  "id": "Rengar",
+  "name": "Rengar",
+  "baseStats": {
+    "hp": 590,
+    "hpPerLevel": 104,
+    "mp": 4,
+    "mpPerLevel": 0,
+    "ad": 68,
+    "adPerLevel": 3,
+    "armor": 34,
+    "armorPerLevel": 4.2,
+    "mr": 32,
+    "mrPerLevel": 2.05,
+    "attackSpeed": 0.667,
+    "attackSpeedRatio": 3,
+    "range": 125
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Unseen Predator",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Savagery",
+      "cooldown": [
+        0.25
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Battle Roar",
+      "cooldown": [
+        0.25
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Bola Strike",
+      "cooldown": [
+        0.25
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Thrill of the Hunt",
+      "cooldown": [
+        100,
+        90,
+        80
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    }
+  }
+}

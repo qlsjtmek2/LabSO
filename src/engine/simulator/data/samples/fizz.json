@@ -1,0 +1,98 @@
+{
+  "id": "Fizz",
+  "name": "Fizz",
+  "baseStats": {
+    "hp": 640,
+    "hpPerLevel": 106,
+    "mp": 317,
+    "mpPerLevel": 52,
+    "ad": 58,
+    "adPerLevel": 3,
+    "armor": 26,
+    "armorPerLevel": 4.6,
+    "mr": 32,
+    "mrPerLevel": 2.05,
+    "attackSpeed": 0.658,
+    "attackSpeedRatio": 3.1,
+    "range": 175
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Nimble Fighter",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Urchin Strike",
+      "cooldown": [
+        8,
+        7.5,
+        7,
+        6.5,
+        6
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Seastone Trident",
+      "cooldown": [
+        7,
+        6,
+        5,
+        4,
+        3
+      ],
+      "cost": [
+        30,
+        40,
+        50,
+        60,
+        70
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Playful / Trickster",
+      "cooldown": [
+        16,
+        14,
+        12,
+        10,
+        8
+      ],
+      "cost": [
+        75,
+        80,
+        85,
+        90,
+        95
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Chum the Waters",
+      "cooldown": [
+        120,
+        100,
+        80
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "id": "Leona",
+  "name": "Leona",
+  "baseStats": {
+    "hp": 646,
+    "hpPerLevel": 101,
+    "mp": 302,
+    "mpPerLevel": 40,
+    "ad": 60,
+    "adPerLevel": 3,
+    "armor": 43,
+    "armorPerLevel": 4.8,
+    "mr": 32,
+    "mrPerLevel": 2.05,
+    "attackSpeed": 0.625,
+    "attackSpeedRatio": 2.9,
+    "range": 125
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Sunlight",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Shield of Daybreak",
+      "cooldown": [
+        5
+      ],
+      "cost": [
+        30,
+        35,
+        40,
+        45,
+        50
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              1
+            ],
+            "ratios": []
+          }
+        }
+      ]
+    },
+    "W": {
+      "id": "W",
+      "name": "Eclipse",
+      "cooldown": [
+        14,
+        13,
+        12,
+        11,
+        10
+      ],
+      "cost": [
+        60
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Zenith Blade",
+      "cooldown": [
+        12,
+        10.5,
+        9,
+        7.5,
+        6
+      ],
+      "cost": [
+        40,
+        45,
+        50,
+        55,
+        60
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              0.5
+            ],
+            "ratios": []
+          }
+        }
+      ]
+    },
+    "R": {
+      "id": "R",
+      "name": "Solar Flare",
+      "cooldown": [
+        90,
+        75,
+        60
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

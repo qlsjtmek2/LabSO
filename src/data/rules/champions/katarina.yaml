@@ -1,0 +1,49 @@
+# 카타리나 전용 규칙 정의
+# TypeScript 코드를 몰라도 누구나 수정할 수 있습니다.
+
+- id: katarina-adaptive-build
+  name: 카타리나 하이브리드 적응
+  description: 마법 저항력이 높은 상대를 만나면 AD 빌드로 전환합니다.
+  priority: 80 # STRATEGY 단계
+  triggers:
+    - Katarina
+  
+  # 조건: (상대 라이너가 카사딘/갈리오) OR (상대 팀에 탱커가 2명 이상)
+  condition:
+    type: OR
+    conditions:
+      - type: EnemyLanerIs
+        values: [Kassadin, Galio]
+      - type: EnemyTeamStat
+        stat: TankCount
+        operator: gte
+        value: 2
+
+  # 행동: 전략을 AD_ONHIT으로 변경
+  action:
+    type: ChangeStrategy
+    value: AD_ONHIT
+
+- id: katarina-ad-core
+  name: 카타리나 AD 핵심 아이템
+  priority: 60 # TACTICAL 단계
+  triggers:
+    - Katarina
+  
+  # 조건: 현재 전략이 AD_ONHIT 일 때
+  condition:
+    type: StrategyIs
+    value: AD_ONHIT
+
+  # 행동: 아이템 추천
+  action:
+    type: RecommendItems
+    items:
+      - id: 3153 # 몰락한 왕의 검
+        slot: core
+        reason: "AD 빌드 핵심: 평타 기반 딜링 강화"
+        score: 0.95
+      - id: 3091 # 마법사의 최후
+        slot: core
+        reason: "AP 상대로 강력한 효율 + 온힛 데미지"
+        score: 0.90

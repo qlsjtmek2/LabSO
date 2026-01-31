@@ -1,0 +1,82 @@
+{
+  "id": "KogMaw",
+  "name": "Kog'Maw",
+  "baseStats": {
+    "hp": 635,
+    "hpPerLevel": 99,
+    "mp": 325,
+    "mpPerLevel": 40,
+    "ad": 61,
+    "adPerLevel": 3.1,
+    "armor": 24,
+    "armorPerLevel": 4.45,
+    "mr": 30,
+    "mrPerLevel": 1.3,
+    "attackSpeed": 0.665,
+    "attackSpeedRatio": 2.65,
+    "range": 500
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Icathian Surprise",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Caustic Spittle",
+      "cooldown": [
+        7
+      ],
+      "cost": [
+        40
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Bio-Arcane Barrage",
+      "cooldown": [
+        17
+      ],
+      "cost": [
+        40
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Void Ooze",
+      "cooldown": [
+        12
+      ],
+      "cost": [
+        40,
+        55,
+        70,
+        85,
+        100
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Living Artillery",
+      "cooldown": [
+        2,
+        1.5,
+        1
+      ],
+      "cost": [
+        40
+      ],
+      "effects": []
+    }
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "id": "Blitzcrank",
+  "name": "Blitzcrank",
+  "baseStats": {
+    "hp": 600,
+    "hpPerLevel": 109,
+    "mp": 267,
+    "mpPerLevel": 40,
+    "ad": 62,
+    "adPerLevel": 3.5,
+    "armor": 37,
+    "armorPerLevel": 4.7,
+    "mr": 32,
+    "mrPerLevel": 2.05,
+    "attackSpeed": 0.625,
+    "attackSpeedRatio": 1.13,
+    "range": 125
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Mana Barrier",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Rocket Grab",
+      "cooldown": [
+        20,
+        19,
+        18,
+        17,
+        16
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Overdrive",
+      "cooldown": [
+        15
+      ],
+      "cost": [
+        75
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Power Fist",
+      "cooldown": [
+        7,
+        6.5,
+        6,
+        5.5,
+        5
+      ],
+      "cost": [
+        25
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Static Field",
+      "cooldown": [
+        60,
+        40,
+        20
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

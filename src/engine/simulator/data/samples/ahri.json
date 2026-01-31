@@ -1,0 +1,86 @@
+{
+  "id": "Ahri",
+  "name": "Ahri",
+  "baseStats": {
+    "hp": 590,
+    "hpPerLevel": 104,
+    "mp": 418,
+    "mpPerLevel": 25,
+    "ad": 53,
+    "adPerLevel": 3,
+    "armor": 21,
+    "armorPerLevel": 4.2,
+    "mr": 30,
+    "mrPerLevel": 1.3,
+    "attackSpeed": 0.668,
+    "attackSpeedRatio": 2.2,
+    "range": 550
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Essence Theft",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Orb of Deception",
+      "cooldown": [
+        7
+      ],
+      "cost": [
+        55,
+        65,
+        75,
+        85,
+        95
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Fox-Fire",
+      "cooldown": [
+        10,
+        9,
+        8,
+        7,
+        6
+      ],
+      "cost": [
+        30
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Charm",
+      "cooldown": [
+        12
+      ],
+      "cost": [
+        60
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Spirit Rush",
+      "cooldown": [
+        140,
+        120,
+        100
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

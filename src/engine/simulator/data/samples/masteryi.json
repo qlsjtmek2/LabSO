@@ -1,0 +1,84 @@
+{
+  "id": "MasterYi",
+  "name": "Master Yi",
+  "baseStats": {
+    "hp": 640,
+    "hpPerLevel": 105,
+    "mp": 251,
+    "mpPerLevel": 42,
+    "ad": 65,
+    "adPerLevel": 2.5,
+    "armor": 33,
+    "armorPerLevel": 4.5,
+    "mr": 32,
+    "mrPerLevel": 2.05,
+    "attackSpeed": 0.679,
+    "attackSpeedRatio": 2.5,
+    "range": 175
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Double Strike",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Alpha Strike",
+      "cooldown": [
+        20,
+        19.5,
+        19,
+        18.5,
+        18
+      ],
+      "cost": [
+        50,
+        55,
+        60,
+        65,
+        70
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Meditate",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        40
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Wuju Style",
+      "cooldown": [
+        14
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Highlander",
+      "cooldown": [
+        85
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

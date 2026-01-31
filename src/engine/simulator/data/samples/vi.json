@@ -1,0 +1,90 @@
+{
+  "id": "Vi",
+  "name": "Vi",
+  "baseStats": {
+    "hp": 655,
+    "hpPerLevel": 99,
+    "mp": 295,
+    "mpPerLevel": 65,
+    "ad": 63,
+    "adPerLevel": 3,
+    "armor": 30,
+    "armorPerLevel": 4.7,
+    "mr": 32,
+    "mrPerLevel": 2.05,
+    "attackSpeed": 0.644,
+    "attackSpeedRatio": 2,
+    "range": 125
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Blast Shield",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Vault Breaker",
+      "cooldown": [
+        12,
+        10.5,
+        9,
+        7.5,
+        6
+      ],
+      "cost": [
+        50,
+        60,
+        70,
+        80,
+        90
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Denting Blows",
+      "cooldown": [
+        0
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Relentless Force",
+      "cooldown": [
+        1
+      ],
+      "cost": [
+        26,
+        32,
+        38,
+        44,
+        50
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Cease and Desist",
+      "cooldown": [
+        140,
+        115,
+        90
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "id": "Hecarim",
+  "name": "Hecarim",
+  "baseStats": {
+    "hp": 625,
+    "hpPerLevel": 106,
+    "mp": 280,
+    "mpPerLevel": 40,
+    "ad": 66,
+    "adPerLevel": 3.7,
+    "armor": 32,
+    "armorPerLevel": 5.45,
+    "mr": 32,
+    "mrPerLevel": 2.05,
+    "attackSpeed": 0.67,
+    "attackSpeedRatio": 2.5,
+    "range": 175
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Warpath",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Rampage",
+      "cooldown": [
+        4
+      ],
+      "cost": [
+        28,
+        26,
+        24,
+        22,
+        20
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Physical",
+            "base": [
+              3
+            ],
+            "ratios": []
+          }
+        }
+      ]
+    },
+    "W": {
+      "id": "W",
+      "name": "Spirit of Dread",
+      "cooldown": [
+        14
+      ],
+      "cost": [
+        50,
+        55,
+        60,
+        65,
+        70
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Devastating Charge",
+      "cooldown": [
+        20,
+        19,
+        18,
+        17,
+        16
+      ],
+      "cost": [
+        60
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Onslaught of Shadows",
+      "cooldown": [
+        140,
+        120,
+        100
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

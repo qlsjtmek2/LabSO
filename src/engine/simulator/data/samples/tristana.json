@@ -1,0 +1,100 @@
+{
+  "id": "Tristana",
+  "name": "Tristana",
+  "baseStats": {
+    "hp": 640,
+    "hpPerLevel": 102,
+    "mp": 300,
+    "mpPerLevel": 32,
+    "ad": 60,
+    "adPerLevel": 2.9,
+    "armor": 30,
+    "armorPerLevel": 4,
+    "mr": 28,
+    "mrPerLevel": 1.3,
+    "attackSpeed": 0.656,
+    "attackSpeedRatio": 1.5,
+    "range": 550
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Draw a Bead",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Rapid Fire",
+      "cooldown": [
+        20,
+        19,
+        18,
+        17,
+        16
+      ],
+      "cost": [
+        30,
+        35,
+        40,
+        45,
+        50
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Rocket Jump",
+      "cooldown": [
+        22,
+        20,
+        18,
+        16,
+        14
+      ],
+      "cost": [
+        30,
+        35,
+        40,
+        45,
+        50
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Explosive Charge",
+      "cooldown": [
+        16,
+        15.5,
+        15,
+        14.5,
+        14
+      ],
+      "cost": [
+        50,
+        55,
+        60,
+        65,
+        70
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Buster Shot",
+      "cooldown": [
+        100
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

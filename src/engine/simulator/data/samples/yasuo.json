@@ -1,0 +1,101 @@
+{
+  "id": "Yasuo",
+  "name": "Yasuo",
+  "baseStats": {
+    "hp": 590,
+    "hpPerLevel": 110,
+    "mp": 100,
+    "mpPerLevel": 0,
+    "ad": 60,
+    "adPerLevel": 2.5,
+    "armor": 32,
+    "armorPerLevel": 4.6,
+    "mr": 32,
+    "mrPerLevel": 2.05,
+    "attackSpeed": 0.697,
+    "attackSpeedRatio": 3.5,
+    "range": 175
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Way of the Wanderer",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Steel Tempest",
+      "cooldown": [
+        4
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Wind Wall",
+      "cooldown": [
+        25,
+        23,
+        21,
+        19,
+        17
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Sweeping Blade",
+      "cooldown": [
+        0.5,
+        0.4,
+        0.3,
+        0.2,
+        0.1
+      ],
+      "cost": [
+        0
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              10,
+              9,
+              8,
+              7,
+              6
+            ],
+            "ratios": []
+          }
+        }
+      ]
+    },
+    "R": {
+      "id": "R",
+      "name": "Last Breath",
+      "cooldown": [
+        70,
+        50,
+        30
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    }
+  }
+}

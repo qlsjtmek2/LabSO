@@ -1,0 +1,82 @@
+{
+  "id": "RekSai",
+  "name": "Rek'Sai",
+  "baseStats": {
+    "hp": 600,
+    "hpPerLevel": 99,
+    "mp": 100,
+    "mpPerLevel": 0,
+    "ad": 62,
+    "adPerLevel": 3,
+    "armor": 35,
+    "armorPerLevel": 4.5,
+    "mr": 32,
+    "mrPerLevel": 2.05,
+    "attackSpeed": 0.667,
+    "attackSpeedRatio": 2,
+    "range": 175
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Fury of the Xer'Sai",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Queen's Wrath / Prey Seeker",
+      "cooldown": [
+        4,
+        3.5,
+        3,
+        2.5,
+        2
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Burrow / Un-burrow",
+      "cooldown": [
+        4
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Furious Bite / Tunnel",
+      "cooldown": [
+        6
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Void Rush",
+      "cooldown": [
+        120,
+        100,
+        80
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    }
+  }
+}

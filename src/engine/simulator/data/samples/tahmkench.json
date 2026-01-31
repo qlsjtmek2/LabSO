@@ -1,0 +1,92 @@
+{
+  "id": "TahmKench",
+  "name": "Tahm Kench",
+  "baseStats": {
+    "hp": 640,
+    "hpPerLevel": 103,
+    "mp": 325,
+    "mpPerLevel": 50,
+    "ad": 56,
+    "adPerLevel": 3.2,
+    "armor": 39,
+    "armorPerLevel": 4.7,
+    "mr": 32,
+    "mrPerLevel": 2.05,
+    "attackSpeed": 0.658,
+    "attackSpeedRatio": 2.5,
+    "range": 175
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "An Acquired Taste",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Tongue Lash",
+      "cooldown": [
+        7,
+        6.5,
+        6,
+        5.5,
+        5
+      ],
+      "cost": [
+        50,
+        46,
+        42,
+        38,
+        34
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Abyssal Dive",
+      "cooldown": [
+        21,
+        20,
+        19,
+        18,
+        17
+      ],
+      "cost": [
+        60,
+        75,
+        90,
+        105,
+        120
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Thick Skin",
+      "cooldown": [
+        3
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Devour",
+      "cooldown": [
+        0
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "id": "Irelia",
+  "name": "Irelia",
+  "baseStats": {
+    "hp": 630,
+    "hpPerLevel": 115,
+    "mp": 350,
+    "mpPerLevel": 50,
+    "ad": 65,
+    "adPerLevel": 3.5,
+    "armor": 36,
+    "armorPerLevel": 4.7,
+    "mr": 30,
+    "mrPerLevel": 2.05,
+    "attackSpeed": 0.656,
+    "attackSpeedRatio": 2.5,
+    "range": 200
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Ionian Fervor",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Bladesurge",
+      "cooldown": [
+        10,
+        9,
+        8,
+        7,
+        6
+      ],
+      "cost": [
+        15
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Defiant Dance",
+      "cooldown": [
+        20,
+        18,
+        16,
+        14,
+        12
+      ],
+      "cost": [
+        70,
+        75,
+        80,
+        85,
+        90
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Flawless Duet",
+      "cooldown": [
+        16,
+        14.5,
+        13,
+        11.5,
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Vanguard's Edge",
+      "cooldown": [
+        125,
+        105,
+        85
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

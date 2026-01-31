@@ -1,0 +1,90 @@
+{
+  "id": "Renata",
+  "name": "Renata Glasc",
+  "baseStats": {
+    "hp": 545,
+    "hpPerLevel": 94,
+    "mp": 350,
+    "mpPerLevel": 50,
+    "ad": 49,
+    "adPerLevel": 3,
+    "armor": 27,
+    "armorPerLevel": 4.7,
+    "mr": 30,
+    "mrPerLevel": 1.3,
+    "attackSpeed": 0.625,
+    "attackSpeedRatio": 2.11,
+    "range": 550
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Leverage",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Handshake",
+      "cooldown": [
+        16
+      ],
+      "cost": [
+        80
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Bailout",
+      "cooldown": [
+        28,
+        27,
+        26,
+        25,
+        24
+      ],
+      "cost": [
+        80
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Loyalty Program",
+      "cooldown": [
+        14,
+        13,
+        12,
+        11,
+        10
+      ],
+      "cost": [
+        70,
+        80,
+        90,
+        100,
+        110
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Hostile Takeover",
+      "cooldown": [
+        150,
+        130,
+        110
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

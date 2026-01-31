@@ -1,0 +1,113 @@
+{
+  "id": "Xerath",
+  "name": "Xerath",
+  "baseStats": {
+    "hp": 596,
+    "hpPerLevel": 106,
+    "mp": 400,
+    "mpPerLevel": 22,
+    "ad": 55,
+    "adPerLevel": 3,
+    "armor": 22,
+    "armorPerLevel": 4.7,
+    "mr": 30,
+    "mrPerLevel": 1.3,
+    "attackSpeed": 0.658,
+    "attackSpeedRatio": 1.36,
+    "range": 525
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Mana Surge",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Arcanopulse",
+      "cooldown": [
+        9,
+        8,
+        7,
+        6,
+        5
+      ],
+      "cost": [
+        80,
+        90,
+        100,
+        110,
+        120
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Eye of Destruction",
+      "cooldown": [
+        14,
+        13,
+        12,
+        11,
+        10
+      ],
+      "cost": [
+        80,
+        90,
+        100,
+        110,
+        120
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Shocking Orb",
+      "cooldown": [
+        13,
+        12.5,
+        12,
+        11.5,
+        11
+      ],
+      "cost": [
+        60,
+        65,
+        70,
+        75,
+        80
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Rite of the Arcane",
+      "cooldown": [
+        130,
+        115,
+        100
+      ],
+      "cost": [
+        100
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              10
+            ],
+            "ratios": []
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "id": "TwistedFate",
+  "name": "Twisted Fate",
+  "baseStats": {
+    "hp": 604,
+    "hpPerLevel": 108,
+    "mp": 333,
+    "mpPerLevel": 39,
+    "ad": 52,
+    "adPerLevel": 2.5,
+    "armor": 24,
+    "armorPerLevel": 4.35,
+    "mr": 30,
+    "mrPerLevel": 1.3,
+    "attackSpeed": 0.625,
+    "attackSpeedRatio": 2.5,
+    "range": 525
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Loaded Dice",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Wild Cards",
+      "cooldown": [
+        6,
+        5.75,
+        5.5,
+        5.25,
+        5
+      ],
+      "cost": [
+        60,
+        70,
+        80,
+        90,
+        100
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Pick a Card",
+      "cooldown": [
+        6
+      ],
+      "cost": [
+        50,
+        55,
+        60,
+        65,
+        70
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              30,
+              35,
+              40,
+              45,
+              50
+            ],
+            "ratios": []
+          }
+        }
+      ]
+    },
+    "E": {
+      "id": "E",
+      "name": "Stacked Deck",
+      "cooldown": [
+        0
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Destiny",
+      "cooldown": [
+        170,
+        140,
+        110
+      ],
+      "cost": [
+        100
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Physical",
+            "base": [
+              6,
+              8,
+              10
+            ],
+            "ratios": []
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "id": "Morgana",
+  "name": "Morgana",
+  "baseStats": {
+    "hp": 630,
+    "hpPerLevel": 104,
+    "mp": 340,
+    "mpPerLevel": 60,
+    "ad": 56,
+    "adPerLevel": 3.5,
+    "armor": 25,
+    "armorPerLevel": 4.2,
+    "mr": 30,
+    "mrPerLevel": 1.3,
+    "attackSpeed": 0.625,
+    "attackSpeedRatio": 1.53,
+    "range": 450
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Soul Siphon",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Dark Binding",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50,
+        55,
+        60,
+        65,
+        70
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Tormented Shadow",
+      "cooldown": [
+        12
+      ],
+      "cost": [
+        70,
+        80,
+        90,
+        100,
+        110
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Black Shield",
+      "cooldown": [
+        26,
+        23.5,
+        21,
+        18.5,
+        16
+      ],
+      "cost": [
+        80
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Soul Shackles",
+      "cooldown": [
+        120,
+        110,
+        100
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

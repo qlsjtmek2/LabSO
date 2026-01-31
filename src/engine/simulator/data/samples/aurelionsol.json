@@ -1,0 +1,90 @@
+{
+  "id": "AurelionSol",
+  "name": "Aurelion Sol",
+  "baseStats": {
+    "hp": 600,
+    "hpPerLevel": 90,
+    "mp": 530,
+    "mpPerLevel": 40,
+    "ad": 58,
+    "adPerLevel": 3.2,
+    "armor": 22,
+    "armorPerLevel": 4,
+    "mr": 30,
+    "mrPerLevel": 1.3,
+    "attackSpeed": 0.625,
+    "attackSpeedRatio": 1.5,
+    "range": 550
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Cosmic Creator",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Breath of Light",
+      "cooldown": [
+        3
+      ],
+      "cost": [
+        35,
+        40,
+        45,
+        50,
+        55
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Astral Flight",
+      "cooldown": [
+        22,
+        20.5,
+        19,
+        17.5,
+        16
+      ],
+      "cost": [
+        50,
+        55,
+        60,
+        65,
+        70
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Singularity",
+      "cooldown": [
+        12
+      ],
+      "cost": [
+        90
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Falling Star / The Skies Descend",
+      "cooldown": [
+        120,
+        110,
+        100
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

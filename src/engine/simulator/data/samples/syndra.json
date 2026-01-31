@@ -1,0 +1,90 @@
+{
+  "id": "Syndra",
+  "name": "Syndra",
+  "baseStats": {
+    "hp": 563,
+    "hpPerLevel": 100,
+    "mp": 480,
+    "mpPerLevel": 40,
+    "ad": 54,
+    "adPerLevel": 2.9,
+    "armor": 25,
+    "armorPerLevel": 4,
+    "mr": 30,
+    "mrPerLevel": 1.3,
+    "attackSpeed": 0.658,
+    "attackSpeedRatio": 2,
+    "range": 550
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Transcendent",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Dark Sphere",
+      "cooldown": [
+        7
+      ],
+      "cost": [
+        40,
+        45,
+        50,
+        55,
+        60
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Force of Will",
+      "cooldown": [
+        12,
+        11,
+        10,
+        9,
+        8
+      ],
+      "cost": [
+        60,
+        70,
+        80,
+        90,
+        100
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Scatter the Weak",
+      "cooldown": [
+        15
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Unleashed Power",
+      "cooldown": [
+        120,
+        100,
+        80
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

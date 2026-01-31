@@ -1,0 +1,105 @@
+{
+  "id": "Shen",
+  "name": "Shen",
+  "baseStats": {
+    "hp": 610,
+    "hpPerLevel": 99,
+    "mp": 400,
+    "mpPerLevel": 0,
+    "ad": 64,
+    "adPerLevel": 3,
+    "armor": 34,
+    "armorPerLevel": 4.2,
+    "mr": 32,
+    "mrPerLevel": 2.05,
+    "attackSpeed": 0.751,
+    "attackSpeedRatio": 3,
+    "range": 125
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Ki Barrier",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Twilight Assault",
+      "cooldown": [
+        8,
+        7.25,
+        6.5,
+        5.75,
+        5
+      ],
+      "cost": [
+        140,
+        130,
+        120,
+        110,
+        100
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Spirit's Refuge",
+      "cooldown": [
+        16,
+        14.5,
+        13,
+        11.5,
+        10
+      ],
+      "cost": [
+        40
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Physical",
+            "base": [
+              1.75
+            ],
+            "ratios": []
+          }
+        }
+      ]
+    },
+    "E": {
+      "id": "E",
+      "name": "Shadow Dash",
+      "cooldown": [
+        18,
+        16,
+        14,
+        12,
+        10
+      ],
+      "cost": [
+        150
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Stand United",
+      "cooldown": [
+        200,
+        180,
+        160
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    }
+  }
+}

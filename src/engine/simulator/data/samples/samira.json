@@ -1,0 +1,88 @@
+{
+  "id": "Samira",
+  "name": "Samira",
+  "baseStats": {
+    "hp": 630,
+    "hpPerLevel": 108,
+    "mp": 349,
+    "mpPerLevel": 38,
+    "ad": 57,
+    "adPerLevel": 3,
+    "armor": 26,
+    "armorPerLevel": 4.7,
+    "mr": 30,
+    "mrPerLevel": 1.3,
+    "attackSpeed": 0.658,
+    "attackSpeedRatio": 3.3,
+    "range": 500
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Daredevil Impulse",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Flair",
+      "cooldown": [
+        6,
+        5,
+        4,
+        3,
+        2
+      ],
+      "cost": [
+        30
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Blade Whirl",
+      "cooldown": [
+        30,
+        28,
+        26,
+        24,
+        22
+      ],
+      "cost": [
+        60
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Wild Rush",
+      "cooldown": [
+        20,
+        18,
+        16,
+        14,
+        12
+      ],
+      "cost": [
+        40
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Inferno Trigger",
+      "cooldown": [
+        5
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    }
+  }
+}

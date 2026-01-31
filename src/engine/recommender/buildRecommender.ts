@@ -18,6 +18,24 @@ import { ALL_BUILD_RULES, type BuildRuleResult } from '../rules/buildRules';
 import { analyzeTeam } from '../analyzer/teamAnalyzer';
 import { analyzeMatchup } from '../analyzer/matchupAnalyzer';
 
+import { BuildOptimizer } from '../simulator/buildOptimizer';
+import { MetaBreaker } from '../simulator/metaBreaker';
+import { GeneticOptimizer } from '../simulator/genetic/geneticOptimizer';
+import { ChampionSchema } from '../simulator/data/schemas';
+import itemsData from '../../data/json/items.json';
+
+// 챔피언 데이터 동적 로드 함수
+async function loadChampionSchema(championId: string): Promise<ChampionSchema | null> {
+  try {
+    // lowercase 처리하여 파일명 매칭 (aatrox.json 등)
+    const schema = await import(`../simulator/data/samples/${championId.toLowerCase()}.json`);
+    return schema.default || schema;
+  } catch (e) {
+    console.error(`Failed to load schema for ${championId}:`, e);
+    return null;
+  }
+}
+
 // 빌드 추천기 클래스
 export class BuildRecommender {
   private ruleEngine: RuleEngine<RuleContext, BuildRuleResult>;
@@ -28,89 +46,181 @@ export class BuildRecommender {
   }
 
   // 빌드 추천 생성
-  recommend(
+  async recommend(
     myChampion: ChampionMeta,
     myLane: Lane,
     allies: ChampionMeta[],
     enemies: ChampionMeta[],
     enemyLaner: ChampionMeta | null
-  ): BuildRecommendation {
-    // 팀 분석
+  ): Promise<BuildRecommendation> {
     const allyAnalysis = analyzeTeam(allies);
     const enemyAnalysis = analyzeTeam(enemies);
+    const matchup = enemyLaner ? analyzeMatchup(myChampion, enemyLaner) : null;
 
-    // 매치업 분석
-    const matchup = enemyLaner
-      ? analyzeMatchup(myChampion, enemyLaner)
-      : null;
-
-    // 규칙 컨텍스트 생성
     const context: RuleContext = {
-      myChampion,
-      myLane,
-      allies,
-      enemies,
-      enemyLaner,
-      allyAnalysis,
-      enemyAnalysis,
-      matchup,
+      myChampion, myLane, allies, enemies, enemyLaner, allyAnalysis, enemyAnalysis, matchup,
     };
 
-    // 규칙 평가
     const evaluation = this.ruleEngine.evaluate(context);
 
-    // 결과 집계
-    return this.aggregateResults(evaluation.appliedRules, myChampion, matchup);
-  }
+    // 모든 챔피언에 대해 시뮬레이션 데이터 동적 로드
+    let simRecommendations: ItemRecommendation[] = [];
+    const schema = await loadChampionSchema(myChampion.id);
+    
+    if (schema) {
+      const enemyStats = {
+        hp: 2000, maxHp: 2000, mana: 0, ad: 100, ap: 0,
+        armor: enemyAnalysis.totalAD * 10 + 50,
+        mr: enemyAnalysis.totalAP * 10 + 40,
+        attackSpeed: 0.7, abilityHaste: 0, critChance: 0, critDamage: 1.75,
+        lethality: 0, armorPen: 0, magicPenFlat: 0, magicPenPercent: 0, omnivamp: 0, lifesteal: 0,
+        movementSpeed: 340
+      };
 
-  // 결과 집계
-  private aggregateResults(
-    appliedRules: Array<{
-      ruleId: string;
-      ruleName: string;
-      score: number;
-      result: BuildRuleResult;
-      reason: string;
-    }>,
-    myChampion: ChampionMeta,
-    matchup: MatchupAnalysis | null
-  ): BuildRecommendation {
-    // 슬롯별로 분류
-    const bySlot: Record<string, ItemRecommendation[]> = {
-      starter: [],
-      core: [],
-      situational: [],
-      boots: [],
-    };
+      const simulationResults = await BuildOptimizer.findBestItems(
+        schema as ChampionSchema,
+        enemyStats,
+        this.generateCandidates(myChampion)
+      );
+      
+      simRecommendations = simulationResults;
 
-    for (const rule of appliedRules) {
-      const slot = rule.result.slot;
-      bySlot[slot].push(rule.result);
+      const hiddenOP = await MetaBreaker.findHiddenOP(
+        schema as ChampionSchema,
+        enemyStats,
+        simulationResults
+      );
+
+      if (hiddenOP) {
+        simRecommendations.unshift(hiddenOP);
+      }
+
+      // 진짜 적 스키마 로드
+      const enemySchema = await loadChampionSchema(enemyLaner?.id || 'Aatrox');
+
+      // 4. 통합 유전 알고리즘 최적화 (풀 로드아웃 - 하이퍼 진화)
+      const geneticOptimizer = new GeneticOptimizer(
+        schema as ChampionSchema,
+        enemyStats,
+        {
+          populationSize: 200, 
+          generations: 500,    
+          mutationRate: 0.2,   
+          eliteCount: 10       
+        },
+        enemySchema || undefined // V2 엔진용 적 스키마 전달
+      );
+
+      const bestIndividual = await geneticOptimizer.run();
+      
+      const geneticItems = bestIndividual.genes.items.map(id => ({
+        itemId: id,
+        slot: 'core' as const,
+        reason: "유전 알고리즘 시뮬레이션 결과 최고의 효율을 보인 아이템입니다.",
+        score: 1.0,
+        ruleId: 'genetic-optimized'
+      }));
+
+      return this.aggregateResults(
+        evaluation.appliedRules, 
+        [...geneticItems, ...simRecommendations], 
+        myChampion, 
+        matchup,
+        {
+          damage: Math.round(bestIndividual.stats.damage),
+          survivability: Math.round(bestIndividual.stats.survivability),
+          dps: Math.round(bestIndividual.stats.damage / 3)
+        },
+        bestIndividual // 전달
+      );
     }
 
-    // 각 슬롯에서 상위 항목 선택
-    const starterItems = this.selectTop(bySlot.starter, 2);
-    const coreItems = this.selectTop(bySlot.core, 3);
-    const situationalItems = this.selectTop(bySlot.situational, 3);
-    const boots = bySlot.boots.length > 0
-      ? bySlot.boots.sort((a, b) => b.score - a.score)[0]
-      : this.getDefaultBoots(myChampion);
+    // 결과 집계
+    return this.aggregateResults(evaluation.appliedRules, simRecommendations, myChampion, matchup);
+  }
 
-    // 종합 설명 생성
+  // 후보군 생성 유틸리티
+  private generateCandidates(myChampion: ChampionMeta): number[] {
+    const candidates = Object.values(itemsData)
+      .filter((item: any) => {
+        if (!item || item.price < 2000 || !item.stats) return false;
+        
+        // 신발은 무조건 후보군에 포함 (별도 로직으로 처리되지만 여기서도 필터링되지 않게)
+        if (item.tags && item.tags.includes('Boots')) return true;
+
+        // 관련 스탯이 하나라도 있으면 포함 (범위 확장)
+        // 딜러라도 방어템을 고려할 수 있게 Tank 스탯도 포함
+        const hasRelevantStat = 
+          (myChampion.damageType === 'AD' && (item.stats.ad || item.stats.lethality || item.stats.attackSpeed || item.stats.armor || item.stats.hp)) ||
+          (myChampion.damageType === 'AP' && (item.stats.ap || item.stats.magicPenFlat || item.stats.abilityHaste || item.stats.mr || item.stats.hp)) ||
+          (myChampion.class === 'Tank' && (item.stats.hp || item.stats.armor || item.stats.mr || item.stats.abilityHaste)) ||
+          (myChampion.damageType === 'Hybrid');
+          
+        return hasRelevantStat;
+      })
+      .map((item: any) => item.id);
+
+    // 신발 후보군 별도 추출 (모든 신발 포함)
+    const bootsCandidates = Object.values(itemsData)
+      .filter((item: any) => item.tags?.includes('Boots') && item.price > 300) // 300원(똥신) 이상
+      .map((item: any) => item.id);
+
+    // 중복 제거 후 반환
+    return Array.from(new Set([...candidates, ...bootsCandidates]));
+  }
+
+  // 결과 집계 수정 (시뮬레이션 스탯 파라미터 추가)
+  private aggregateResults(
+    appliedRules: any[],
+    simRules: ItemRecommendation[],
+    myChampion: ChampionMeta,
+    matchup: MatchupAnalysis | null,
+    simulationStats?: any,
+    bestIndividual?: any // 유전 알고리즘 결과 (타입은 any로 받지만 실제로는 Individual)
+  ): BuildRecommendation { // 리턴 타입 명시 (Promise 아님)
+    const bySlot: Record<string, ItemRecommendation[]> = {
+      starter: [], core: [], situational: [], boots: [],
+    };
+
+    // ... (기존 로직 동일)
+    const allRecs = [...simRules, ...appliedRules.map(r => r.result)];
+    
+    allRecs.forEach(r => {
+      if (bySlot[r.slot]) bySlot[r.slot].push(r);
+    });
+
+    const boots = bySlot.boots.sort((a, b) => b.score - a.score)[0] 
+      || this.getDefaultBoots(myChampion);
+
+    const coreCandidates = bySlot.core.sort((a, b) => b.score - a.score);
+    const situationalCandidates = bySlot.situational.sort((a, b) => b.score - a.score);
+
+    const fullBuild: ItemRecommendation[] = [];
+    const mainCores = coreCandidates.slice(0, 5); 
+    fullBuild.push(...mainCores);
+
+    const alternativeItems = coreCandidates.slice(5, 9);
+
     const summary = this.generateSummary(appliedRules, matchup);
-    const reasons = appliedRules
-      .slice(0, 5)
-      .map((r) => r.reason);
+    const reasons = [
+      ...(simulationStats ? [`최적화 시뮬레이션 완료: 예상 데미지 ${simulationStats.damage}`] : []),
+      ...simRules.slice(0, 2).map(r => r.reason),
+      ...appliedRules.slice(0, 2).map(r => r.reason)
+    ];
 
-    return {
-      starterItems,
-      coreItems,
-      situationalItems,
-      boots,
-      summary,
+    return { 
+      starterItems: this.selectTop(bySlot.starter, 2), 
+      coreItems: fullBuild, 
+      situationalItems: alternativeItems, 
+      boots, 
+      summary, 
       reasons,
+      // 유전 알고리즘 결과 매핑
+      skillOrder: bestIndividual?.genes.skillOrder,
+      summonerSpells: bestIndividual?.genes.summonerSpells
     };
   }
+
 
   // 상위 N개 선택
   private selectTop(items: ItemRecommendation[], n: number): ItemRecommendation[] {
@@ -196,13 +306,13 @@ export function getBuildRecommender(): BuildRecommender {
 }
 
 // 빌드 추천 함수 (편의용)
-export function recommendBuild(
+export async function recommendBuild(
   myChampion: ChampionMeta,
   myLane: Lane,
   allies: ChampionMeta[],
   enemies: ChampionMeta[],
   enemyLaner: ChampionMeta | null
-): BuildRecommendation {
+): Promise<BuildRecommendation> {
   return getBuildRecommender().recommend(
     myChampion,
     myLane,

@@ -1,0 +1,94 @@
+{
+  "id": "Nunu",
+  "name": "Nunu & Willump",
+  "baseStats": {
+    "hp": 610,
+    "hpPerLevel": 90,
+    "mp": 280,
+    "mpPerLevel": 42,
+    "ad": 61,
+    "adPerLevel": 3,
+    "armor": 29,
+    "armorPerLevel": 4.2,
+    "mr": 32,
+    "mrPerLevel": 2.05,
+    "attackSpeed": 0.625,
+    "attackSpeedRatio": 2.25,
+    "range": 125
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Call of the Freljord",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Consume",
+      "cooldown": [
+        13,
+        12,
+        11,
+        10,
+        9
+      ],
+      "cost": [
+        60
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Biggest Snowball Ever!",
+      "cooldown": [
+        14
+      ],
+      "cost": [
+        50,
+        55,
+        60,
+        65,
+        70
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Snowball Barrage",
+      "cooldown": [
+        14,
+        13,
+        12,
+        11,
+        10
+      ],
+      "cost": [
+        50,
+        55,
+        60,
+        65,
+        70
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Absolute Zero",
+      "cooldown": [
+        110,
+        100,
+        90
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "id": "Taliyah",
+  "name": "Taliyah",
+  "baseStats": {
+    "hp": 550,
+    "hpPerLevel": 104,
+    "mp": 470,
+    "mpPerLevel": 30,
+    "ad": 58,
+    "adPerLevel": 3.3,
+    "armor": 18,
+    "armorPerLevel": 4.7,
+    "mr": 28,
+    "mrPerLevel": 1.3,
+    "attackSpeed": 0.658,
+    "attackSpeedRatio": 1.36,
+    "range": 525
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Rock Surfing",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Threaded Volley",
+      "cooldown": [
+        7,
+        6,
+        5,
+        4,
+        3
+      ],
+      "cost": [
+        55,
+        60,
+        65,
+        70,
+        75
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Seismic Shove",
+      "cooldown": [
+        14,
+        12.5,
+        11,
+        9.5,
+        8
+      ],
+      "cost": [
+        40,
+        30,
+        20,
+        10,
+        0
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Unraveled Earth",
+      "cooldown": [
+        14
+      ],
+      "cost": [
+        90
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Weaver's Wall",
+      "cooldown": [
+        180,
+        150,
+        120
+      ],
+      "cost": [
+        100
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Physical",
+            "base": [
+              4
+            ],
+            "ratios": []
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "id": "Gwen",
+  "name": "Gwen",
+  "baseStats": {
+    "hp": 620,
+    "hpPerLevel": 115,
+    "mp": 330,
+    "mpPerLevel": 40,
+    "ad": 63,
+    "adPerLevel": 3,
+    "armor": 39,
+    "armorPerLevel": 4.9,
+    "mr": 32,
+    "mrPerLevel": 2.05,
+    "attackSpeed": 0.69,
+    "attackSpeedRatio": 2.25,
+    "range": 150
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "A Thousand Cuts",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Snip Snip!",
+      "cooldown": [
+        6.5,
+        5.75,
+        5,
+        4.25,
+        3.5
+      ],
+      "cost": [
+        40
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Hallowed Mist",
+      "cooldown": [
+        22,
+        21,
+        20,
+        19,
+        18
+      ],
+      "cost": [
+        60
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Skip 'n Slash",
+      "cooldown": [
+        13,
+        12.5,
+        12,
+        11.5,
+        11
+      ],
+      "cost": [
+        35
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Needlework",
+      "cooldown": [
+        120,
+        100,
+        80
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

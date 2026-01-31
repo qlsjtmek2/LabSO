@@ -1,0 +1,94 @@
+{
+  "id": "Naafiri",
+  "name": "Naafiri",
+  "baseStats": {
+    "hp": 610,
+    "hpPerLevel": 105,
+    "mp": 400,
+    "mpPerLevel": 55,
+    "ad": 55,
+    "adPerLevel": 2,
+    "armor": 28,
+    "armorPerLevel": 4.2,
+    "mr": 32,
+    "mrPerLevel": 2.05,
+    "attackSpeed": 0.663,
+    "attackSpeedRatio": 2.1,
+    "range": 125
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "We Are More",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Darkin Daggers",
+      "cooldown": [
+        9,
+        8.5,
+        8,
+        7.5,
+        7
+      ],
+      "cost": [
+        55,
+        60,
+        65,
+        70,
+        75
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "The Call of the Pack",
+      "cooldown": [
+        26,
+        24,
+        22,
+        20,
+        18
+      ],
+      "cost": [
+        60
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Eviscerate",
+      "cooldown": [
+        11,
+        10,
+        9,
+        8,
+        7
+      ],
+      "cost": [
+        35
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Hounds' Pursuit",
+      "cooldown": [
+        110,
+        95,
+        80
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

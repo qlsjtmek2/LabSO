@@ -1,0 +1,135 @@
+{
+  "id": "Braum",
+  "name": "Braum",
+  "baseStats": {
+    "hp": 630,
+    "hpPerLevel": 112,
+    "mp": 311,
+    "mpPerLevel": 45,
+    "ad": 55,
+    "adPerLevel": 3.2,
+    "armor": 35,
+    "armorPerLevel": 5,
+    "mr": 32,
+    "mrPerLevel": 2.05,
+    "attackSpeed": 0.644,
+    "attackSpeedRatio": 3.5,
+    "range": 125
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Concussive Blows",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Winter's Bite",
+      "cooldown": [
+        8,
+        7.5,
+        7,
+        6.5,
+        6
+      ],
+      "cost": [
+        45,
+        50,
+        55,
+        60,
+        65
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              70
+            ],
+            "ratios": []
+          }
+        }
+      ]
+    },
+    "W": {
+      "id": "W",
+      "name": "Stand Behind Me",
+      "cooldown": [
+        12,
+        11,
+        10,
+        9,
+        8
+      ],
+      "cost": [
+        40
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Physical",
+            "base": [
+              3
+            ],
+            "ratios": []
+          }
+        }
+      ]
+    },
+    "E": {
+      "id": "E",
+      "name": "Unbreakable",
+      "cooldown": [
+        16,
+        14,
+        12,
+        10,
+        8
+      ],
+      "cost": [
+        30,
+        35,
+        40,
+        45,
+        50
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Physical",
+            "base": [
+              3,
+              3.25,
+              3.5,
+              3.75,
+              4
+            ],
+            "ratios": []
+          }
+        }
+      ]
+    },
+    "R": {
+      "id": "R",
+      "name": "Glacial Fissure",
+      "cooldown": [
+        120,
+        100,
+        80
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

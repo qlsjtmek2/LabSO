@@ -1,0 +1,97 @@
+{
+  "id": "Bard",
+  "name": "Bard",
+  "baseStats": {
+    "hp": 630,
+    "hpPerLevel": 103,
+    "mp": 350,
+    "mpPerLevel": 50,
+    "ad": 52,
+    "adPerLevel": 3,
+    "armor": 34,
+    "armorPerLevel": 5,
+    "mr": 30,
+    "mrPerLevel": 1.3,
+    "attackSpeed": 0.658,
+    "attackSpeedRatio": 2,
+    "range": 500
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Traveler's Call",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Cosmic Binding",
+      "cooldown": [
+        11,
+        10,
+        9,
+        8,
+        7
+      ],
+      "cost": [
+        60
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Caretaker's Shrine",
+      "cooldown": [
+        0
+      ],
+      "cost": [
+        70
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Magical Journey",
+      "cooldown": [
+        22,
+        20.5,
+        19,
+        17.5,
+        16
+      ],
+      "cost": [
+        30
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Physical",
+            "base": [
+              10
+            ],
+            "ratios": []
+          }
+        }
+      ]
+    },
+    "R": {
+      "id": "R",
+      "name": "Tempered Fate",
+      "cooldown": [
+        110,
+        95,
+        80
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

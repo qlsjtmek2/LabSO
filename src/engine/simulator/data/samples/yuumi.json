@@ -1,0 +1,87 @@
+{
+  "id": "Yuumi",
+  "name": "Yuumi",
+  "baseStats": {
+    "hp": 500,
+    "hpPerLevel": 69,
+    "mp": 440,
+    "mpPerLevel": 45,
+    "ad": 49,
+    "adPerLevel": 3.1,
+    "armor": 25,
+    "armorPerLevel": 4.2,
+    "mr": 25,
+    "mrPerLevel": 1.1,
+    "attackSpeed": 0.625,
+    "attackSpeedRatio": 1,
+    "range": 425
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Feline Friendship",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Prowling Projectile",
+      "cooldown": [
+        6.5
+      ],
+      "cost": [
+        50,
+        55,
+        60,
+        65,
+        70,
+        75
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "You and Me!",
+      "cooldown": [
+        0
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Zoomies",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        80,
+        90,
+        100,
+        110,
+        120
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Final Chapter",
+      "cooldown": [
+        120,
+        110,
+        100
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

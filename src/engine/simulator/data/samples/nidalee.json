@@ -1,0 +1,92 @@
+{
+  "id": "Nidalee",
+  "name": "Nidalee",
+  "baseStats": {
+    "hp": 610,
+    "hpPerLevel": 109,
+    "mp": 295,
+    "mpPerLevel": 45,
+    "ad": 58,
+    "adPerLevel": 3.5,
+    "armor": 32,
+    "armorPerLevel": 5,
+    "mr": 30,
+    "mrPerLevel": 1.45,
+    "attackSpeed": 0.638,
+    "attackSpeedRatio": 3.22,
+    "range": 525
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Prowl",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Javelin Toss / Takedown",
+      "cooldown": [
+        6
+      ],
+      "cost": [
+        50,
+        55,
+        60,
+        65,
+        70
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Bushwhack / Pounce",
+      "cooldown": [
+        13,
+        12,
+        11,
+        10,
+        9
+      ],
+      "cost": [
+        30,
+        35,
+        40,
+        45,
+        50
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Primal Surge / Swipe",
+      "cooldown": [
+        12
+      ],
+      "cost": [
+        50,
+        55,
+        60,
+        65,
+        70
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Aspect Of The Cougar",
+      "cooldown": [
+        3
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    }
+  }
+}

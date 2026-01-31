@@ -1,0 +1,94 @@
+{
+  "id": "Camille",
+  "name": "Camille",
+  "baseStats": {
+    "hp": 650,
+    "hpPerLevel": 99,
+    "mp": 339,
+    "mpPerLevel": 52,
+    "ad": 68,
+    "adPerLevel": 3.8,
+    "armor": 35,
+    "armorPerLevel": 4.5,
+    "mr": 32,
+    "mrPerLevel": 2.05,
+    "attackSpeed": 0.644,
+    "attackSpeedRatio": 2.5,
+    "range": 125
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Adaptive Defenses",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Precision Protocol",
+      "cooldown": [
+        9,
+        8,
+        7,
+        6,
+        5
+      ],
+      "cost": [
+        25
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Tactical Sweep",
+      "cooldown": [
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "cost": [
+        50,
+        55,
+        60,
+        65,
+        70
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Hookshot",
+      "cooldown": [
+        16,
+        15,
+        14,
+        13,
+        12
+      ],
+      "cost": [
+        70
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "The Hextech Ultimatum",
+      "cooldown": [
+        140,
+        115,
+        90
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

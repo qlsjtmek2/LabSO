@@ -1,0 +1,630 @@
+{
+  "trees": {
+    "Domination": {
+      "id": 8100,
+      "name": "Domination",
+      "key": "Domination",
+      "slots": [
+        [
+          "Electrocute",
+          "DarkHarvest",
+          "HailOfBlades"
+        ],
+        [
+          "CheapShot",
+          "TasteOfBlood",
+          "SuddenImpact"
+        ],
+        [
+          "SixthSense",
+          "GrislyMementos",
+          "DeepWard"
+        ],
+        [
+          "TreasureHunter",
+          "RelentlessHunter",
+          "UltimateHunter"
+        ]
+      ]
+    },
+    "Inspiration": {
+      "id": 8300,
+      "name": "Inspiration",
+      "key": "Inspiration",
+      "slots": [
+        [
+          "GlacialAugment",
+          "UnsealedSpellbook",
+          "FirstStrike"
+        ],
+        [
+          "HextechFlashtraption",
+          "MagicalFootwear",
+          "CashBack"
+        ],
+        [
+          "PerfectTiming",
+          "TimeWarpTonic",
+          "BiscuitDelivery"
+        ],
+        [
+          "CosmicInsight",
+          "ApproachVelocity",
+          "JackOfAllTrades"
+        ]
+      ]
+    },
+    "Precision": {
+      "id": 8000,
+      "name": "Precision",
+      "key": "Precision",
+      "slots": [
+        [
+          "PressTheAttack",
+          "LethalTempo",
+          "FleetFootwork",
+          "Conqueror"
+        ],
+        [
+          "AbsorbLife",
+          "Triumph",
+          "PresenceOfMind"
+        ],
+        [
+          "LegendAlacrity",
+          "LegendHaste",
+          "LegendBloodline"
+        ],
+        [
+          "CoupDeGrace",
+          "CutDown",
+          "LastStand"
+        ]
+      ]
+    },
+    "Resolve": {
+      "id": 8400,
+      "name": "Resolve",
+      "key": "Resolve",
+      "slots": [
+        [
+          "GraspOfTheUndying",
+          "Aftershock",
+          "Guardian"
+        ],
+        [
+          "Demolish",
+          "FontOfLife",
+          "ShieldBash"
+        ],
+        [
+          "Conditioning",
+          "SecondWind",
+          "BonePlating"
+        ],
+        [
+          "Overgrowth",
+          "Revitalize",
+          "Unflinching"
+        ]
+      ]
+    },
+    "Sorcery": {
+      "id": 8200,
+      "name": "Sorcery",
+      "key": "Sorcery",
+      "slots": [
+        [
+          "SummonAery",
+          "ArcaneComet",
+          "PhaseRush"
+        ],
+        [
+          "NullifyingOrb",
+          "ManaflowBand",
+          "NimbusCloak"
+        ],
+        [
+          "Transcendence",
+          "Celerity",
+          "AbsoluteFocus"
+        ],
+        [
+          "Scorch",
+          "Waterwalking",
+          "GatheringStorm"
+        ]
+      ]
+    }
+  },
+  "allRunes": {
+    "Electrocute": {
+      "id": 8112,
+      "key": "Electrocute",
+      "name": "Electrocute",
+      "tree": "Domination",
+      "slot": 0,
+      "icon": "perk-images/Styles/Domination/Electrocute/Electrocute.png"
+    },
+    "DarkHarvest": {
+      "id": 8128,
+      "key": "DarkHarvest",
+      "name": "Dark Harvest",
+      "tree": "Domination",
+      "slot": 0,
+      "icon": "perk-images/Styles/Domination/DarkHarvest/DarkHarvest.png"
+    },
+    "HailOfBlades": {
+      "id": 9923,
+      "key": "HailOfBlades",
+      "name": "Hail of Blades",
+      "tree": "Domination",
+      "slot": 0,
+      "icon": "perk-images/Styles/Domination/HailOfBlades/HailOfBlades.png"
+    },
+    "CheapShot": {
+      "id": 8126,
+      "key": "CheapShot",
+      "name": "Cheap Shot",
+      "tree": "Domination",
+      "slot": 1,
+      "icon": "perk-images/Styles/Domination/CheapShot/CheapShot.png"
+    },
+    "TasteOfBlood": {
+      "id": 8139,
+      "key": "TasteOfBlood",
+      "name": "Taste of Blood",
+      "tree": "Domination",
+      "slot": 1,
+      "icon": "perk-images/Styles/Domination/TasteOfBlood/GreenTerror_TasteOfBlood.png"
+    },
+    "SuddenImpact": {
+      "id": 8143,
+      "key": "SuddenImpact",
+      "name": "Sudden Impact",
+      "tree": "Domination",
+      "slot": 1,
+      "icon": "perk-images/Styles/Domination/SuddenImpact/SuddenImpact.png"
+    },
+    "SixthSense": {
+      "id": 8137,
+      "key": "SixthSense",
+      "name": "Sixth Sense",
+      "tree": "Domination",
+      "slot": 2,
+      "icon": "perk-images/Styles/Domination/SixthSense/SixthSense.png"
+    },
+    "GrislyMementos": {
+      "id": 8140,
+      "key": "GrislyMementos",
+      "name": "Grisly Mementos",
+      "tree": "Domination",
+      "slot": 2,
+      "icon": "perk-images/Styles/Domination/GrislyMementos/GrislyMementos.png"
+    },
+    "DeepWard": {
+      "id": 8141,
+      "key": "DeepWard",
+      "name": "Deep Ward",
+      "tree": "Domination",
+      "slot": 2,
+      "icon": "perk-images/Styles/Domination/DeepWard/DeepWard.png"
+    },
+    "TreasureHunter": {
+      "id": 8135,
+      "key": "TreasureHunter",
+      "name": "Treasure Hunter",
+      "tree": "Domination",
+      "slot": 3,
+      "icon": "perk-images/Styles/Domination/TreasureHunter/TreasureHunter.png"
+    },
+    "RelentlessHunter": {
+      "id": 8105,
+      "key": "RelentlessHunter",
+      "name": "Relentless Hunter",
+      "tree": "Domination",
+      "slot": 3,
+      "icon": "perk-images/Styles/Domination/RelentlessHunter/RelentlessHunter.png"
+    },
+    "UltimateHunter": {
+      "id": 8106,
+      "key": "UltimateHunter",
+      "name": "Ultimate Hunter",
+      "tree": "Domination",
+      "slot": 3,
+      "icon": "perk-images/Styles/Domination/UltimateHunter/UltimateHunter.png"
+    },
+    "GlacialAugment": {
+      "id": 8351,
+      "key": "GlacialAugment",
+      "name": "Glacial Augment",
+      "tree": "Inspiration",
+      "slot": 0,
+      "icon": "perk-images/Styles/Inspiration/GlacialAugment/GlacialAugment.png"
+    },
+    "UnsealedSpellbook": {
+      "id": 8360,
+      "key": "UnsealedSpellbook",
+      "name": "Unsealed Spellbook",
+      "tree": "Inspiration",
+      "slot": 0,
+      "icon": "perk-images/Styles/Inspiration/UnsealedSpellbook/UnsealedSpellbook.png"
+    },
+    "FirstStrike": {
+      "id": 8369,
+      "key": "FirstStrike",
+      "name": "First Strike",
+      "tree": "Inspiration",
+      "slot": 0,
+      "icon": "perk-images/Styles/Inspiration/FirstStrike/FirstStrike.png"
+    },
+    "HextechFlashtraption": {
+      "id": 8306,
+      "key": "HextechFlashtraption",
+      "name": "Hextech Flashtraption",
+      "tree": "Inspiration",
+      "slot": 1,
+      "icon": "perk-images/Styles/Inspiration/HextechFlashtraption/HextechFlashtraption.png"
+    },
+    "MagicalFootwear": {
+      "id": 8304,
+      "key": "MagicalFootwear",
+      "name": "Magical Footwear",
+      "tree": "Inspiration",
+      "slot": 1,
+      "icon": "perk-images/Styles/Inspiration/MagicalFootwear/MagicalFootwear.png"
+    },
+    "CashBack": {
+      "id": 8321,
+      "key": "CashBack",
+      "name": "Cash Back",
+      "tree": "Inspiration",
+      "slot": 1,
+      "icon": "perk-images/Styles/Inspiration/CashBack/CashBack2.png"
+    },
+    "PerfectTiming": {
+      "id": 8313,
+      "key": "PerfectTiming",
+      "name": "Triple Tonic",
+      "tree": "Inspiration",
+      "slot": 2,
+      "icon": "perk-images/Styles/Inspiration/PerfectTiming/AlchemistCabinet.png"
+    },
+    "TimeWarpTonic": {
+      "id": 8352,
+      "key": "TimeWarpTonic",
+      "name": "Time Warp Tonic",
+      "tree": "Inspiration",
+      "slot": 2,
+      "icon": "perk-images/Styles/Inspiration/TimeWarpTonic/TimeWarpTonic.png"
+    },
+    "BiscuitDelivery": {
+      "id": 8345,
+      "key": "BiscuitDelivery",
+      "name": "Biscuit Delivery",
+      "tree": "Inspiration",
+      "slot": 2,
+      "icon": "perk-images/Styles/Inspiration/BiscuitDelivery/BiscuitDelivery.png"
+    },
+    "CosmicInsight": {
+      "id": 8347,
+      "key": "CosmicInsight",
+      "name": "Cosmic Insight",
+      "tree": "Inspiration",
+      "slot": 3,
+      "icon": "perk-images/Styles/Inspiration/CosmicInsight/CosmicInsight.png"
+    },
+    "ApproachVelocity": {
+      "id": 8410,
+      "key": "ApproachVelocity",
+      "name": "Approach Velocity",
+      "tree": "Inspiration",
+      "slot": 3,
+      "icon": "perk-images/Styles/Resolve/ApproachVelocity/ApproachVelocity.png"
+    },
+    "JackOfAllTrades": {
+      "id": 8316,
+      "key": "JackOfAllTrades",
+      "name": "Jack Of All Trades",
+      "tree": "Inspiration",
+      "slot": 3,
+      "icon": "perk-images/Styles/Inspiration/JackOfAllTrades/JackofAllTrades2.png"
+    },
+    "PressTheAttack": {
+      "id": 8005,
+      "key": "PressTheAttack",
+      "name": "Press the Attack",
+      "tree": "Precision",
+      "slot": 0,
+      "icon": "perk-images/Styles/Precision/PressTheAttack/PressTheAttack.png"
+    },
+    "LethalTempo": {
+      "id": 8008,
+      "key": "LethalTempo",
+      "name": "Lethal Tempo",
+      "tree": "Precision",
+      "slot": 0,
+      "icon": "perk-images/Styles/Precision/LethalTempo/LethalTempoTemp.png"
+    },
+    "FleetFootwork": {
+      "id": 8021,
+      "key": "FleetFootwork",
+      "name": "Fleet Footwork",
+      "tree": "Precision",
+      "slot": 0,
+      "icon": "perk-images/Styles/Precision/FleetFootwork/FleetFootwork.png"
+    },
+    "Conqueror": {
+      "id": 8010,
+      "key": "Conqueror",
+      "name": "Conqueror",
+      "tree": "Precision",
+      "slot": 0,
+      "icon": "perk-images/Styles/Precision/Conqueror/Conqueror.png"
+    },
+    "AbsorbLife": {
+      "id": 9101,
+      "key": "AbsorbLife",
+      "name": "Absorb Life",
+      "tree": "Precision",
+      "slot": 1,
+      "icon": "perk-images/Styles/Precision/AbsorbLife/AbsorbLife.png"
+    },
+    "Triumph": {
+      "id": 9111,
+      "key": "Triumph",
+      "name": "Triumph",
+      "tree": "Precision",
+      "slot": 1,
+      "icon": "perk-images/Styles/Precision/Triumph.png"
+    },
+    "PresenceOfMind": {
+      "id": 8009,
+      "key": "PresenceOfMind",
+      "name": "Presence of Mind",
+      "tree": "Precision",
+      "slot": 1,
+      "icon": "perk-images/Styles/Precision/PresenceOfMind/PresenceOfMind.png"
+    },
+    "LegendAlacrity": {
+      "id": 9104,
+      "key": "LegendAlacrity",
+      "name": "Legend: Alacrity",
+      "tree": "Precision",
+      "slot": 2,
+      "icon": "perk-images/Styles/Precision/LegendAlacrity/LegendAlacrity.png"
+    },
+    "LegendHaste": {
+      "id": 9105,
+      "key": "LegendHaste",
+      "name": "Legend: Haste",
+      "tree": "Precision",
+      "slot": 2,
+      "icon": "perk-images/Styles/Precision/LegendHaste/LegendHaste.png"
+    },
+    "LegendBloodline": {
+      "id": 9103,
+      "key": "LegendBloodline",
+      "name": "Legend: Bloodline",
+      "tree": "Precision",
+      "slot": 2,
+      "icon": "perk-images/Styles/Precision/LegendBloodline/LegendBloodline.png"
+    },
+    "CoupDeGrace": {
+      "id": 8014,
+      "key": "CoupDeGrace",
+      "name": "Coup de Grace",
+      "tree": "Precision",
+      "slot": 3,
+      "icon": "perk-images/Styles/Precision/CoupDeGrace/CoupDeGrace.png"
+    },
+    "CutDown": {
+      "id": 8017,
+      "key": "CutDown",
+      "name": "Cut Down",
+      "tree": "Precision",
+      "slot": 3,
+      "icon": "perk-images/Styles/Precision/CutDown/CutDown.png"
+    },
+    "LastStand": {
+      "id": 8299,
+      "key": "LastStand",
+      "name": "Last Stand",
+      "tree": "Precision",
+      "slot": 3,
+      "icon": "perk-images/Styles/Sorcery/LastStand/LastStand.png"
+    },
+    "GraspOfTheUndying": {
+      "id": 8437,
+      "key": "GraspOfTheUndying",
+      "name": "Grasp of the Undying",
+      "tree": "Resolve",
+      "slot": 0,
+      "icon": "perk-images/Styles/Resolve/GraspOfTheUndying/GraspOfTheUndying.png"
+    },
+    "Aftershock": {
+      "id": 8439,
+      "key": "Aftershock",
+      "name": "Aftershock",
+      "tree": "Resolve",
+      "slot": 0,
+      "icon": "perk-images/Styles/Resolve/VeteranAftershock/VeteranAftershock.png"
+    },
+    "Guardian": {
+      "id": 8465,
+      "key": "Guardian",
+      "name": "Guardian",
+      "tree": "Resolve",
+      "slot": 0,
+      "icon": "perk-images/Styles/Resolve/Guardian/Guardian.png"
+    },
+    "Demolish": {
+      "id": 8446,
+      "key": "Demolish",
+      "name": "Demolish",
+      "tree": "Resolve",
+      "slot": 1,
+      "icon": "perk-images/Styles/Resolve/Demolish/Demolish.png"
+    },
+    "FontOfLife": {
+      "id": 8463,
+      "key": "FontOfLife",
+      "name": "Font of Life",
+      "tree": "Resolve",
+      "slot": 1,
+      "icon": "perk-images/Styles/Resolve/FontOfLife/FontOfLife.png"
+    },
+    "ShieldBash": {
+      "id": 8401,
+      "key": "ShieldBash",
+      "name": "Shield Bash",
+      "tree": "Resolve",
+      "slot": 1,
+      "icon": "perk-images/Styles/Resolve/MirrorShell/MirrorShell.png"
+    },
+    "Conditioning": {
+      "id": 8429,
+      "key": "Conditioning",
+      "name": "Conditioning",
+      "tree": "Resolve",
+      "slot": 2,
+      "icon": "perk-images/Styles/Resolve/Conditioning/Conditioning.png"
+    },
+    "SecondWind": {
+      "id": 8444,
+      "key": "SecondWind",
+      "name": "Second Wind",
+      "tree": "Resolve",
+      "slot": 2,
+      "icon": "perk-images/Styles/Resolve/SecondWind/SecondWind.png"
+    },
+    "BonePlating": {
+      "id": 8473,
+      "key": "BonePlating",
+      "name": "Bone Plating",
+      "tree": "Resolve",
+      "slot": 2,
+      "icon": "perk-images/Styles/Resolve/BonePlating/BonePlating.png"
+    },
+    "Overgrowth": {
+      "id": 8451,
+      "key": "Overgrowth",
+      "name": "Overgrowth",
+      "tree": "Resolve",
+      "slot": 3,
+      "icon": "perk-images/Styles/Resolve/Overgrowth/Overgrowth.png"
+    },
+    "Revitalize": {
+      "id": 8453,
+      "key": "Revitalize",
+      "name": "Revitalize",
+      "tree": "Resolve",
+      "slot": 3,
+      "icon": "perk-images/Styles/Resolve/Revitalize/Revitalize.png"
+    },
+    "Unflinching": {
+      "id": 8242,
+      "key": "Unflinching",
+      "name": "Unflinching",
+      "tree": "Resolve",
+      "slot": 3,
+      "icon": "perk-images/Styles/Sorcery/Unflinching/Unflinching.png"
+    },
+    "SummonAery": {
+      "id": 8214,
+      "key": "SummonAery",
+      "name": "Summon Aery",
+      "tree": "Sorcery",
+      "slot": 0,
+      "icon": "perk-images/Styles/Sorcery/SummonAery/SummonAery.png"
+    },
+    "ArcaneComet": {
+      "id": 8229,
+      "key": "ArcaneComet",
+      "name": "Arcane Comet",
+      "tree": "Sorcery",
+      "slot": 0,
+      "icon": "perk-images/Styles/Sorcery/ArcaneComet/ArcaneComet.png"
+    },
+    "PhaseRush": {
+      "id": 8230,
+      "key": "PhaseRush",
+      "name": "Phase Rush",
+      "tree": "Sorcery",
+      "slot": 0,
+      "icon": "perk-images/Styles/Sorcery/PhaseRush/PhaseRush.png"
+    },
+    "NullifyingOrb": {
+      "id": 8224,
+      "key": "NullifyingOrb",
+      "name": "Axiom Arcanist",
+      "tree": "Sorcery",
+      "slot": 1,
+      "icon": "perk-images/Styles/Sorcery/NullifyingOrb/Axiom_Arcanist.png"
+    },
+    "ManaflowBand": {
+      "id": 8226,
+      "key": "ManaflowBand",
+      "name": "Manaflow Band",
+      "tree": "Sorcery",
+      "slot": 1,
+      "icon": "perk-images/Styles/Sorcery/ManaflowBand/ManaflowBand.png"
+    },
+    "NimbusCloak": {
+      "id": 8275,
+      "key": "NimbusCloak",
+      "name": "Nimbus Cloak",
+      "tree": "Sorcery",
+      "slot": 1,
+      "icon": "perk-images/Styles/Sorcery/NimbusCloak/6361.png"
+    },
+    "Transcendence": {
+      "id": 8210,
+      "key": "Transcendence",
+      "name": "Transcendence",
+      "tree": "Sorcery",
+      "slot": 2,
+      "icon": "perk-images/Styles/Sorcery/Transcendence/Transcendence.png"
+    },
+    "Celerity": {
+      "id": 8234,
+      "key": "Celerity",
+      "name": "Celerity",
+      "tree": "Sorcery",
+      "slot": 2,
+      "icon": "perk-images/Styles/Sorcery/Celerity/CelerityTemp.png"
+    },
+    "AbsoluteFocus": {
+      "id": 8233,
+      "key": "AbsoluteFocus",
+      "name": "Absolute Focus",
+      "tree": "Sorcery",
+      "slot": 2,
+      "icon": "perk-images/Styles/Sorcery/AbsoluteFocus/AbsoluteFocus.png"
+    },
+    "Scorch": {
+      "id": 8237,
+      "key": "Scorch",
+      "name": "Scorch",
+      "tree": "Sorcery",
+      "slot": 3,
+      "icon": "perk-images/Styles/Sorcery/Scorch/Scorch.png"
+    },
+    "Waterwalking": {
+      "id": 8232,
+      "key": "Waterwalking",
+      "name": "Waterwalking",
+      "tree": "Sorcery",
+      "slot": 3,
+      "icon": "perk-images/Styles/Sorcery/Waterwalking/Waterwalking.png"
+    },
+    "GatheringStorm": {
+      "id": 8236,
+      "key": "GatheringStorm",
+      "name": "Gathering Storm",
+      "tree": "Sorcery",
+      "slot": 3,
+      "icon": "perk-images/Styles/Sorcery/GatheringStorm/GatheringStorm.png"
+    }
+  }
+}

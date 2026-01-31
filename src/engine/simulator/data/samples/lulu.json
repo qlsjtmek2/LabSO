@@ -1,0 +1,101 @@
+{
+  "id": "Lulu",
+  "name": "Lulu",
+  "baseStats": {
+    "hp": 565,
+    "hpPerLevel": 92,
+    "mp": 350,
+    "mpPerLevel": 55,
+    "ad": 47,
+    "adPerLevel": 2.6,
+    "armor": 26,
+    "armorPerLevel": 4.6,
+    "mr": 30,
+    "mrPerLevel": 1.3,
+    "attackSpeed": 0.625,
+    "attackSpeedRatio": 2.25,
+    "range": 550
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Pix, Faerie Companion",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Glitterlance",
+      "cooldown": [
+        7
+      ],
+      "cost": [
+        50,
+        55,
+        60,
+        65,
+        70
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Whimsy",
+      "cooldown": [
+        18
+      ],
+      "cost": [
+        65
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Help, Pix!",
+      "cooldown": [
+        10,
+        9.5,
+        9,
+        8.5,
+        8
+      ],
+      "cost": [
+        60,
+        65,
+        70,
+        75,
+        80
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              6
+            ],
+            "ratios": []
+          }
+        }
+      ]
+    },
+    "R": {
+      "id": "R",
+      "name": "Wild Growth",
+      "cooldown": [
+        120,
+        100,
+        80
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

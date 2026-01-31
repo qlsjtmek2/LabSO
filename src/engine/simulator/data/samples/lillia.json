@@ -1,0 +1,86 @@
+{
+  "id": "Lillia",
+  "name": "Lillia",
+  "baseStats": {
+    "hp": 605,
+    "hpPerLevel": 105,
+    "mp": 410,
+    "mpPerLevel": 50,
+    "ad": 61,
+    "adPerLevel": 3.1,
+    "armor": 22,
+    "armorPerLevel": 4.5,
+    "mr": 32,
+    "mrPerLevel": 1.55,
+    "attackSpeed": 0.625,
+    "attackSpeedRatio": 2.7,
+    "range": 325
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Dream-Laden Bough",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Blooming Blows",
+      "cooldown": [
+        6,
+        5.5,
+        5,
+        4.5,
+        4
+      ],
+      "cost": [
+        65
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Watch Out! Eep!",
+      "cooldown": [
+        14,
+        13,
+        12,
+        11,
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Swirlseed",
+      "cooldown": [
+        12
+      ],
+      "cost": [
+        70
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Lilting Lullaby",
+      "cooldown": [
+        140,
+        120,
+        100
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    }
+  }
+}

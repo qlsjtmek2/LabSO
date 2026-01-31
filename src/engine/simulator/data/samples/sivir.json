@@ -1,0 +1,101 @@
+{
+  "id": "Sivir",
+  "name": "Sivir",
+  "baseStats": {
+    "hp": 600,
+    "hpPerLevel": 104,
+    "mp": 340,
+    "mpPerLevel": 45,
+    "ad": 60,
+    "adPerLevel": 2.5,
+    "armor": 30,
+    "armorPerLevel": 4,
+    "mr": 30,
+    "mrPerLevel": 1.3,
+    "attackSpeed": 0.625,
+    "attackSpeedRatio": 1.6,
+    "range": 500
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Fleet of Foot",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Boomerang Blade",
+      "cooldown": [
+        10,
+        9.5,
+        9,
+        8.5,
+        8
+      ],
+      "cost": [
+        55,
+        60,
+        65,
+        70,
+        75
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Ricochet",
+      "cooldown": [
+        12
+      ],
+      "cost": [
+        60
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Spell Shield",
+      "cooldown": [
+        24,
+        22.5,
+        21,
+        19.5,
+        18
+      ],
+      "cost": [
+        0
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Physical",
+            "base": [
+              1.5
+            ],
+            "ratios": []
+          }
+        }
+      ]
+    },
+    "R": {
+      "id": "R",
+      "name": "On The Hunt",
+      "cooldown": [
+        120,
+        100,
+        80
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

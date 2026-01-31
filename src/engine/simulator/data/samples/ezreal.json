@@ -1,0 +1,90 @@
+{
+  "id": "Ezreal",
+  "name": "Ezreal",
+  "baseStats": {
+    "hp": 600,
+    "hpPerLevel": 102,
+    "mp": 375,
+    "mpPerLevel": 70,
+    "ad": 60,
+    "adPerLevel": 3.25,
+    "armor": 24,
+    "armorPerLevel": 4.2,
+    "mr": 30,
+    "mrPerLevel": 1.3,
+    "attackSpeed": 0.625,
+    "attackSpeedRatio": 2.5,
+    "range": 550
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Rising Spell Force",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Mystic Shot",
+      "cooldown": [
+        5.5,
+        5.25,
+        5,
+        4.75,
+        4.5
+      ],
+      "cost": [
+        28,
+        31,
+        34,
+        37,
+        40
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Essence Flux",
+      "cooldown": [
+        8
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Arcane Shift",
+      "cooldown": [
+        26,
+        23,
+        20,
+        17,
+        14
+      ],
+      "cost": [
+        70
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Trueshot Barrage",
+      "cooldown": [
+        120,
+        105,
+        90
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

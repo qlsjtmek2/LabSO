@@ -1,0 +1,90 @@
+{
+  "id": "Pantheon",
+  "name": "Pantheon",
+  "baseStats": {
+    "hp": 650,
+    "hpPerLevel": 109,
+    "mp": 317,
+    "mpPerLevel": 31,
+    "ad": 64,
+    "adPerLevel": 3.3,
+    "armor": 40,
+    "armorPerLevel": 4.95,
+    "mr": 28,
+    "mrPerLevel": 2.05,
+    "attackSpeed": 0.658,
+    "attackSpeedRatio": 2.95,
+    "range": 175
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Mortal Will",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Comet Spear",
+      "cooldown": [
+        11,
+        10.25,
+        9.5,
+        8.75,
+        8
+      ],
+      "cost": [
+        25
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Shield Vault",
+      "cooldown": [
+        13,
+        12,
+        11,
+        10,
+        9
+      ],
+      "cost": [
+        55
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Aegis Assault",
+      "cooldown": [
+        22,
+        21,
+        20,
+        19,
+        18
+      ],
+      "cost": [
+        80
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Grand Starfall",
+      "cooldown": [
+        180,
+        165,
+        150
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

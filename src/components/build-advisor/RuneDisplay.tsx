@@ -58,6 +58,14 @@ export default function RuneDisplay({ template }: RuneDisplayProps) {
           src={`${CDN_BASE}/${iconPath}`}
           alt={name}
           className={`w-full h-full object-contain ${isSelected ? 'drop-shadow-[0_0_5px_rgba(255,215,0,0.6)]' : ''}`}
+          onError={(e) => {
+            // If path with subfolder fails, try flat path (e.g. Styles/Precision/Triumph.png)
+            const parts = iconPath.split('/');
+            if (parts.length > 3) {
+              const flatPath = `${parts[0]}/${parts[1]}/${parts[2]}/${parts[parts.length - 1]}`;
+              e.currentTarget.src = `${CDN_BASE}/${flatPath}`;
+            }
+          }}
         />
         {isSelected && (
           <div className={`absolute inset-0 rounded-full border-2 ${isKeystone ? 'border-yellow-500' : 'border-yellow-500'}`} />

@@ -1,0 +1,94 @@
+{
+  "id": "KSante",
+  "name": "K'Sante",
+  "baseStats": {
+    "hp": 625,
+    "hpPerLevel": 120,
+    "mp": 320,
+    "mpPerLevel": 60,
+    "ad": 64,
+    "adPerLevel": 3.5,
+    "armor": 36,
+    "armorPerLevel": 5.2,
+    "mr": 30,
+    "mrPerLevel": 2.1,
+    "attackSpeed": 0.688,
+    "attackSpeedRatio": 2.5,
+    "range": 150
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Dauntless Instinct",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Ntofo Strikes",
+      "cooldown": [
+        3.5
+      ],
+      "cost": [
+        20
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Path Maker",
+      "cooldown": [
+        14,
+        13,
+        12,
+        11,
+        10
+      ],
+      "cost": [
+        40,
+        45,
+        50,
+        55,
+        60
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Footwork",
+      "cooldown": [
+        10,
+        9.5,
+        9,
+        8.5,
+        8
+      ],
+      "cost": [
+        45,
+        50,
+        55,
+        60,
+        65
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "All Out",
+      "cooldown": [
+        120,
+        100,
+        80
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

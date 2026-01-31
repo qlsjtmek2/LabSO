@@ -1,0 +1,96 @@
+{
+  "id": "Kayle",
+  "name": "Kayle",
+  "baseStats": {
+    "hp": 670,
+    "hpPerLevel": 92,
+    "mp": 330,
+    "mpPerLevel": 50,
+    "ad": 50,
+    "adPerLevel": 2.5,
+    "armor": 26,
+    "armorPerLevel": 4.2,
+    "mr": 22,
+    "mrPerLevel": 1.3,
+    "attackSpeed": 0.625,
+    "attackSpeedRatio": 1.5,
+    "range": 175
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Divine Ascent",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Radiant Blast",
+      "cooldown": [
+        12,
+        11,
+        10,
+        9,
+        8
+      ],
+      "cost": [
+        60,
+        70,
+        80,
+        90,
+        100
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Celestial Blessing",
+      "cooldown": [
+        15
+      ],
+      "cost": [
+        70,
+        75,
+        80,
+        85,
+        90
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Starfire Spellblade",
+      "cooldown": [
+        8,
+        7.5,
+        7,
+        6.5,
+        6
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Divine Judgment",
+      "cooldown": [
+        160,
+        120,
+        80
+      ],
+      "cost": [
+        100,
+        50,
+        0
+      ],
+      "effects": []
+    }
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "id": "Akali",
+  "name": "Akali",
+  "baseStats": {
+    "hp": 600,
+    "hpPerLevel": 119,
+    "mp": 200,
+    "mpPerLevel": 0,
+    "ad": 62,
+    "adPerLevel": 3.3,
+    "armor": 23,
+    "armorPerLevel": 4.7,
+    "mr": 37,
+    "mrPerLevel": 2.05,
+    "attackSpeed": 0.625,
+    "attackSpeedRatio": 3.2,
+    "range": 125
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Assassin's Mark",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Five Point Strike",
+      "cooldown": [
+        1.5
+      ],
+      "cost": [
+        110,
+        100,
+        90,
+        80,
+        70
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Twilight Shroud",
+      "cooldown": [
+        20,
+        19,
+        18,
+        17,
+        16
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Shuriken Flip",
+      "cooldown": [
+        16,
+        14.5,
+        13,
+        11.5,
+        10
+      ],
+      "cost": [
+        30
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Perfect Execution",
+      "cooldown": [
+        120,
+        90,
+        60
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    }
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "id": "LeeSin",
+  "name": "Lee Sin",
+  "baseStats": {
+    "hp": 645,
+    "hpPerLevel": 108,
+    "mp": 200,
+    "mpPerLevel": 0,
+    "ad": 66,
+    "adPerLevel": 3.7,
+    "armor": 36,
+    "armorPerLevel": 4.5,
+    "mr": 32,
+    "mrPerLevel": 2.05,
+    "attackSpeed": 0.651,
+    "attackSpeedRatio": 3,
+    "range": 125
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Flurry",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Sonic Wave / Resonating Strike",
+      "cooldown": [
+        10,
+        9,
+        8,
+        7,
+        6
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Safeguard / Iron Will",
+      "cooldown": [
+        12
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Tempest / Cripple",
+      "cooldown": [
+        8
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Dragon's Rage",
+      "cooldown": [
+        110,
+        85,
+        60
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    }
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "id": "Warwick",
+  "name": "Warwick",
+  "baseStats": {
+    "hp": 620,
+    "hpPerLevel": 99,
+    "mp": 280,
+    "mpPerLevel": 35,
+    "ad": 65,
+    "adPerLevel": 2.5,
+    "armor": 33,
+    "armorPerLevel": 4.4,
+    "mr": 32,
+    "mrPerLevel": 2.05,
+    "attackSpeed": 0.638,
+    "attackSpeedRatio": 2,
+    "range": 125
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Eternal Hunger",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Jaws of the Beast",
+      "cooldown": [
+        8,
+        7.5,
+        7,
+        6.5,
+        6
+      ],
+      "cost": [
+        80,
+        85,
+        90,
+        95,
+        100
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Blood Hunt",
+      "cooldown": [
+        80,
+        70,
+        60,
+        50,
+        40
+      ],
+      "cost": [
+        55
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Primal Howl",
+      "cooldown": [
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "cost": [
+        40
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Physical",
+            "base": [
+              35,
+              40,
+              45,
+              50,
+              55
+            ],
+            "ratios": []
+          }
+        }
+      ]
+    },
+    "R": {
+      "id": "R",
+      "name": "Infinite Duress",
+      "cooldown": [
+        110,
+        90,
+        70
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

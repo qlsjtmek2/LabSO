@@ -1,0 +1,88 @@
+{
+  "id": "Elise",
+  "name": "Elise",
+  "baseStats": {
+    "hp": 620,
+    "hpPerLevel": 109,
+    "mp": 324,
+    "mpPerLevel": 50,
+    "ad": 55,
+    "adPerLevel": 3,
+    "armor": 30,
+    "armorPerLevel": 4.5,
+    "mr": 30,
+    "mrPerLevel": 1.3,
+    "attackSpeed": 0.625,
+    "attackSpeedRatio": 1.75,
+    "range": 550
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Spider Queen",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Neurotoxin / Venomous Bite",
+      "cooldown": [
+        6
+      ],
+      "cost": [
+        80,
+        85,
+        90,
+        95,
+        100
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Volatile Spiderling / Skittering Frenzy",
+      "cooldown": [
+        12
+      ],
+      "cost": [
+        60,
+        70,
+        80,
+        90,
+        100
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Cocoon / Rappel",
+      "cooldown": [
+        12,
+        11.5,
+        11,
+        10.5,
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Spider Form",
+      "cooldown": [
+        3
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    }
+  }
+}

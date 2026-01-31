@@ -1,0 +1,86 @@
+{
+  "id": "Volibear",
+  "name": "Volibear",
+  "baseStats": {
+    "hp": 650,
+    "hpPerLevel": 104,
+    "mp": 350,
+    "mpPerLevel": 70,
+    "ad": 65,
+    "adPerLevel": 3.5,
+    "armor": 35,
+    "armorPerLevel": 5.2,
+    "mr": 32,
+    "mrPerLevel": 2.05,
+    "attackSpeed": 0.625,
+    "attackSpeedRatio": 2,
+    "range": 150
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "The Relentless Storm",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Thundering Smash",
+      "cooldown": [
+        14,
+        13,
+        12,
+        11,
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Frenzied Maul",
+      "cooldown": [
+        5
+      ],
+      "cost": [
+        30,
+        35,
+        40,
+        45,
+        50
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Sky Splitter",
+      "cooldown": [
+        14
+      ],
+      "cost": [
+        60
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Stormbringer",
+      "cooldown": [
+        160,
+        135,
+        110
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

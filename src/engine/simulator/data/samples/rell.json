@@ -1,0 +1,86 @@
+{
+  "id": "Rell",
+  "name": "Rell",
+  "baseStats": {
+    "hp": 620,
+    "hpPerLevel": 104,
+    "mp": 320,
+    "mpPerLevel": 40,
+    "ad": 55,
+    "adPerLevel": 3,
+    "armor": 30,
+    "armorPerLevel": 4,
+    "mr": 28,
+    "mrPerLevel": 1.8,
+    "attackSpeed": 0.625,
+    "attackSpeedRatio": 2,
+    "range": 175
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Break the Mold",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Shattering Strike",
+      "cooldown": [
+        11,
+        10.5,
+        10,
+        9.5,
+        9
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Ferromancy: Crash Down",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        40
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Full Tilt",
+      "cooldown": [
+        14,
+        13,
+        12,
+        11,
+        10
+      ],
+      "cost": [
+        40
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Magnet Storm",
+      "cooldown": [
+        120,
+        100,
+        80
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

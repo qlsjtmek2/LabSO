@@ -1,0 +1,94 @@
+{
+  "id": "Evelynn",
+  "name": "Evelynn",
+  "baseStats": {
+    "hp": 642,
+    "hpPerLevel": 98,
+    "mp": 315,
+    "mpPerLevel": 42,
+    "ad": 61,
+    "adPerLevel": 3,
+    "armor": 37,
+    "armorPerLevel": 4.7,
+    "mr": 32,
+    "mrPerLevel": 2.05,
+    "attackSpeed": 0.667,
+    "attackSpeedRatio": 2.1,
+    "range": 125
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Demon Shade",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Hate Spike",
+      "cooldown": [
+        4
+      ],
+      "cost": [
+        40,
+        45,
+        50,
+        55,
+        60
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Allure",
+      "cooldown": [
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "cost": [
+        60,
+        70,
+        80,
+        90,
+        100
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Whiplash",
+      "cooldown": [
+        8
+      ],
+      "cost": [
+        40,
+        45,
+        50,
+        55,
+        60
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Last Caress",
+      "cooldown": [
+        120,
+        100,
+        80
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

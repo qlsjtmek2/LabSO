@@ -1,0 +1,90 @@
+{
+  "id": "Sett",
+  "name": "Sett",
+  "baseStats": {
+    "hp": 670,
+    "hpPerLevel": 114,
+    "mp": 0,
+    "mpPerLevel": 0,
+    "ad": 60,
+    "adPerLevel": 4,
+    "armor": 33,
+    "armorPerLevel": 4.7,
+    "mr": 28,
+    "mrPerLevel": 2.05,
+    "attackSpeed": 0.625,
+    "attackSpeedRatio": 1.75,
+    "range": 125
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Pit Grit",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Knuckle Down",
+      "cooldown": [
+        9,
+        8,
+        7,
+        6,
+        5
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Haymaker",
+      "cooldown": [
+        18,
+        16.5,
+        15,
+        13.5,
+        12
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Facebreaker",
+      "cooldown": [
+        16,
+        14.5,
+        13,
+        11.5,
+        10
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "The Show Stopper",
+      "cooldown": [
+        120,
+        100,
+        80
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    }
+  }
+}

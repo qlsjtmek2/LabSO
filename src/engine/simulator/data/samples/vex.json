@@ -1,0 +1,94 @@
+{
+  "id": "Vex",
+  "name": "Vex",
+  "baseStats": {
+    "hp": 590,
+    "hpPerLevel": 104,
+    "mp": 490,
+    "mpPerLevel": 32,
+    "ad": 54,
+    "adPerLevel": 2.75,
+    "armor": 23,
+    "armorPerLevel": 4.45,
+    "mr": 28,
+    "mrPerLevel": 1.3,
+    "attackSpeed": 0.669,
+    "attackSpeedRatio": 1,
+    "range": 550
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Doom 'n Gloom",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Mistral Bolt",
+      "cooldown": [
+        8,
+        7,
+        6,
+        5,
+        4
+      ],
+      "cost": [
+        45,
+        50,
+        55,
+        60,
+        65
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Personal Space",
+      "cooldown": [
+        16,
+        15,
+        14,
+        13,
+        12
+      ],
+      "cost": [
+        75
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Looming Darkness",
+      "cooldown": [
+        13
+      ],
+      "cost": [
+        70,
+        80,
+        90,
+        100,
+        110
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Shadow Surge",
+      "cooldown": [
+        140,
+        120,
+        100
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

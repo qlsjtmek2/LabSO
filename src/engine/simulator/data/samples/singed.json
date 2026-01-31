@@ -1,0 +1,107 @@
+{
+  "id": "Singed",
+  "name": "Singed",
+  "baseStats": {
+    "hp": 650,
+    "hpPerLevel": 96,
+    "mp": 330,
+    "mpPerLevel": 45,
+    "ad": 63,
+    "adPerLevel": 3.4,
+    "armor": 34,
+    "armorPerLevel": 4.2,
+    "mr": 32,
+    "mrPerLevel": 2.05,
+    "attackSpeed": 0.7,
+    "attackSpeedRatio": 1.9,
+    "range": 125
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Noxious Slipstream",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Poison Trail",
+      "cooldown": [
+        0
+      ],
+      "cost": [
+        13
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Mega Adhesive",
+      "cooldown": [
+        17,
+        16,
+        15,
+        14,
+        13
+      ],
+      "cost": [
+        60,
+        70,
+        80,
+        90,
+        100
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Fling",
+      "cooldown": [
+        10,
+        9.5,
+        9,
+        8.5,
+        8
+      ],
+      "cost": [
+        60,
+        70,
+        80,
+        90,
+        100
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              1,
+              1.25,
+              1.5,
+              1.75,
+              2
+            ],
+            "ratios": []
+          }
+        }
+      ]
+    },
+    "R": {
+      "id": "R",
+      "name": "Insanity Potion",
+      "cooldown": [
+        100
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

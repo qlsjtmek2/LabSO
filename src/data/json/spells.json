@@ -1,0 +1,56 @@
+{
+  "SummonerBarrier": {
+    "id": "SummonerBarrier",
+    "name": "Barrier",
+    "cooldown": 180,
+    "description": "Gain a brief Shield."
+  },
+  "SummonerBoost": {
+    "id": "SummonerBoost",
+    "name": "Cleanse",
+    "cooldown": 240,
+    "description": "Removes all disables (excluding suppression and airborne) and summoner spell debuffs affecting your champion and gives Tenacity."
+  },
+  "SummonerDot": {
+    "id": "SummonerDot",
+    "name": "Ignite",
+    "cooldown": 180,
+    "description": "Deals true damage over time to target enemy champion and reduces healing effects on them for the duration."
+  },
+  "SummonerExhaust": {
+    "id": "SummonerExhaust",
+    "name": "Exhaust",
+    "cooldown": 240,
+    "description": "Slows target enemy champion and reduces their damage dealt."
+  },
+  "SummonerFlash": {
+    "id": "SummonerFlash",
+    "name": "Flash",
+    "cooldown": 300,
+    "description": "Teleports you a short distance toward your cursor."
+  },
+  "SummonerHaste": {
+    "id": "SummonerHaste",
+    "name": "Ghost",
+    "cooldown": 240,
+    "description": "Gain Move Speed and ignore unit collision for the duration."
+  },
+  "SummonerHeal": {
+    "id": "SummonerHeal",
+    "name": "Heal",
+    "cooldown": 240,
+    "description": "Restores Health and grants Move Speed to you and target allied champion."
+  },
+  "SummonerSmite": {
+    "id": "SummonerSmite",
+    "name": "Smite",
+    "cooldown": 15,
+    "description": "Deals true damage to a monster or minion."
+  },
+  "SummonerTeleport": {
+    "id": "SummonerTeleport",
+    "name": "Teleport",
+    "cooldown": 300,
+    "description": "After a brief channel, become untargetable and travel to an allied unit. Upgrades into Unleashed Teleport, which significantly increases travel speed. "
+  }
+}

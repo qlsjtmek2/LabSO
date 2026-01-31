@@ -1,0 +1,4769 @@
+{
+  "1001": {
+    "id": 1001,
+    "name": "Boots",
+    "description": "Slightly increases Move Speed",
+    "price": 300,
+    "tags": [
+      "Boots"
+    ],
+    "stats": {
+      "movementSpeed": 25
+    },
+    "effects": []
+  },
+  "1004": {
+    "id": 1004,
+    "name": "Faerie Charm",
+    "description": "Slightly increases Mana Regen",
+    "price": 200,
+    "tags": [
+      "ManaRegen"
+    ],
+    "stats": {},
+    "effects": []
+  },
+  "1006": {
+    "id": 1006,
+    "name": "Rejuvenation Bead",
+    "description": "Slightly increases Health Regen",
+    "price": 300,
+    "tags": [
+      "HealthRegen"
+    ],
+    "stats": {},
+    "effects": []
+  },
+  "1011": {
+    "id": 1011,
+    "name": "Giant's Belt",
+    "description": "Greatly increases Health",
+    "price": 900,
+    "from": [
+      "1028"
+    ],
+    "tags": [
+      "Health"
+    ],
+    "stats": {
+      "hp": 350
+    },
+    "effects": []
+  },
+  "1018": {
+    "id": 1018,
+    "name": "Cloak of Agility",
+    "description": "Increases critical strike chance",
+    "price": 600,
+    "tags": [
+      "CriticalStrike"
+    ],
+    "stats": {
+      "critChance": 0.15
+    },
+    "effects": []
+  },
+  "1026": {
+    "id": 1026,
+    "name": "Blasting Wand",
+    "description": "Moderately increases Ability Power",
+    "price": 850,
+    "tags": [
+      "SpellDamage"
+    ],
+    "stats": {
+      "ap": 45
+    },
+    "effects": []
+  },
+  "1027": {
+    "id": 1027,
+    "name": "Sapphire Crystal",
+    "description": "Increases Mana",
+    "price": 300,
+    "tags": [
+      "Mana"
+    ],
+    "stats": {},
+    "effects": []
+  },
+  "1028": {
+    "id": 1028,
+    "name": "Ruby Crystal",
+    "description": "Increases Health",
+    "price": 400,
+    "tags": [
+      "Health"
+    ],
+    "stats": {
+      "hp": 150
+    },
+    "effects": []
+  },
+  "1029": {
+    "id": 1029,
+    "name": "Cloth Armor",
+    "description": "Slightly increases Armor",
+    "price": 300,
+    "tags": [
+      "Armor"
+    ],
+    "stats": {
+      "armor": 15
+    },
+    "effects": []
+  },
+  "1031": {
+    "id": 1031,
+    "name": "Chain Vest",
+    "description": "Greatly increases Armor",
+    "price": 800,
+    "from": [
+      "1029"
+    ],
+    "tags": [
+      "Armor"
+    ],
+    "stats": {
+      "armor": 40
+    },
+    "effects": []
+  },
+  "1033": {
+    "id": 1033,
+    "name": "Null-Magic Mantle",
+    "description": "Slightly increases Magic Resist",
+    "price": 400,
+    "tags": [
+      "SpellBlock"
+    ],
+    "stats": {
+      "mr": 20
+    },
+    "effects": []
+  },
+  "1036": {
+    "id": 1036,
+    "name": "Long Sword",
+    "description": "Slightly increases Attack Damage",
+    "price": 350,
+    "tags": [
+      "Damage",
+      "Lane"
+    ],
+    "stats": {
+      "ad": 10
+    },
+    "effects": []
+  },
+  "1037": {
+    "id": 1037,
+    "name": "Pickaxe",
+    "description": "Moderately increases Attack Damage",
+    "price": 875,
+    "tags": [
+      "Damage"
+    ],
+    "stats": {
+      "ad": 25
+    },
+    "effects": []
+  },
+  "1038": {
+    "id": 1038,
+    "name": "B. F. Sword",
+    "description": "Greatly increases Attack Damage",
+    "price": 1300,
+    "tags": [
+      "Damage"
+    ],
+    "stats": {
+      "ad": 40
+    },
+    "effects": []
+  },
+  "1042": {
+    "id": 1042,
+    "name": "Dagger",
+    "description": "Slightly increases Attack Speed",
+    "price": 250,
+    "tags": [
+      "AttackSpeed"
+    ],
+    "stats": {
+      "attackSpeed": 0.1
+    },
+    "effects": []
+  },
+  "1043": {
+    "id": 1043,
+    "name": "Recurve Bow",
+    "description": "Greatly increases Attack Speed",
+    "price": 700,
+    "from": [
+      "1042"
+    ],
+    "tags": [
+      "AttackSpeed",
+      "OnHit"
+    ],
+    "stats": {
+      "attackSpeed": 0.15
+    },
+    "effects": [
+      {
+        "type": "onHit",
+        "damageType": "Physical",
+        "base": 15
+      }
+    ]
+  },
+  "1052": {
+    "id": 1052,
+    "name": "Amplifying Tome",
+    "description": "Slightly increases Ability Power",
+    "price": 400,
+    "tags": [
+      "SpellDamage"
+    ],
+    "stats": {
+      "ap": 20
+    },
+    "effects": []
+  },
+  "1053": {
+    "id": 1053,
+    "name": "Vampiric Scepter",
+    "description": "Basic attacks restore Health",
+    "price": 900,
+    "from": [
+      "1036"
+    ],
+    "tags": [
+      "Damage",
+      "LifeSteal"
+    ],
+    "stats": {
+      "ad": 15
+    },
+    "effects": []
+  },
+  "1054": {
+    "id": 1054,
+    "name": "Doran's Shield",
+    "description": "Good defensive starting item",
+    "price": 450,
+    "tags": [
+      "Health",
+      "HealthRegen",
+      "Lane"
+    ],
+    "stats": {
+      "hp": 110
+    },
+    "effects": []
+  },
+  "1055": {
+    "id": 1055,
+    "name": "Doran's Blade",
+    "description": "Good starting item for attackers",
+    "price": 450,
+    "tags": [
+      "Health",
+      "Damage",
+      "LifeSteal",
+      "SpellVamp",
+      "Lane"
+    ],
+    "stats": {
+      "ad": 10,
+      "hp": 80
+    },
+    "effects": []
+  },
+  "1056": {
+    "id": 1056,
+    "name": "Doran's Ring",
+    "description": "Good starting item for casters",
+    "price": 400,
+    "tags": [
+      "Health",
+      "Lane",
+      "ManaRegen",
+      "SpellDamage"
+    ],
+    "stats": {
+      "ap": 18,
+      "hp": 90
+    },
+    "effects": []
+  },
+  "1057": {
+    "id": 1057,
+    "name": "Negatron Cloak",
+    "description": "Moderately increases Magic Resist",
+    "price": 850,
+    "from": [
+      "1033"
+    ],
+    "tags": [
+      "SpellBlock"
+    ],
+    "stats": {
+      "mr": 45
+    },
+    "effects": []
+  },
+  "1058": {
+    "id": 1058,
+    "name": "Needlessly Large Rod",
+    "description": "Greatly increases Ability Power",
+    "price": 1200,
+    "tags": [
+      "SpellDamage"
+    ],
+    "stats": {
+      "ap": 65
+    },
+    "effects": []
+  },
+  "1082": {
+    "id": 1082,
+    "name": "Dark Seal",
+    "description": "Provides Ability Power and Mana.  Increases in power as you kill enemies.",
+    "price": 350,
+    "tags": [
+      "Health",
+      "SpellDamage",
+      "Lane"
+    ],
+    "stats": {
+      "ap": 15,
+      "hp": 50
+    },
+    "effects": []
+  },
+  "1083": {
+    "id": 1083,
+    "name": "Cull",
+    "description": "Provides damage and Life Steal on hit - Killing minions grant bonus Gold",
+    "price": 450,
+    "tags": [
+      "Damage",
+      "OnHit",
+      "Lane"
+    ],
+    "stats": {
+      "ad": 7
+    },
+    "effects": [
+      {
+        "type": "onHit",
+        "damageType": "Physical",
+        "base": 15
+      }
+    ]
+  },
+  "1101": {
+    "id": 1101,
+    "name": "Scorchclaw Pup",
+    "description": "",
+    "price": 450,
+    "tags": [
+      "Jungle"
+    ],
+    "stats": {},
+    "effects": []
+  },
+  "1102": {
+    "id": 1102,
+    "name": "Gustwalker Hatchling",
+    "description": "",
+    "price": 450,
+    "tags": [
+      "Jungle"
+    ],
+    "stats": {},
+    "effects": []
+  },
+  "1103": {
+    "id": 1103,
+    "name": "Mosstomper Seedling",
+    "description": "",
+    "price": 450,
+    "tags": [
+      "Jungle"
+    ],
+    "stats": {},
+    "effects": []
+  },
+  "1105": {
+    "id": 1105,
+    "name": "Mosstomper Seedling",
+    "description": "",
+    "price": 450,
+    "tags": [
+      "Jungle"
+    ],
+    "stats": {},
+    "effects": []
+  },
+  "1106": {
+    "id": 1106,
+    "name": "Gustwalker Hatchling",
+    "description": "",
+    "price": 450,
+    "tags": [
+      "Jungle"
+    ],
+    "stats": {},
+    "effects": []
+  },
+  "1107": {
+    "id": 1107,
+    "name": "Scorchclaw Pup",
+    "description": "",
+    "price": 450,
+    "tags": [
+      "Jungle"
+    ],
+    "stats": {},
+    "effects": []
+  },
+  "2019": {
+    "id": 2019,
+    "name": "Steel Sigil",
+    "description": "",
+    "price": 1100,
+    "from": [
+      "1029",
+      "1036",
+      "1029"
+    ],
+    "tags": [
+      "Armor",
+      "Damage"
+    ],
+    "stats": {
+      "ad": 15,
+      "armor": 30
+    },
+    "effects": []
+  },
+  "2020": {
+    "id": 2020,
+    "name": "The Brutalizer",
+    "description": "",
+    "price": 1337,
+    "from": [
+      "2022",
+      "1037"
+    ],
+    "tags": [
+      "Damage",
+      "CooldownReduction",
+      "ArmorPenetration"
+    ],
+    "stats": {
+      "ad": 25
+    },
+    "effects": []
+  },
+  "2021": {
+    "id": 2021,
+    "name": "Tunneler",
+    "description": "",
+    "price": 1150,
+    "from": [
+      "1036",
+      "1028"
+    ],
+    "tags": [
+      "Health",
+      "Damage"
+    ],
+    "stats": {
+      "ad": 15,
+      "hp": 250
+    },
+    "effects": []
+  },
+  "2022": {
+    "id": 2022,
+    "name": "Glowing Mote",
+    "description": "",
+    "price": 250,
+    "tags": [
+      "CooldownReduction"
+    ],
+    "stats": {},
+    "effects": []
+  },
+  "2051": {
+    "id": 2051,
+    "name": "Guardian's Horn",
+    "description": "Good starting item for tanks",
+    "price": 950,
+    "tags": [
+      "Health",
+      "HealthRegen",
+      "Lane"
+    ],
+    "stats": {
+      "hp": 150
+    },
+    "effects": []
+  },
+  "2065": {
+    "id": 2065,
+    "name": "Shurelya's Battlesong",
+    "description": "Activate to speed up nearby allies.",
+    "price": 2200,
+    "from": [
+      "3113",
+      "4642"
+    ],
+    "tags": [
+      "SpellDamage",
+      "ManaRegen",
+      "Active",
+      "CooldownReduction",
+      "NonbootsMovement",
+      "AbilityHaste"
+    ],
+    "stats": {
+      "ap": 50
+    },
+    "effects": []
+  },
+  "2420": {
+    "id": 2420,
+    "name": "Seeker's Armguard",
+    "description": "Activate to become invincible but unable to take actions",
+    "price": 1600,
+    "from": [
+      "1052",
+      "1029",
+      "1052"
+    ],
+    "tags": [
+      "Armor",
+      "SpellDamage",
+      "Active"
+    ],
+    "stats": {
+      "ap": 40,
+      "armor": 25
+    },
+    "effects": []
+  },
+  "2421": {
+    "id": 2421,
+    "name": "Shattered Armguard",
+    "description": "Upgrades to stopwatch",
+    "price": 1600,
+    "from": [
+      "1052",
+      "1029",
+      "1052"
+    ],
+    "tags": [],
+    "stats": {
+      "ap": 40,
+      "armor": 25
+    },
+    "effects": []
+  },
+  "2501": {
+    "id": 2501,
+    "name": "Overlord's Bloodmail",
+    "description": "",
+    "price": 3300,
+    "from": [
+      "2021",
+      "2021"
+    ],
+    "tags": [
+      "Health",
+      "Damage"
+    ],
+    "stats": {
+      "ad": 30,
+      "hp": 550
+    },
+    "effects": []
+  },
+  "2502": {
+    "id": 2502,
+    "name": "Unending Despair",
+    "description": "",
+    "price": 2800,
+    "from": [
+      "1031",
+      "3067",
+      "1028"
+    ],
+    "tags": [
+      "Health",
+      "Armor",
+      "CooldownReduction",
+      "AbilityHaste"
+    ],
+    "stats": {
+      "hp": 400,
+      "armor": 50
+    },
+    "effects": []
+  },
+  "2503": {
+    "id": 2503,
+    "name": "Blackfire Torch",
+    "description": "",
+    "price": 2800,
+    "from": [
+      "3802",
+      "2508"
+    ],
+    "tags": [
+      "SpellDamage",
+      "Mana",
+      "CooldownReduction",
+      "AbilityHaste"
+    ],
+    "stats": {
+      "ap": 80
+    },
+    "effects": []
+  },
+  "2504": {
+    "id": 2504,
+    "name": "Kaenic Rookern",
+    "description": "",
+    "price": 2900,
+    "from": [
+      "3211",
+      "1057"
+    ],
+    "tags": [
+      "Health",
+      "SpellBlock",
+      "HealthRegen"
+    ],
+    "stats": {
+      "hp": 400,
+      "mr": 80
+    },
+    "effects": []
+  },
+  "2508": {
+    "id": 2508,
+    "name": "Fated Ashes",
+    "description": "",
+    "price": 900,
+    "from": [
+      "1052"
+    ],
+    "tags": [
+      "SpellDamage"
+    ],
+    "stats": {
+      "ap": 30
+    },
+    "effects": []
+  },
+  "2510": {
+    "id": 2510,
+    "name": "Dusk and Dawn",
+    "description": "",
+    "price": 3100,
+    "from": [
+      "3057",
+      "1026",
+      "3067",
+      "1042"
+    ],
+    "tags": [
+      "Health",
+      "AttackSpeed",
+      "SpellDamage",
+      "OnHit",
+      "AbilityHaste"
+    ],
+    "stats": {
+      "ap": 70,
+      "hp": 300,
+      "attackSpeed": 0.25
+    },
+    "effects": [
+      {
+        "type": "onHit",
+        "damageType": "Magical",
+        "base": 15
+      }
+    ]
+  },
+  "2512": {
+    "id": 2512,
+    "name": "Fiendhunter Bolts",
+    "description": "",
+    "price": 2650,
+    "from": [
+      "3086",
+      "3144"
+    ],
+    "tags": [
+      "CriticalStrike",
+      "AttackSpeed",
+      "NonbootsMovement",
+      "AbilityHaste"
+    ],
+    "stats": {
+      "attackSpeed": 0.45,
+      "critChance": 0.25
+    },
+    "effects": []
+  },
+  "2517": {
+    "id": 2517,
+    "name": "Endless Hunger",
+    "description": "",
+    "price": 3000,
+    "from": [
+      "3133",
+      "1037"
+    ],
+    "tags": [
+      "Damage",
+      "LifeSteal",
+      "SpellVamp",
+      "Tenacity",
+      "AbilityHaste"
+    ],
+    "stats": {
+      "ad": 60
+    },
+    "effects": []
+  },
+  "2520": {
+    "id": 2520,
+    "name": "Bastionbreaker",
+    "description": "",
+    "price": 3200,
+    "from": [
+      "2020",
+      "3134"
+    ],
+    "tags": [
+      "Damage",
+      "ArmorPenetration",
+      "AbilityHaste"
+    ],
+    "stats": {
+      "ad": 55
+    },
+    "effects": []
+  },
+  "2522": {
+    "id": 2522,
+    "name": "Actualizer",
+    "description": "",
+    "price": 3100,
+    "from": [
+      "3802",
+      "1026"
+    ],
+    "tags": [
+      "SpellDamage",
+      "Mana",
+      "AbilityHaste"
+    ],
+    "stats": {
+      "ap": 90
+    },
+    "effects": []
+  },
+  "2523": {
+    "id": 2523,
+    "name": "Hexoptics C44",
+    "description": "",
+    "price": 2800,
+    "from": [
+      "1037",
+      "6670",
+      "1036"
+    ],
+    "tags": [
+      "Damage",
+      "CriticalStrike"
+    ],
+    "stats": {
+      "ad": 55,
+      "critChance": 0.25
+    },
+    "effects": []
+  },
+  "2524": {
+    "id": 2524,
+    "name": "Bandlepipes",
+    "description": "",
+    "price": 2300,
+    "from": [
+      "3067",
+      "1029",
+      "1033"
+    ],
+    "tags": [
+      "Health",
+      "SpellBlock",
+      "Armor",
+      "AttackSpeed",
+      "NonbootsMovement",
+      "AbilityHaste"
+    ],
+    "stats": {
+      "hp": 200,
+      "armor": 20,
+      "mr": 20
+    },
+    "effects": []
+  },
+  "2525": {
+    "id": 2525,
+    "name": "Protoplasm Harness",
+    "description": "",
+    "price": 2500,
+    "from": [
+      "3067",
+      "1011"
+    ],
+    "tags": [
+      "Health",
+      "NonbootsMovement",
+      "Tenacity",
+      "AbilityHaste"
+    ],
+    "stats": {
+      "hp": 600
+    },
+    "effects": []
+  },
+  "2526": {
+    "id": 2526,
+    "name": "Whispering Circlet",
+    "description": "",
+    "price": 2250,
+    "from": [
+      "3114",
+      "1028",
+      "3070"
+    ],
+    "tags": [
+      "Health",
+      "Mana",
+      "ManaRegen"
+    ],
+    "stats": {
+      "hp": 200
+    },
+    "effects": []
+  },
+  "3002": {
+    "id": 3002,
+    "name": "Trailblazer",
+    "description": "",
+    "price": 2400,
+    "from": [
+      "3066",
+      "1031"
+    ],
+    "tags": [
+      "Health",
+      "Armor",
+      "NonbootsMovement"
+    ],
+    "stats": {
+      "hp": 250,
+      "armor": 40
+    },
+    "effects": []
+  },
+  "3003": {
+    "id": 3003,
+    "name": "Archangel's Staff",
+    "description": "Increases Ability Power based on maximum Mana",
+    "price": 2900,
+    "from": [
+      "3070",
+      "3802",
+      "3108"
+    ],
+    "tags": [
+      "SpellDamage",
+      "Mana",
+      "AbilityHaste"
+    ],
+    "stats": {
+      "ap": 70
+    },
+    "effects": []
+  },
+  "3004": {
+    "id": 3004,
+    "name": "Manamune",
+    "description": "Increases Attack Damage based on maximum Mana",
+    "price": 2900,
+    "from": [
+      "3070",
+      "3133",
+      "1036"
+    ],
+    "tags": [
+      "Damage",
+      "Mana",
+      "CooldownReduction",
+      "OnHit",
+      "AbilityHaste"
+    ],
+    "stats": {
+      "ad": 35
+    },
+    "effects": []
+  },
+  "3006": {
+    "id": 3006,
+    "name": "Berserker's Greaves",
+    "description": "Enhances Move Speed and Attack Speed",
+    "price": 1100,
+    "from": [
+      "1001",
+      "1042",
+      "1042"
+    ],
+    "tags": [
+      "AttackSpeed",
+      "Boots"
+    ],
+    "stats": {
+      "attackSpeed": 0.25,
+      "movementSpeed": 45
+    },
+    "effects": []
+  },
+  "3009": {
+    "id": 3009,
+    "name": "Boots of Swiftness",
+    "description": "Enhances Move Speed and reduces the effect of slows",
+    "price": 1000,
+    "from": [
+      "1001"
+    ],
+    "tags": [
+      "Boots"
+    ],
+    "stats": {
+      "movementSpeed": 55
+    },
+    "effects": []
+  },
+  "3020": {
+    "id": 3020,
+    "name": "Sorcerer's Shoes",
+    "description": "Enhances Move Speed and magic damage",
+    "price": 1100,
+    "from": [
+      "1001"
+    ],
+    "tags": [
+      "Boots",
+      "MagicPenetration"
+    ],
+    "stats": {
+      "movementSpeed": 45
+    },
+    "effects": []
+  },
+  "3024": {
+    "id": 3024,
+    "name": "Glacial Buckler",
+    "description": "Increases Armor and Cooldown Reduction",
+    "price": 900,
+    "from": [
+      "1029",
+      "1027",
+      "2022"
+    ],
+    "tags": [
+      "Armor",
+      "Mana",
+      "CooldownReduction",
+      "AbilityHaste"
+    ],
+    "stats": {
+      "armor": 25
+    },
+    "effects": []
+  },
+  "3026": {
+    "id": 3026,
+    "name": "Guardian Angel",
+    "description": "Periodically revives champion upon death",
+    "price": 3200,
+    "from": [
+      "2019",
+      "1038"
+    ],
+    "tags": [
+      "Armor",
+      "Damage"
+    ],
+    "stats": {
+      "ad": 55,
+      "armor": 45
+    },
+    "effects": []
+  },
+  "3031": {
+    "id": 3031,
+    "name": "Infinity Edge",
+    "description": "Massively enhances critical strikes",
+    "price": 3500,
+    "from": [
+      "1038",
+      "1037",
+      "1018"
+    ],
+    "tags": [
+      "CriticalStrike",
+      "Damage"
+    ],
+    "stats": {
+      "ad": 75,
+      "critChance": 0.25
+    },
+    "effects": []
+  },
+  "3032": {
+    "id": 3032,
+    "name": "Yun Tal Wildarrows",
+    "description": "",
+    "price": 3100,
+    "from": [
+      "1038",
+      "3144",
+      "1036"
+    ],
+    "tags": [
+      "Damage",
+      "CriticalStrike",
+      "AttackSpeed"
+    ],
+    "stats": {
+      "ad": 50,
+      "attackSpeed": 0.4
+    },
+    "effects": []
+  },
+  "3033": {
+    "id": 3033,
+    "name": "Mortal Reminder",
+    "description": "Overcomes enemies with high Health recovery and Armor",
+    "price": 3000,
+    "from": [
+      "3123",
+      "3035",
+      "1018"
+    ],
+    "tags": [
+      "Damage",
+      "CriticalStrike",
+      "ArmorPenetration"
+    ],
+    "stats": {
+      "ad": 35,
+      "critChance": 0.25
+    },
+    "effects": []
+  },
+  "3035": {
+    "id": 3035,
+    "name": "Last Whisper",
+    "description": "Overcomes enemies with high Armor",
+    "price": 1450,
+    "from": [
+      "1036",
+      "1036"
+    ],
+    "tags": [
+      "ArmorPenetration",
+      "Damage"
+    ],
+    "stats": {
+      "ad": 20
+    },
+    "effects": []
+  },
+  "3036": {
+    "id": 3036,
+    "name": "Lord Dominik's Regards",
+    "description": "Overcomes enemies with high health and armor",
+    "price": 3300,
+    "from": [
+      "3035",
+      "6670"
+    ],
+    "tags": [
+      "Damage",
+      "CriticalStrike",
+      "ArmorPenetration"
+    ],
+    "stats": {
+      "ad": 35,
+      "critChance": 0.25
+    },
+    "effects": []
+  },
+  "3041": {
+    "id": 3041,
+    "name": "Mejai's Soulstealer",
+    "description": "Grants Ability Power for kills and assists",
+    "price": 1500,
+    "from": [
+      "1082"
+    ],
+    "tags": [
+      "Health",
+      "SpellDamage",
+      "NonbootsMovement"
+    ],
+    "stats": {
+      "ap": 20,
+      "hp": 100
+    },
+    "effects": []
+  },
+  "3044": {
+    "id": 3044,
+    "name": "Phage",
+    "description": "Attacks and kills give a small burst of speed",
+    "price": 1100,
+    "from": [
+      "1028",
+      "1036"
+    ],
+    "tags": [
+      "Health",
+      "Damage",
+      "NonbootsMovement"
+    ],
+    "stats": {
+      "ad": 15,
+      "hp": 200
+    },
+    "effects": []
+  },
+  "3046": {
+    "id": 3046,
+    "name": "Phantom Dancer",
+    "description": "Move faster while attacking enemies and gain a shield when on low health.",
+    "price": 2650,
+    "from": [
+      "1042",
+      "3086",
+      "1042"
+    ],
+    "tags": [
+      "CriticalStrike",
+      "AttackSpeed",
+      "NonbootsMovement"
+    ],
+    "stats": {
+      "attackSpeed": 0.65,
+      "critChance": 0.25
+    },
+    "effects": []
+  },
+  "3047": {
+    "id": 3047,
+    "name": "Plated Steelcaps",
+    "description": "Enhances Move Speed and reduces incoming basic attack damage",
+    "price": 1200,
+    "from": [
+      "1001",
+      "1029"
+    ],
+    "tags": [
+      "Armor",
+      "Boots"
+    ],
+    "stats": {
+      "armor": 25,
+      "movementSpeed": 45
+    },
+    "effects": []
+  },
+  "3050": {
+    "id": 3050,
+    "name": "Zeke's Convergence",
+    "description": "Grants you and your ally bonuses when you cast your ultimate.",
+    "price": 2200,
+    "from": [
+      "3067",
+      "1029",
+      "1033"
+    ],
+    "tags": [
+      "Health",
+      "SpellBlock",
+      "Armor",
+      "AbilityHaste"
+    ],
+    "stats": {
+      "hp": 300,
+      "armor": 25,
+      "mr": 25
+    },
+    "effects": []
+  },
+  "3051": {
+    "id": 3051,
+    "name": "Hearthbound Axe",
+    "description": "",
+    "price": 1200,
+    "from": [
+      "1036",
+      "1042",
+      "1036"
+    ],
+    "tags": [
+      "Damage",
+      "AttackSpeed"
+    ],
+    "stats": {
+      "ad": 20,
+      "attackSpeed": 0.2
+    },
+    "effects": []
+  },
+  "3053": {
+    "id": 3053,
+    "name": "Sterak's Gage",
+    "description": "Shields against large bursts of damage",
+    "price": 3200,
+    "from": [
+      "1037",
+      "2021",
+      "1028"
+    ],
+    "tags": [
+      "Health",
+      "Damage",
+      "Tenacity"
+    ],
+    "stats": {
+      "hp": 400
+    },
+    "effects": []
+  },
+  "3057": {
+    "id": 3057,
+    "name": "Sheen",
+    "description": "Grants a bonus to next attack after spell cast",
+    "price": 900,
+    "from": [
+      "2022"
+    ],
+    "tags": [
+      "OnHit",
+      "AbilityHaste"
+    ],
+    "stats": {},
+    "effects": [
+      {
+        "type": "onHit",
+        "damageType": "Physical",
+        "base": 15
+      }
+    ]
+  },
+  "3065": {
+    "id": 3065,
+    "name": "Spirit Visage",
+    "description": "Increases Health and healing effects",
+    "price": 2700,
+    "from": [
+      "3211",
+      "3067"
+    ],
+    "tags": [
+      "Health",
+      "SpellBlock",
+      "HealthRegen",
+      "CooldownReduction",
+      "AbilityHaste"
+    ],
+    "stats": {
+      "hp": 400,
+      "mr": 50
+    },
+    "effects": []
+  },
+  "3066": {
+    "id": 3066,
+    "name": "Winged Moonplate",
+    "description": "",
+    "price": 800,
+    "from": [
+      "1028"
+    ],
+    "tags": [
+      "Health",
+      "NonbootsMovement"
+    ],
+    "stats": {
+      "hp": 200
+    },
+    "effects": []
+  },
+  "3067": {
+    "id": 3067,
+    "name": "Kindlegem",
+    "description": "Increases Health and Cooldown Reduction",
+    "price": 800,
+    "from": [
+      "1028",
+      "2022"
+    ],
+    "tags": [
+      "Health",
+      "CooldownReduction",
+      "AbilityHaste"
+    ],
+    "stats": {
+      "hp": 200
+    },
+    "effects": []
+  },
+  "3068": {
+    "id": 3068,
+    "name": "Sunfire Aegis",
+    "description": "High armor. Constantly deals damage to nearby enemies. Immobilize enemies to release a wave of damaging flame",
+    "price": 2700,
+    "from": [
+      "6660",
+      "1031"
+    ],
+    "tags": [
+      "Health",
+      "Armor",
+      "Aura",
+      "AbilityHaste"
+    ],
+    "stats": {
+      "hp": 350,
+      "armor": 50
+    },
+    "effects": []
+  },
+  "3070": {
+    "id": 3070,
+    "name": "Tear of the Goddess",
+    "description": "Increases maximum Mana as Mana is spent",
+    "price": 400,
+    "tags": [
+      "Mana",
+      "ManaRegen"
+    ],
+    "stats": {},
+    "effects": []
+  },
+  "3071": {
+    "id": 3071,
+    "name": "Black Cleaver",
+    "description": "Dealing physical damage to enemy champions reduces their Armor",
+    "price": 3000,
+    "from": [
+      "3044",
+      "3067",
+      "1037"
+    ],
+    "tags": [
+      "Health",
+      "Damage",
+      "CooldownReduction",
+      "OnHit",
+      "NonbootsMovement",
+      "ArmorPenetration",
+      "AbilityHaste"
+    ],
+    "stats": {
+      "ad": 40,
+      "hp": 400
+    },
+    "effects": []
+  },
+  "3072": {
+    "id": 3072,
+    "name": "Bloodthirster",
+    "description": "Grants Attack Damage, Life Steal and Life Steal now overheals",
+    "price": 3400,
+    "from": [
+      "1038",
+      "1037",
+      "1053"
+    ],
+    "tags": [
+      "Damage",
+      "LifeSteal"
+    ],
+    "stats": {
+      "ad": 80
+    },
+    "effects": []
+  },
+  "3073": {
+    "id": 3073,
+    "name": "Experimental Hexplate",
+    "description": "Increases maximum Mana as Mana is spent",
+    "price": 3000,
+    "from": [
+      "2021",
+      "3044",
+      "1042"
+    ],
+    "tags": [
+      "Health",
+      "Damage",
+      "AttackSpeed",
+      "CooldownReduction",
+      "NonbootsMovement",
+      "AbilityHaste"
+    ],
+    "stats": {
+      "ad": 40,
+      "hp": 450,
+      "attackSpeed": 0.2
+    },
+    "effects": []
+  },
+  "3074": {
+    "id": 3074,
+    "name": "Ravenous Hydra",
+    "description": "Melee attacks hit nearby enemies, dealing damage and restoring Health",
+    "price": 3300,
+    "from": [
+      "3077",
+      "1053",
+      "3133"
+    ],
+    "tags": [
+      "Damage",
+      "LifeSteal",
+      "CooldownReduction",
+      "OnHit",
+      "AbilityHaste"
+    ],
+    "stats": {
+      "ad": 65
+    },
+    "effects": []
+  },
+  "3075": {
+    "id": 3075,
+    "name": "Thornmail",
+    "description": "",
+    "price": 2450,
+    "from": [
+      "3076",
+      "1031",
+      "1028"
+    ],
+    "tags": [
+      "Health",
+      "Armor"
+    ],
+    "stats": {
+      "hp": 150,
+      "armor": 75
+    },
+    "effects": []
+  },
+  "3076": {
+    "id": 3076,
+    "name": "Bramble Vest",
+    "description": "",
+    "price": 800,
+    "from": [
+      "1029",
+      "1029"
+    ],
+    "tags": [
+      "Armor"
+    ],
+    "stats": {
+      "armor": 30
+    },
+    "effects": []
+  },
+  "3077": {
+    "id": 3077,
+    "name": "Tiamat",
+    "description": "Melee attacks hit nearby enemies",
+    "price": 1200,
+    "from": [
+      "1036",
+      "1036"
+    ],
+    "tags": [
+      "Damage",
+      "OnHit"
+    ],
+    "stats": {
+      "ad": 20
+    },
+    "effects": []
+  },
+  "3078": {
+    "id": 3078,
+    "name": "Trinity Force",
+    "description": "Tons of Damage",
+    "price": 3333,
+    "from": [
+      "3057",
+      "3044",
+      "3051"
+    ],
+    "tags": [
+      "Health",
+      "Damage",
+      "AttackSpeed",
+      "CooldownReduction",
+      "OnHit",
+      "NonbootsMovement",
+      "AbilityHaste"
+    ],
+    "stats": {
+      "ad": 36,
+      "hp": 333,
+      "attackSpeed": 0.3
+    },
+    "effects": [
+      {
+        "type": "onHit",
+        "damageType": "Physical",
+        "base": 15
+      }
+    ]
+  },
+  "3082": {
+    "id": 3082,
+    "name": "Warden's Mail",
+    "description": "",
+    "price": 1000,
+    "from": [
+      "1029",
+      "1029"
+    ],
+    "tags": [
+      "Armor"
+    ],
+    "stats": {
+      "armor": 40
+    },
+    "effects": []
+  },
+  "3083": {
+    "id": 3083,
+    "name": "Warmog's Armor",
+    "description": "Grants massive Health and Health Regen",
+    "price": 3100,
+    "from": [
+      "1011",
+      "1011",
+      "3801"
+    ],
+    "tags": [
+      "Health",
+      "HealthRegen"
+    ],
+    "stats": {
+      "hp": 1000
+    },
+    "effects": []
+  },
+  "3084": {
+    "id": 3084,
+    "name": "Heartsteel",
+    "description": "Restores Health on kill or assist",
+    "price": 3000,
+    "from": [
+      "1011",
+      "3801",
+      "1011"
+    ],
+    "tags": [
+      "Health",
+      "HealthRegen"
+    ],
+    "stats": {
+      "hp": 900
+    },
+    "effects": [
+      {
+        "type": "onHit",
+        "damageType": "Physical",
+        "targetHpBased": {
+          "type": "max",
+          "percent": 1
+        }
+      }
+    ]
+  },
+  "3085": {
+    "id": 3085,
+    "name": "Runaan's Hurricane",
+    "description": "Ranged attacks fire two bolts at nearby enemies",
+    "price": 2650,
+    "from": [
+      "3086",
+      "3144"
+    ],
+    "tags": [
+      "CriticalStrike",
+      "AttackSpeed",
+      "OnHit",
+      "NonbootsMovement"
+    ],
+    "stats": {
+      "attackSpeed": 0.4,
+      "critChance": 0.25
+    },
+    "effects": [
+      {
+        "type": "onHit",
+        "damageType": "Physical",
+        "base": 15
+      }
+    ]
+  },
+  "3086": {
+    "id": 3086,
+    "name": "Zeal",
+    "description": "Slight bonuses to Critical Strike Chance, Move Speed and Attack Speed",
+    "price": 1200,
+    "from": [
+      "1018",
+      "1042"
+    ],
+    "tags": [
+      "CriticalStrike",
+      "AttackSpeed",
+      "NonbootsMovement"
+    ],
+    "stats": {
+      "attackSpeed": 0.15,
+      "critChance": 0.15
+    },
+    "effects": []
+  },
+  "3087": {
+    "id": 3087,
+    "name": "Statikk Shiv",
+    "description": "Movement builds charges that release chain lightning on basic attack",
+    "price": 2700,
+    "from": [
+      "3144",
+      "6690",
+      "1037"
+    ],
+    "tags": [
+      "Damage",
+      "AttackSpeed",
+      "OnHit",
+      "NonbootsMovement"
+    ],
+    "stats": {
+      "ad": 45,
+      "attackSpeed": 0.3
+    },
+    "effects": [
+      {
+        "type": "onHit",
+        "damageType": "Magical",
+        "base": 15
+      }
+    ]
+  },
+  "3089": {
+    "id": 3089,
+    "name": "Rabadon's Deathcap",
+    "description": "Massively increases Ability Power",
+    "price": 3500,
+    "from": [
+      "1058",
+      "1058"
+    ],
+    "tags": [
+      "SpellDamage"
+    ],
+    "stats": {
+      "ap": 130
+    },
+    "effects": []
+  },
+  "3091": {
+    "id": 3091,
+    "name": "Wit's End",
+    "description": "Resist magic damage and claw your way back to life.",
+    "price": 2800,
+    "from": [
+      "1043",
+      "1057",
+      "1043"
+    ],
+    "tags": [
+      "SpellBlock",
+      "AttackSpeed",
+      "OnHit",
+      "Tenacity"
+    ],
+    "stats": {
+      "mr": 45,
+      "attackSpeed": 0.5
+    },
+    "effects": [
+      {
+        "type": "onHit",
+        "damageType": "Magical",
+        "base": 15
+      }
+    ]
+  },
+  "3094": {
+    "id": 3094,
+    "name": "Rapid Firecannon",
+    "description": "Movement builds charges that release a sieging fire attack on release",
+    "price": 2650,
+    "from": [
+      "3086",
+      "3144"
+    ],
+    "tags": [
+      "CriticalStrike",
+      "AttackSpeed",
+      "NonbootsMovement"
+    ],
+    "stats": {
+      "attackSpeed": 0.35,
+      "critChance": 0.25
+    },
+    "effects": []
+  },
+  "3097": {
+    "id": 3097,
+    "name": "Stormrazor",
+    "description": "Periodically kill enemy minions to heal and grant gold to a nearby ally",
+    "price": 3200,
+    "from": [
+      "1038",
+      "1018",
+      "3144"
+    ],
+    "tags": [
+      "Damage",
+      "CriticalStrike",
+      "AttackSpeed",
+      "NonbootsMovement"
+    ],
+    "stats": {
+      "ad": 50,
+      "attackSpeed": 0.2,
+      "critChance": 0.25
+    },
+    "effects": []
+  },
+  "3100": {
+    "id": 3100,
+    "name": "Lich Bane",
+    "description": "Grants a bonus to next attack after spell cast",
+    "price": 2900,
+    "from": [
+      "3057",
+      "3113",
+      "1026"
+    ],
+    "tags": [
+      "SpellDamage",
+      "OnHit",
+      "NonbootsMovement",
+      "AbilityHaste"
+    ],
+    "stats": {
+      "ap": 100
+    },
+    "effects": [
+      {
+        "type": "onHit",
+        "damageType": "Magical",
+        "base": 15
+      }
+    ]
+  },
+  "3102": {
+    "id": 3102,
+    "name": "Banshee's Veil",
+    "description": "Periodically blocks enemy abilities",
+    "price": 3000,
+    "from": [
+      "1058",
+      "4632"
+    ],
+    "tags": [
+      "SpellBlock",
+      "SpellDamage"
+    ],
+    "stats": {
+      "ap": 105,
+      "mr": 40
+    },
+    "effects": []
+  },
+  "3107": {
+    "id": 3107,
+    "name": "Redemption",
+    "description": "Activate to heal allies and damage enemies in an area",
+    "price": 2300,
+    "from": [
+      "3108",
+      "3114"
+    ],
+    "tags": [
+      "SpellDamage",
+      "ManaRegen",
+      "CooldownReduction",
+      "AbilityHaste"
+    ],
+    "stats": {
+      "ap": 30
+    },
+    "effects": [
+      {
+        "type": "onHit",
+        "damageType": "Physical",
+        "targetHpBased": {
+          "type": "max",
+          "percent": 1
+        }
+      }
+    ]
+  },
+  "3108": {
+    "id": 3108,
+    "name": "Fiendish Codex",
+    "description": "Increases Ability Power and Cooldown Reduction",
+    "price": 850,
+    "from": [
+      "1052",
+      "2022"
+    ],
+    "tags": [
+      "SpellDamage",
+      "CooldownReduction",
+      "AbilityHaste"
+    ],
+    "stats": {
+      "ap": 25
+    },
+    "effects": []
+  },
+  "3109": {
+    "id": 3109,
+    "name": "Knight's Vow",
+    "description": "Partner with an ally to protect each other",
+    "price": 2300,
+    "from": [
+      "3067",
+      "1031",
+      "1006"
+    ],
+    "tags": [
+      "Health",
+      "HealthRegen",
+      "Armor",
+      "Aura",
+      "Active",
+      "CooldownReduction",
+      "AbilityHaste"
+    ],
+    "stats": {
+      "hp": 200,
+      "armor": 40
+    },
+    "effects": []
+  },
+  "3110": {
+    "id": 3110,
+    "name": "Frozen Heart",
+    "description": "Massively increases Armor and slows enemy basic attacks",
+    "price": 2500,
+    "from": [
+      "3082",
+      "3024"
+    ],
+    "tags": [
+      "Armor",
+      "Mana",
+      "Aura",
+      "CooldownReduction",
+      "AbilityHaste"
+    ],
+    "stats": {
+      "armor": 75
+    },
+    "effects": []
+  },
+  "3111": {
+    "id": 3111,
+    "name": "Mercury's Treads",
+    "description": "Increases Move Speed and reduces duration of disabling effects",
+    "price": 1250,
+    "from": [
+      "1001",
+      "1033"
+    ],
+    "tags": [
+      "Boots",
+      "SpellBlock",
+      "Tenacity"
+    ],
+    "stats": {
+      "mr": 20,
+      "movementSpeed": 45
+    },
+    "effects": []
+  },
+  "3112": {
+    "id": 3112,
+    "name": "Guardian's Orb",
+    "description": "Good starting item for mages",
+    "price": 950,
+    "tags": [
+      "Health",
+      "SpellDamage",
+      "ManaRegen",
+      "Lane"
+    ],
+    "stats": {
+      "ap": 50,
+      "hp": 150
+    },
+    "effects": []
+  },
+  "3113": {
+    "id": 3113,
+    "name": "Aether Wisp",
+    "description": "Increases Ability Power and Move Speed",
+    "price": 900,
+    "from": [
+      "1052"
+    ],
+    "tags": [
+      "NonbootsMovement",
+      "SpellDamage"
+    ],
+    "stats": {
+      "ap": 30
+    },
+    "effects": []
+  },
+  "3114": {
+    "id": 3114,
+    "name": "Forbidden Idol",
+    "description": "Increases Heal and Shield Power, Mana Regeneration, and Cooldown Reduction",
+    "price": 600,
+    "from": [
+      "1004"
+    ],
+    "tags": [
+      "ManaRegen"
+    ],
+    "stats": {},
+    "effects": []
+  },
+  "3115": {
+    "id": 3115,
+    "name": "Nashor's Tooth",
+    "description": "Increases Attack Speed, Ability Power, and Cooldown Reduction",
+    "price": 2900,
+    "from": [
+      "1043",
+      "1026",
+      "3108"
+    ],
+    "tags": [
+      "AttackSpeed",
+      "SpellDamage",
+      "OnHit",
+      "AbilityHaste"
+    ],
+    "stats": {
+      "ap": 80,
+      "attackSpeed": 0.5
+    },
+    "effects": [
+      {
+        "type": "onHit",
+        "damageType": "Magical",
+        "base": 15
+      }
+    ]
+  },
+  "3116": {
+    "id": 3116,
+    "name": "Rylai's Crystal Scepter",
+    "description": "Abilities slow enemies",
+    "price": 2600,
+    "from": [
+      "1026",
+      "1011",
+      "1052"
+    ],
+    "tags": [
+      "Health",
+      "SpellDamage",
+      "Slow"
+    ],
+    "stats": {
+      "ap": 65,
+      "hp": 400
+    },
+    "effects": []
+  },
+  "3118": {
+    "id": 3118,
+    "name": "Malignance",
+    "description": "Partner with an ally to protect each other",
+    "price": 2700,
+    "from": [
+      "3802",
+      "1026"
+    ],
+    "tags": [
+      "SpellDamage",
+      "Mana",
+      "AbilityHaste"
+    ],
+    "stats": {
+      "ap": 90
+    },
+    "effects": []
+  },
+  "3119": {
+    "id": 3119,
+    "name": "Winter's Approach",
+    "description": "",
+    "price": 2400,
+    "from": [
+      "3070",
+      "1011",
+      "3067"
+    ],
+    "tags": [
+      "Health",
+      "Mana",
+      "AbilityHaste"
+    ],
+    "stats": {
+      "hp": 550
+    },
+    "effects": []
+  },
+  "3123": {
+    "id": 3123,
+    "name": "Executioner's Calling",
+    "description": "Overcomes enemies with high health gain",
+    "price": 800,
+    "from": [
+      "1036"
+    ],
+    "tags": [
+      "Damage"
+    ],
+    "stats": {
+      "ad": 15
+    },
+    "effects": []
+  },
+  "3124": {
+    "id": 3124,
+    "name": "Guinsoo's Rageblade",
+    "description": "",
+    "price": 3000,
+    "from": [
+      "1052",
+      "1043",
+      "1037"
+    ],
+    "tags": [
+      "Damage",
+      "AttackSpeed",
+      "SpellDamage",
+      "OnHit"
+    ],
+    "stats": {
+      "ad": 30,
+      "ap": 30,
+      "attackSpeed": 0.25
+    },
+    "effects": [
+      {
+        "type": "onHit",
+        "damageType": "Magical",
+        "base": 30
+      }
+    ]
+  },
+  "3133": {
+    "id": 3133,
+    "name": "Caulfield's Warhammer",
+    "description": "Attack Damage and Cooldown Reduction",
+    "price": 1050,
+    "from": [
+      "1036",
+      "2022",
+      "1036"
+    ],
+    "tags": [
+      "Damage",
+      "CooldownReduction",
+      "AbilityHaste"
+    ],
+    "stats": {
+      "ad": 20
+    },
+    "effects": []
+  },
+  "3134": {
+    "id": 3134,
+    "name": "Serrated Dirk",
+    "description": "Increases Attack Damage and Lethality",
+    "price": 1000,
+    "from": [
+      "1036",
+      "1036"
+    ],
+    "tags": [
+      "Damage",
+      "ArmorPenetration"
+    ],
+    "stats": {
+      "ad": 20
+    },
+    "effects": []
+  },
+  "3135": {
+    "id": 3135,
+    "name": "Void Staff",
+    "description": "Increases magic damage",
+    "price": 3000,
+    "from": [
+      "4630",
+      "1026"
+    ],
+    "tags": [
+      "MagicPenetration",
+      "SpellDamage"
+    ],
+    "stats": {
+      "ap": 95
+    },
+    "effects": []
+  },
+  "3137": {
+    "id": 3137,
+    "name": "Cryptbloom",
+    "description": "Activate to remove all debuffs and grant massive Move Speed",
+    "price": 3000,
+    "from": [
+      "4630",
+      "3108",
+      "3108"
+    ],
+    "tags": [
+      "SpellDamage",
+      "MagicPenetration",
+      "AbilityHaste"
+    ],
+    "stats": {
+      "ap": 75
+    },
+    "effects": []
+  },
+  "3139": {
+    "id": 3139,
+    "name": "Mercurial Scimitar",
+    "description": "Activate to remove all crowd control debuffs and grant massive Move Speed",
+    "price": 3200,
+    "from": [
+      "3140",
+      "1037",
+      "1053"
+    ],
+    "tags": [
+      "SpellBlock",
+      "Damage",
+      "LifeSteal",
+      "Active",
+      "NonbootsMovement",
+      "Tenacity"
+    ],
+    "stats": {
+      "ad": 50,
+      "mr": 35
+    },
+    "effects": []
+  },
+  "3140": {
+    "id": 3140,
+    "name": "Quicksilver Sash",
+    "description": "Activate to remove all crowd control debuffs",
+    "price": 1300,
+    "from": [
+      "1033"
+    ],
+    "tags": [
+      "Active",
+      "SpellBlock"
+    ],
+    "stats": {
+      "mr": 30
+    },
+    "effects": []
+  },
+  "3142": {
+    "id": 3142,
+    "name": "Youmuu's Ghostblade",
+    "description": "Activate to greatly increase Move Speed",
+    "price": 2800,
+    "from": [
+      "3134",
+      "6690",
+      "1036"
+    ],
+    "tags": [
+      "Damage",
+      "Active",
+      "NonbootsMovement",
+      "ArmorPenetration"
+    ],
+    "stats": {
+      "ad": 55
+    },
+    "effects": []
+  },
+  "3143": {
+    "id": 3143,
+    "name": "Randuin's Omen",
+    "description": "Greatly increases defenses, activate to slow nearby enemies",
+    "price": 2700,
+    "from": [
+      "3082",
+      "1011"
+    ],
+    "tags": [
+      "Health",
+      "Armor",
+      "Active",
+      "Slow"
+    ],
+    "stats": {
+      "hp": 350,
+      "armor": 75
+    },
+    "effects": []
+  },
+  "3144": {
+    "id": 3144,
+    "name": "Scout's Slingshot",
+    "description": "Activate to deal magic damage and slow target champion",
+    "price": 600,
+    "from": [
+      "1042",
+      "1042"
+    ],
+    "tags": [
+      "AttackSpeed"
+    ],
+    "stats": {
+      "attackSpeed": 0.2
+    },
+    "effects": []
+  },
+  "3145": {
+    "id": 3145,
+    "name": "Hextech Alternator",
+    "description": "Increases Ability Power. Deal bonus magic damage on attack periodically.",
+    "price": 1100,
+    "from": [
+      "1052",
+      "1052"
+    ],
+    "tags": [
+      "SpellDamage"
+    ],
+    "stats": {
+      "ap": 45
+    },
+    "effects": []
+  },
+  "3146": {
+    "id": 3146,
+    "name": "Hextech Gunblade",
+    "description": "Increases Attack Damage and Ability Power, activate to slow a target",
+    "price": 3000,
+    "from": [
+      "1053",
+      "3145",
+      "1052"
+    ],
+    "tags": [
+      "Damage",
+      "LifeSteal",
+      "SpellDamage",
+      "Active",
+      "SpellVamp"
+    ],
+    "stats": {
+      "ad": 40,
+      "ap": 80
+    },
+    "effects": []
+  },
+  "3147": {
+    "id": 3147,
+    "name": "Haunting Guise",
+    "description": "Deals additional physical damage when ambushing enemies",
+    "price": 1300,
+    "from": [
+      "1052",
+      "1028"
+    ],
+    "tags": [
+      "Health",
+      "SpellDamage"
+    ],
+    "stats": {
+      "ap": 30,
+      "hp": 200
+    },
+    "effects": []
+  },
+  "3152": {
+    "id": 3152,
+    "name": "Hextech Rocketbelt",
+    "description": "Activate to dash forward and unleash a fiery explosion",
+    "price": 2650,
+    "from": [
+      "3145",
+      "3108",
+      "1028"
+    ],
+    "tags": [
+      "Health",
+      "SpellDamage",
+      "Active",
+      "CooldownReduction",
+      "NonbootsMovement",
+      "AbilityHaste"
+    ],
+    "stats": {
+      "ap": 70,
+      "hp": 300
+    },
+    "effects": []
+  },
+  "3153": {
+    "id": 3153,
+    "name": "Blade of The Ruined King",
+    "description": "Deals damage based on target's Health, can steal Move Speed",
+    "price": 3200,
+    "from": [
+      "1053",
+      "1043",
+      "1037"
+    ],
+    "tags": [
+      "Damage",
+      "AttackSpeed",
+      "LifeSteal",
+      "Slow",
+      "OnHit"
+    ],
+    "stats": {
+      "ad": 40,
+      "attackSpeed": 0.25
+    },
+    "effects": [
+      {
+        "type": "onHit",
+        "damageType": "Physical",
+        "base": 15
+      },
+      {
+        "type": "onHit",
+        "damageType": "Physical",
+        "targetHpBased": {
+          "type": "current",
+          "percent": 0.25
+        }
+      }
+    ]
+  },
+  "3155": {
+    "id": 3155,
+    "name": "Hexdrinker",
+    "description": "Increases Attack Damage and Magic Resist",
+    "price": 1300,
+    "from": [
+      "1036",
+      "1033",
+      "1036"
+    ],
+    "tags": [
+      "Damage",
+      "SpellBlock"
+    ],
+    "stats": {
+      "ad": 25,
+      "mr": 25
+    },
+    "effects": []
+  },
+  "3156": {
+    "id": 3156,
+    "name": "Maw of Malmortius",
+    "description": "Grants bonus Attack Damage when Health is low",
+    "price": 3100,
+    "from": [
+      "3155",
+      "3133"
+    ],
+    "tags": [
+      "SpellBlock",
+      "Damage",
+      "LifeSteal",
+      "SpellVamp",
+      "AbilityHaste"
+    ],
+    "stats": {
+      "ad": 60,
+      "mr": 40
+    },
+    "effects": []
+  },
+  "3157": {
+    "id": 3157,
+    "name": "Zhonya's Hourglass",
+    "description": "Activate to become invincible but unable to take actions",
+    "price": 3250,
+    "from": [
+      "1058",
+      "2420"
+    ],
+    "tags": [
+      "Armor",
+      "SpellDamage",
+      "Active"
+    ],
+    "stats": {
+      "ap": 105,
+      "armor": 50
+    },
+    "effects": []
+  },
+  "3158": {
+    "id": 3158,
+    "name": "Ionian Boots of Lucidity",
+    "description": "Increases Move Speed and Cooldown Reduction",
+    "price": 900,
+    "from": [
+      "1001",
+      "2022"
+    ],
+    "tags": [
+      "Boots",
+      "CooldownReduction"
+    ],
+    "stats": {
+      "movementSpeed": 45
+    },
+    "effects": []
+  },
+  "3161": {
+    "id": 3161,
+    "name": "Spear of Shojin",
+    "description": "Reduce damage taken from champions by a flat amount. Attack while near multiple enemy champions to increase this amount for a short time.",
+    "price": 3100,
+    "from": [
+      "1037",
+      "2021",
+      "1028"
+    ],
+    "tags": [
+      "Health",
+      "Damage",
+      "AbilityHaste"
+    ],
+    "stats": {
+      "ad": 45,
+      "hp": 450
+    },
+    "effects": []
+  },
+  "3165": {
+    "id": 3165,
+    "name": "Morellonomicon",
+    "description": "Increases magic damage",
+    "price": 2850,
+    "from": [
+      "3916",
+      "1026",
+      "3067"
+    ],
+    "tags": [
+      "Health",
+      "SpellDamage",
+      "CooldownReduction",
+      "AbilityHaste"
+    ],
+    "stats": {
+      "ap": 75,
+      "hp": 350
+    },
+    "effects": []
+  },
+  "3170": {
+    "id": 3170,
+    "name": "Swiftmarch",
+    "description": "Improves defense and reduces duration of disabling effects",
+    "price": 1000,
+    "from": [
+      "3009"
+    ],
+    "tags": [
+      "Boots"
+    ],
+    "stats": {
+      "movementSpeed": 65
+    },
+    "effects": []
+  },
+  "3171": {
+    "id": 3171,
+    "name": "Crimson Lucidity",
+    "description": "",
+    "price": 900,
+    "from": [
+      "3158"
+    ],
+    "tags": [
+      "CooldownReduction",
+      "Boots"
+    ],
+    "stats": {
+      "movementSpeed": 45
+    },
+    "effects": []
+  },
+  "3172": {
+    "id": 3172,
+    "name": "Gunmetal Greaves",
+    "description": "Mobility and Tenacity",
+    "price": 1100,
+    "from": [
+      "3006"
+    ],
+    "tags": [
+      "AttackSpeed",
+      "LifeSteal",
+      "NonbootsMovement"
+    ],
+    "stats": {
+      "attackSpeed": 0.4,
+      "movementSpeed": 45
+    },
+    "effects": [
+      {
+        "type": "onHit",
+        "damageType": "Physical",
+        "base": 15
+      }
+    ]
+  },
+  "3173": {
+    "id": 3173,
+    "name": "Chainlaced Crushers",
+    "description": "Increases Move Speed and Cooldown Reduction",
+    "price": 1250,
+    "from": [
+      "3111"
+    ],
+    "tags": [
+      "SpellBlock",
+      "Boots",
+      "Tenacity",
+      "MagicResist"
+    ],
+    "stats": {
+      "mr": 30,
+      "movementSpeed": 45
+    },
+    "effects": []
+  },
+  "3174": {
+    "id": 3174,
+    "name": "Armored Advance",
+    "description": "Deal damage to empower your heals and shields",
+    "price": 1200,
+    "from": [
+      "3047"
+    ],
+    "tags": [
+      "Armor",
+      "Boots"
+    ],
+    "stats": {
+      "armor": 35,
+      "movementSpeed": 45
+    },
+    "effects": []
+  },
+  "3175": {
+    "id": 3175,
+    "name": "Spellslinger's Shoes",
+    "description": "",
+    "price": 1100,
+    "from": [
+      "3020"
+    ],
+    "tags": [
+      "Boots",
+      "MagicPenetration"
+    ],
+    "stats": {
+      "movementSpeed": 45
+    },
+    "effects": []
+  },
+  "3177": {
+    "id": 3177,
+    "name": "Guardian's Blade",
+    "description": "Good starting item for attackers",
+    "price": 950,
+    "tags": [
+      "Health",
+      "Damage",
+      "Lane",
+      "AbilityHaste"
+    ],
+    "stats": {
+      "ad": 30,
+      "hp": 150
+    },
+    "effects": []
+  },
+  "3179": {
+    "id": 3179,
+    "name": "Umbral Glaive",
+    "description": "Provides trap and ward detection periodically",
+    "price": 2800,
+    "from": [
+      "3134",
+      "3133"
+    ],
+    "tags": [
+      "Damage",
+      "Vision",
+      "CooldownReduction",
+      "ArmorPenetration",
+      "AbilityHaste"
+    ],
+    "stats": {
+      "ad": 60
+    },
+    "effects": []
+  },
+  "3181": {
+    "id": 3181,
+    "name": "Hullbreaker",
+    "description": "",
+    "price": 3000,
+    "from": [
+      "2021",
+      "3066",
+      "1037"
+    ],
+    "tags": [
+      "Health",
+      "Damage",
+      "NonbootsMovement"
+    ],
+    "stats": {
+      "ad": 40,
+      "hp": 500
+    },
+    "effects": []
+  },
+  "3184": {
+    "id": 3184,
+    "name": "Guardian's Hammer",
+    "description": "Good starting item for attackers",
+    "price": 950,
+    "tags": [
+      "Health",
+      "Damage",
+      "LifeSteal",
+      "Lane"
+    ],
+    "stats": {
+      "ad": 25,
+      "hp": 150
+    },
+    "effects": []
+  },
+  "3190": {
+    "id": 3190,
+    "name": "Locket of the Iron Solari",
+    "description": "Activate to shield nearby allies from damage",
+    "price": 2200,
+    "from": [
+      "3067",
+      "1029",
+      "1033"
+    ],
+    "tags": [
+      "Health",
+      "SpellBlock",
+      "Armor",
+      "Aura",
+      "Active",
+      "MagicResist",
+      "AbilityHaste"
+    ],
+    "stats": {
+      "hp": 200,
+      "armor": 25,
+      "mr": 25
+    },
+    "effects": []
+  },
+  "3211": {
+    "id": 3211,
+    "name": "Spectre's Cowl",
+    "description": "Improves defense and grants regeneration upon being damaged",
+    "price": 1250,
+    "from": [
+      "1028",
+      "1033",
+      "1006"
+    ],
+    "tags": [
+      "Health",
+      "HealthRegen",
+      "SpellBlock"
+    ],
+    "stats": {
+      "hp": 200,
+      "mr": 35
+    },
+    "effects": []
+  },
+  "3222": {
+    "id": 3222,
+    "name": "Mikael's Blessing",
+    "description": "Activate to remove all disabling effects from an allied champion",
+    "price": 2300,
+    "from": [
+      "3067",
+      "3114"
+    ],
+    "tags": [
+      "Health",
+      "ManaRegen",
+      "Active",
+      "CooldownReduction",
+      "Tenacity",
+      "AbilityHaste"
+    ],
+    "stats": {
+      "hp": 250
+    },
+    "effects": []
+  },
+  "3302": {
+    "id": 3302,
+    "name": "Terminus",
+    "description": "Kill minions periodically to heal and grant gold to a nearby ally",
+    "price": 3000,
+    "from": [
+      "3051",
+      "1043"
+    ],
+    "tags": [
+      "Damage",
+      "AttackSpeed",
+      "OnHit",
+      "MagicPenetration",
+      "ArmorPenetration"
+    ],
+    "stats": {
+      "ad": 30,
+      "attackSpeed": 0.35
+    },
+    "effects": [
+      {
+        "type": "onHit",
+        "damageType": "Magical",
+        "base": 30
+      }
+    ]
+  },
+  "3504": {
+    "id": 3504,
+    "name": "Ardent Censer",
+    "description": "Shield and heal effects on other units grant both of you Attack Speed and their attacks deal additional on-hit magic damage.",
+    "price": 2200,
+    "from": [
+      "3113",
+      "3114"
+    ],
+    "tags": [
+      "AttackSpeed",
+      "SpellDamage",
+      "ManaRegen",
+      "NonbootsMovement"
+    ],
+    "stats": {
+      "ap": 45
+    },
+    "effects": [
+      {
+        "type": "onHit",
+        "damageType": "Magical",
+        "base": 15
+      }
+    ]
+  },
+  "3508": {
+    "id": 3508,
+    "name": "Essence Reaver",
+    "description": "",
+    "price": 3050,
+    "from": [
+      "3057",
+      "3133",
+      "1018"
+    ],
+    "tags": [
+      "Damage",
+      "CriticalStrike",
+      "ManaRegen",
+      "CooldownReduction",
+      "OnHit",
+      "AbilityHaste"
+    ],
+    "stats": {
+      "ad": 50,
+      "critChance": 0.25
+    },
+    "effects": [
+      {
+        "type": "onHit",
+        "damageType": "Physical",
+        "base": 15
+      }
+    ]
+  },
+  "3742": {
+    "id": 3742,
+    "name": "Dead Man's Plate",
+    "description": "Build momentum as you move around then smash into enemies.",
+    "price": 2900,
+    "from": [
+      "3066",
+      "1028",
+      "1031"
+    ],
+    "tags": [
+      "Health",
+      "Armor",
+      "Slow",
+      "NonbootsMovement"
+    ],
+    "stats": {
+      "hp": 350,
+      "armor": 55
+    },
+    "effects": []
+  },
+  "3748": {
+    "id": 3748,
+    "name": "Titanic Hydra",
+    "description": "Deals area of effect damage based on owner's health",
+    "price": 3300,
+    "from": [
+      "3077",
+      "2021",
+      "1011"
+    ],
+    "tags": [
+      "Health",
+      "HealthRegen",
+      "Damage",
+      "OnHit"
+    ],
+    "stats": {
+      "ad": 40,
+      "hp": 600
+    },
+    "effects": [
+      {
+        "type": "onHit",
+        "damageType": "Physical",
+        "base": 15
+      }
+    ]
+  },
+  "3801": {
+    "id": 3801,
+    "name": "Crystalline Bracer",
+    "description": "Grants Health and Health Regen",
+    "price": 800,
+    "from": [
+      "1028",
+      "1006"
+    ],
+    "tags": [
+      "Health",
+      "HealthRegen"
+    ],
+    "stats": {
+      "hp": 200
+    },
+    "effects": []
+  },
+  "3802": {
+    "id": 3802,
+    "name": "Lost Chapter",
+    "description": "Restores Mana upon levelling up.",
+    "price": 1200,
+    "from": [
+      "1052",
+      "1027",
+      "2022"
+    ],
+    "tags": [
+      "SpellDamage",
+      "Mana",
+      "ManaRegen",
+      "CooldownReduction",
+      "AbilityHaste"
+    ],
+    "stats": {
+      "ap": 40
+    },
+    "effects": []
+  },
+  "3803": {
+    "id": 3803,
+    "name": "Catalyst of Aeons",
+    "description": "",
+    "price": 1300,
+    "from": [
+      "1028",
+      "1028",
+      "1027"
+    ],
+    "tags": [
+      "Health",
+      "HealthRegen",
+      "Mana",
+      "ManaRegen"
+    ],
+    "stats": {
+      "hp": 300
+    },
+    "effects": []
+  },
+  "3814": {
+    "id": 3814,
+    "name": "Edge of Night",
+    "description": "Periodically blocks enemy abilities",
+    "price": 3000,
+    "from": [
+      "3134",
+      "2021"
+    ],
+    "tags": [
+      "Health",
+      "Damage",
+      "ArmorPenetration"
+    ],
+    "stats": {
+      "ad": 50,
+      "hp": 250
+    },
+    "effects": []
+  },
+  "3865": {
+    "id": 3865,
+    "name": "World Atlas",
+    "description": "",
+    "price": 400,
+    "tags": [
+      "Health",
+      "ManaRegen",
+      "Vision",
+      "GoldPer",
+      "Lane"
+    ],
+    "stats": {
+      "hp": 30
+    },
+    "effects": []
+  },
+  "3869": {
+    "id": 3869,
+    "name": "Celestial Opposition",
+    "description": "",
+    "price": 400,
+    "from": [
+      "3867"
+    ],
+    "tags": [
+      "Health",
+      "HealthRegen",
+      "ManaRegen",
+      "Vision",
+      "GoldPer",
+      "Lane"
+    ],
+    "stats": {
+      "hp": 200
+    },
+    "effects": []
+  },
+  "3870": {
+    "id": 3870,
+    "name": "Dream Maker",
+    "description": "",
+    "price": 400,
+    "from": [
+      "3867"
+    ],
+    "tags": [
+      "Health",
+      "HealthRegen",
+      "ManaRegen",
+      "Vision",
+      "GoldPer",
+      "Lane"
+    ],
+    "stats": {
+      "hp": 200
+    },
+    "effects": [
+      {
+        "type": "onHit",
+        "damageType": "Magical",
+        "base": 15
+      }
+    ]
+  },
+  "3871": {
+    "id": 3871,
+    "name": "Zaz'Zak's Realmspike",
+    "description": "",
+    "price": 400,
+    "from": [
+      "3867"
+    ],
+    "tags": [
+      "Health",
+      "HealthRegen",
+      "ManaRegen",
+      "Vision",
+      "GoldPer",
+      "Lane"
+    ],
+    "stats": {
+      "hp": 200
+    },
+    "effects": []
+  },
+  "3876": {
+    "id": 3876,
+    "name": "Solstice Sleigh",
+    "description": "",
+    "price": 400,
+    "from": [
+      "3867"
+    ],
+    "tags": [
+      "Health",
+      "HealthRegen",
+      "ManaRegen",
+      "Vision",
+      "GoldPer",
+      "Lane"
+    ],
+    "stats": {
+      "hp": 200
+    },
+    "effects": []
+  },
+  "3877": {
+    "id": 3877,
+    "name": "Bloodsong",
+    "description": "",
+    "price": 400,
+    "from": [
+      "3867"
+    ],
+    "tags": [
+      "Health",
+      "HealthRegen",
+      "ManaRegen",
+      "Vision",
+      "GoldPer",
+      "Lane"
+    ],
+    "stats": {
+      "hp": 200
+    },
+    "effects": [
+      {
+        "type": "onHit",
+        "damageType": "Physical",
+        "base": 15
+      }
+    ]
+  },
+  "3916": {
+    "id": 3916,
+    "name": "Oblivion Orb",
+    "description": "Increases magic damage",
+    "price": 800,
+    "from": [
+      "1052"
+    ],
+    "tags": [
+      "SpellDamage"
+    ],
+    "stats": {
+      "ap": 25
+    },
+    "effects": []
+  },
+  "4005": {
+    "id": 4005,
+    "name": "Imperial Mandate",
+    "description": "Defer damage until later.",
+    "price": 2250,
+    "from": [
+      "3108",
+      "4642"
+    ],
+    "tags": [
+      "SpellDamage",
+      "ManaRegen",
+      "CooldownReduction",
+      "AbilityHaste"
+    ],
+    "stats": {
+      "ap": 60
+    },
+    "effects": []
+  },
+  "4401": {
+    "id": 4401,
+    "name": "Force of Nature",
+    "description": "Move Speed, Magic Resist, and max Health Regeneration",
+    "price": 2800,
+    "from": [
+      "1057",
+      "1028",
+      "3066"
+    ],
+    "tags": [
+      "Health",
+      "SpellBlock",
+      "NonbootsMovement"
+    ],
+    "stats": {
+      "hp": 400,
+      "mr": 55
+    },
+    "effects": []
+  },
+  "4628": {
+    "id": 4628,
+    "name": "Horizon Focus",
+    "description": "Immobilizing a champion causes lightning to strike them",
+    "price": 2700,
+    "from": [
+      "3108",
+      "3108",
+      "1052"
+    ],
+    "tags": [
+      "SpellDamage",
+      "AbilityHaste"
+    ],
+    "stats": {
+      "ap": 75
+    },
+    "effects": []
+  },
+  "4629": {
+    "id": 4629,
+    "name": "Cosmic Drive",
+    "description": "Massive amounts of Cooldown Reduction",
+    "price": 3000,
+    "from": [
+      "3067",
+      "3113",
+      "3108"
+    ],
+    "tags": [
+      "Health",
+      "SpellDamage",
+      "NonbootsMovement",
+      "AbilityHaste"
+    ],
+    "stats": {
+      "ap": 70,
+      "hp": 350
+    },
+    "effects": []
+  },
+  "4630": {
+    "id": 4630,
+    "name": "Blighting Jewel",
+    "description": "",
+    "price": 1100,
+    "from": [
+      "1052"
+    ],
+    "tags": [
+      "MagicPenetration",
+      "SpellDamage"
+    ],
+    "stats": {
+      "ap": 25
+    },
+    "effects": []
+  },
+  "4632": {
+    "id": 4632,
+    "name": "Verdant Barrier",
+    "description": "",
+    "price": 1600,
+    "from": [
+      "1052",
+      "1033",
+      "1052"
+    ],
+    "tags": [
+      "SpellBlock",
+      "SpellDamage"
+    ],
+    "stats": {
+      "ap": 40,
+      "mr": 25
+    },
+    "effects": []
+  },
+  "4633": {
+    "id": 4633,
+    "name": "Riftmaker",
+    "description": "",
+    "price": 3100,
+    "from": [
+      "3147",
+      "3108"
+    ],
+    "tags": [
+      "Health",
+      "SpellDamage",
+      "CooldownReduction",
+      "SpellVamp"
+    ],
+    "stats": {
+      "ap": 70,
+      "hp": 350
+    },
+    "effects": []
+  },
+  "4642": {
+    "id": 4642,
+    "name": "Bandleglass Mirror",
+    "description": "",
+    "price": 900,
+    "from": [
+      "1004",
+      "1052",
+      "2022"
+    ],
+    "tags": [
+      "SpellDamage",
+      "ManaRegen",
+      "CooldownReduction",
+      "AbilityHaste"
+    ],
+    "stats": {
+      "ap": 20
+    },
+    "effects": []
+  },
+  "4645": {
+    "id": 4645,
+    "name": "Shadowflame",
+    "description": "",
+    "price": 3200,
+    "from": [
+      "3145",
+      "1058"
+    ],
+    "tags": [
+      "SpellDamage",
+      "MagicPenetration"
+    ],
+    "stats": {
+      "ap": 110
+    },
+    "effects": []
+  },
+  "4646": {
+    "id": 4646,
+    "name": "Stormsurge",
+    "description": "",
+    "price": 2800,
+    "from": [
+      "3145",
+      "3113"
+    ],
+    "tags": [
+      "SpellDamage",
+      "GoldPer",
+      "NonbootsMovement",
+      "MagicPenetration"
+    ],
+    "stats": {
+      "ap": 90
+    },
+    "effects": []
+  },
+  "6333": {
+    "id": 6333,
+    "name": "Death's Dance",
+    "description": "",
+    "price": 3300,
+    "from": [
+      "2019",
+      "1037",
+      "3133"
+    ],
+    "tags": [
+      "Armor",
+      "Damage",
+      "AbilityHaste"
+    ],
+    "stats": {
+      "ad": 60,
+      "armor": 50
+    },
+    "effects": []
+  },
+  "6609": {
+    "id": 6609,
+    "name": "Chempunk Chainsword",
+    "description": "",
+    "price": 3100,
+    "from": [
+      "3123",
+      "1011",
+      "3133"
+    ],
+    "tags": [
+      "Health",
+      "Damage",
+      "CooldownReduction",
+      "AbilityHaste"
+    ],
+    "stats": {
+      "ad": 45,
+      "hp": 450
+    },
+    "effects": []
+  },
+  "6610": {
+    "id": 6610,
+    "name": "Sundered Sky",
+    "description": "",
+    "price": 3100,
+    "from": [
+      "2021",
+      "3133",
+      "1028"
+    ],
+    "tags": [
+      "Health",
+      "Damage",
+      "CooldownReduction",
+      "AbilityHaste"
+    ],
+    "stats": {
+      "ad": 45,
+      "hp": 400
+    },
+    "effects": []
+  },
+  "6616": {
+    "id": 6616,
+    "name": "Staff of Flowing Water",
+    "description": "Your heals and shields reduce crowd control and grant Move Speed",
+    "price": 2250,
+    "from": [
+      "3108",
+      "3114"
+    ],
+    "tags": [
+      "SpellDamage",
+      "ManaRegen",
+      "CooldownReduction",
+      "AbilityHaste"
+    ],
+    "stats": {
+      "ap": 35
+    },
+    "effects": []
+  },
+  "6617": {
+    "id": 6617,
+    "name": "Moonstone Renewer",
+    "description": "Your heals and shields cool down faster and have greater effect on low health allies",
+    "price": 2200,
+    "from": [
+      "3067",
+      "4642"
+    ],
+    "tags": [
+      "Health",
+      "SpellDamage",
+      "ManaRegen",
+      "CooldownReduction",
+      "AbilityHaste"
+    ],
+    "stats": {
+      "ap": 25,
+      "hp": 200
+    },
+    "effects": []
+  },
+  "6620": {
+    "id": 6620,
+    "name": "Echoes of Helia",
+    "description": "Damage low-health enemies to trigger a cursed explosion, dealing damage and slowing nearby foes",
+    "price": 2200,
+    "from": [
+      "3067",
+      "4642"
+    ],
+    "tags": [
+      "Health",
+      "SpellDamage",
+      "ManaRegen",
+      "CooldownReduction",
+      "AbilityHaste"
+    ],
+    "stats": {
+      "ap": 35,
+      "hp": 200
+    },
+    "effects": []
+  },
+  "6621": {
+    "id": 6621,
+    "name": "Dawncore",
+    "description": "",
+    "price": 2500,
+    "from": [
+      "1026",
+      "3114",
+      "3114"
+    ],
+    "tags": [
+      "SpellDamage",
+      "ManaRegen"
+    ],
+    "stats": {
+      "ap": 45
+    },
+    "effects": []
+  },
+  "6631": {
+    "id": 6631,
+    "name": "Stridebreaker",
+    "description": "",
+    "price": 3300,
+    "from": [
+      "3077",
+      "3044",
+      "1042"
+    ],
+    "tags": [
+      "Health",
+      "Damage",
+      "AttackSpeed",
+      "Slow"
+    ],
+    "stats": {
+      "ad": 40,
+      "hp": 450,
+      "attackSpeed": 0.25
+    },
+    "effects": []
+  },
+  "6653": {
+    "id": 6653,
+    "name": "Liandry's Torment",
+    "description": "Charge up in combat to deal high damage over time, especially against durable enemies",
+    "price": 3000,
+    "from": [
+      "3147",
+      "2508"
+    ],
+    "tags": [
+      "Health",
+      "SpellDamage"
+    ],
+    "stats": {
+      "ap": 60,
+      "hp": 300
+    },
+    "effects": [
+      {
+        "type": "onHit",
+        "damageType": "Physical",
+        "targetHpBased": {
+          "type": "max",
+          "percent": 0.02
+        }
+      }
+    ]
+  },
+  "6655": {
+    "id": 6655,
+    "name": "Luden's Echo",
+    "description": "High burst damage, good against fragile foes",
+    "price": 2750,
+    "from": [
+      "3802",
+      "3145"
+    ],
+    "tags": [
+      "SpellDamage",
+      "Mana",
+      "CooldownReduction",
+      "AbilityHaste"
+    ],
+    "stats": {
+      "ap": 100
+    },
+    "effects": []
+  },
+  "6657": {
+    "id": 6657,
+    "name": "Rod of Ages",
+    "description": "",
+    "price": 2600,
+    "from": [
+      "1026",
+      "3803"
+    ],
+    "tags": [
+      "Health",
+      "HealthRegen",
+      "SpellDamage",
+      "Mana",
+      "ManaRegen"
+    ],
+    "stats": {
+      "ap": 45,
+      "hp": 350
+    },
+    "effects": []
+  },
+  "6660": {
+    "id": 6660,
+    "name": "Bami's Cinder",
+    "description": "",
+    "price": 900,
+    "from": [
+      "1028",
+      "2022"
+    ],
+    "tags": [
+      "Health",
+      "AbilityHaste"
+    ],
+    "stats": {
+      "hp": 150
+    },
+    "effects": []
+  },
+  "6662": {
+    "id": 6662,
+    "name": "Iceborn Gauntlet",
+    "description": "High Magic Resist.Passively slow nearby enemies. When spells are cast near you, release a wave of energy that damages and slows.",
+    "price": 2900,
+    "from": [
+      "3057",
+      "1028",
+      "1031"
+    ],
+    "tags": [
+      "Health",
+      "Armor",
+      "CooldownReduction",
+      "Slow",
+      "OnHit",
+      "AbilityHaste"
+    ],
+    "stats": {
+      "hp": 300,
+      "armor": 50
+    },
+    "effects": [
+      {
+        "type": "onHit",
+        "damageType": "Physical",
+        "base": 15
+      }
+    ]
+  },
+  "6664": {
+    "id": 6664,
+    "name": "Hollow Radiance",
+    "description": "Immobilize enemies to gain a shield. Activate to run faster at opponents.",
+    "price": 2800,
+    "from": [
+      "6660",
+      "3211"
+    ],
+    "tags": [
+      "Health",
+      "SpellBlock",
+      "HealthRegen",
+      "Aura",
+      "MagicResist",
+      "AbilityHaste"
+    ],
+    "stats": {
+      "hp": 400,
+      "mr": 40
+    },
+    "effects": []
+  },
+  "6665": {
+    "id": 6665,
+    "name": "Jak'Sho, The Protean",
+    "description": "",
+    "price": 3200,
+    "from": [
+      "1011",
+      "1031",
+      "1057"
+    ],
+    "tags": [
+      "Health",
+      "SpellBlock",
+      "Armor",
+      "MagicResist"
+    ],
+    "stats": {
+      "hp": 350,
+      "armor": 45,
+      "mr": 45
+    },
+    "effects": []
+  },
+  "6670": {
+    "id": 6670,
+    "name": "Noonquiver",
+    "description": "",
+    "price": 1300,
+    "from": [
+      "1036",
+      "1018"
+    ],
+    "tags": [
+      "Damage",
+      "CriticalStrike"
+    ],
+    "stats": {
+      "ad": 15,
+      "critChance": 0.2
+    },
+    "effects": []
+  },
+  "6672": {
+    "id": 6672,
+    "name": "Kraken Slayer",
+    "description": "",
+    "price": 3000,
+    "from": [
+      "6690",
+      "3051",
+      "1043"
+    ],
+    "tags": [
+      "Damage",
+      "AttackSpeed",
+      "OnHit",
+      "NonbootsMovement"
+    ],
+    "stats": {
+      "ad": 45,
+      "attackSpeed": 0.4
+    },
+    "effects": [
+      {
+        "type": "onHit",
+        "damageType": "Physical",
+        "base": 15
+      }
+    ]
+  },
+  "6673": {
+    "id": 6673,
+    "name": "Immortal Shieldbow",
+    "description": "",
+    "price": 3000,
+    "from": [
+      "1037",
+      "6670"
+    ],
+    "tags": [
+      "Damage",
+      "CriticalStrike"
+    ],
+    "stats": {
+      "ad": 55,
+      "critChance": 0.25
+    },
+    "effects": []
+  },
+  "6675": {
+    "id": 6675,
+    "name": "Navori Flickerblade",
+    "description": "",
+    "price": 2650,
+    "from": [
+      "1042",
+      "3086",
+      "1042"
+    ],
+    "tags": [
+      "CriticalStrike",
+      "AttackSpeed",
+      "NonbootsMovement"
+    ],
+    "stats": {
+      "attackSpeed": 0.4,
+      "critChance": 0.25
+    },
+    "effects": []
+  },
+  "6676": {
+    "id": 6676,
+    "name": "The Collector",
+    "description": "",
+    "price": 3000,
+    "from": [
+      "1037",
+      "3134",
+      "1018"
+    ],
+    "tags": [
+      "Damage",
+      "CriticalStrike",
+      "ArmorPenetration"
+    ],
+    "stats": {
+      "ad": 50,
+      "critChance": 0.25
+    },
+    "effects": []
+  },
+  "6690": {
+    "id": 6690,
+    "name": "Rectrix",
+    "description": "",
+    "price": 775,
+    "from": [
+      "1036"
+    ],
+    "tags": [
+      "Damage",
+      "NonbootsMovement"
+    ],
+    "stats": {
+      "ad": 15
+    },
+    "effects": []
+  },
+  "6692": {
+    "id": 6692,
+    "name": "Eclipse",
+    "description": "",
+    "price": 2900,
+    "from": [
+      "3133",
+      "1037",
+      "1036"
+    ],
+    "tags": [
+      "Damage",
+      "CooldownReduction",
+      "AbilityHaste"
+    ],
+    "stats": {
+      "ad": 60
+    },
+    "effects": []
+  },
+  "6694": {
+    "id": 6694,
+    "name": "Serylda's Grudge",
+    "description": "",
+    "price": 3000,
+    "from": [
+      "3133",
+      "3035"
+    ],
+    "tags": [
+      "Damage",
+      "CooldownReduction",
+      "ArmorPenetration",
+      "AbilityHaste"
+    ],
+    "stats": {
+      "ad": 45
+    },
+    "effects": []
+  },
+  "6695": {
+    "id": 6695,
+    "name": "Serpent's Fang",
+    "description": "",
+    "price": 2500,
+    "from": [
+      "3134",
+      "1037"
+    ],
+    "tags": [
+      "Damage",
+      "ArmorPenetration"
+    ],
+    "stats": {
+      "ad": 55
+    },
+    "effects": []
+  },
+  "6696": {
+    "id": 6696,
+    "name": "Axiom Arc",
+    "description": "",
+    "price": 2750,
+    "from": [
+      "2020",
+      "3133"
+    ],
+    "tags": [
+      "Damage",
+      "ArmorPenetration",
+      "AbilityHaste"
+    ],
+    "stats": {
+      "ad": 55
+    },
+    "effects": []
+  },
+  "6697": {
+    "id": 6697,
+    "name": "Hubris",
+    "description": "",
+    "price": 3000,
+    "from": [
+      "3134",
+      "3133"
+    ],
+    "tags": [
+      "Damage",
+      "Active",
+      "CooldownReduction",
+      "ArmorPenetration",
+      "AbilityHaste"
+    ],
+    "stats": {
+      "ad": 60
+    },
+    "effects": []
+  },
+  "6698": {
+    "id": 6698,
+    "name": "Profane Hydra",
+    "description": "",
+    "price": 2850,
+    "from": [
+      "3077",
+      "2020"
+    ],
+    "tags": [
+      "Damage",
+      "Active",
+      "CooldownReduction",
+      "ArmorPenetration",
+      "AbilityHaste"
+    ],
+    "stats": {
+      "ad": 55
+    },
+    "effects": []
+  },
+  "6699": {
+    "id": 6699,
+    "name": "Voltaic Cyclosword",
+    "description": "",
+    "price": 3000,
+    "from": [
+      "2020",
+      "1036",
+      "1036"
+    ],
+    "tags": [
+      "Damage",
+      "Active",
+      "CooldownReduction",
+      "ArmorPenetration",
+      "AbilityHaste"
+    ],
+    "stats": {
+      "ad": 55
+    },
+    "effects": []
+  },
+  "6701": {
+    "id": 6701,
+    "name": "Opportunity",
+    "description": "",
+    "price": 2700,
+    "from": [
+      "1037",
+      "3134",
+      "1036"
+    ],
+    "tags": [
+      "Damage",
+      "Active",
+      "NonbootsMovement",
+      "ArmorPenetration"
+    ],
+    "stats": {
+      "ad": 55
+    },
+    "effects": []
+  },
+  "8010": {
+    "id": 8010,
+    "name": "Bloodletter's Curse",
+    "description": "",
+    "price": 2900,
+    "from": [
+      "3147",
+      "3108"
+    ],
+    "tags": [
+      "Health",
+      "SpellDamage",
+      "CooldownReduction",
+      "MagicPenetration"
+    ],
+    "stats": {
+      "ap": 65,
+      "hp": 400
+    },
+    "effects": []
+  },
+  "8020": {
+    "id": 8020,
+    "name": "Abyssal Mask",
+    "description": "",
+    "price": 2650,
+    "from": [
+      "3067",
+      "1057"
+    ],
+    "tags": [
+      "Health",
+      "SpellBlock",
+      "CooldownReduction",
+      "MagicResist",
+      "AbilityHaste"
+    ],
+    "stats": {
+      "hp": 350,
+      "mr": 45
+    },
+    "effects": []
+  },
+  "322065": {
+    "id": 322065,
+    "name": "Shurelya's Battlesong",
+    "description": "",
+    "price": 2600,
+    "from": [
+      "3113",
+      "4642"
+    ],
+    "tags": [
+      "SpellDamage",
+      "ManaRegen",
+      "Active",
+      "CooldownReduction",
+      "NonbootsMovement",
+      "AbilityHaste"
+    ],
+    "stats": {
+      "ap": 65
+    },
+    "effects": []
+  },
+  "322526": {
+    "id": 322526,
+    "name": "Whispering Circlet",
+    "description": "",
+    "price": 2250,
+    "from": [
+      "3114",
+      "1028",
+      "323070"
+    ],
+    "tags": [
+      "Health",
+      "Mana",
+      "ManaRegen"
+    ],
+    "stats": {
+      "hp": 200
+    },
+    "effects": []
+  },
+  "323002": {
+    "id": 323002,
+    "name": "Trailblazer",
+    "description": "",
+    "price": 2600,
+    "from": [
+      "3066",
+      "1031"
+    ],
+    "tags": [
+      "Health",
+      "Armor",
+      "NonbootsMovement"
+    ],
+    "stats": {
+      "hp": 300,
+      "armor": 45
+    },
+    "effects": []
+  },
+  "323003": {
+    "id": 323003,
+    "name": "Archangel's Staff",
+    "description": "",
+    "price": 2900,
+    "from": [
+      "323070",
+      "3802",
+      "3108"
+    ],
+    "tags": [
+      "SpellDamage",
+      "Mana",
+      "AbilityHaste"
+    ],
+    "stats": {
+      "ap": 70
+    },
+    "effects": []
+  },
+  "323004": {
+    "id": 323004,
+    "name": "Manamune",
+    "description": "",
+    "price": 2900,
+    "from": [
+      "323070",
+      "3133",
+      "1036"
+    ],
+    "tags": [
+      "Damage",
+      "Mana",
+      "CooldownReduction",
+      "OnHit",
+      "AbilityHaste"
+    ],
+    "stats": {
+      "ad": 35
+    },
+    "effects": []
+  },
+  "323050": {
+    "id": 323050,
+    "name": "Zeke's Convergence",
+    "description": "",
+    "price": 2300,
+    "from": [
+      "1029",
+      "3067",
+      "1033"
+    ],
+    "tags": [
+      "Health",
+      "SpellBlock",
+      "Armor",
+      "AbilityHaste"
+    ],
+    "stats": {
+      "hp": 350,
+      "armor": 30,
+      "mr": 30
+    },
+    "effects": []
+  },
+  "323070": {
+    "id": 323070,
+    "name": "Tear of the Goddess",
+    "description": "",
+    "price": 400,
+    "tags": [
+      "Mana",
+      "ManaRegen"
+    ],
+    "stats": {},
+    "effects": []
+  },
+  "323075": {
+    "id": 323075,
+    "name": "Thornmail",
+    "description": "",
+    "price": 2650,
+    "from": [
+      "3076",
+      "1031",
+      "1028"
+    ],
+    "tags": [
+      "Health",
+      "Armor"
+    ],
+    "stats": {
+      "hp": 200,
+      "armor": 85
+    },
+    "effects": []
+  },
+  "323107": {
+    "id": 323107,
+    "name": "Redemption",
+    "description": "",
+    "price": 2800,
+    "from": [
+      "3067",
+      "1028",
+      "3114"
+    ],
+    "tags": [
+      "SpellDamage",
+      "ManaRegen",
+      "CooldownReduction",
+      "AbilityHaste"
+    ],
+    "stats": {
+      "ap": 30,
+      "hp": 400
+    },
+    "effects": [
+      {
+        "type": "onHit",
+        "damageType": "Physical",
+        "targetHpBased": {
+          "type": "max",
+          "percent": 1
+        }
+      }
+    ]
+  },
+  "323109": {
+    "id": 323109,
+    "name": "Knight's Vow",
+    "description": "",
+    "price": 2900,
+    "from": [
+      "3067",
+      "1031",
+      "1006"
+    ],
+    "tags": [
+      "Health",
+      "HealthRegen",
+      "Armor",
+      "Aura",
+      "Active",
+      "CooldownReduction",
+      "AbilityHaste"
+    ],
+    "stats": {
+      "hp": 300,
+      "armor": 50
+    },
+    "effects": []
+  },
+  "323110": {
+    "id": 323110,
+    "name": "Frozen Heart",
+    "description": "",
+    "price": 2700,
+    "from": [
+      "3082",
+      "3024"
+    ],
+    "tags": [
+      "Armor",
+      "Mana",
+      "Aura",
+      "CooldownReduction",
+      "AbilityHaste"
+    ],
+    "stats": {
+      "armor": 75
+    },
+    "effects": []
+  },
+  "323119": {
+    "id": 323119,
+    "name": "Winter's Approach",
+    "description": "",
+    "price": 2400,
+    "from": [
+      "323070",
+      "1011",
+      "3067"
+    ],
+    "tags": [
+      "Health",
+      "Mana",
+      "AbilityHaste"
+    ],
+    "stats": {
+      "hp": 550
+    },
+    "effects": []
+  },
+  "323190": {
+    "id": 323190,
+    "name": "Locket of the Iron Solari",
+    "description": "",
+    "price": 2600,
+    "from": [
+      "3067",
+      "1029",
+      "1033"
+    ],
+    "tags": [
+      "Health",
+      "SpellBlock",
+      "Armor",
+      "Aura",
+      "Active",
+      "MagicResist",
+      "AbilityHaste"
+    ],
+    "stats": {
+      "hp": 250,
+      "armor": 30,
+      "mr": 30
+    },
+    "effects": []
+  },
+  "323222": {
+    "id": 323222,
+    "name": "Mikael's Blessing",
+    "description": "",
+    "price": 2800,
+    "from": [
+      "3067",
+      "1028",
+      "3114"
+    ],
+    "tags": [
+      "Health",
+      "ManaRegen",
+      "Active",
+      "CooldownReduction",
+      "Tenacity",
+      "AbilityHaste"
+    ],
+    "stats": {
+      "hp": 400
+    },
+    "effects": []
+  },
+  "323504": {
+    "id": 323504,
+    "name": "Ardent Censer",
+    "description": "",
+    "price": 2600,
+    "from": [
+      "3113",
+      "1052",
+      "3114"
+    ],
+    "tags": [
+      "AttackSpeed",
+      "SpellDamage",
+      "ManaRegen",
+      "NonbootsMovement"
+    ],
+    "stats": {
+      "ap": 55
+    },
+    "effects": [
+      {
+        "type": "onHit",
+        "damageType": "Magical",
+        "base": 15
+      }
+    ]
+  },
+  "324005": {
+    "id": 324005,
+    "name": "Imperial Mandate",
+    "description": "",
+    "price": 2750,
+    "from": [
+      "3108",
+      "1052",
+      "4642"
+    ],
+    "tags": [
+      "SpellDamage",
+      "ManaRegen",
+      "CooldownReduction",
+      "AbilityHaste"
+    ],
+    "stats": {
+      "ap": 65
+    },
+    "effects": []
+  },
+  "326616": {
+    "id": 326616,
+    "name": "Staff of Flowing Water",
+    "description": "",
+    "price": 2600,
+    "from": [
+      "3108",
+      "1052",
+      "3114"
+    ],
+    "tags": [
+      "SpellDamage",
+      "ManaRegen",
+      "CooldownReduction",
+      "AbilityHaste"
+    ],
+    "stats": {
+      "ap": 45
+    },
+    "effects": []
+  },
+  "326617": {
+    "id": 326617,
+    "name": "Moonstone Renewer",
+    "description": "",
+    "price": 2900,
+    "from": [
+      "3067",
+      "1028",
+      "4642"
+    ],
+    "tags": [
+      "Health",
+      "SpellDamage",
+      "ManaRegen",
+      "CooldownReduction",
+      "AbilityHaste"
+    ],
+    "stats": {
+      "ap": 35,
+      "hp": 400
+    },
+    "effects": []
+  },
+  "326620": {
+    "id": 326620,
+    "name": "Echoes of Helia",
+    "description": "",
+    "price": 2600,
+    "from": [
+      "3067",
+      "4642"
+    ],
+    "tags": [
+      "Health",
+      "SpellDamage",
+      "ManaRegen",
+      "CooldownReduction",
+      "AbilityHaste"
+    ],
+    "stats": {
+      "ap": 35,
+      "hp": 250
+    },
+    "effects": []
+  },
+  "326621": {
+    "id": 326621,
+    "name": "Dawncore",
+    "description": "",
+    "price": 2900,
+    "from": [
+      "1026",
+      "3114",
+      "3114"
+    ],
+    "tags": [
+      "SpellDamage",
+      "ManaRegen"
+    ],
+    "stats": {
+      "ap": 50
+    },
+    "effects": []
+  },
+  "326657": {
+    "id": 326657,
+    "name": "Rod of Ages",
+    "description": "",
+    "price": 2600,
+    "from": [
+      "1026",
+      "3803"
+    ],
+    "tags": [
+      "Health",
+      "HealthRegen",
+      "SpellDamage",
+      "Mana",
+      "ManaRegen"
+    ],
+    "stats": {
+      "ap": 45,
+      "hp": 350
+    },
+    "effects": []
+  },
+  "328020": {
+    "id": 328020,
+    "name": "Abyssal Mask",
+    "description": "",
+    "price": 2850,
+    "from": [
+      "3067",
+      "1057"
+    ],
+    "tags": [
+      "Health",
+      "SpellBlock",
+      "CooldownReduction",
+      "MagicResist",
+      "AbilityHaste"
+    ],
+    "stats": {
+      "hp": 350,
+      "mr": 50
+    },
+    "effects": []
+  },
+  "663039": {
+    "id": 663039,
+    "name": "Atma's Reckoning",
+    "description": "",
+    "price": 2500,
+    "tags": [
+      "Health",
+      "CriticalStrike",
+      "Lane"
+    ],
+    "stats": {
+      "hp": 500,
+      "critChance": 0.2
+    },
+    "effects": []
+  },
+  "663056": {
+    "id": 663056,
+    "name": "Demon King's Crown",
+    "description": "",
+    "price": 2500,
+    "tags": [
+      "Health",
+      "Armor",
+      "Damage",
+      "AttackSpeed",
+      "SpellDamage",
+      "MagicResist",
+      "AbilityHaste"
+    ],
+    "stats": {},
+    "effects": []
+  },
+  "663058": {
+    "id": 663058,
+    "name": "Shield of Molten Stone",
+    "description": "",
+    "price": 2500,
+    "tags": [
+      "Health",
+      "Armor"
+    ],
+    "stats": {
+      "hp": 250,
+      "armor": 80
+    },
+    "effects": []
+  },
+  "663059": {
+    "id": 663059,
+    "name": "Cloak of Starry Night",
+    "description": "",
+    "price": 2500,
+    "tags": [
+      "Health",
+      "SpellBlock"
+    ],
+    "stats": {
+      "hp": 250,
+      "mr": 60
+    },
+    "effects": []
+  },
+  "663060": {
+    "id": 663060,
+    "name": "Sword of the Divine",
+    "description": "",
+    "price": 2500,
+    "tags": [
+      "Damage",
+      "CriticalStrike",
+      "SpellDamage"
+    ],
+    "stats": {
+      "critChance": 0.5
+    },
+    "effects": []
+  },
+  "663064": {
+    "id": 663064,
+    "name": "Veigar's Talisman of Ascension",
+    "description": "",
+    "price": 900,
+    "tags": [],
+    "stats": {},
+    "effects": []
+  },
+  "663146": {
+    "id": 663146,
+    "name": "Hextech Gunblade",
+    "description": "",
+    "price": 2500,
+    "tags": [
+      "Damage",
+      "LifeSteal",
+      "SpellDamage",
+      "Active",
+      "SpellVamp"
+    ],
+    "stats": {
+      "ad": 45,
+      "ap": 90
+    },
+    "effects": []
+  },
+  "663172": {
+    "id": 663172,
+    "name": "Zephyr",
+    "description": "",
+    "price": 2500,
+    "tags": [
+      "AttackSpeed",
+      "CooldownReduction",
+      "OnHit",
+      "NonbootsMovement",
+      "Tenacity"
+    ],
+    "stats": {
+      "attackSpeed": 0.4
+    },
+    "effects": [
+      {
+        "type": "onHit",
+        "damageType": "Physical",
+        "base": 15
+      }
+    ]
+  },
+  "663193": {
+    "id": 663193,
+    "name": "Gargoyle Stoneplate",
+    "description": "",
+    "price": 2500,
+    "tags": [
+      "SpellBlock",
+      "Armor",
+      "Active",
+      "CooldownReduction",
+      "AbilityHaste"
+    ],
+    "stats": {
+      "armor": 55,
+      "mr": 55
+    },
+    "effects": []
+  },
+  "664011": {
+    "id": 664011,
+    "name": "Sword of Blossoming Dawn",
+    "description": "",
+    "price": 2500,
+    "tags": [
+      "Health",
+      "SpellDamage",
+      "CooldownReduction",
+      "OnHit",
+      "AbilityHaste"
+    ],
+    "stats": {
+      "ap": 35,
+      "hp": 150
+    },
+    "effects": [
+      {
+        "type": "onHit",
+        "damageType": "Physical",
+        "base": 15
+      }
+    ]
+  },
+  "664644": {
+    "id": 664644,
+    "name": "Crown of the Shattered Queen",
+    "description": "",
+    "price": 2500,
+    "tags": [
+      "Health",
+      "SpellDamage",
+      "Mana",
+      "AbilityHaste"
+    ],
+    "stats": {
+      "ap": 65,
+      "hp": 250
+    },
+    "effects": []
+  },
+  "667101": {
+    "id": 667101,
+    "name": "Gambler's Blade",
+    "description": "",
+    "price": 2500,
+    "tags": [
+      "Damage",
+      "NonbootsMovement",
+      "MagicPenetration",
+      "ArmorPenetration",
+      "AbilityHaste"
+    ],
+    "stats": {},
+    "effects": []
+  },
+  "667109": {
+    "id": 667109,
+    "name": "Cruelty",
+    "description": "",
+    "price": 2500,
+    "tags": [
+      "Armor",
+      "SpellDamage",
+      "MagicResist"
+    ],
+    "stats": {
+      "ap": 60,
+      "armor": 25,
+      "mr": 25
+    },
+    "effects": []
+  },
+  "667112": {
+    "id": 667112,
+    "name": "Flesheater",
+    "description": "",
+    "price": 2500,
+    "tags": [
+      "Damage",
+      "SpellDamage",
+      "MagicPenetration",
+      "ArmorPenetration"
+    ],
+    "stats": {
+      "hp": 500
+    },
+    "effects": []
+  },
+  "667666": {
+    "id": 667666,
+    "name": "The Collector",
+    "description": "",
+    "price": 3000,
+    "from": [
+      "1037",
+      "3134",
+      "1018"
+    ],
+    "tags": [
+      "Damage",
+      "CriticalStrike",
+      "ArmorPenetration"
+    ],
+    "stats": {
+      "ad": 50,
+      "critChance": 0.25
+    },
+    "effects": []
+  }
+}

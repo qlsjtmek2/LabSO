@@ -1,0 +1,90 @@
+{
+  "id": "Ambessa",
+  "name": "Ambessa",
+  "baseStats": {
+    "hp": 630,
+    "hpPerLevel": 110,
+    "mp": 200,
+    "mpPerLevel": 0,
+    "ad": 63,
+    "adPerLevel": 3,
+    "armor": 35,
+    "armorPerLevel": 4.9,
+    "mr": 32,
+    "mrPerLevel": 2.05,
+    "attackSpeed": 0.625,
+    "attackSpeedRatio": 2.5,
+    "range": 125
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Drakehound's Step",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Cunning Sweep / Sundering Slam",
+      "cooldown": [
+        14,
+        13,
+        12,
+        11,
+        10
+      ],
+      "cost": [
+        70
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Repudiation",
+      "cooldown": [
+        18,
+        17,
+        16,
+        15,
+        14
+      ],
+      "cost": [
+        70
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Lacerate",
+      "cooldown": [
+        13,
+        12,
+        11,
+        10,
+        9
+      ],
+      "cost": [
+        70
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Public Execution",
+      "cooldown": [
+        130,
+        115,
+        100
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    }
+  }
+}

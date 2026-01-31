@@ -1,0 +1,94 @@
+{
+  "id": "Velkoz",
+  "name": "Vel'Koz",
+  "baseStats": {
+    "hp": 590,
+    "hpPerLevel": 102,
+    "mp": 469,
+    "mpPerLevel": 21,
+    "ad": 55,
+    "adPerLevel": 3.1416,
+    "armor": 22,
+    "armorPerLevel": 4.7,
+    "mr": 30,
+    "mrPerLevel": 1.3,
+    "attackSpeed": 0.643,
+    "attackSpeedRatio": 1.59,
+    "range": 525
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Organic Deconstruction",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Plasma Fission",
+      "cooldown": [
+        7
+      ],
+      "cost": [
+        40,
+        45,
+        50,
+        55,
+        60
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Void Rift",
+      "cooldown": [
+        1.5
+      ],
+      "cost": [
+        50,
+        55,
+        60,
+        65,
+        70
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Tectonic Disruption",
+      "cooldown": [
+        12,
+        11.5,
+        11,
+        10.5,
+        10
+      ],
+      "cost": [
+        50,
+        55,
+        60,
+        65,
+        70
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Life Form Disintegration Ray",
+      "cooldown": [
+        100,
+        90,
+        80
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

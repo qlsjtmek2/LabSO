@@ -1,0 +1,94 @@
+{
+  "id": "Zeri",
+  "name": "Zeri",
+  "baseStats": {
+    "hp": 600,
+    "hpPerLevel": 110,
+    "mp": 250,
+    "mpPerLevel": 45,
+    "ad": 56,
+    "adPerLevel": 2,
+    "armor": 24,
+    "armorPerLevel": 4.2,
+    "mr": 30,
+    "mrPerLevel": 1.3,
+    "attackSpeed": 0.658,
+    "attackSpeedRatio": 2,
+    "range": 500
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Living Battery",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Burst Fire",
+      "cooldown": [
+        0
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Ultrashock Laser",
+      "cooldown": [
+        12,
+        11,
+        10,
+        9,
+        8
+      ],
+      "cost": [
+        50,
+        60,
+        70,
+        80,
+        90
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Spark Surge",
+      "cooldown": [
+        22,
+        21,
+        20,
+        19,
+        18
+      ],
+      "cost": [
+        90,
+        85,
+        80,
+        75,
+        70
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Lightning Crash",
+      "cooldown": [
+        80,
+        75,
+        70
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "id": "Mordekaiser",
+  "name": "Mordekaiser",
+  "baseStats": {
+    "hp": 645,
+    "hpPerLevel": 104,
+    "mp": 100,
+    "mpPerLevel": 0,
+    "ad": 61,
+    "adPerLevel": 4,
+    "armor": 37,
+    "armorPerLevel": 4.2,
+    "mr": 32,
+    "mrPerLevel": 2.05,
+    "attackSpeed": 0.625,
+    "attackSpeedRatio": 1,
+    "range": 175
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Darkness Rise",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Obliterate",
+      "cooldown": [
+        8,
+        7,
+        6,
+        5,
+        4
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Indestructible",
+      "cooldown": [
+        12,
+        11,
+        10,
+        9,
+        8
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Death's Grasp",
+      "cooldown": [
+        18,
+        16,
+        14,
+        12,
+        10
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Realm of Death",
+      "cooldown": [
+        140,
+        120,
+        100
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    }
+  }
+}

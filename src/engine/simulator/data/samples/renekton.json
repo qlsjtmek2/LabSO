@@ -1,0 +1,86 @@
+{
+  "id": "Renekton",
+  "name": "Renekton",
+  "baseStats": {
+    "hp": 660,
+    "hpPerLevel": 111,
+    "mp": 100,
+    "mpPerLevel": 0,
+    "ad": 69,
+    "adPerLevel": 4.15,
+    "armor": 35,
+    "armorPerLevel": 5.2,
+    "mr": 28,
+    "mrPerLevel": 2.05,
+    "attackSpeed": 0.665,
+    "attackSpeedRatio": 2.75,
+    "range": 125
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Reign of Anger",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Cull the Meek",
+      "cooldown": [
+        7
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Ruthless Predator",
+      "cooldown": [
+        16,
+        14,
+        12,
+        10,
+        8
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Slice and Dice",
+      "cooldown": [
+        16,
+        14.5,
+        13,
+        11.5,
+        10
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Dominus",
+      "cooldown": [
+        120,
+        100,
+        80
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    }
+  }
+}

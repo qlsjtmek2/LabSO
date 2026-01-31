@@ -1,0 +1,82 @@
+{
+  "id": "Kalista",
+  "name": "Kalista",
+  "baseStats": {
+    "hp": 560,
+    "hpPerLevel": 114,
+    "mp": 300,
+    "mpPerLevel": 45,
+    "ad": 57,
+    "adPerLevel": 4.75,
+    "armor": 24,
+    "armorPerLevel": 5.2,
+    "mr": 30,
+    "mrPerLevel": 1.3,
+    "attackSpeed": 0.694,
+    "attackSpeedRatio": 4.5,
+    "range": 525
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Martial Poise",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Pierce",
+      "cooldown": [
+        9
+      ],
+      "cost": [
+        60,
+        65,
+        70,
+        75,
+        80
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Sentinel",
+      "cooldown": [
+        30
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Rend",
+      "cooldown": [
+        0
+      ],
+      "cost": [
+        30
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Fate's Call",
+      "cooldown": [
+        160,
+        140,
+        120
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

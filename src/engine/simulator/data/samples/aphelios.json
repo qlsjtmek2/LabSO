@@ -1,0 +1,78 @@
+{
+  "id": "Aphelios",
+  "name": "Aphelios",
+  "baseStats": {
+    "hp": 600,
+    "hpPerLevel": 102,
+    "mp": 348,
+    "mpPerLevel": 42,
+    "ad": 55,
+    "adPerLevel": 2.3,
+    "armor": 26,
+    "armorPerLevel": 4.2,
+    "mr": 30,
+    "mrPerLevel": 1.3,
+    "attackSpeed": 0.665,
+    "attackSpeedRatio": 2.1,
+    "range": 550
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "The Hitman and the Seer",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Weapon Abilites",
+      "cooldown": [
+        9
+      ],
+      "cost": [
+        60
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Phase",
+      "cooldown": [
+        0.8
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Weapon Queue System",
+      "cooldown": [
+        0
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Moonlight Vigil",
+      "cooldown": [
+        120,
+        110,
+        100
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

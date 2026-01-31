@@ -1,0 +1,120 @@
+{
+  "id": "JarvanIV",
+  "name": "Jarvan IV",
+  "baseStats": {
+    "hp": 640,
+    "hpPerLevel": 104,
+    "mp": 300,
+    "mpPerLevel": 55,
+    "ad": 64,
+    "adPerLevel": 3,
+    "armor": 36,
+    "armorPerLevel": 4.6,
+    "mr": 32,
+    "mrPerLevel": 2.05,
+    "attackSpeed": 0.658,
+    "attackSpeedRatio": 2.5,
+    "range": 175
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Martial Cadence",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Dragon Strike",
+      "cooldown": [
+        10,
+        9,
+        8,
+        7,
+        6
+      ],
+      "cost": [
+        45,
+        50,
+        55,
+        60,
+        65
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Physical",
+            "base": [
+              10,
+              14,
+              18,
+              22,
+              26
+            ],
+            "ratios": []
+          }
+        }
+      ]
+    },
+    "W": {
+      "id": "W",
+      "name": "Golden Aegis",
+      "cooldown": [
+        9
+      ],
+      "cost": [
+        30
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Physical",
+            "base": [
+              15,
+              20,
+              25,
+              30,
+              35
+            ],
+            "ratios": []
+          }
+        }
+      ]
+    },
+    "E": {
+      "id": "E",
+      "name": "Demacian Standard",
+      "cooldown": [
+        12,
+        11.5,
+        11,
+        10.5,
+        10
+      ],
+      "cost": [
+        55
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Cataclysm",
+      "cooldown": [
+        120,
+        105,
+        90
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

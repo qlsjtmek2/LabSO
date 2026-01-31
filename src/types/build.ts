@@ -89,10 +89,12 @@ export interface BuildRecommendation {
   coreItems: ItemRecommendation[];
   situationalItems: ItemRecommendation[];
   boots: ItemRecommendation;
-
-  // 종합 설명
   summary: string;
-  reasons: string[];              // 주요 추천 이유들
+  reasons: string[];
+  
+  // 유전 알고리즘 분석 결과
+  skillOrder?: string[];
+  summonerSpells?: string[];
 }
 
 // 아이템 정보 (DataDragon에서 가져온 데이터 + 추가 메타)

@@ -1,0 +1,84 @@
+{
+  "id": "DrMundo",
+  "name": "Dr. Mundo",
+  "baseStats": {
+    "hp": 640,
+    "hpPerLevel": 103,
+    "mp": 0,
+    "mpPerLevel": 0,
+    "ad": 61,
+    "adPerLevel": 2.5,
+    "armor": 32,
+    "armorPerLevel": 4.5,
+    "mr": 29,
+    "mrPerLevel": 2.3,
+    "attackSpeed": 0.67,
+    "attackSpeedRatio": 3.3,
+    "range": 125
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Goes Where He Pleases",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Infected Bonesaw",
+      "cooldown": [
+        4
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Heart Zapper",
+      "cooldown": [
+        17,
+        16.5,
+        16,
+        15.5,
+        15
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Blunt Force Trauma",
+      "cooldown": [
+        9,
+        8.25,
+        7.5,
+        6.75,
+        6
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Maximum Dosage",
+      "cooldown": [
+        120
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    }
+  }
+}

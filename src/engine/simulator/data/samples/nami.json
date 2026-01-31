@@ -1,0 +1,101 @@
+{
+  "id": "Nami",
+  "name": "Nami",
+  "baseStats": {
+    "hp": 560,
+    "hpPerLevel": 88,
+    "mp": 365,
+    "mpPerLevel": 43,
+    "ad": 54,
+    "adPerLevel": 3.1,
+    "armor": 29,
+    "armorPerLevel": 5.2,
+    "mr": 30,
+    "mrPerLevel": 1.3,
+    "attackSpeed": 0.644,
+    "attackSpeedRatio": 2.61,
+    "range": 550
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Surging Tides",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Aqua Prison",
+      "cooldown": [
+        12,
+        11,
+        10,
+        9,
+        8
+      ],
+      "cost": [
+        60
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              1.5
+            ],
+            "ratios": []
+          }
+        }
+      ]
+    },
+    "W": {
+      "id": "W",
+      "name": "Ebb and Flow",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        70,
+        75,
+        80,
+        85,
+        90
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Tidecaller's Blessing",
+      "cooldown": [
+        11
+      ],
+      "cost": [
+        55,
+        60,
+        65,
+        70,
+        75
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Tidal Wave",
+      "cooldown": [
+        120,
+        110,
+        100
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "id": "Amumu",
+  "name": "Amumu",
+  "baseStats": {
+    "hp": 685,
+    "hpPerLevel": 94,
+    "mp": 285,
+    "mpPerLevel": 40,
+    "ad": 57,
+    "adPerLevel": 3.8,
+    "armor": 33,
+    "armorPerLevel": 4,
+    "mr": 32,
+    "mrPerLevel": 2.05,
+    "attackSpeed": 0.736,
+    "attackSpeedRatio": 2.18,
+    "range": 125
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Cursed Touch",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Bandage Toss",
+      "cooldown": [
+        3
+      ],
+      "cost": [
+        50
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              1
+            ],
+            "ratios": []
+          }
+        }
+      ]
+    },
+    "W": {
+      "id": "W",
+      "name": "Despair",
+      "cooldown": [
+        1
+      ],
+      "cost": [
+        8
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Tantrum",
+      "cooldown": [
+        9,
+        8,
+        7,
+        6,
+        5
+      ],
+      "cost": [
+        35
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Curse of the Sad Mummy",
+      "cooldown": [
+        150,
+        125,
+        100
+      ],
+      "cost": [
+        100,
+        150,
+        200
+      ],
+      "effects": []
+    }
+  }
+}

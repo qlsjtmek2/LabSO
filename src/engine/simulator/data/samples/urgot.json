@@ -1,0 +1,109 @@
+{
+  "id": "Urgot",
+  "name": "Urgot",
+  "baseStats": {
+    "hp": 655,
+    "hpPerLevel": 102,
+    "mp": 340,
+    "mpPerLevel": 45,
+    "ad": 63,
+    "adPerLevel": 4,
+    "armor": 36,
+    "armorPerLevel": 5,
+    "mr": 32,
+    "mrPerLevel": 2.05,
+    "attackSpeed": 0.625,
+    "attackSpeedRatio": 3.75,
+    "range": 350
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Echoing Flames",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Corrosive Charge",
+      "cooldown": [
+        10,
+        9.5,
+        9,
+        8.5,
+        8
+      ],
+      "cost": [
+        70
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Purge",
+      "cooldown": [
+        12,
+        9,
+        6,
+        3,
+        0
+      ],
+      "cost": [
+        40,
+        30,
+        20,
+        10,
+        0
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Physical",
+            "base": [
+              40
+            ],
+            "ratios": []
+          }
+        }
+      ]
+    },
+    "E": {
+      "id": "E",
+      "name": "Disdain",
+      "cooldown": [
+        16,
+        15.5,
+        15,
+        14.5,
+        14
+      ],
+      "cost": [
+        60,
+        70,
+        80,
+        90,
+        100
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Fear Beyond Death",
+      "cooldown": [
+        100,
+        85,
+        70
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

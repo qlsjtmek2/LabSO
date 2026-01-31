@@ -1,0 +1,124 @@
+{
+  "id": "Nocturne",
+  "name": "Nocturne",
+  "baseStats": {
+    "hp": 655,
+    "hpPerLevel": 109,
+    "mp": 275,
+    "mpPerLevel": 35,
+    "ad": 62,
+    "adPerLevel": 2.6,
+    "armor": 38,
+    "armorPerLevel": 4.2,
+    "mr": 32,
+    "mrPerLevel": 1.55,
+    "attackSpeed": 0.721,
+    "attackSpeedRatio": 2.7,
+    "range": 125
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Umbra Blades",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Duskbringer",
+      "cooldown": [
+        8
+      ],
+      "cost": [
+        60,
+        65,
+        70,
+        75,
+        80
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Shroud of Darkness",
+      "cooldown": [
+        20,
+        18,
+        16,
+        14,
+        12
+      ],
+      "cost": [
+        50
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Physical",
+            "base": [
+              60,
+              70,
+              80,
+              90,
+              100
+            ],
+            "ratios": []
+          }
+        }
+      ]
+    },
+    "E": {
+      "id": "E",
+      "name": "Unspeakable Horror",
+      "cooldown": [
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "cost": [
+        60,
+        65,
+        70,
+        75,
+        80
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              1.25,
+              1.5,
+              1.75,
+              2,
+              2.25
+            ],
+            "ratios": []
+          }
+        }
+      ]
+    },
+    "R": {
+      "id": "R",
+      "name": "Paranoia",
+      "cooldown": [
+        140,
+        115,
+        90
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

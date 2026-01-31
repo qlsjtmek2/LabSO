@@ -1,0 +1,94 @@
+{
+  "id": "Smolder",
+  "name": "Smolder",
+  "baseStats": {
+    "hp": 575,
+    "hpPerLevel": 100,
+    "mp": 300,
+    "mpPerLevel": 40,
+    "ad": 60,
+    "adPerLevel": 2.3,
+    "armor": 24,
+    "armorPerLevel": 4,
+    "mr": 30,
+    "mrPerLevel": 1.3,
+    "attackSpeed": 0.638,
+    "attackSpeedRatio": 4,
+    "range": 550
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Dragon Practice",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Super Scorcher Breath",
+      "cooldown": [
+        5.5,
+        5,
+        4.5,
+        4,
+        3.5
+      ],
+      "cost": [
+        25
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Achooo!",
+      "cooldown": [
+        14,
+        13,
+        12,
+        11,
+        10
+      ],
+      "cost": [
+        50,
+        55,
+        60,
+        65,
+        70
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Flap, Flap, Flap",
+      "cooldown": [
+        24,
+        22,
+        20,
+        18,
+        16
+      ],
+      "cost": [
+        65
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "MMOOOMMMM!",
+      "cooldown": [
+        120,
+        110,
+        100
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "id": "Ivern",
+  "name": "Ivern",
+  "baseStats": {
+    "hp": 630,
+    "hpPerLevel": 99,
+    "mp": 450,
+    "mpPerLevel": 60,
+    "ad": 50,
+    "adPerLevel": 3,
+    "armor": 27,
+    "armorPerLevel": 4.7,
+    "mr": 30,
+    "mrPerLevel": 1.3,
+    "attackSpeed": 0.644,
+    "attackSpeedRatio": 3.4,
+    "range": 475
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Friend of the Forest",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Rootcaller",
+      "cooldown": [
+        14,
+        13,
+        12,
+        11,
+        10
+      ],
+      "cost": [
+        60
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Brushmaker",
+      "cooldown": [
+        0.5
+      ],
+      "cost": [
+        30
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Triggerseed",
+      "cooldown": [
+        11,
+        10,
+        9,
+        8,
+        7
+      ],
+      "cost": [
+        70
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Daisy!",
+      "cooldown": [
+        140,
+        130,
+        120
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

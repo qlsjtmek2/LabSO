@@ -1,0 +1,113 @@
+{
+  "id": "Lux",
+  "name": "Lux",
+  "baseStats": {
+    "hp": 580,
+    "hpPerLevel": 99,
+    "mp": 480,
+    "mpPerLevel": 23.5,
+    "ad": 54,
+    "adPerLevel": 3.3,
+    "armor": 21,
+    "armorPerLevel": 5.2,
+    "mr": 30,
+    "mrPerLevel": 1.3,
+    "attackSpeed": 0.669,
+    "attackSpeedRatio": 3,
+    "range": 550
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Illumination",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Light Binding",
+      "cooldown": [
+        11,
+        10.5,
+        10,
+        9.5,
+        9
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Prismatic Barrier",
+      "cooldown": [
+        14,
+        13,
+        12,
+        11,
+        10
+      ],
+      "cost": [
+        60,
+        65,
+        70,
+        75,
+        80
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Lucent Singularity",
+      "cooldown": [
+        10,
+        9.5,
+        9,
+        8.5,
+        8
+      ],
+      "cost": [
+        70,
+        80,
+        90,
+        100,
+        110
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              25,
+              30,
+              35,
+              40,
+              45
+            ],
+            "ratios": []
+          }
+        }
+      ]
+    },
+    "R": {
+      "id": "R",
+      "name": "Final Spark",
+      "cooldown": [
+        60,
+        50,
+        40
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

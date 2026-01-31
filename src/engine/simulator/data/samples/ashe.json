@@ -1,0 +1,97 @@
+{
+  "id": "Ashe",
+  "name": "Ashe",
+  "baseStats": {
+    "hp": 610,
+    "hpPerLevel": 101,
+    "mp": 280,
+    "mpPerLevel": 35,
+    "ad": 59,
+    "adPerLevel": 3.5,
+    "armor": 26,
+    "armorPerLevel": 4.6,
+    "mr": 30,
+    "mrPerLevel": 1.3,
+    "attackSpeed": 0.658,
+    "attackSpeedRatio": 3,
+    "range": 600
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Frost Shot",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Ranger's Focus",
+      "cooldown": [
+        0
+      ],
+      "cost": [
+        30
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Physical",
+            "base": [
+              4
+            ],
+            "ratios": []
+          }
+        }
+      ]
+    },
+    "W": {
+      "id": "W",
+      "name": "Volley",
+      "cooldown": [
+        18,
+        14.5,
+        11,
+        7.5,
+        4
+      ],
+      "cost": [
+        75,
+        70,
+        65,
+        60,
+        55
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Hawkshot",
+      "cooldown": [
+        5
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Enchanted Crystal Arrow",
+      "cooldown": [
+        100,
+        80,
+        60
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

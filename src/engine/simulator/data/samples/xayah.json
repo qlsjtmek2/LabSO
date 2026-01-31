@@ -1,0 +1,109 @@
+{
+  "id": "Xayah",
+  "name": "Xayah",
+  "baseStats": {
+    "hp": 630,
+    "hpPerLevel": 107,
+    "mp": 340,
+    "mpPerLevel": 40,
+    "ad": 60,
+    "adPerLevel": 3.5,
+    "armor": 25,
+    "armorPerLevel": 4.2,
+    "mr": 30,
+    "mrPerLevel": 1.3,
+    "attackSpeed": 0.658,
+    "attackSpeedRatio": 3.9,
+    "range": 525
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Clean Cuts",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Double Daggers",
+      "cooldown": [
+        10,
+        9.5,
+        9,
+        8.5,
+        8
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Deadly Plumage",
+      "cooldown": [
+        20,
+        19,
+        18,
+        17,
+        16
+      ],
+      "cost": [
+        60,
+        55,
+        50,
+        45,
+        40
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Physical",
+            "base": [
+              35,
+              40,
+              45,
+              50,
+              55
+            ],
+            "ratios": []
+          }
+        }
+      ]
+    },
+    "E": {
+      "id": "E",
+      "name": "Bladecaller",
+      "cooldown": [
+        12,
+        11,
+        10,
+        9,
+        8
+      ],
+      "cost": [
+        30
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Featherstorm",
+      "cooldown": [
+        140,
+        120,
+        100
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

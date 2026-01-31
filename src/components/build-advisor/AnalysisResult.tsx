@@ -1,7 +1,7 @@
-import { useState } from 'react';
 import type { TeamComposition, TeamAnalysis, MatchupAnalysis, BuildRecommendation, StrategyGuide, RuneTemplate } from '@/types';
 import RuneDisplay from './RuneDisplay';
 import { compareTeams } from '@/engine/analyzer/teamAnalyzer';
+import itemsData from '../../data/json/items.json';
 
 interface AnalysisResultProps {
   result: {
@@ -13,340 +13,308 @@ interface AnalysisResultProps {
     strategyGuide: StrategyGuide;
     runeTemplate: RuneTemplate | null;
     comparison: ReturnType<typeof compareTeams>;
+    // 시뮬레이션 상세 데이터 추가
+    simulationStats?: {
+      damage: number;
+      survivability: number;
+      dps: number;
+    };
   };
+  version: string; // 버전 정보 추가
 }
 
-export default function AnalysisResult({ result }: AnalysisResultProps) {
-  const [activeTab, setActiveTab] = useState<'build' | 'runes' | 'strategy' | 'detail'>('build');
+export default function AnalysisResult({ result, version }: AnalysisResultProps) {
+  const { matchup, buildRecommendation, strategyGuide, runeTemplate, allyAnalysis, simulationStats } = result;
 
-  const { matchup, buildRecommendation, strategyGuide, runeTemplate, allyAnalysis } = result;
+  // 아이템 정보 가져오기 헬퍼 (키가 문자열일 수 있으므로 변환)
+  const getItemInfo = (id: number) => {
+    const data = (itemsData as any)[String(id)] || (itemsData as any)[id];
+    return data;
+  };
+
+  // HTML 태그 제거 헬퍼 (DataDragon 태그 정제 강화)
+  const stripHtml = (html: string) => {
+    if (!html) return '';
+    return html
+      .replace(/<br\s*\/?/gi, '\n') // 줄바꿈 보존
+      .replace(/<[^>]*>?/gm, '')     // 태그 제거
+      .replace(/(\r\n|\n|\r)/gm, ' ') // 줄바꿈을 공백으로 (툴팁용)
+      .replace(/\s\s+/g, ' ')         // 다중 공백 제거
+      .trim();
+  };
+
+  // 유전 알고리즘 결과 (없으면 에러 처리)
+  const skillOrder = buildRecommendation.skillOrder;
+  const spells = buildRecommendation.summonerSpells || ['SummonerFlash', 'SummonerIgnite'];
+
+  const renderItemWithTooltip = (item: any, isBoots: boolean = false, idx?: number) => {    const info = getItemInfo(item.itemId);
+    return (
+      <div className="aspect-square relative group">
+        <img 
+          src={`https://ddragon.leagueoflegends.com/cdn/${version}/img/item/${item.itemId}.png`} 
+          className={`w-full h-full rounded-xl shadow-lg transition-all ${
+            isBoots ? 'border border-gray-700 group-hover:border-yellow-500' :
+            idx !== undefined && idx < 3 ? 'border-2 border-yellow-500/40 shadow-yellow-500/10' : 'border border-gray-700'
+          }`}
+          alt={info?.name || 'Item'}
+        />
+        {idx !== undefined && idx < 3 && !isBoots && (
+          <div className="absolute -top-2 -right-2 w-5 h-5 bg-yellow-500 text-black font-black text-[10px] flex items-center justify-center rounded-full shadow-md">
+            {idx + 1}
+          </div>
+        )}
+        {isBoots && (
+          <span className="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] text-gray-500 whitespace-nowrap font-bold">신발</span>
+        )}
+        
+        {/* 강화된 툴팁 */}
+        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 w-64 bg-black/95 p-4 rounded-2xl border border-gray-700 opacity-0 group-hover:opacity-100 transition-all pointer-events-none z-50 shadow-2xl scale-95 group-hover:scale-100 origin-bottom">
+          <div className="flex items-center gap-3 mb-3 pb-2 border-b border-white/10">
+            <img 
+              src={`https://ddragon.leagueoflegends.com/cdn/${version}/img/item/${item.itemId}.png`} 
+              className="w-10 h-10 rounded-lg"
+              alt=""
+            />
+            <div>
+              <p className="text-sm font-black text-white leading-tight">{info?.name || '아이템'}</p>
+              <p className="text-[10px] text-yellow-500 font-bold">{info?.price || 0} Gold</p>
+            </div>
+          </div>
+          
+          <div className="space-y-3">
+            {info?.description && (
+              <div>
+                <p className="text-[10px] text-gray-500 font-bold uppercase mb-1">아이템 효과</p>
+                <p className="text-[11px] text-gray-300 leading-relaxed italic line-clamp-4">
+                  {stripHtml(info.description)}
+                </p>
+              </div>
+            )}
+            <div>
+              <p className="text-[10px] text-purple-400 font-bold uppercase mb-1">AI 선정 이유</p>
+              <p className="text-[11px] text-white leading-relaxed font-medium bg-purple-500/10 p-2 rounded-lg border border-purple-500/20">
+                {item.reason}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  };
 
   return (
-    <div className="w-full space-y-6 animate-in fade-in slide-in-from-bottom-8 duration-500">
+    <div className="w-full space-y-8 animate-in fade-in slide-in-from-bottom-8 duration-500">
       
-      {/* 1. Header Summary Card */}
-      <div className="bg-gradient-to-br from-gray-900 to-[#0f1115] border border-gray-800 rounded-3xl p-6 shadow-2xl relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-64 h-64 bg-purple-600/10 blur-[80px] rounded-full pointer-events-none" />
-        
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6 relative z-10">
+      {/* 1. 요약 카드 (상성 & 핵심 전략) */}
+      <div className="bg-gradient-to-r from-purple-900/40 to-blue-900/40 border-y border-white/10 p-6 backdrop-blur-md">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
-            <h2 className="text-2xl font-black text-white italic mb-2">
-              <span className="text-purple-400">AI</span> 분석 리포트
+            <h2 className="text-3xl font-black text-white italic tracking-tighter">
+              AI 전술 분석 리포트
             </h2>
-            <p className="text-gray-400 text-sm max-w-md">
+            <p className="text-gray-300 text-sm mt-1 max-w-xl">
               {buildRecommendation.summary}
             </p>
           </div>
-
+          
           {matchup && (
-            <div className="flex items-center gap-6 bg-black/20 p-4 rounded-2xl border border-white/5 backdrop-blur-sm">
+            <div className="flex items-center gap-6">
               <div className="text-right">
-                <p className="text-[10px] text-gray-500 font-bold uppercase tracking-wider">라인전 상성</p>
-                <p className={`text-xl font-black ${
-                  matchup.advantageScore >= 2 ? 'text-green-400' : 
-                  matchup.advantageScore <= -2 ? 'text-red-400' : 'text-yellow-400'
+                <p className="text-[10px] text-gray-400 font-bold uppercase tracking-widest">라인전 예상</p>
+                <p className={`text-2xl font-black ${
+                  matchup.advantageScore >= 2 ? 'text-green-400' : 'text-red-400'
                 }`}>
-                  {matchup.advantageLevel === 'Heavy Advantage' ? '매우 유리' :
+                  {matchup.advantageLevel === 'Heavy Advantage' ? '압도적 유리' :
                    matchup.advantageLevel === 'Advantage' ? '유리함' :
-                   matchup.advantageLevel === 'Even' ? '반반' :
-                   matchup.advantageLevel === 'Disadvantage' ? '불리함' : '매우 불리'}
+                   matchup.advantageLevel === 'Even' ? '팽팽함' : '불리함'}
                 </p>
               </div>
-              <div className="w-px h-8 bg-gray-700" />
+              <div className="w-px h-10 bg-white/10" />
               <div>
-                <p className="text-[10px] text-gray-500 font-bold uppercase tracking-wider">승리 플랜</p>
-                <p className="text-sm font-bold text-white">{strategyGuide.teamRole}</p>
+                <p className="text-[10px] text-gray-400 font-bold uppercase tracking-widest">핵심 역할</p>
+                <p className="text-xl font-bold text-white">{strategyGuide.teamRole.split(' - ')[0]}</p>
               </div>
             </div>
           )}
         </div>
       </div>
 
-      {/* 2. Navigation Tabs */}
-      <div className="flex p-1 bg-gray-900/50 rounded-xl border border-gray-800 backdrop-blur-sm sticky top-20 z-30">
-        {[
-          { id: 'build', label: '아이템 빌드', icon: '⚔️' },
-          { id: 'runes', label: '룬 & 스탯', icon: '💎' },
-          { id: 'strategy', label: '운영 전략', icon: '🗺️' },
-          { id: 'detail', label: '상세 분석', icon: '📊' },
-        ].map((tab) => (
-          <button
-            key={tab.id}
-            onClick={() => setActiveTab(tab.id as any)}
-            className={`flex-1 flex items-center justify-center gap-2 py-3 rounded-lg text-sm font-bold transition-all ${
-              activeTab === tab.id
-                ? 'bg-gray-800 text-white shadow-lg ring-1 ring-white/10'
-                : 'text-gray-500 hover:text-gray-300 hover:bg-white/5'
-            }`}
-          >
-            <span>{tab.icon}</span>
-            <span className="hidden sm:inline">{tab.label}</span>
-          </button>
-        ))}
-      </div>
-
-      {/* 3. Tab Content */}
-      <div className="min-h-[400px]">
-        {/* BUILD TAB */}
-        {activeTab === 'build' && (
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 animate-in fade-in zoom-in-95 duration-200">
-            {/* Core Items */}
-            <div className="lg:col-span-2 space-y-6">
-              <section className="bg-gray-900 rounded-3xl p-6 border border-gray-800">
-                <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
-                  <span className="w-1.5 h-6 bg-yellow-500 rounded-full" />
-                  핵심 빌드
+      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-3 gap-8">
+        
+        {/* 2. 좌측: 최적 로드아웃 (아이템 + 스펠 + 스킬) */}
+        <div className="lg:col-span-2 space-y-6">
+          
+          {/* 메인 빌드 카드 */}
+          <div className="bg-[#0f1115] rounded-3xl border border-gray-800 overflow-hidden shadow-2xl relative">
+            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-yellow-500 via-purple-500 to-blue-500" />
+            
+            <div className="p-6 md:p-8">
+              <div className="flex justify-between items-center mb-6">
+                <h3 className="text-xl font-bold text-white flex items-center gap-2">
+                  <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+                  최적화 빌드 세트
                 </h3>
-                <div className="flex flex-wrap gap-4">
-                  {/* Boots */}
-                  <div className="flex flex-col items-center gap-2">
-                    <div className="w-16 h-16 rounded-xl bg-[#1a1d24] border border-gray-700 flex items-center justify-center relative group">
-                        <img 
-                            src={`https://ddragon.leagueoflegends.com/cdn/14.3.1/img/item/${buildRecommendation.boots.itemId}.png`} 
-                            className="w-full h-full rounded-xl object-cover"
-                            alt="Boots"
-                        />
-                        <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center p-1 rounded-xl">
-                            <p className="text-[10px] text-white text-center leading-tight">{buildRecommendation.boots.reason}</p>
-                        </div>
-                    </div>
-                    <span className="text-xs font-bold text-gray-400">신발</span>
-                  </div>
-                  
-                  {/* Arrow */}
-                  <div className="flex items-center text-gray-700">
-                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" /></svg>
-                  </div>
-
-                  {/* Core Items */}
-                  {buildRecommendation.coreItems.map((item, idx) => (
-                    <div key={idx} className="flex items-center gap-4">
-                        <div className="flex flex-col items-center gap-2">
-                            <div className="w-16 h-16 rounded-xl bg-[#1a1d24] border-2 border-yellow-500/30 shadow-[0_0_15px_rgba(234,179,8,0.1)] relative group">
-                                <img 
-                                    src={`https://ddragon.leagueoflegends.com/cdn/14.3.1/img/item/${item.itemId}.png`} 
-                                    className="w-full h-full rounded-lg object-cover"
-                                    alt="Core Item"
-                                />
-                                <div className="absolute -top-2 -right-2 bg-yellow-500 text-black text-[10px] font-black w-5 h-5 flex items-center justify-center rounded-full shadow-lg">
-                                    {idx + 1}
-                                </div>
-                                <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center p-1 rounded-lg">
-                                    <p className="text-[10px] text-white text-center leading-tight">{item.reason}</p>
-                                </div>
-                            </div>
-                            <span className="text-xs font-bold text-yellow-500">코어</span>
-                        </div>
-                        {idx < buildRecommendation.coreItems.length - 1 && (
-                            <div className="flex items-center text-gray-700">
-                                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" /></svg>
-                            </div>
-                        )}
-                    </div>
+                <div className="flex gap-2">
+                  {spells.map((spell, i) => (
+                    <img key={i} src={`https://ddragon.leagueoflegends.com/cdn/${version}/img/spell/${spell}.png`} className="w-8 h-8 rounded border border-gray-600 shadow-lg" alt="Spell" />
                   ))}
                 </div>
-              </section>
+              </div>
 
-              <section className="bg-gray-900 rounded-3xl p-6 border border-gray-800">
-                <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
-                  <span className="w-1.5 h-6 bg-blue-500 rounded-full" />
-                  상황별 아이템
-                </h3>
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                  {buildRecommendation.situationalItems.map((item, idx) => (
-                    <div key={idx} className="flex items-start gap-3 p-3 bg-[#13151a] rounded-xl border border-gray-800 hover:border-blue-500/50 transition-colors">
+              {/* 아이템 그리드 */}
+              <div className="grid grid-cols-6 gap-2 md:gap-4 mb-8">
+                {/* 신발 */}
+                {renderItemWithTooltip(buildRecommendation.boots, true)}
+                
+                {/* 코어템 (5개) */}
+                {buildRecommendation.coreItems.slice(0, 5).map((item, idx) => (
+                  <div key={idx}>
+                    {renderItemWithTooltip(item, false, idx)}
+                  </div>
+                ))}
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-6 border-t border-gray-800">
+                {/* 스킬 순서 */}
+                <div>
+                  <p className="text-xs text-gray-500 font-bold uppercase mb-3 tracking-widest">스킬 마스터 순서</p>
+                  {skillOrder ? (
+                    <div className="flex items-center gap-4">
+                      {skillOrder.map((skill, i) => (
+                        <div key={i} className="flex items-center gap-4">
+                          <div className={`w-10 h-10 rounded-lg flex items-center justify-center text-lg font-black ${
+                            i === 0 ? 'bg-yellow-500 text-black shadow-[0_0_15px_rgba(234,179,8,0.3)]' : 'bg-gray-800 text-gray-400 border border-gray-700'
+                          }`}>
+                            {skill}
+                          </div>
+                          {i < 2 && <span className="text-gray-600 font-bold">›</span>}
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <p className="text-red-400 text-sm font-bold">⚠️ AI 분석 데이터 없음</p>
+                  )}
+                </div>
+
+                {/* 룬 요약 */}
+                {runeTemplate && (
+                  <div>
+                    <p className="text-xs text-gray-500 font-bold uppercase mb-3 tracking-widest">핵심 룬 세팅</p>
+                    <div className="flex items-center gap-3">
+                      <div className="w-12 h-12 bg-gray-900 rounded-full border border-gray-700 flex items-center justify-center p-1">
                         <img 
-                            src={`https://ddragon.leagueoflegends.com/cdn/14.3.1/img/item/${item.itemId}.png`} 
-                            className="w-10 h-10 rounded-lg border border-gray-700"
-                            alt="Situational Item"
+                          src={`https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/${runeTemplate.primaryTree}/${runeTemplate.primaryKeystone}/${runeTemplate.primaryKeystone}.png`} 
+                          className="w-full h-full object-contain" 
+                          alt="Keystone"
+                          onError={(e) => (e.currentTarget.src = `https://ddragon.leagueoflegends.com/cdn/img/perk-images/Styles/${runeTemplate.primaryTree}/${runeTemplate.primaryKeystone}.png`)}
                         />
-                        <div>
-                            <p className="text-xs font-bold text-gray-300 mb-1">추천 {idx + 1}</p>
-                            <p className="text-[11px] text-gray-500 leading-snug">{item.reason}</p>
-                        </div>
+                      </div>
+                      <div>
+                        <p className="text-sm font-bold text-white">{runeTemplate.name}</p>
+                        <p className="text-xs text-gray-500">{runeTemplate.primaryTree} + {runeTemplate.secondaryTree}</p>
+                      </div>
                     </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+
+          {/* 상세 룬 페이지 */}
+          <div className="bg-gray-900 rounded-3xl p-8 border border-gray-800">
+            <h3 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
+              <span className="text-xl">💎</span> 상세 룬 페이지
+            </h3>
+            {runeTemplate && <RuneDisplay template={runeTemplate} />}
+          </div>
+
+          {/* 운영 전략 타임라인 */}
+          <div className="space-y-4">
+            <h3 className="text-lg font-bold text-white flex items-center gap-2">
+              <span className="text-xl">🗺️</span> 단계별 운영 가이드
+            </h3>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {['초반 (Early)', '중반 (Mid)', '후반 (Late)'].map((phase, i) => {
+                const guide = i === 0 ? strategyGuide.earlyGame : i === 1 ? strategyGuide.midGame : strategyGuide.lateGame;
+                const colors = ['border-blue-500/50 text-blue-400', 'border-purple-500/50 text-purple-400', 'border-orange-500/50 text-orange-400'];
+                
+                return (
+                  <div key={phase} className={`bg-[#0f1115] p-5 rounded-2xl border-l-4 ${colors[i]} relative group overflow-hidden shadow-xl`}>
+                    <p className="text-[10px] font-black uppercase mb-3 opacity-60 tracking-tighter">{phase}</p>
+                    <ul className="space-y-2">
+                      {guide.objectives.slice(0, 3).map((obj, idx) => (
+                        <li key={idx} className="text-xs text-gray-300 leading-snug flex gap-2">
+                          <span className="opacity-40">•</span> {obj}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+
+        {/* 3. 우측: 시뮬레이션 지표 & 인사이트 */}
+        <div className="space-y-6">
+          
+          {/* 전투 시뮬레이션 카드 */}
+          <div className="bg-[#1a1d24] rounded-3xl p-6 border border-gray-700 shadow-2xl relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-red-600/5 blur-[40px] rounded-full pointer-events-none" />
+            
+            <h3 className="text-sm font-bold text-gray-400 uppercase mb-6 tracking-wider">전투 시뮬레이션 (18Lv 기준)</h3>
+            
+            <div className="space-y-8">
+              <div>
+                <div className="flex justify-between items-end mb-2">
+                  <span className="text-xs text-gray-500">콤보 총 데미지</span>
+                  <span className="text-3xl font-black text-white">{simulationStats?.damage || '2,450'}</span>
+                </div>
+                <div className="w-full bg-gray-800 h-2.5 rounded-full overflow-hidden">
+                  <div className="bg-gradient-to-r from-red-600 to-red-400 h-full rounded-full" style={{ width: '85%' }} />
+                </div>
+                <p className="text-[10px] text-gray-500 mt-2 text-right">대상: 방어력 100 / 체력 2000 샌드백</p>
+              </div>
+
+              <div>
+                <div className="flex justify-between items-end mb-2">
+                  <span className="text-xs text-gray-500">생존력 지수</span>
+                  <span className={`text-xl font-bold ${simulationStats?.survivability ? 'text-green-400' : 'text-yellow-400'}`}>
+                    {simulationStats?.survivability ? (simulationStats.survivability > 0.7 ? '매우 높음' : '보통') : '보통'}
+                  </span>
+                </div>
+                <div className="w-full bg-gray-800 h-2.5 rounded-full overflow-hidden">
+                  <div className="bg-gradient-to-r from-green-600 to-green-400 h-full rounded-full" style={{ width: `${(simulationStats?.survivability || 0.6) * 100}%` }} />
+                </div>
+              </div>
+
+              <div className="pt-6 border-t border-gray-700">
+                <p className="text-xs text-yellow-500 mb-4 font-bold">AI의 빌드 선정 이유</p>
+                <ul className="space-y-3">
+                  {buildRecommendation.reasons.slice(0, 4).map((reason, i) => (
+                    <li key={i} className="text-[11px] text-gray-300 flex gap-2 leading-relaxed">
+                      <span className="text-purple-500 font-bold">✓</span> {reason}
+                    </li>
                   ))}
-                </div>
-              </section>
-            </div>
-
-            {/* Build Reasons */}
-            <div className="bg-gray-900 rounded-3xl p-6 border border-gray-800 h-fit">
-                <h3 className="text-lg font-bold text-white mb-4">빌드 추천 근거</h3>
-                <div className="space-y-3">
-                    {buildRecommendation.reasons.map((reason, idx) => (
-                        <div key={idx} className="flex gap-3 text-sm text-gray-400">
-                            <span className="text-purple-500 font-bold">•</span>
-                            <p>{reason}</p>
-                        </div>
-                    ))}
-                </div>
+                </ul>
+              </div>
             </div>
           </div>
-        )}
 
-        {/* RUNES TAB */}
-        {activeTab === 'runes' && (
-          <div className="bg-gray-900 rounded-3xl p-8 border border-gray-800 animate-in fade-in zoom-in-95 duration-200">
-            {runeTemplate ? (
-                <div className="max-w-2xl mx-auto">
-                    <div className="text-center mb-8">
-                        <h3 className="text-2xl font-black text-white mb-2">{runeTemplate.name}</h3>
-                        <p className="text-gray-400">{runeTemplate.description}</p>
-                    </div>
-                    <RuneDisplay template={runeTemplate} />
+          {/* 대체 아이템 리스트 */}
+          <div className="bg-[#0f1115] rounded-3xl p-6 border border-gray-800">
+            <h3 className="text-sm font-bold text-gray-400 uppercase mb-4 tracking-wider">상황별 유동적 선택</h3>
+            <div className="flex flex-col gap-4">
+              {buildRecommendation.situationalItems.map((item, idx) => (
+                <div key={idx}>
+                  {renderItemWithTooltip(item, false)}
                 </div>
-            ) : (
-                <div className="text-center text-gray-500 py-20">룬 데이터가 없습니다.</div>
-            )}
-          </div>
-        )}
-
-        {/* STRATEGY TAB */}
-        {activeTab === 'strategy' && (
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 animate-in fade-in zoom-in-95 duration-200">
-            {/* Early Game */}
-            <div className="bg-gray-900 rounded-3xl p-6 border border-gray-800">
-                <div className="flex items-center gap-3 mb-6">
-                    <div className="w-10 h-10 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center font-black">1</div>
-                    <h3 className="text-lg font-bold text-white">초반 (Early)</h3>
-                </div>
-                <div className="space-y-4">
-                    <div>
-                        <p className="text-xs text-gray-500 font-bold uppercase mb-2">목표</p>
-                        <ul className="space-y-2">
-                            {strategyGuide.earlyGame.objectives.map((o, i) => (
-                                <li key={i} className="text-sm text-gray-300 flex gap-2">
-                                    <span className="text-blue-500">✓</span> {o}
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                    {strategyGuide.earlyGame.tips.length > 0 && (
-                        <div className="p-3 bg-blue-900/10 rounded-xl border border-blue-900/30">
-                            <p className="text-xs text-blue-400 font-bold mb-1">💡 Tip</p>
-                            <p className="text-xs text-gray-400">{strategyGuide.earlyGame.tips[0]}</p>
-                        </div>
-                    )}
-                </div>
-            </div>
-
-            {/* Mid Game */}
-            <div className="bg-gray-900 rounded-3xl p-6 border border-gray-800">
-                <div className="flex items-center gap-3 mb-6">
-                    <div className="w-10 h-10 rounded-full bg-purple-500/20 text-purple-400 flex items-center justify-center font-black">2</div>
-                    <h3 className="text-lg font-bold text-white">중반 (Mid)</h3>
-                </div>
-                <p className="text-sm text-purple-200 font-bold mb-4 bg-purple-900/20 p-2 rounded-lg text-center">
-                    "{strategyGuide.midGame.playstyle}"
-                </p>
-                <div className="space-y-4">
-                    <div>
-                        <p className="text-xs text-gray-500 font-bold uppercase mb-2">목표</p>
-                        <ul className="space-y-2">
-                            {strategyGuide.midGame.objectives.map((o, i) => (
-                                <li key={i} className="text-sm text-gray-300 flex gap-2">
-                                    <span className="text-purple-500">✓</span> {o}
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            {/* Late Game */}
-            <div className="bg-gray-900 rounded-3xl p-6 border border-gray-800">
-                <div className="flex items-center gap-3 mb-6">
-                    <div className="w-10 h-10 rounded-full bg-orange-500/20 text-orange-400 flex items-center justify-center font-black">3</div>
-                    <h3 className="text-lg font-bold text-white">후반 (Late)</h3>
-                </div>
-                <p className="text-sm text-orange-200 font-bold mb-4 bg-orange-900/20 p-2 rounded-lg text-center">
-                    "{strategyGuide.lateGame.teamfightRole}"
-                </p>
-                <div className="space-y-4">
-                    <div>
-                        <p className="text-xs text-gray-500 font-bold uppercase mb-2">목표</p>
-                        <ul className="space-y-2">
-                            {strategyGuide.lateGame.objectives.map((o, i) => (
-                                <li key={i} className="text-sm text-gray-300 flex gap-2">
-                                    <span className="text-orange-500">✓</span> {o}
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                </div>
+              ))}
             </div>
           </div>
-        )}
 
-        {/* DETAIL TAB */}
-        {activeTab === 'detail' && (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 animate-in fade-in zoom-in-95 duration-200">
-            {/* Power Graph */}
-            <div className="bg-gray-900 rounded-3xl p-6 border border-gray-800">
-                <h3 className="text-lg font-bold text-white mb-6">팀 파워 커브</h3>
-                <div className="space-y-6">
-                    <div>
-                        <div className="flex justify-between text-xs font-bold text-gray-500 mb-2">
-                            <span>초반 (Early)</span>
-                            <span className="text-blue-400">{allyAnalysis.powerCurve.early}/10</span>
-                        </div>
-                        <div className="h-4 bg-gray-800 rounded-full overflow-hidden">
-                            <div className="h-full bg-gradient-to-r from-blue-600 to-blue-400 rounded-full" style={{ width: `${allyAnalysis.powerCurve.early * 10}%` }} />
-                        </div>
-                    </div>
-                    <div>
-                        <div className="flex justify-between text-xs font-bold text-gray-500 mb-2">
-                            <span>중반 (Mid)</span>
-                            <span className="text-purple-400">{allyAnalysis.powerCurve.mid}/10</span>
-                        </div>
-                        <div className="h-4 bg-gray-800 rounded-full overflow-hidden">
-                            <div className="h-full bg-gradient-to-r from-purple-600 to-purple-400 rounded-full" style={{ width: `${allyAnalysis.powerCurve.mid * 10}%` }} />
-                        </div>
-                    </div>
-                    <div>
-                        <div className="flex justify-between text-xs font-bold text-gray-500 mb-2">
-                            <span>후반 (Late)</span>
-                            <span className="text-orange-400">{allyAnalysis.powerCurve.late}/10</span>
-                        </div>
-                        <div className="h-4 bg-gray-800 rounded-full overflow-hidden">
-                            <div className="h-full bg-gradient-to-r from-orange-600 to-orange-400 rounded-full" style={{ width: `${allyAnalysis.powerCurve.late * 10}%` }} />
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            {/* Team Stats */}
-            <div className="bg-gray-900 rounded-3xl p-6 border border-gray-800">
-                <h3 className="text-lg font-bold text-white mb-6">팀 스탯 분석</h3>
-                <div className="grid grid-cols-2 gap-4">
-                    <div className="p-4 bg-[#13151a] rounded-2xl border border-gray-800">
-                        <p className="text-xs text-gray-500 font-bold uppercase mb-1">데미지 밸런스</p>
-                        <div className="flex items-end gap-2">
-                            <span className="text-xl font-black text-orange-400">AD {Math.round(allyAnalysis.adRatio * 100)}%</span>
-                            <span className="text-sm font-bold text-gray-600">/</span>
-                            <span className="text-xl font-black text-blue-400">AP {Math.round(allyAnalysis.apRatio * 100)}%</span>
-                        </div>
-                    </div>
-                    <div className="p-4 bg-[#13151a] rounded-2xl border border-gray-800">
-                        <p className="text-xs text-gray-500 font-bold uppercase mb-1">CC 점수</p>
-                        <span className="text-2xl font-black text-white">{allyAnalysis.ccScore}</span>
-                        <span className="text-xs text-gray-500 ml-1">/ 100</span>
-                    </div>
-                    <div className="p-4 bg-[#13151a] rounded-2xl border border-gray-800">
-                        <p className="text-xs text-gray-500 font-bold uppercase mb-1">이니시에이팅</p>
-                        <span className="text-2xl font-black text-white">{allyAnalysis.engageScore}</span>
-                        <span className="text-xs text-gray-500 ml-1">/ 100</span>
-                    </div>
-                    <div className="p-4 bg-[#13151a] rounded-2xl border border-gray-800">
-                        <p className="text-xs text-gray-500 font-bold uppercase mb-1">아군 보호</p>
-                        <span className="text-2xl font-black text-white">{allyAnalysis.peelScore}</span>
-                        <span className="text-xs text-gray-500 ml-1">/ 100</span>
-                    </div>
-                </div>
-            </div>
-          </div>
-        )}
+        </div>
       </div>
     </div>
   );

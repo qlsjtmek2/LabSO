@@ -1,0 +1,98 @@
+{
+  "id": "MonkeyKing",
+  "name": "Wukong",
+  "baseStats": {
+    "hp": 610,
+    "hpPerLevel": 99,
+    "mp": 330,
+    "mpPerLevel": 65,
+    "ad": 66,
+    "adPerLevel": 3.5,
+    "armor": 31,
+    "armorPerLevel": 4.7,
+    "mr": 28,
+    "mrPerLevel": 2.05,
+    "attackSpeed": 0.69,
+    "attackSpeedRatio": 3,
+    "range": 175
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Stone Skin",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Crushing Blow",
+      "cooldown": [
+        8,
+        7.5,
+        7,
+        6.5,
+        6
+      ],
+      "cost": [
+        20
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Warrior Trickster",
+      "cooldown": [
+        22,
+        21,
+        20,
+        19,
+        18
+      ],
+      "cost": [
+        60,
+        55,
+        50,
+        45,
+        40
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Nimbus Strike",
+      "cooldown": [
+        10,
+        9.25,
+        8.5,
+        7.75,
+        7
+      ],
+      "cost": [
+        30,
+        35,
+        40,
+        45,
+        50
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Cyclone",
+      "cooldown": [
+        130,
+        110,
+        90
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

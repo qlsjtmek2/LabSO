@@ -1,0 +1,90 @@
+{
+  "id": "Fiora",
+  "name": "Fiora",
+  "baseStats": {
+    "hp": 620,
+    "hpPerLevel": 99,
+    "mp": 300,
+    "mpPerLevel": 60,
+    "ad": 66,
+    "adPerLevel": 3.3,
+    "armor": 33,
+    "armorPerLevel": 4.7,
+    "mr": 32,
+    "mrPerLevel": 2.05,
+    "attackSpeed": 0.69,
+    "attackSpeedRatio": 3.2,
+    "range": 150
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Duelist's Dance",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Lunge",
+      "cooldown": [
+        13,
+        11.25,
+        9.5,
+        7.75,
+        6
+      ],
+      "cost": [
+        20
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Riposte",
+      "cooldown": [
+        24,
+        22,
+        20,
+        18,
+        16
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Bladework",
+      "cooldown": [
+        11,
+        10,
+        9,
+        8,
+        7
+      ],
+      "cost": [
+        40
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Grand Challenge",
+      "cooldown": [
+        110,
+        90,
+        70
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

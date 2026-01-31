@@ -1,0 +1,122 @@
+{
+  "id": "Darius",
+  "name": "Darius",
+  "baseStats": {
+    "hp": 652,
+    "hpPerLevel": 114,
+    "mp": 263,
+    "mpPerLevel": 58,
+    "ad": 64,
+    "adPerLevel": 5,
+    "armor": 37,
+    "armorPerLevel": 5.2,
+    "mr": 32,
+    "mrPerLevel": 2.05,
+    "attackSpeed": 0.625,
+    "attackSpeedRatio": 1,
+    "range": 175
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Hemorrhage",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Decimate",
+      "cooldown": [
+        9,
+        8,
+        7,
+        6,
+        5
+      ],
+      "cost": [
+        25,
+        30,
+        35,
+        40,
+        45
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Crippling Strike",
+      "cooldown": [
+        5
+      ],
+      "cost": [
+        40
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Physical",
+            "base": [
+              90
+            ],
+            "ratios": []
+          }
+        }
+      ]
+    },
+    "E": {
+      "id": "E",
+      "name": "Apprehend",
+      "cooldown": [
+        26,
+        23.5,
+        21,
+        18.5,
+        16
+      ],
+      "cost": [
+        70,
+        60,
+        50,
+        40,
+        30
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Physical",
+            "base": [
+              20,
+              25,
+              30,
+              35,
+              40
+            ],
+            "ratios": []
+          }
+        }
+      ]
+    },
+    "R": {
+      "id": "R",
+      "name": "Noxian Guillotine",
+      "cooldown": [
+        120,
+        100,
+        80
+      ],
+      "cost": [
+        100,
+        100,
+        0
+      ],
+      "effects": []
+    }
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "id": "Rumble",
+  "name": "Rumble",
+  "baseStats": {
+    "hp": 655,
+    "hpPerLevel": 105,
+    "mp": 150,
+    "mpPerLevel": 0,
+    "ad": 64,
+    "adPerLevel": 3.2,
+    "armor": 36,
+    "armorPerLevel": 4.7,
+    "mr": 28,
+    "mrPerLevel": 1.55,
+    "attackSpeed": 0.644,
+    "attackSpeedRatio": 1.85,
+    "range": 125
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Junkyard Titan",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Flamespitter",
+      "cooldown": [
+        10,
+        9,
+        8,
+        7,
+        6
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Scrap Shield",
+      "cooldown": [
+        6
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Electro Harpoon",
+      "cooldown": [
+        0.5
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "The Equalizer",
+      "cooldown": [
+        130,
+        105,
+        80
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    }
+  }
+}

@@ -8,7 +8,9 @@ import { analyzeTeam, compareTeams } from '@/engine/analyzer/teamAnalyzer';
 import { analyzeMatchup } from '@/engine/analyzer/matchupAnalyzer';
 import { recommendBuild } from '@/engine/recommender/buildRecommender';
 import { generateStrategy } from '@/engine/recommender/strategyRecommender';
+import { RuneOptimizer } from '@/engine/recommender/runeOptimizer';
 import { RUNE_TEMPLATES } from '@/data/runeTemplates';
+import RuneDisplay from '@/components/build-advisor/RuneDisplay';
 
 import ChampionSelectorModal from '@/components/build-advisor/ChampionSelectorModal';
 import TeamSelector from '@/components/build-advisor/TeamSelector';
@@ -210,7 +212,7 @@ export default function BuildAdvisorPage() {
       const matchup = enemyLaner ? analyzeMatchup(myChampion, enemyLaner) : null;
 
       // 빌드 추천
-      const buildRecommendation = recommendBuild(
+      const buildRecommendation = await recommendBuild(
         myChampion,
         myChampionLane!,
         allies,
@@ -393,7 +395,7 @@ export default function BuildAdvisorPage() {
       {/* Analysis Result */}
       {analysisResult && (
         <section className="max-w-7xl mx-auto px-6 pb-20">
-          <AnalysisResult result={analysisResult} />
+          <AnalysisResult result={analysisResult} version={version} />
         </section>
       )}
 

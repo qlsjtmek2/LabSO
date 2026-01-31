@@ -1,0 +1,113 @@
+{
+  "id": "Veigar",
+  "name": "Veigar",
+  "baseStats": {
+    "hp": 580,
+    "hpPerLevel": 108,
+    "mp": 490,
+    "mpPerLevel": 26,
+    "ad": 52,
+    "adPerLevel": 2.7,
+    "armor": 18,
+    "armorPerLevel": 5.2,
+    "mr": 32,
+    "mrPerLevel": 1.3,
+    "attackSpeed": 0.625,
+    "attackSpeedRatio": 2.24,
+    "range": 550
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Phenomenal Evil Power",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Baleful Strike",
+      "cooldown": [
+        6,
+        5.5,
+        5,
+        4.5,
+        4
+      ],
+      "cost": [
+        30,
+        35,
+        40,
+        45,
+        50
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Dark Matter",
+      "cooldown": [
+        0
+      ],
+      "cost": [
+        60,
+        65,
+        70,
+        75,
+        80
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Event Horizon",
+      "cooldown": [
+        20,
+        18.5,
+        17,
+        15.5,
+        14
+      ],
+      "cost": [
+        70,
+        75,
+        80,
+        85,
+        90
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Physical",
+            "base": [
+              1.5,
+              1.75,
+              2,
+              2.25,
+              2.5
+            ],
+            "ratios": []
+          }
+        }
+      ]
+    },
+    "R": {
+      "id": "R",
+      "name": "Primordial Burst",
+      "cooldown": [
+        100,
+        80,
+        60
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

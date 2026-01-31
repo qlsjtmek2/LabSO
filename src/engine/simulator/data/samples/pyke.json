@@ -1,0 +1,94 @@
+{
+  "id": "Pyke",
+  "name": "Pyke",
+  "baseStats": {
+    "hp": 670,
+    "hpPerLevel": 110,
+    "mp": 415,
+    "mpPerLevel": 50,
+    "ad": 62,
+    "adPerLevel": 2,
+    "armor": 43,
+    "armorPerLevel": 4.7,
+    "mr": 32,
+    "mrPerLevel": 2.05,
+    "attackSpeed": 0.667,
+    "attackSpeedRatio": 2.5,
+    "range": 150
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Gift of the Drowned Ones",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Bone Skewer",
+      "cooldown": [
+        10,
+        9.5,
+        9,
+        8.5,
+        8
+      ],
+      "cost": [
+        70,
+        75,
+        80,
+        85,
+        90
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Ghostwater Dive",
+      "cooldown": [
+        14,
+        13,
+        12,
+        11,
+        10
+      ],
+      "cost": [
+        65
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Phantom Undertow",
+      "cooldown": [
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "cost": [
+        40
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Death From Below",
+      "cooldown": [
+        100,
+        85,
+        70
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

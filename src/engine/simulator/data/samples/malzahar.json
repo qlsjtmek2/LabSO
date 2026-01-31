@@ -1,0 +1,109 @@
+{
+  "id": "Malzahar",
+  "name": "Malzahar",
+  "baseStats": {
+    "hp": 580,
+    "hpPerLevel": 101,
+    "mp": 375,
+    "mpPerLevel": 28,
+    "ad": 55,
+    "adPerLevel": 3,
+    "armor": 18,
+    "armorPerLevel": 4.7,
+    "mr": 30,
+    "mrPerLevel": 1.3,
+    "attackSpeed": 0.625,
+    "attackSpeedRatio": 1.5,
+    "range": 500
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Void Shift",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Call of the Void",
+      "cooldown": [
+        6
+      ],
+      "cost": [
+        60,
+        65,
+        70,
+        75,
+        80
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              1,
+              1.25,
+              1.5,
+              1.75,
+              2
+            ],
+            "ratios": []
+          }
+        }
+      ]
+    },
+    "W": {
+      "id": "W",
+      "name": "Void Swarm",
+      "cooldown": [
+        8
+      ],
+      "cost": [
+        40,
+        45,
+        50,
+        55,
+        60
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Malefic Visions",
+      "cooldown": [
+        11,
+        10,
+        9,
+        8,
+        7
+      ],
+      "cost": [
+        60,
+        70,
+        80,
+        90,
+        100
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Nether Grasp",
+      "cooldown": [
+        140,
+        110,
+        80
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

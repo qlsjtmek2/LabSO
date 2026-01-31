@@ -1,0 +1,84 @@
+{
+  "id": "Belveth",
+  "name": "Bel'Veth",
+  "baseStats": {
+    "hp": 610,
+    "hpPerLevel": 99,
+    "mp": 60,
+    "mpPerLevel": 0,
+    "ad": 60,
+    "adPerLevel": 1.5,
+    "armor": 32,
+    "armorPerLevel": 4.7,
+    "mr": 32,
+    "mrPerLevel": 2.05,
+    "attackSpeed": 0.85,
+    "attackSpeedRatio": 0,
+    "range": 150
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Death in Lavender ",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Void Surge",
+      "cooldown": [
+        1
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Above and Below",
+      "cooldown": [
+        12,
+        11,
+        10,
+        9,
+        8
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Royal Maelstrom",
+      "cooldown": [
+        20,
+        19,
+        18,
+        17,
+        16
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Endless Banquet",
+      "cooldown": [
+        1
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
+    }
+  }
+}

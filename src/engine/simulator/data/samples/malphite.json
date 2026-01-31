@@ -1,0 +1,109 @@
+{
+  "id": "Malphite",
+  "name": "Malphite",
+  "baseStats": {
+    "hp": 665,
+    "hpPerLevel": 104,
+    "mp": 280,
+    "mpPerLevel": 60,
+    "ad": 62,
+    "adPerLevel": 4,
+    "armor": 40,
+    "armorPerLevel": 4.95,
+    "mr": 28,
+    "mrPerLevel": 2.05,
+    "attackSpeed": 0.736,
+    "attackSpeedRatio": 3.4,
+    "range": 125
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Granite Shield",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Seismic Shard",
+      "cooldown": [
+        8
+      ],
+      "cost": [
+        70,
+        75,
+        80,
+        85,
+        90
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              20,
+              25,
+              30,
+              35,
+              40
+            ],
+            "ratios": []
+          }
+        }
+      ]
+    },
+    "W": {
+      "id": "W",
+      "name": "Thunderclap",
+      "cooldown": [
+        10,
+        9.5,
+        9,
+        8.5,
+        8
+      ],
+      "cost": [
+        30,
+        35,
+        40,
+        45,
+        50
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Ground Slam",
+      "cooldown": [
+        7
+      ],
+      "cost": [
+        50,
+        55,
+        60,
+        65,
+        70
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Unstoppable Force",
+      "cooldown": [
+        130,
+        115,
+        100
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}

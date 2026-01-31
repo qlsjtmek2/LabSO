@@ -1,0 +1,86 @@
+{
+  "id": "Shaco",
+  "name": "Shaco",
+  "baseStats": {
+    "hp": 630,
+    "hpPerLevel": 99,
+    "mp": 297,
+    "mpPerLevel": 40,
+    "ad": 63,
+    "adPerLevel": 3,
+    "armor": 30,
+    "armorPerLevel": 4,
+    "mr": 32,
+    "mrPerLevel": 2.05,
+    "attackSpeed": 0.694,
+    "attackSpeedRatio": 3,
+    "range": 125
+  },
+  "spells": {
+    "P": {
+      "id": "P",
+      "name": "Backstab",
+      "cooldown": [
+        10
+      ],
+      "cost": [
+        50
+      ],
+      "effects": []
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Deceive",
+      "cooldown": [
+        13,
+        12.5,
+        12,
+        11.5,
+        11
+      ],
+      "cost": [
+        40
+      ],
+      "effects": []
+    },
+    "W": {
+      "id": "W",
+      "name": "Jack In The Box",
+      "cooldown": [
+        15
+      ],
+      "cost": [
+        70,
+        65,
+        60,
+        55,
+        50
+      ],
+      "effects": []
+    },
+    "E": {
+      "id": "E",
+      "name": "Two-Shiv Poison",
+      "cooldown": [
+        8
+      ],
+      "cost": [
+        75
+      ],
+      "effects": []
+    },
+    "R": {
+      "id": "R",
+      "name": "Hallucinate",
+      "cooldown": [
+        100,
+        90,
+        80
+      ],
+      "cost": [
+        100
+      ],
+      "effects": []
+    }
+  }
+}
