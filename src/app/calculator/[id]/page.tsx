@@ -20,6 +20,9 @@ export default function CalculatorPage() {
 
   const [hoverData, setHoverData] = useState<{show: boolean, title: string, description: string, x: number, y: number}>({ show: false, title: '', description: '', x: 0, y: 0 });
 
+  const [simulationResult, setSimulationResult] = useState<{ totalDamage: number, events: any[], championStats?: any }>({ totalDamage: 0, events: [] });
+  const [isSimulating, setIsSimulating] = useState(false);
+
   useEffect(() => {
     const init = async () => {
       const v = await getLatestVersion();
@@ -29,7 +32,14 @@ export default function CalculatorPage() {
         getItems(v)
       ]);
       setChampion(champData);
-      const filteredItems = Object.values(allItems).filter((item: any) => 
+      
+      // 아이템 ID 주입
+      const itemsArr = Object.entries(allItems).map(([key, val]: [string, any]) => ({
+        ...val,
+        id: key 
+      }));
+      
+      const filteredItems = itemsArr.filter((item: any) => 
         item.gold.purchasable && !item.tags.includes('Consumable')
       );
       setItems(filteredItems);
@@ -37,6 +47,50 @@ export default function CalculatorPage() {
     };
     init();
   }, [id]);
+
+  // 시뮬레이션 API 호출
+  useEffect(() => {
+    const runSimulation = async () => {
+      if (!champion) return;
+      
+      // 콤보가 없어도 스탯 확인 등을 위해 호출 가능하지만, 현재는 데미지 위주
+      if (combo.length === 0) {
+        setSimulationResult(prev => ({ ...prev, totalDamage: 0 }));
+        return;
+      }
+
+      setIsSimulating(true);
+      try {
+        const itemIds = selectedItems.map(i => i ? parseInt(i.id) : null).filter(i => i !== null);
+        
+        const res = await fetch('/api/simulate/combo', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            championId: champion.id, // e.g. "Ahri"
+            level,
+            items: itemIds,
+            skillLevels,
+            combo
+          })
+        });
+        
+        const data = await res.json();
+        if (data.error) {
+          console.error(data.error);
+        } else {
+          setSimulationResult(data);
+        }
+      } catch (err) {
+        console.error(err);
+      } finally {
+        setIsSimulating(false);
+      }
+    };
+
+    const timer = setTimeout(runSimulation, 500); // Debounce
+    return () => clearTimeout(timer);
+  }, [combo, level, selectedItems, skillLevels, champion]);
 
   if (loading) return <div className="min-h-screen bg-[#0a0a0c] flex items-center justify-center"><div className="w-16 h-16 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div></div>;
 
@@ -56,32 +110,14 @@ export default function CalculatorPage() {
     };
   }, { ad: 0, ap: 0, hp: 0, armor: 0, mr: 0 });
 
-  const currentStats = {
+  // 서버에서 받은 스탯이 있으면 우선 사용, 없으면 클라이언트 추정치 (Fallback)
+  const currentStats = simulationResult.championStats || {
     hp: calculateBaseStat(champion.stats.hp, champion.stats.hpperlevel, level) + itemStats.hp,
     ad: calculateBaseStat(champion.stats.attackdamage, champion.stats.attackdamageperlevel, level) + itemStats.ad,
     ap: itemStats.ap,
     armor: calculateBaseStat(champion.stats.armor, champion.stats.armorperlevel, level) + itemStats.armor,
     mr: calculateBaseStat(champion.stats.spellblock, champion.stats.spellblockperlevel, level) + itemStats.mr,
   };
-
-  const calculateSpellDamage = (spellIdx: number) => {
-    if (spellIdx === -1) return Math.round(currentStats.ad);
-    const spell = champion.spells[spellIdx];
-    const sLevel = skillLevels[spellIdx];
-    const baseDamage = spell.effect[1][sLevel - 1] || 0;
-    let total = baseDamage;
-    if (spell.vars && spell.vars.length > 0) {
-        spell.vars.forEach((v: any) => {
-            const coeff = Array.isArray(v.coeff) ? v.coeff[sLevel - 1] : v.coeff;
-            if (v.link === 'attackdamage') total += currentStats.ad * coeff;
-            if (v.link === 'bonusattackdamage') total += itemStats.ad * coeff;
-            if (v.link === 'spelldamage') total += currentStats.ap * coeff;
-        });
-    }
-    return Math.round(total);
-  };
-
-  const totalDamage = combo.reduce((acc, spellIdx) => acc + calculateSpellDamage(spellIdx), 0);
 
   const parseTooltip = (tooltip: string, spell?: any) => {
     if (!tooltip) return '';
@@ -343,7 +379,11 @@ export default function CalculatorPage() {
                         <div>
                             <p className="text-blue-500 text-xs font-black uppercase tracking-widest mb-2">TOTAL BURST DAMAGE</p>
                             <div className="text-7xl md:text-8xl font-black text-white tracking-tighter drop-shadow-2xl">
-                                {totalDamage.toLocaleString()}
+                                {isSimulating ? (
+                                    <span className="text-gray-600 text-5xl">...</span>
+                                ) : (
+                                    simulationResult.totalDamage.toLocaleString()
+                                )}
                             </div>
                         </div>
                         <div className="text-right text-gray-500 text-xs space-y-1">

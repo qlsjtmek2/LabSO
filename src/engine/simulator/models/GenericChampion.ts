@@ -63,43 +63,84 @@ export class GenericChampionModel {
     return stats;
   }
 
-  // 스킬 데미지 계산
-  private calculateSpellDamage(logic: DamageLogic, target: CombatStats): number {
-    // 1. 기본 데미지 (스킬 레벨은 챔피언 레벨에 따라 추정. 예: 9렙에 Q 5렙)
-    // 단순화를 위해 만렙 기준 마지막 인덱스 사용
-    const baseDmg = logic.base[logic.base.length - 1] || 0;
+  // 스탯 값 추출 헬퍼
+  private getStatValue(statType: string, target?: CombatStats): number {
+    const s = this.stats;
+    const base = this.schema.baseStats;
+    // 성장 스탯 계산 (현재 레벨 기준)
+    const growth = this.level - 1;
+    const baseAdAtLevel = base.ad + (base.adPerLevel * growth);
+    
+    switch (statType) {
+      case 'ad': return s.ad;
+      case 'bonusAd': return s.ad - baseAdAtLevel; // 총 AD - 기본 AD
+      case 'ap': return s.ap;
+      case 'hp': return s.hp;
+      case 'bonusHp': return s.hp - (base.hp + (base.hpPerLevel * growth));
+      case 'armor': return s.armor;
+      case 'bonusArmor': return s.armor - (base.armor + (base.armorPerLevel * growth));
+      case 'mr': return s.mr;
+      case 'bonusMr': return s.mr - (base.mr + (base.mrPerLevel * growth));
+      case 'attackSpeed': return s.attackSpeed;
+      case 'critChance': return s.critChance;
+      case 'level': return this.level;
+      
+      // Target Stats
+      case 'missingHp': return target ? target.maxHp - target.hp : 0;
+      case 'currentHp': return target ? target.hp : 0;
+      case 'maxHp': return target ? target.maxHp : 0;
+      
+      default: return 0;
+    }
+  }
 
-    // 2. 계수 데미지 (Ratio)
+  // 스킬 데미지 계산 (V2)
+  private calculateSpellDamage(logic: DamageLogic, target: CombatStats, skillLevel: number = 5): number {
+    // 1. 기본 데미지 (스킬 레벨 기반, 인덱스는 0부터 시작하므로 -1)
+    const baseDmg = logic.base[Math.min(skillLevel - 1, logic.base.length - 1)] || 0;
+
+    // 2. 계수(Scaling) 데미지
     let scalingDmg = 0;
-    logic.ratios.forEach(r => {
-      if (r.stat === 'ad') scalingDmg += this.stats.ad * r.ratio;
-      if (r.stat === 'ap') scalingDmg += this.stats.ap * r.ratio;
-      if (r.stat === 'hp') scalingDmg += this.stats.maxHp * r.ratio;
-    });
-
-    // 3. 체력 비례 데미지
-    let hpDmg = 0;
-    if (logic.targetHpBased) {
-      const { type, percent } = logic.targetHpBased;
-      if (type === 'current') hpDmg = target.hp * percent;
-      if (type === 'max') hpDmg = target.maxHp * percent;
-      if (type === 'missing') hpDmg = (target.maxHp - target.hp) * percent;
+    if (logic.scalings) {
+      logic.scalings.forEach(scale => {
+        const statValue = this.getStatValue(scale.stat, target);
+        
+        // 계수가 배열일 경우 스킬 레벨에 따라 달라짐
+        const ratio = Array.isArray(scale.ratio) 
+          ? scale.ratio[Math.min(skillLevel - 1, scale.ratio.length - 1)] 
+          : scale.ratio;
+          
+        scalingDmg += statValue * ratio;
+      });
     }
 
-    return baseDmg + scalingDmg + hpDmg;
+    let totalDamage = baseDmg + scalingDmg;
+
+    // 3. 조건부 증폭 (Modifiers)
+    if (logic.modifiers) {
+      logic.modifiers.forEach(mod => {
+        // 조건 확인 로직 (현재는 단순화하여 무조건 true로 가정하거나 추후 구현)
+        // 실제로는 mod.condition을 파싱해야 함.
+        // 여기서는 예시로 '항상 적용'으로 가정
+        if (mod.multiplier) totalDamage *= mod.multiplier;
+        if (mod.flat) totalDamage += mod.flat;
+      });
+    }
+
+    return totalDamage;
   }
 
   // 스킬 사용 시뮬레이션
-  public castSpell(spellKey: 'Q' | 'W' | 'E' | 'R', target: CombatStats, time: number): DamageEvent[] {
+  public castSpell(spellKey: 'Q' | 'W' | 'E' | 'R', target: CombatStats, time: number, skillLevel: number = 5): DamageEvent[] {
     const spell = this.schema.spells[spellKey];
     const events: DamageEvent[] = [];
 
     spell.effects.forEach(effect => {
-      if (effect.type === 'damage') {
-        const rawDmg = this.calculateSpellDamage(effect.logic, target);
+      if (effect.type === 'damage' && effect.logic) {
+        const rawDmg = this.calculateSpellDamage(effect.logic, target, skillLevel);
         
         // 도트 데미지 처리
-        const ticks = effect.ticks || 1;
+        const ticks = effect.logic.ticks || 1;
         const dmgPerTick = rawDmg / ticks;
 
         for (let i = 0; i < ticks; i++) {
@@ -145,5 +186,82 @@ export class GenericChampionModel {
     });
 
     return events;
+  // 평타 수행
+  public performAutoAttack(target: CombatStats, time: number): DamageEvent[] {
+    const events: DamageEvent[] = [];
+    
+    // 1. 기본 물리 데미지 (치명타 미적용 단순화)
+    // TODO: 치명타 확률(critChance) 반영
+    const isCrit = Math.random() < (this.stats.critChance || 0);
+    const damageMultiplier = isCrit ? (this.stats.critDamage || 1.75) : 1.0;
+    const rawDmg = this.stats.ad * damageMultiplier;
+
+    const mitigated = DamageEngine.calculateDamage(
+      rawDmg,
+      'Physical',
+      this.stats,
+      target
+    );
+
+    events.push({
+      source: 'Auto Attack',
+      type: 'Physical',
+      rawDamage: rawDmg,
+      mitigatedDamage: mitigated,
+      timestamp: time,
+      isCrit: isCrit
+    });
+
+    // 2. 온힛 아이템 효과
+    this.items.forEach(item => {
+      if (item.onHit) {
+        const onHitDmg = item.onHit(target, this.stats);
+        events.push({
+          source: `${item.name} (On-hit)`,
+          type: onHitDmg.type,
+          rawDamage: onHitDmg.damage,
+          mitigatedDamage: DamageEngine.calculateDamage(
+            onHitDmg.damage,
+            onHitDmg.type,
+            this.stats,
+            target
+          ),
+          timestamp: time,
+          isCrit: false
+        });
+      }
+    });
+
+    return events;
+  }
+
+  // 콤보 시뮬레이션
+  public simulateCombo(
+    combo: string[], // ['Q', 'AA', 'E', 'R']
+    target: CombatStats,
+    skillLevels: { [key: string]: number } = { Q: 5, W: 5, E: 5, R: 3 }
+  ): DamageEvent[] {
+    let currentTime = 0;
+    const allEvents: DamageEvent[] = [];
+
+    combo.forEach(action => {
+      // 쿨타임/시전시간 등은 일단 무시하고 0.5초 간격으로 가정
+      currentTime += 0.5;
+
+      if (action === 'AA') {
+        const events = this.performAutoAttack(target, currentTime);
+        allEvents.push(...events);
+      } else if (['Q', 'W', 'E', 'R'].includes(action)) {
+        const events = this.castSpell(
+          action as 'Q' | 'W' | 'E' | 'R', 
+          target, 
+          currentTime, 
+          skillLevels[action] || 1
+        );
+        allEvents.push(...events);
+      }
+    });
+
+    return allEvents;
   }
 }
