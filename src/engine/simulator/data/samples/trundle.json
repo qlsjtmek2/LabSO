@@ -13,18 +13,19 @@
     "mr": 32,
     "mrPerLevel": 2.05,
     "attackSpeed": 0.67,
-    "attackSpeedRatio": 2.9,
-    "range": 175
+    "attackSpeedRatio": 0.67,
+    "range": 175,
+    "moveSpeed": 350
   },
   "spells": {
     "P": {
       "id": "P",
       "name": "King's Tribute",
       "cooldown": [
-        10
+        0
       ],
       "cost": [
-        50
+        0
       ],
       "effects": []
     },
@@ -32,10 +33,25 @@
       "id": "Q",
       "name": "Chomp",
       "cooldown": [
+        3.5,
+        3.5,
+        3.5,
+        3.5,
         3.5
       ],
       "cost": [
+        20,
+        20,
+        20,
+        20,
         20
+      ],
+      "range": [
+        300,
+        300,
+        300,
+        300,
+        300
       ],
       "effects": []
     },
@@ -50,24 +66,20 @@
         14
       ],
       "cost": [
+        40,
+        40,
+        40,
+        40,
         40
       ],
-      "effects": [
-        {
-          "type": "damage",
-          "logic": {
-            "damageType": "Physical",
-            "base": [
-              20,
-              28,
-              36,
-              44,
-              52
-            ],
-            "ratios": []
-          }
-        }
-      ]
+      "range": [
+        750,
+        750,
+        750,
+        750,
+        750
+      ],
+      "effects": []
     },
     "E": {
       "id": "E",
@@ -80,20 +92,20 @@
         15
       ],
       "cost": [
+        75,
+        75,
+        75,
+        75,
         75
       ],
-      "effects": [
-        {
-          "type": "damage",
-          "logic": {
-            "damageType": "Physical",
-            "base": [
-              6
-            ],
-            "ratios": []
-          }
-        }
-      ]
+      "range": [
+        1000,
+        1000,
+        1000,
+        1000,
+        1000
+      ],
+      "effects": []
     },
     "R": {
       "id": "R",
@@ -104,7 +116,14 @@
         80
       ],
       "cost": [
+        100,
+        100,
         100
+      ],
+      "range": [
+        650,
+        650,
+        650
       ],
       "effects": []
     }

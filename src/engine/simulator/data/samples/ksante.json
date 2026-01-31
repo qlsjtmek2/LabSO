@@ -13,18 +13,19 @@
     "mr": 30,
     "mrPerLevel": 2.1,
     "attackSpeed": 0.688,
-    "attackSpeedRatio": 2.5,
-    "range": 150
+    "attackSpeedRatio": 0.688,
+    "range": 150,
+    "moveSpeed": 330
   },
   "spells": {
     "P": {
       "id": "P",
       "name": "Dauntless Instinct",
       "cooldown": [
-        10
+        0
       ],
       "cost": [
-        50
+        0
       ],
       "effects": []
     },
@@ -32,12 +33,50 @@
       "id": "Q",
       "name": "Ntofo Strikes",
       "cooldown": [
+        3.5,
+        3.5,
+        3.5,
+        3.5,
         3.5
       ],
       "cost": [
+        20,
+        20,
+        20,
+        20,
         20
       ],
-      "effects": []
+      "range": [
+        450,
+        450,
+        450,
+        450,
+        450
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              70,
+              100,
+              130,
+              160,
+              190
+            ],
+            "scalings": [
+              {
+                "stat": "bonusAd",
+                "ratio": 0.4000000059604645
+              },
+              {
+                "ratio": 0.4000000059604645
+              }
+            ]
+          }
+        }
+      ]
     },
     "W": {
       "id": "W",
@@ -56,7 +95,29 @@
         55,
         60
       ],
-      "effects": []
+      "range": [
+        600,
+        600,
+        600,
+        600,
+        600
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              0.07999999821186066,
+              0.07999999821186066,
+              0.07999999821186066,
+              0.07999999821186066,
+              0.07999999821186066
+            ],
+            "scalings": []
+          }
+        }
+      ]
     },
     "E": {
       "id": "E",
@@ -75,7 +136,29 @@
         60,
         65
       ],
-      "effects": []
+      "range": [
+        525,
+        525,
+        525,
+        525,
+        525
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              80,
+              120,
+              160,
+              200,
+              240
+            ],
+            "scalings": []
+          }
+        }
+      ]
     },
     "R": {
       "id": "R",
@@ -86,9 +169,35 @@
         80
       ],
       "cost": [
+        100,
+        100,
         100
       ],
-      "effects": []
+      "range": [
+        250,
+        250,
+        250
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              80,
+              115,
+              150,
+              185,
+              220
+            ],
+            "scalings": [
+              {
+                "ratio": 0.05000000074505806
+              }
+            ]
+          }
+        }
+      ]
     }
   }
 }

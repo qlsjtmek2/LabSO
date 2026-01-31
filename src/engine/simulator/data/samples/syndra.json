@@ -13,18 +13,19 @@
     "mr": 30,
     "mrPerLevel": 1.3,
     "attackSpeed": 0.658,
-    "attackSpeedRatio": 2,
-    "range": 550
+    "attackSpeedRatio": 0.658,
+    "range": 550,
+    "moveSpeed": 330
   },
   "spells": {
     "P": {
       "id": "P",
       "name": "Transcendent",
       "cooldown": [
-        10
+        0
       ],
       "cost": [
-        50
+        0
       ],
       "effects": []
     },
@@ -32,6 +33,10 @@
       "id": "Q",
       "name": "Dark Sphere",
       "cooldown": [
+        7,
+        7,
+        7,
+        7,
         7
       ],
       "cost": [
@@ -41,7 +46,34 @@
         55,
         60
       ],
-      "effects": []
+      "range": [
+        800,
+        800,
+        800,
+        800,
+        800
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              80,
+              115,
+              150,
+              185,
+              220
+            ],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.6499999761581421
+              }
+            ]
+          }
+        }
+      ]
     },
     "W": {
       "id": "W",
@@ -60,18 +92,75 @@
         90,
         100
       ],
-      "effects": []
+      "range": [
+        925,
+        925,
+        925,
+        925,
+        925
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              70,
+              105,
+              140,
+              175,
+              210
+            ],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.6499999761581421
+              }
+            ]
+          }
+        }
+      ]
     },
     "E": {
       "id": "E",
       "name": "Scatter the Weak",
       "cooldown": [
+        15,
+        15,
+        15,
+        15,
         15
       ],
       "cost": [
+        50,
+        50,
+        50,
+        50,
         50
       ],
-      "effects": []
+      "range": [
+        650,
+        650,
+        650,
+        650,
+        650
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              60,
+              95,
+              130,
+              165,
+              200
+            ],
+            "scalings": []
+          }
+        }
+      ]
     },
     "R": {
       "id": "R",
@@ -82,9 +171,31 @@
         80
       ],
       "cost": [
+        100,
+        100,
         100
       ],
-      "effects": []
+      "range": [
+        675,
+        675,
+        675
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              90,
+              130,
+              170,
+              210,
+              250
+            ],
+            "scalings": []
+          }
+        }
+      ]
     }
   }
 }

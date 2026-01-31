@@ -13,18 +13,19 @@
     "mr": 30,
     "mrPerLevel": 1.3,
     "attackSpeed": 0.638,
-    "attackSpeedRatio": 4,
-    "range": 550
+    "attackSpeedRatio": 0.638,
+    "range": 550,
+    "moveSpeed": 330
   },
   "spells": {
     "P": {
       "id": "P",
       "name": "Dragon Practice",
       "cooldown": [
-        10
+        0
       ],
       "cost": [
-        50
+        0
       ],
       "effects": []
     },
@@ -39,9 +40,35 @@
         3.5
       ],
       "cost": [
+        25,
+        25,
+        25,
+        25,
         25
       ],
-      "effects": []
+      "range": [
+        550,
+        550,
+        550,
+        550,
+        550
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              65,
+              80,
+              95,
+              110,
+              125
+            ],
+            "scalings": []
+          }
+        }
+      ]
     },
     "W": {
       "id": "W",
@@ -60,7 +87,29 @@
         65,
         70
       ],
-      "effects": []
+      "range": [
+        1500,
+        1500,
+        1500,
+        1500,
+        1500
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              60,
+              70,
+              80,
+              90,
+              100
+            ],
+            "scalings": []
+          }
+        }
+      ]
     },
     "E": {
       "id": "E",
@@ -73,9 +122,35 @@
         16
       ],
       "cost": [
+        65,
+        65,
+        65,
+        65,
         65
       ],
-      "effects": []
+      "range": [
+        700,
+        700,
+        700,
+        700,
+        700
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              10,
+              15,
+              20,
+              25,
+              30
+            ],
+            "scalings": []
+          }
+        }
+      ]
     },
     "R": {
       "id": "R",
@@ -86,9 +161,36 @@
         100
       ],
       "cost": [
+        100,
+        100,
         100
       ],
-      "effects": []
+      "range": [
+        4200,
+        4200,
+        4200
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              200,
+              300,
+              400,
+              500,
+              600
+            ],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 1
+              }
+            ]
+          }
+        }
+      ]
     }
   }
 }

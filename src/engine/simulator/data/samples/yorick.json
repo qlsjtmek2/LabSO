@@ -13,18 +13,19 @@
     "mr": 32,
     "mrPerLevel": 2.05,
     "attackSpeed": 0.625,
-    "attackSpeedRatio": 2,
-    "range": 175
+    "attackSpeedRatio": 0.625,
+    "range": 175,
+    "moveSpeed": 340
   },
   "spells": {
     "P": {
       "id": "P",
       "name": "Shepherd of Souls",
       "cooldown": [
-        10
+        0
       ],
       "cost": [
-        50
+        0
       ],
       "effects": []
     },
@@ -39,9 +40,35 @@
         4
       ],
       "cost": [
+        20,
+        20,
+        20,
+        20,
         20
       ],
-      "effects": []
+      "range": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              30,
+              50,
+              70,
+              90,
+              110
+            ],
+            "scalings": []
+          }
+        }
+      ]
     },
     "W": {
       "id": "W",
@@ -54,7 +81,18 @@
         12
       ],
       "cost": [
+        70,
+        70,
+        70,
+        70,
         70
+      ],
+      "range": [
+        600,
+        600,
+        600,
+        600,
+        600
       ],
       "effects": []
     },
@@ -75,7 +113,28 @@
         65,
         70
       ],
-      "effects": []
+      "range": [
+        700,
+        700,
+        700,
+        700,
+        700
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 1
+              }
+            ]
+          }
+        }
+      ]
     },
     "R": {
       "id": "R",
@@ -86,9 +145,31 @@
         100
       ],
       "cost": [
+        100,
+        100,
         100
       ],
-      "effects": []
+      "range": [
+        600,
+        600,
+        600
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              50,
+              75,
+              100,
+              125,
+              150
+            ],
+            "scalings": []
+          }
+        }
+      ]
     }
   }
 }

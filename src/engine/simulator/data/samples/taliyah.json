@@ -13,18 +13,19 @@
     "mr": 28,
     "mrPerLevel": 1.3,
     "attackSpeed": 0.658,
-    "attackSpeedRatio": 1.36,
-    "range": 525
+    "attackSpeedRatio": 0.658,
+    "range": 525,
+    "moveSpeed": 330
   },
   "spells": {
     "P": {
       "id": "P",
       "name": "Rock Surfing",
       "cooldown": [
-        10
+        0
       ],
       "cost": [
-        50
+        0
       ],
       "effects": []
     },
@@ -45,7 +46,29 @@
         70,
         75
       ],
-      "effects": []
+      "range": [
+        1000,
+        1000,
+        1000,
+        1000,
+        1000
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              55,
+              72.5,
+              90,
+              107.5,
+              125
+            ],
+            "scalings": []
+          }
+        }
+      ]
     },
     "W": {
       "id": "W",
@@ -64,18 +87,60 @@
         10,
         0
       ],
+      "range": [
+        900,
+        900,
+        900,
+        900,
+        900
+      ],
       "effects": []
     },
     "E": {
       "id": "E",
       "name": "Unraveled Earth",
       "cooldown": [
+        14,
+        14,
+        14,
+        14,
         14
       ],
       "cost": [
+        90,
+        90,
+        90,
+        90,
         90
       ],
-      "effects": []
+      "range": [
+        950,
+        950,
+        950,
+        950,
+        950
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              60,
+              105,
+              150,
+              195,
+              240
+            ],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.6000000238418579
+              }
+            ]
+          }
+        }
+      ]
     },
     "R": {
       "id": "R",
@@ -86,20 +151,16 @@
         120
       ],
       "cost": [
+        100,
+        100,
         100
       ],
-      "effects": [
-        {
-          "type": "damage",
-          "logic": {
-            "damageType": "Physical",
-            "base": [
-              4
-            ],
-            "ratios": []
-          }
-        }
-      ]
+      "range": [
+        2500,
+        4500,
+        6500
+      ],
+      "effects": []
     }
   }
 }

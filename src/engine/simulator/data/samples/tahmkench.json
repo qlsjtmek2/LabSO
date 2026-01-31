@@ -13,18 +13,19 @@
     "mr": 32,
     "mrPerLevel": 2.05,
     "attackSpeed": 0.658,
-    "attackSpeedRatio": 2.5,
-    "range": 175
+    "attackSpeedRatio": 0.658,
+    "range": 175,
+    "moveSpeed": 335
   },
   "spells": {
     "P": {
       "id": "P",
       "name": "An Acquired Taste",
       "cooldown": [
-        10
+        0
       ],
       "cost": [
-        50
+        0
       ],
       "effects": []
     },
@@ -45,7 +46,34 @@
         38,
         34
       ],
-      "effects": []
+      "range": [
+        900,
+        900,
+        900,
+        900,
+        900
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              75,
+              120,
+              165,
+              210,
+              255
+            ],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 1
+              }
+            ]
+          }
+        }
+      ]
     },
     "W": {
       "id": "W",
@@ -64,27 +92,87 @@
         105,
         120
       ],
-      "effects": []
+      "range": [
+        1000,
+        1050,
+        1100,
+        1150,
+        1200
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              100,
+              135,
+              170,
+              205,
+              240
+            ],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 1.5
+              }
+            ]
+          }
+        }
+      ]
     },
     "E": {
       "id": "E",
       "name": "Thick Skin",
       "cooldown": [
+        3,
+        3,
+        3,
+        3,
         3
       ],
       "cost": [
+        0,
+        0,
+        0,
+        0,
         0
       ],
-      "effects": []
+      "range": [
+        2400,
+        2400,
+        2400,
+        2400,
+        2400
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [],
+            "scalings": []
+          }
+        }
+      ]
     },
     "R": {
       "id": "R",
       "name": "Devour",
       "cooldown": [
+        0,
+        0,
         0
       ],
       "cost": [
+        100,
+        100,
         100
+      ],
+      "range": [
+        25000,
+        25000,
+        25000
       ],
       "effects": []
     }

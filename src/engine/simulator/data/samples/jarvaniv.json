@@ -13,18 +13,19 @@
     "mr": 32,
     "mrPerLevel": 2.05,
     "attackSpeed": 0.658,
-    "attackSpeedRatio": 2.5,
-    "range": 175
+    "attackSpeedRatio": 0.658,
+    "range": 175,
+    "moveSpeed": 340
   },
   "spells": {
     "P": {
       "id": "P",
       "name": "Martial Cadence",
       "cooldown": [
-        10
+        0
       ],
       "cost": [
-        50
+        0
       ],
       "effects": []
     },
@@ -45,48 +46,40 @@
         60,
         65
       ],
-      "effects": [
-        {
-          "type": "damage",
-          "logic": {
-            "damageType": "Physical",
-            "base": [
-              10,
-              14,
-              18,
-              22,
-              26
-            ],
-            "ratios": []
-          }
-        }
-      ]
+      "range": [
+        770,
+        770,
+        770,
+        770,
+        770
+      ],
+      "effects": []
     },
     "W": {
       "id": "W",
       "name": "Golden Aegis",
       "cooldown": [
+        9,
+        9,
+        9,
+        9,
         9
       ],
       "cost": [
+        30,
+        30,
+        30,
+        30,
         30
       ],
-      "effects": [
-        {
-          "type": "damage",
-          "logic": {
-            "damageType": "Physical",
-            "base": [
-              15,
-              20,
-              25,
-              30,
-              35
-            ],
-            "ratios": []
-          }
-        }
-      ]
+      "range": [
+        625,
+        625,
+        625,
+        625,
+        625
+      ],
+      "effects": []
     },
     "E": {
       "id": "E",
@@ -99,7 +92,18 @@
         10
       ],
       "cost": [
+        55,
+        55,
+        55,
+        55,
         55
+      ],
+      "range": [
+        860,
+        860,
+        860,
+        860,
+        860
       ],
       "effects": []
     },
@@ -112,7 +116,14 @@
         90
       ],
       "cost": [
+        100,
+        100,
         100
+      ],
+      "range": [
+        650,
+        650,
+        650
       ],
       "effects": []
     }

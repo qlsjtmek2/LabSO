@@ -13,18 +13,19 @@
     "mr": 32,
     "mrPerLevel": 2.05,
     "attackSpeed": 0.7,
-    "attackSpeedRatio": 2.215,
-    "range": 125
+    "attackSpeedRatio": 0.7,
+    "range": 125,
+    "moveSpeed": 335
   },
   "spells": {
     "P": {
       "id": "P",
       "name": "Spiked Shell",
       "cooldown": [
-        10
+        0
       ],
       "cost": [
-        50
+        0
       ],
       "effects": []
     },
@@ -39,7 +40,18 @@
         6
       ],
       "cost": [
+        60,
+        60,
+        60,
+        60,
         60
+      ],
+      "range": [
+        300,
+        300,
+        300,
+        300,
+        300
       ],
       "effects": []
     },
@@ -47,10 +59,25 @@
       "id": "W",
       "name": "Defensive Ball Curl",
       "cooldown": [
+        7,
+        7,
+        7,
+        7,
         7
       ],
       "cost": [
+        40,
+        40,
+        40,
+        40,
         40
+      ],
+      "range": [
+        300,
+        300,
+        300,
+        300,
+        300
       ],
       "effects": []
     },
@@ -58,10 +85,25 @@
       "id": "E",
       "name": "Frenzying Taunt",
       "cooldown": [
+        12,
+        12,
+        12,
+        12,
         12
       ],
       "cost": [
+        50,
+        50,
+        50,
+        50,
         50
+      ],
+      "range": [
+        325,
+        325,
+        325,
+        325,
+        325
       ],
       "effects": []
     },
@@ -74,7 +116,14 @@
         90
       ],
       "cost": [
+        100,
+        100,
         100
+      ],
+      "range": [
+        25000,
+        25000,
+        25000
       ],
       "effects": []
     }

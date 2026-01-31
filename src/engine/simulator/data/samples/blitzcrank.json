@@ -13,18 +13,19 @@
     "mr": 32,
     "mrPerLevel": 2.05,
     "attackSpeed": 0.625,
-    "attackSpeedRatio": 1.13,
-    "range": 125
+    "attackSpeedRatio": 0.625,
+    "range": 125,
+    "moveSpeed": 325
   },
   "spells": {
     "P": {
       "id": "P",
       "name": "Mana Barrier",
       "cooldown": [
-        10
+        0
       ],
       "cost": [
-        50
+        0
       ],
       "effects": []
     },
@@ -39,7 +40,18 @@
         16
       ],
       "cost": [
+        100,
+        100,
+        100,
+        100,
         100
+      ],
+      "range": [
+        1079,
+        1079,
+        1079,
+        1079,
+        1079
       ],
       "effects": []
     },
@@ -47,10 +59,25 @@
       "id": "W",
       "name": "Overdrive",
       "cooldown": [
+        15,
+        15,
+        15,
+        15,
         15
       ],
       "cost": [
+        75,
+        75,
+        75,
+        75,
         75
+      ],
+      "range": [
+        1,
+        1,
+        1,
+        1,
+        1
       ],
       "effects": []
     },
@@ -65,7 +92,18 @@
         5
       ],
       "cost": [
+        25,
+        25,
+        25,
+        25,
         25
+      ],
+      "range": [
+        300,
+        300,
+        300,
+        300,
+        300
       ],
       "effects": []
     },
@@ -78,7 +116,14 @@
         20
       ],
       "cost": [
+        100,
+        100,
         100
+      ],
+      "range": [
+        600,
+        600,
+        600
       ],
       "effects": []
     }

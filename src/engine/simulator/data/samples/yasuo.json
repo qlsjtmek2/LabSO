@@ -13,18 +13,19 @@
     "mr": 32,
     "mrPerLevel": 2.05,
     "attackSpeed": 0.697,
-    "attackSpeedRatio": 3.5,
-    "range": 175
+    "attackSpeedRatio": 0.697,
+    "range": 175,
+    "moveSpeed": 345
   },
   "spells": {
     "P": {
       "id": "P",
       "name": "Way of the Wanderer",
       "cooldown": [
-        10
+        0
       ],
       "cost": [
-        50
+        0
       ],
       "effects": []
     },
@@ -32,10 +33,25 @@
       "id": "Q",
       "name": "Steel Tempest",
       "cooldown": [
+        4,
+        4,
+        4,
+        4,
         4
       ],
       "cost": [
+        0,
+        0,
+        0,
+        0,
         0
+      ],
+      "range": [
+        475,
+        475,
+        475,
+        475,
+        475
       ],
       "effects": []
     },
@@ -50,7 +66,18 @@
         17
       ],
       "cost": [
+        0,
+        0,
+        0,
+        0,
         0
+      ],
+      "range": [
+        400,
+        400,
+        400,
+        400,
+        400
       ],
       "effects": []
     },
@@ -65,7 +92,18 @@
         0.1
       ],
       "cost": [
+        0,
+        0,
+        0,
+        0,
         0
+      ],
+      "range": [
+        475,
+        475,
+        475,
+        475,
+        475
       ],
       "effects": [
         {
@@ -73,13 +111,13 @@
           "logic": {
             "damageType": "Magical",
             "base": [
-              10,
-              9,
-              8,
-              7,
-              6
+              70,
+              85,
+              100,
+              115,
+              130
             ],
-            "ratios": []
+            "scalings": []
           }
         }
       ]
@@ -93,9 +131,36 @@
         30
       ],
       "cost": [
+        0,
+        0,
         0
       ],
-      "effects": []
+      "range": [
+        1400,
+        1400,
+        1400
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              200,
+              350,
+              500,
+              650,
+              800
+            ],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 1.5
+              }
+            ]
+          }
+        }
+      ]
     }
   }
 }

@@ -13,18 +13,19 @@
     "mr": 28,
     "mrPerLevel": 2.05,
     "attackSpeed": 0.665,
-    "attackSpeedRatio": 2.75,
-    "range": 125
+    "attackSpeedRatio": 0.665,
+    "range": 125,
+    "moveSpeed": 345
   },
   "spells": {
     "P": {
       "id": "P",
       "name": "Reign of Anger",
       "cooldown": [
-        10
+        0
       ],
       "cost": [
-        50
+        0
       ],
       "effects": []
     },
@@ -32,10 +33,25 @@
       "id": "Q",
       "name": "Cull the Meek",
       "cooldown": [
+        7,
+        7,
+        7,
+        7,
         7
       ],
       "cost": [
+        0,
+        0,
+        0,
+        0,
         0
+      ],
+      "range": [
+        325,
+        325,
+        325,
+        325,
+        325
       ],
       "effects": []
     },
@@ -50,7 +66,18 @@
         8
       ],
       "cost": [
+        0,
+        0,
+        0,
+        0,
         0
+      ],
+      "range": [
+        300,
+        300,
+        300,
+        300,
+        300
       ],
       "effects": []
     },
@@ -65,7 +92,18 @@
         10
       ],
       "cost": [
+        0,
+        0,
+        0,
+        0,
         0
+      ],
+      "range": [
+        450,
+        450,
+        450,
+        450,
+        450
       ],
       "effects": []
     },
@@ -78,7 +116,14 @@
         80
       ],
       "cost": [
+        0,
+        0,
         0
+      ],
+      "range": [
+        20,
+        20,
+        20
       ],
       "effects": []
     }

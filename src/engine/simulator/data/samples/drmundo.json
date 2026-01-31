@@ -13,18 +13,19 @@
     "mr": 29,
     "mrPerLevel": 2.3,
     "attackSpeed": 0.67,
-    "attackSpeedRatio": 3.3,
-    "range": 125
+    "attackSpeedRatio": 0.67,
+    "range": 125,
+    "moveSpeed": 345
   },
   "spells": {
     "P": {
       "id": "P",
       "name": "Goes Where He Pleases",
       "cooldown": [
-        10
+        0
       ],
       "cost": [
-        50
+        0
       ],
       "effects": []
     },
@@ -32,12 +33,36 @@
       "id": "Q",
       "name": "Infected Bonesaw",
       "cooldown": [
+        4,
+        4,
+        4,
+        4,
         4
       ],
       "cost": [
+        0,
+        0,
+        0,
+        0,
         0
       ],
-      "effects": []
+      "range": [
+        975,
+        975,
+        975,
+        975,
+        975
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [],
+            "scalings": []
+          }
+        }
+      ]
     },
     "W": {
       "id": "W",
@@ -50,9 +75,39 @@
         15
       ],
       "cost": [
+        0,
+        0,
+        0,
+        0,
         0
       ],
-      "effects": []
+      "range": [
+        325,
+        325,
+        325,
+        325,
+        325
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              20,
+              35,
+              50,
+              65,
+              80
+            ],
+            "scalings": [
+              {
+                "ratio": 0.07000000029802322
+              }
+            ]
+          }
+        }
+      ]
     },
     "E": {
       "id": "E",
@@ -65,18 +120,53 @@
         6
       ],
       "cost": [
+        0,
+        0,
+        0,
+        0,
         0
       ],
-      "effects": []
+      "range": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              5,
+              15,
+              25,
+              35,
+              45
+            ],
+            "scalings": []
+          }
+        }
+      ]
     },
     "R": {
       "id": "R",
       "name": "Maximum Dosage",
       "cooldown": [
+        120,
+        120,
         120
       ],
       "cost": [
+        0,
+        0,
         0
+      ],
+      "range": [
+        20,
+        20,
+        20
       ],
       "effects": []
     }

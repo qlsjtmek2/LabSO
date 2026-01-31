@@ -13,18 +13,19 @@
     "mr": 32,
     "mrPerLevel": 2.05,
     "attackSpeed": 0.658,
-    "attackSpeedRatio": 3.1,
-    "range": 175
+    "attackSpeedRatio": 0.658,
+    "range": 175,
+    "moveSpeed": 335
   },
   "spells": {
     "P": {
       "id": "P",
       "name": "Nimble Fighter",
       "cooldown": [
-        10
+        0
       ],
       "cost": [
-        50
+        0
       ],
       "effects": []
     },
@@ -39,9 +40,34 @@
         6
       ],
       "cost": [
+        50,
+        50,
+        50,
+        50,
         50
       ],
-      "effects": []
+      "range": [
+        550,
+        550,
+        550,
+        550,
+        550
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.550000011920929
+              }
+            ]
+          }
+        }
+      ]
     },
     "W": {
       "id": "W",
@@ -60,7 +86,29 @@
         60,
         70
       ],
-      "effects": []
+      "range": [
+        600,
+        600,
+        600,
+        600,
+        600
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              30,
+              45,
+              60,
+              75,
+              90
+            ],
+            "scalings": []
+          }
+        }
+      ]
     },
     "E": {
       "id": "E",
@@ -79,7 +127,34 @@
         90,
         95
       ],
-      "effects": []
+      "range": [
+        400,
+        400,
+        400,
+        400,
+        400
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              80,
+              130,
+              180,
+              230,
+              280
+            ],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.949999988079071
+              }
+            ]
+          }
+        }
+      ]
     },
     "R": {
       "id": "R",
@@ -90,9 +165,31 @@
         80
       ],
       "cost": [
+        100,
+        100,
         100
       ],
-      "effects": []
+      "range": [
+        1300,
+        1300,
+        1300
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              180,
+              300,
+              420,
+              540,
+              660
+            ],
+            "scalings": []
+          }
+        }
+      ]
     }
   }
 }

@@ -13,18 +13,19 @@
     "mr": 32,
     "mrPerLevel": 2.05,
     "attackSpeed": 0.658,
-    "attackSpeedRatio": 1.44,
-    "range": 125
+    "attackSpeedRatio": 0.658,
+    "range": 125,
+    "moveSpeed": 345
   },
   "spells": {
     "P": {
       "id": "P",
       "name": "Carnivore",
       "cooldown": [
-        10
+        0
       ],
       "cost": [
-        50
+        0
       ],
       "effects": []
     },
@@ -32,23 +33,27 @@
       "id": "Q",
       "name": "Rupture",
       "cooldown": [
+        6,
+        6,
+        6,
+        6,
         6
       ],
       "cost": [
+        50,
+        50,
+        50,
+        50,
         50
       ],
-      "effects": [
-        {
-          "type": "damage",
-          "logic": {
-            "damageType": "Magical",
-            "base": [
-              60
-            ],
-            "ratios": []
-          }
-        }
-      ]
+      "range": [
+        950,
+        950,
+        950,
+        950,
+        950
+      ],
+      "effects": []
     },
     "W": {
       "id": "W",
@@ -67,22 +72,14 @@
         85,
         90
       ],
-      "effects": [
-        {
-          "type": "damage",
-          "logic": {
-            "damageType": "Magical",
-            "base": [
-              1.6,
-              1.7,
-              1.8,
-              1.9,
-              2
-            ],
-            "ratios": []
-          }
-        }
-      ]
+      "range": [
+        300,
+        300,
+        300,
+        300,
+        300
+      ],
+      "effects": []
     },
     "E": {
       "id": "E",
@@ -95,7 +92,18 @@
         4
       ],
       "cost": [
+        30,
+        30,
+        30,
+        30,
         30
+      ],
+      "range": [
+        40,
+        40,
+        40,
+        40,
+        40
       ],
       "effects": []
     },
@@ -108,7 +116,14 @@
         60
       ],
       "cost": [
+        100,
+        100,
         100
+      ],
+      "range": [
+        175,
+        175,
+        175
       ],
       "effects": []
     }

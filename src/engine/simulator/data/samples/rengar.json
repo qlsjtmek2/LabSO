@@ -13,18 +13,19 @@
     "mr": 32,
     "mrPerLevel": 2.05,
     "attackSpeed": 0.667,
-    "attackSpeedRatio": 3,
-    "range": 125
+    "attackSpeedRatio": 0.667,
+    "range": 125,
+    "moveSpeed": 345
   },
   "spells": {
     "P": {
       "id": "P",
       "name": "Unseen Predator",
       "cooldown": [
-        10
+        0
       ],
       "cost": [
-        50
+        0
       ],
       "effects": []
     },
@@ -32,34 +33,118 @@
       "id": "Q",
       "name": "Savagery",
       "cooldown": [
+        0.25,
+        0.25,
+        0.25,
+        0.25,
         0.25
       ],
       "cost": [
+        0,
+        0,
+        0,
+        0,
         0
       ],
-      "effects": []
+      "range": [
+        450,
+        450,
+        450,
+        450,
+        450
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              30,
+              60,
+              90,
+              120,
+              150
+            ],
+            "scalings": []
+          }
+        }
+      ]
     },
     "W": {
       "id": "W",
       "name": "Battle Roar",
       "cooldown": [
+        0.25,
+        0.25,
+        0.25,
+        0.25,
         0.25
       ],
       "cost": [
+        0,
+        0,
+        0,
+        0,
         0
       ],
-      "effects": []
+      "range": [
+        450,
+        450,
+        450,
+        450,
+        450
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [],
+            "scalings": []
+          }
+        }
+      ]
     },
     "E": {
       "id": "E",
       "name": "Bola Strike",
       "cooldown": [
+        0.25,
+        0.25,
+        0.25,
+        0.25,
         0.25
       ],
       "cost": [
+        0,
+        0,
+        0,
+        0,
         0
       ],
-      "effects": []
+      "range": [
+        1000,
+        1000,
+        1000,
+        1000,
+        1000
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              55,
+              100,
+              145,
+              190,
+              235
+            ],
+            "scalings": []
+          }
+        }
+      ]
     },
     "R": {
       "id": "R",
@@ -70,9 +155,30 @@
         80
       ],
       "cost": [
+        0,
+        0,
         0
       ],
-      "effects": []
+      "range": [
+        2500,
+        3000,
+        3500
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 1
+              }
+            ]
+          }
+        }
+      ]
     }
   }
 }

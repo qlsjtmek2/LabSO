@@ -13,18 +13,19 @@
     "mr": 32,
     "mrPerLevel": 2.05,
     "attackSpeed": 0.658,
-    "attackSpeedRatio": 2.5,
-    "range": 125
+    "attackSpeedRatio": 0.658,
+    "range": 125,
+    "moveSpeed": 345
   },
   "spells": {
     "P": {
       "id": "P",
       "name": "Iron Ambassador",
       "cooldown": [
-        10
+        0
       ],
       "cost": [
-        50
+        0
       ],
       "effects": []
     },
@@ -45,7 +46,28 @@
         50,
         55
       ],
-      "effects": []
+      "range": [
+        430,
+        430,
+        430,
+        430,
+        430
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 1
+              }
+            ]
+          }
+        }
+      ]
     },
     "W": {
       "id": "W",
@@ -58,17 +80,31 @@
         12
       ],
       "cost": [
+        50,
+        50,
+        50,
+        50,
         50
+      ],
+      "range": [
+        400,
+        400,
+        400,
+        400,
+        400
       ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              2
-            ],
-            "ratios": []
+            "base": [],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.699999988079071
+              }
+            ]
           }
         }
       ]
@@ -84,9 +120,34 @@
         10
       ],
       "cost": [
+        70,
+        70,
+        70,
+        70,
         70
       ],
-      "effects": []
+      "range": [
+        475,
+        475,
+        475,
+        475,
+        475
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.6000000238418579
+              }
+            ]
+          }
+        }
+      ]
     },
     "R": {
       "id": "R",
@@ -97,9 +158,36 @@
         100
       ],
       "cost": [
+        100,
+        100,
         100
       ],
-      "effects": []
+      "range": [
+        500,
+        500,
+        500
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              200,
+              300,
+              400,
+              500,
+              600
+            ],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.8999999761581421
+              }
+            ]
+          }
+        }
+      ]
     }
   }
 }

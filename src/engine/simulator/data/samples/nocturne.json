@@ -13,18 +13,19 @@
     "mr": 32,
     "mrPerLevel": 1.55,
     "attackSpeed": 0.721,
-    "attackSpeedRatio": 2.7,
-    "range": 125
+    "attackSpeedRatio": 0.721,
+    "range": 125,
+    "moveSpeed": 345
   },
   "spells": {
     "P": {
       "id": "P",
       "name": "Umbra Blades",
       "cooldown": [
-        10
+        0
       ],
       "cost": [
-        50
+        0
       ],
       "effects": []
     },
@@ -32,6 +33,10 @@
       "id": "Q",
       "name": "Duskbringer",
       "cooldown": [
+        8,
+        8,
+        8,
+        8,
         8
       ],
       "cost": [
@@ -40,6 +45,13 @@
         70,
         75,
         80
+      ],
+      "range": [
+        1125,
+        1125,
+        1125,
+        1125,
+        1125
       ],
       "effects": []
     },
@@ -54,24 +66,20 @@
         12
       ],
       "cost": [
+        50,
+        50,
+        50,
+        50,
         50
       ],
-      "effects": [
-        {
-          "type": "damage",
-          "logic": {
-            "damageType": "Physical",
-            "base": [
-              60,
-              70,
-              80,
-              90,
-              100
-            ],
-            "ratios": []
-          }
-        }
-      ]
+      "range": [
+        20,
+        20,
+        20,
+        20,
+        20
+      ],
+      "effects": []
     },
     "E": {
       "id": "E",
@@ -90,22 +98,14 @@
         75,
         80
       ],
-      "effects": [
-        {
-          "type": "damage",
-          "logic": {
-            "damageType": "Magical",
-            "base": [
-              1.25,
-              1.5,
-              1.75,
-              2,
-              2.25
-            ],
-            "ratios": []
-          }
-        }
-      ]
+      "range": [
+        425,
+        425,
+        425,
+        425,
+        425
+      ],
+      "effects": []
     },
     "R": {
       "id": "R",
@@ -116,7 +116,14 @@
         90
       ],
       "cost": [
+        100,
+        100,
         100
+      ],
+      "range": [
+        2500,
+        3250,
+        4000
       ],
       "effects": []
     }

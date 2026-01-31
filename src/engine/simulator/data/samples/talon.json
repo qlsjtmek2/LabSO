@@ -13,18 +13,19 @@
     "mr": 36,
     "mrPerLevel": 2.05,
     "attackSpeed": 0.625,
-    "attackSpeedRatio": 2.9,
-    "range": 125
+    "attackSpeedRatio": 0.625,
+    "range": 125,
+    "moveSpeed": 335
   },
   "spells": {
     "P": {
       "id": "P",
       "name": "Blade's End",
       "cooldown": [
-        10
+        0
       ],
       "cost": [
-        50
+        0
       ],
       "effects": []
     },
@@ -39,9 +40,35 @@
         6
       ],
       "cost": [
+        40,
+        40,
+        40,
+        40,
         40
       ],
-      "effects": []
+      "range": [
+        575,
+        575,
+        575,
+        575,
+        575
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              65,
+              85,
+              105,
+              125,
+              145
+            ],
+            "scalings": []
+          }
+        }
+      ]
     },
     "W": {
       "id": "W",
@@ -60,16 +87,53 @@
         65,
         70
       ],
-      "effects": []
+      "range": [
+        650,
+        650,
+        650,
+        650,
+        650
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              50,
+              60,
+              70,
+              80,
+              90
+            ],
+            "scalings": []
+          }
+        }
+      ]
     },
     "E": {
       "id": "E",
       "name": "Assassin's Path",
       "cooldown": [
+        0,
+        0,
+        0,
+        0,
         0
       ],
       "cost": [
+        0,
+        0,
+        0,
+        0,
         0
+      ],
+      "range": [
+        725,
+        725,
+        725,
+        725,
+        725
       ],
       "effects": []
     },
@@ -82,9 +146,36 @@
         60
       ],
       "cost": [
+        100,
+        100,
         100
       ],
-      "effects": []
+      "range": [
+        550,
+        550,
+        550
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              90,
+              135,
+              180,
+              225,
+              270
+            ],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 1
+              }
+            ]
+          }
+        }
+      ]
     }
   }
 }

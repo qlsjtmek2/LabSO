@@ -13,18 +13,19 @@
     "mr": 32,
     "mrPerLevel": 2.05,
     "attackSpeed": 0.663,
-    "attackSpeedRatio": 2.1,
-    "range": 125
+    "attackSpeedRatio": 0.663,
+    "range": 125,
+    "moveSpeed": 340
   },
   "spells": {
     "P": {
       "id": "P",
       "name": "We Are More",
       "cooldown": [
-        10
+        0
       ],
       "cost": [
-        50
+        0
       ],
       "effects": []
     },
@@ -45,7 +46,29 @@
         70,
         75
       ],
-      "effects": []
+      "range": [
+        900,
+        900,
+        900,
+        900,
+        900
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              35,
+              40,
+              45,
+              50,
+              55
+            ],
+            "scalings": []
+          }
+        }
+      ]
     },
     "W": {
       "id": "W",
@@ -58,9 +81,40 @@
         18
       ],
       "cost": [
+        60,
+        60,
+        60,
+        60,
         60
       ],
-      "effects": []
+      "range": [
+        400,
+        400,
+        400,
+        400,
+        400
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              150,
+              250,
+              350,
+              450,
+              550
+            ],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 1.2000000476837158
+              }
+            ]
+          }
+        }
+      ]
     },
     "E": {
       "id": "E",
@@ -73,9 +127,35 @@
         7
       ],
       "cost": [
+        35,
+        35,
+        35,
+        35,
         35
       ],
-      "effects": []
+      "range": [
+        450,
+        450,
+        450,
+        450,
+        450
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              15,
+              25,
+              35,
+              45,
+              55
+            ],
+            "scalings": []
+          }
+        }
+      ]
     },
     "R": {
       "id": "R",
@@ -86,9 +166,25 @@
         80
       ],
       "cost": [
+        100,
+        100,
         100
       ],
-      "effects": []
+      "range": [
+        900,
+        900,
+        900
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [],
+            "scalings": []
+          }
+        }
+      ]
     }
   }
 }

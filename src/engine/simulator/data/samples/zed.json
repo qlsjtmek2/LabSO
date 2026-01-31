@@ -13,18 +13,19 @@
     "mr": 29,
     "mrPerLevel": 2.05,
     "attackSpeed": 0.651,
-    "attackSpeedRatio": 3.3,
-    "range": 125
+    "attackSpeedRatio": 0.651,
+    "range": 125,
+    "moveSpeed": 345
   },
   "spells": {
     "P": {
       "id": "P",
       "name": "Contempt for the Weak",
       "cooldown": [
-        10
+        0
       ],
       "cost": [
-        50
+        0
       ],
       "effects": []
     },
@@ -32,6 +33,10 @@
       "id": "Q",
       "name": "Razor Shuriken",
       "cooldown": [
+        6,
+        6,
+        6,
+        6,
         6
       ],
       "cost": [
@@ -41,7 +46,29 @@
         60,
         55
       ],
-      "effects": []
+      "range": [
+        900,
+        900,
+        900,
+        900,
+        900
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              80,
+              120,
+              160,
+              200,
+              240
+            ],
+            "scalings": []
+          }
+        }
+      ]
     },
     "W": {
       "id": "W",
@@ -60,6 +87,13 @@
         25,
         20
       ],
+      "range": [
+        650,
+        650,
+        650,
+        650,
+        650
+      ],
       "effects": []
     },
     "E": {
@@ -73,9 +107,35 @@
         3
       ],
       "cost": [
+        40,
+        40,
+        40,
+        40,
         40
       ],
-      "effects": []
+      "range": [
+        290,
+        290,
+        290,
+        290,
+        290
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              70,
+              95,
+              120,
+              145,
+              170
+            ],
+            "scalings": []
+          }
+        }
+      ]
     },
     "R": {
       "id": "R",
@@ -86,9 +146,30 @@
         100
       ],
       "cost": [
+        0,
+        0,
         0
       ],
-      "effects": []
+      "range": [
+        625,
+        625,
+        625
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 1
+              }
+            ]
+          }
+        }
+      ]
     }
   }
 }

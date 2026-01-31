@@ -13,18 +13,19 @@
     "mr": 32,
     "mrPerLevel": 2.05,
     "attackSpeed": 0.694,
-    "attackSpeedRatio": 2.7,
-    "range": 125
+    "attackSpeedRatio": 0.694,
+    "range": 125,
+    "moveSpeed": 350
   },
   "spells": {
     "P": {
       "id": "P",
       "name": "Berserker Rage",
       "cooldown": [
-        10
+        0
       ],
       "cost": [
-        50
+        0
       ],
       "effects": []
     },
@@ -32,6 +33,10 @@
       "id": "Q",
       "name": "Undertow",
       "cooldown": [
+        9,
+        9,
+        9,
+        9,
         9
       ],
       "cost": [
@@ -40,6 +45,13 @@
         60,
         65,
         70
+      ],
+      "range": [
+        1000,
+        1000,
+        1000,
+        1000,
+        1000
       ],
       "effects": []
     },
@@ -54,7 +66,18 @@
         12
       ],
       "cost": [
+        50,
+        50,
+        50,
+        50,
         50
+      ],
+      "range": [
+        700,
+        700,
+        700,
+        700,
+        700
       ],
       "effects": []
     },
@@ -69,7 +92,18 @@
         7
       ],
       "cost": [
+        0,
+        0,
+        0,
+        0,
         0
+      ],
+      "range": [
+        325,
+        325,
+        325,
+        325,
+        325
       ],
       "effects": []
     },
@@ -82,7 +116,14 @@
         80
       ],
       "cost": [
+        100,
+        100,
         100
+      ],
+      "range": [
+        400,
+        400,
+        400
       ],
       "effects": []
     }

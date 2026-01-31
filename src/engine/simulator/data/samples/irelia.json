@@ -13,18 +13,19 @@
     "mr": 30,
     "mrPerLevel": 2.05,
     "attackSpeed": 0.656,
-    "attackSpeedRatio": 2.5,
-    "range": 200
+    "attackSpeedRatio": 0.656,
+    "range": 200,
+    "moveSpeed": 335
   },
   "spells": {
     "P": {
       "id": "P",
       "name": "Ionian Fervor",
       "cooldown": [
-        10
+        0
       ],
       "cost": [
-        50
+        0
       ],
       "effects": []
     },
@@ -39,9 +40,40 @@
         6
       ],
       "cost": [
+        15,
+        15,
+        15,
+        15,
         15
       ],
-      "effects": []
+      "range": [
+        600,
+        600,
+        600,
+        600,
+        600
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              5,
+              25,
+              45,
+              65,
+              85
+            ],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.699999988079071
+              }
+            ]
+          }
+        }
+      ]
     },
     "W": {
       "id": "W",
@@ -60,7 +92,38 @@
         85,
         90
       ],
-      "effects": []
+      "range": [
+        825,
+        825,
+        825,
+        825,
+        825
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              10,
+              20,
+              30,
+              40,
+              50
+            ],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.4000000059604645
+              },
+              {
+                "stat": "ap",
+                "ratio": 0.5
+              }
+            ]
+          }
+        }
+      ]
     },
     "E": {
       "id": "E",
@@ -73,9 +136,35 @@
         10
       ],
       "cost": [
+        50,
+        50,
+        50,
+        50,
         50
       ],
-      "effects": []
+      "range": [
+        850,
+        850,
+        850,
+        850,
+        850
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              70,
+              110,
+              150,
+              190,
+              230
+            ],
+            "scalings": []
+          }
+        }
+      ]
     },
     "R": {
       "id": "R",
@@ -86,9 +175,31 @@
         85
       ],
       "cost": [
+        100,
+        100,
         100
       ],
-      "effects": []
+      "range": [
+        950,
+        950,
+        950
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              125,
+              200,
+              275,
+              350,
+              425
+            ],
+            "scalings": []
+          }
+        }
+      ]
     }
   }
 }

@@ -13,18 +13,19 @@
     "mr": 32,
     "mrPerLevel": 2.05,
     "attackSpeed": 0.625,
-    "attackSpeedRatio": 3.75,
-    "range": 350
+    "attackSpeedRatio": 0.625,
+    "range": 350,
+    "moveSpeed": 330
   },
   "spells": {
     "P": {
       "id": "P",
       "name": "Echoing Flames",
       "cooldown": [
-        10
+        0
       ],
       "cost": [
-        50
+        0
       ],
       "effects": []
     },
@@ -39,9 +40,40 @@
         8
       ],
       "cost": [
+        70,
+        70,
+        70,
+        70,
         70
       ],
-      "effects": []
+      "range": [
+        800,
+        800,
+        800,
+        800,
+        800
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              25,
+              70,
+              115,
+              160,
+              205
+            ],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.699999988079071
+              }
+            ]
+          }
+        }
+      ]
     },
     "W": {
       "id": "W",
@@ -60,15 +92,26 @@
         10,
         0
       ],
+      "range": [
+        490,
+        490,
+        490,
+        490,
+        490
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
-            "damageType": "Physical",
+            "damageType": "Magical",
             "base": [
-              40
+              12,
+              12,
+              12,
+              12,
+              12
             ],
-            "ratios": []
+            "scalings": []
           }
         }
       ]
@@ -90,7 +133,34 @@
         90,
         100
       ],
-      "effects": []
+      "range": [
+        475,
+        475,
+        475,
+        475,
+        475
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              90,
+              120,
+              150,
+              180,
+              210
+            ],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 1
+              }
+            ]
+          }
+        }
+      ]
     },
     "R": {
       "id": "R",
@@ -101,9 +171,31 @@
         70
       ],
       "cost": [
+        100,
+        100,
         100
       ],
-      "effects": []
+      "range": [
+        2500,
+        2500,
+        2500
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              100,
+              225,
+              350,
+              475,
+              600
+            ],
+            "scalings": []
+          }
+        }
+      ]
     }
   }
 }

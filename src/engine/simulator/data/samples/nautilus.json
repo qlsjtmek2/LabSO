@@ -13,18 +13,19 @@
     "mr": 32,
     "mrPerLevel": 2.05,
     "attackSpeed": 0.706,
-    "attackSpeedRatio": 1,
-    "range": 175
+    "attackSpeedRatio": 0.706,
+    "range": 175,
+    "moveSpeed": 325
   },
   "spells": {
     "P": {
       "id": "P",
       "name": "Staggering Blow",
       "cooldown": [
-        10
+        0
       ],
       "cost": [
-        50
+        0
       ],
       "effects": []
     },
@@ -39,7 +40,18 @@
         10
       ],
       "cost": [
+        60,
+        60,
+        60,
+        60,
         60
+      ],
+      "range": [
+        1150,
+        1150,
+        1150,
+        1150,
+        1150
       ],
       "effects": []
     },
@@ -47,10 +59,25 @@
       "id": "W",
       "name": "Titan's Wrath",
       "cooldown": [
+        12,
+        12,
+        12,
+        12,
         12
       ],
       "cost": [
+        60,
+        60,
+        60,
+        60,
         60
+      ],
+      "range": [
+        350,
+        350,
+        350,
+        350,
+        350
       ],
       "effects": []
     },
@@ -71,6 +98,13 @@
         80,
         90
       ],
+      "range": [
+        600,
+        600,
+        600,
+        600,
+        600
+      ],
       "effects": []
     },
     "R": {
@@ -82,7 +116,14 @@
         80
       ],
       "cost": [
+        100,
+        100,
         100
+      ],
+      "range": [
+        825,
+        825,
+        825
       ],
       "effects": []
     }

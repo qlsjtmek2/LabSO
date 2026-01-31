@@ -13,18 +13,19 @@
     "mr": 30,
     "mrPerLevel": 1.3,
     "attackSpeed": 0.625,
-    "attackSpeedRatio": 2.11,
-    "range": 480
+    "attackSpeedRatio": 0.625,
+    "range": 480,
+    "moveSpeed": 335
   },
   "spells": {
     "P": {
       "id": "P",
       "name": "A Harmless Scarecrow",
       "cooldown": [
-        10
+        0
       ],
       "cost": [
-        50
+        0
       ],
       "effects": []
     },
@@ -39,7 +40,18 @@
         13
       ],
       "cost": [
+        65,
+        65,
+        65,
+        65,
         65
+      ],
+      "range": [
+        575,
+        575,
+        575,
+        575,
+        575
       ],
       "effects": []
     },
@@ -60,6 +72,13 @@
         75,
         80
       ],
+      "range": [
+        650,
+        650,
+        650,
+        650,
+        650
+      ],
       "effects": []
     },
     "E": {
@@ -79,6 +98,13 @@
         55,
         60
       ],
+      "range": [
+        850,
+        850,
+        850,
+        850,
+        850
+      ],
       "effects": []
     },
     "R": {
@@ -90,7 +116,14 @@
         80
       ],
       "cost": [
+        100,
+        100,
         100
+      ],
+      "range": [
+        800,
+        800,
+        800
       ],
       "effects": []
     }

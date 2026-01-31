@@ -13,18 +13,19 @@
     "mr": 32,
     "mrPerLevel": 2.05,
     "attackSpeed": 0.625,
-    "attackSpeedRatio": 2.5,
-    "range": 125
+    "attackSpeedRatio": 0.625,
+    "range": 125,
+    "moveSpeed": 335
   },
   "spells": {
     "P": {
       "id": "P",
       "name": "Drakehound's Step",
       "cooldown": [
-        10
+        0
       ],
       "cost": [
-        50
+        0
       ],
       "effects": []
     },
@@ -39,9 +40,40 @@
         10
       ],
       "cost": [
+        70,
+        70,
+        70,
+        70,
         70
       ],
-      "effects": []
+      "range": [
+        650,
+        650,
+        650,
+        650,
+        650
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              40,
+              60,
+              80,
+              100,
+              120
+            ],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.6000000238418579
+              }
+            ]
+          }
+        }
+      ]
     },
     "W": {
       "id": "W",
@@ -54,9 +86,35 @@
         14
       ],
       "cost": [
+        70,
+        70,
+        70,
+        70,
         70
       ],
-      "effects": []
+      "range": [
+        325,
+        325,
+        325,
+        325,
+        325
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              50,
+              75,
+              100,
+              125,
+              150
+            ],
+            "scalings": []
+          }
+        }
+      ]
     },
     "E": {
       "id": "E",
@@ -69,9 +127,35 @@
         9
       ],
       "cost": [
+        70,
+        70,
+        70,
+        70,
         70
       ],
-      "effects": []
+      "range": [
+        325,
+        325,
+        325,
+        325,
+        325
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              40,
+              60,
+              80,
+              100,
+              120
+            ],
+            "scalings": []
+          }
+        }
+      ]
     },
     "R": {
       "id": "R",
@@ -82,9 +166,31 @@
         100
       ],
       "cost": [
+        0,
+        0,
         0
       ],
-      "effects": []
+      "range": [
+        1250,
+        1250,
+        1250
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              150,
+              250,
+              350,
+              450,
+              550
+            ],
+            "scalings": []
+          }
+        }
+      ]
     }
   }
 }

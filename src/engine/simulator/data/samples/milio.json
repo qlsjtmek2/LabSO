@@ -13,18 +13,19 @@
     "mr": 30,
     "mrPerLevel": 1.3,
     "attackSpeed": 0.625,
-    "attackSpeedRatio": 3,
-    "range": 525
+    "attackSpeedRatio": 0.625,
+    "range": 525,
+    "moveSpeed": 330
   },
   "spells": {
     "P": {
       "id": "P",
       "name": "Fired Up!",
       "cooldown": [
-        10
+        0
       ],
       "cost": [
-        50
+        0
       ],
       "effects": []
     },
@@ -32,6 +33,10 @@
       "id": "Q",
       "name": "Ultra Mega Fire Kick",
       "cooldown": [
+        10,
+        10,
+        10,
+        10,
         10
       ],
       "cost": [
@@ -41,7 +46,34 @@
         65,
         70
       ],
-      "effects": []
+      "range": [
+        1200,
+        1200,
+        1200,
+        1200,
+        1200
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              80,
+              140,
+              200,
+              260,
+              320
+            ],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 1.2000000476837158
+              }
+            ]
+          }
+        }
+      ]
     },
     "W": {
       "id": "W",
@@ -60,12 +92,38 @@
         120,
         130
       ],
-      "effects": []
+      "range": [
+        350,
+        350,
+        350,
+        350,
+        350
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              0.10000000149011612,
+              0.125,
+              0.15000000596046448,
+              0.17499999701976776,
+              0.20000000298023224
+            ],
+            "scalings": []
+          }
+        }
+      ]
     },
     "E": {
       "id": "E",
       "name": "Warm Hugs",
       "cooldown": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
         0.5
       ],
       "cost": [
@@ -75,7 +133,34 @@
         80,
         90
       ],
-      "effects": []
+      "range": [
+        650,
+        650,
+        650,
+        650,
+        650
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              45,
+              75,
+              105,
+              135,
+              165
+            ],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.44999998807907104
+              }
+            ]
+          }
+        }
+      ]
     },
     "R": {
       "id": "R",
@@ -86,9 +171,36 @@
         130
       ],
       "cost": [
+        100,
+        100,
         100
       ],
-      "effects": []
+      "range": [
+        700,
+        700,
+        700
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              150,
+              250,
+              350,
+              450,
+              550
+            ],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.5
+              }
+            ]
+          }
+        }
+      ]
     }
   }
 }

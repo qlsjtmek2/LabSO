@@ -13,18 +13,19 @@
     "mr": 32,
     "mrPerLevel": 2.05,
     "attackSpeed": 0.625,
-    "attackSpeedRatio": 2,
-    "range": 150
+    "attackSpeedRatio": 0.625,
+    "range": 150,
+    "moveSpeed": 335
   },
   "spells": {
     "P": {
       "id": "P",
       "name": "Threads of Vibration",
       "cooldown": [
-        10
+        0
       ],
       "cost": [
-        50
+        0
       ],
       "effects": []
     },
@@ -39,9 +40,35 @@
         3
       ],
       "cost": [
+        45,
+        45,
+        45,
+        45,
         45
       ],
-      "effects": []
+      "range": [
+        400,
+        400,
+        400,
+        400,
+        400
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              10,
+              20,
+              30,
+              40,
+              50
+            ],
+            "scalings": []
+          }
+        }
+      ]
     },
     "W": {
       "id": "W",
@@ -60,7 +87,29 @@
         75,
         80
       ],
-      "effects": []
+      "range": [
+        700,
+        700,
+        700,
+        700,
+        700
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              50,
+              70,
+              90,
+              110,
+              130
+            ],
+            "scalings": []
+          }
+        }
+      ]
     },
     "E": {
       "id": "E",
@@ -79,7 +128,29 @@
         65,
         70
       ],
-      "effects": []
+      "range": [
+        1700,
+        1700,
+        1700,
+        1700,
+        1700
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              30,
+              60,
+              90,
+              120,
+              150
+            ],
+            "scalings": []
+          }
+        }
+      ]
     },
     "R": {
       "id": "R",
@@ -90,9 +161,36 @@
         90
       ],
       "cost": [
+        100,
+        100,
         100
       ],
-      "effects": []
+      "range": [
+        625,
+        625,
+        625
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              150,
+              250,
+              350,
+              450,
+              550
+            ],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 1
+              }
+            ]
+          }
+        }
+      ]
     }
   }
 }

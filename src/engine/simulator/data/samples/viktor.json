@@ -13,18 +13,19 @@
     "mr": 30,
     "mrPerLevel": 1.3,
     "attackSpeed": 0.658,
-    "attackSpeedRatio": 2.11,
-    "range": 525
+    "attackSpeedRatio": 0.658,
+    "range": 525,
+    "moveSpeed": 335
   },
   "spells": {
     "P": {
       "id": "P",
       "name": "Glorious Evolution",
       "cooldown": [
-        10
+        0
       ],
       "cost": [
-        50
+        0
       ],
       "effects": []
     },
@@ -45,7 +46,29 @@
         60,
         65
       ],
-      "effects": []
+      "range": [
+        600,
+        600,
+        600,
+        600,
+        600
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              60,
+              75,
+              90,
+              105,
+              120
+            ],
+            "scalings": []
+          }
+        }
+      ]
     },
     "W": {
       "id": "W",
@@ -58,7 +81,18 @@
         13
       ],
       "cost": [
+        65,
+        65,
+        65,
+        65,
         65
+      ],
+      "range": [
+        800,
+        800,
+        800,
+        800,
+        800
       ],
       "effects": []
     },
@@ -79,7 +113,29 @@
         90,
         100
       ],
-      "effects": []
+      "range": [
+        525,
+        525,
+        525,
+        525,
+        525
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              70,
+              110,
+              150,
+              190,
+              230
+            ],
+            "scalings": []
+          }
+        }
+      ]
     },
     "R": {
       "id": "R",
@@ -90,9 +146,31 @@
         80
       ],
       "cost": [
+        100,
+        100,
         100
       ],
-      "effects": []
+      "range": [
+        700,
+        700,
+        700
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              100,
+              175,
+              250,
+              325,
+              400
+            ],
+            "scalings": []
+          }
+        }
+      ]
     }
   }
 }

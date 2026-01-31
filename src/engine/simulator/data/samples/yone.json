@@ -13,18 +13,19 @@
     "mr": 32,
     "mrPerLevel": 2.05,
     "attackSpeed": 0.625,
-    "attackSpeedRatio": 3.5,
-    "range": 175
+    "attackSpeedRatio": 0.625,
+    "range": 175,
+    "moveSpeed": 345
   },
   "spells": {
     "P": {
       "id": "P",
       "name": "Way of the Hunter",
       "cooldown": [
-        10
+        0
       ],
       "cost": [
-        50
+        0
       ],
       "effects": []
     },
@@ -32,23 +33,88 @@
       "id": "Q",
       "name": "Mortal Steel",
       "cooldown": [
+        4,
+        4,
+        4,
+        4,
         4
       ],
       "cost": [
+        0,
+        0,
+        0,
+        0,
         0
       ],
-      "effects": []
+      "range": [
+        450,
+        450,
+        450,
+        450,
+        450
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              25,
+              50,
+              75,
+              100,
+              125
+            ],
+            "scalings": []
+          }
+        }
+      ]
     },
     "W": {
       "id": "W",
       "name": "Spirit Cleave",
       "cooldown": [
+        14,
+        14,
+        14,
+        14,
         14
       ],
       "cost": [
+        0,
+        0,
+        0,
+        0,
         0
       ],
-      "effects": []
+      "range": [
+        700,
+        700,
+        700,
+        700,
+        700
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              10,
+              20,
+              30,
+              40,
+              50
+            ],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 1
+              }
+            ]
+          }
+        }
+      ]
     },
     "E": {
       "id": "E",
@@ -61,9 +127,40 @@
         10
       ],
       "cost": [
+        0,
+        0,
+        0,
+        0,
         0
       ],
-      "effects": []
+      "range": [
+        25000,
+        25000,
+        25000,
+        25000,
+        25000
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              20,
+              35,
+              50,
+              65,
+              80
+            ],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.25
+              }
+            ]
+          }
+        }
+      ]
     },
     "R": {
       "id": "R",
@@ -74,9 +171,31 @@
         80
       ],
       "cost": [
+        0,
+        0,
         0
       ],
-      "effects": []
+      "range": [
+        1000,
+        1000,
+        1000
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              200,
+              400,
+              600,
+              800,
+              1000
+            ],
+            "scalings": []
+          }
+        }
+      ]
     }
   }
 }

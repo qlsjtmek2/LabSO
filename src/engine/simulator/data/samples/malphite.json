@@ -13,18 +13,19 @@
     "mr": 28,
     "mrPerLevel": 2.05,
     "attackSpeed": 0.736,
-    "attackSpeedRatio": 3.4,
-    "range": 125
+    "attackSpeedRatio": 0.736,
+    "range": 125,
+    "moveSpeed": 335
   },
   "spells": {
     "P": {
       "id": "P",
       "name": "Granite Shield",
       "cooldown": [
-        10
+        0
       ],
       "cost": [
-        50
+        0
       ],
       "effects": []
     },
@@ -32,6 +33,10 @@
       "id": "Q",
       "name": "Seismic Shard",
       "cooldown": [
+        8,
+        8,
+        8,
+        8,
         8
       ],
       "cost": [
@@ -41,22 +46,14 @@
         85,
         90
       ],
-      "effects": [
-        {
-          "type": "damage",
-          "logic": {
-            "damageType": "Magical",
-            "base": [
-              20,
-              25,
-              30,
-              35,
-              40
-            ],
-            "ratios": []
-          }
-        }
-      ]
+      "range": [
+        625,
+        625,
+        625,
+        625,
+        625
+      ],
+      "effects": []
     },
     "W": {
       "id": "W",
@@ -75,12 +72,23 @@
         45,
         50
       ],
+      "range": [
+        400,
+        400,
+        400,
+        400,
+        400
+      ],
       "effects": []
     },
     "E": {
       "id": "E",
       "name": "Ground Slam",
       "cooldown": [
+        7,
+        7,
+        7,
+        7,
         7
       ],
       "cost": [
@@ -89,6 +97,13 @@
         60,
         65,
         70
+      ],
+      "range": [
+        400,
+        400,
+        400,
+        400,
+        400
       ],
       "effects": []
     },
@@ -101,7 +116,14 @@
         100
       ],
       "cost": [
+        100,
+        100,
         100
+      ],
+      "range": [
+        1000,
+        1000,
+        1000
       ],
       "effects": []
     }

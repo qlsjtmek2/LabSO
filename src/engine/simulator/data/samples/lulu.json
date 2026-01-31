@@ -13,18 +13,19 @@
     "mr": 30,
     "mrPerLevel": 1.3,
     "attackSpeed": 0.625,
-    "attackSpeedRatio": 2.25,
-    "range": 550
+    "attackSpeedRatio": 0.625,
+    "range": 550,
+    "moveSpeed": 330
   },
   "spells": {
     "P": {
       "id": "P",
       "name": "Pix, Faerie Companion",
       "cooldown": [
-        10
+        0
       ],
       "cost": [
-        50
+        0
       ],
       "effects": []
     },
@@ -32,6 +33,10 @@
       "id": "Q",
       "name": "Glitterlance",
       "cooldown": [
+        7,
+        7,
+        7,
+        7,
         7
       ],
       "cost": [
@@ -41,18 +46,69 @@
         65,
         70
       ],
-      "effects": []
+      "range": [
+        925,
+        925,
+        925,
+        925,
+        925
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              60,
+              95,
+              130,
+              165,
+              200
+            ],
+            "scalings": []
+          }
+        }
+      ]
     },
     "W": {
       "id": "W",
       "name": "Whimsy",
       "cooldown": [
+        18,
+        18,
+        18,
+        18,
         18
       ],
       "cost": [
+        65,
+        65,
+        65,
+        65,
         65
       ],
-      "effects": []
+      "range": [
+        650,
+        650,
+        650,
+        650,
+        650
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.0005000000237487257
+              }
+            ]
+          }
+        }
+      ]
     },
     "E": {
       "id": "E",
@@ -71,15 +127,26 @@
         75,
         80
       ],
+      "range": [
+        650,
+        650,
+        650,
+        650,
+        650
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
             "base": [
-              6
+              70,
+              110,
+              150,
+              190,
+              230
             ],
-            "ratios": []
+            "scalings": []
           }
         }
       ]
@@ -93,9 +160,36 @@
         80
       ],
       "cost": [
+        100,
+        100,
         100
       ],
-      "effects": []
+      "range": [
+        900,
+        900,
+        900
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              275,
+              425,
+              575,
+              725,
+              875
+            ],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.550000011920929
+              }
+            ]
+          }
+        }
+      ]
     }
   }
 }

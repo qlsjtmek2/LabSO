@@ -13,18 +13,19 @@
     "mr": 32,
     "mrPerLevel": 2.05,
     "attackSpeed": 0.638,
-    "attackSpeedRatio": 3.4,
-    "range": 125
+    "attackSpeedRatio": 0.638,
+    "range": 125,
+    "moveSpeed": 350
   },
   "spells": {
     "P": {
       "id": "P",
       "name": "Relentless Assault",
       "cooldown": [
-        10
+        0
       ],
       "cost": [
-        50
+        0
       ],
       "effects": []
     },
@@ -39,9 +40,40 @@
         6
       ],
       "cost": [
+        65,
+        65,
+        65,
+        65,
         65
       ],
-      "effects": []
+      "range": [
+        700,
+        700,
+        700,
+        700,
+        700
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              65,
+              105,
+              145,
+              185,
+              225
+            ],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 1
+              }
+            ]
+          }
+        }
+      ]
     },
     "W": {
       "id": "W",
@@ -54,9 +86,40 @@
         3
       ],
       "cost": [
+        30,
+        30,
+        30,
+        30,
         30
       ],
-      "effects": []
+      "range": [
+        300,
+        300,
+        300,
+        300,
+        300
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              50,
+              85,
+              120,
+              155,
+              190
+            ],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.6000000238418579
+              }
+            ]
+          }
+        }
+      ]
     },
     "E": {
       "id": "E",
@@ -75,7 +138,29 @@
         80,
         90
       ],
-      "effects": []
+      "range": [
+        300,
+        300,
+        300,
+        300,
+        300
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              40,
+              70,
+              100,
+              130,
+              160
+            ],
+            "scalings": []
+          }
+        }
+      ]
     },
     "R": {
       "id": "R",
@@ -86,9 +171,36 @@
         90
       ],
       "cost": [
+        100,
+        100,
         100
       ],
-      "effects": []
+      "range": [
+        260,
+        260,
+        260
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              75,
+              130,
+              185,
+              240,
+              295
+            ],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.6000000238418579
+              }
+            ]
+          }
+        }
+      ]
     }
   }
 }

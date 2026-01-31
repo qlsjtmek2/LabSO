@@ -13,18 +13,19 @@
     "mr": 30,
     "mrPerLevel": 1.3,
     "attackSpeed": 0.69,
-    "attackSpeedRatio": 2.5,
-    "range": 550
+    "attackSpeedRatio": 0.69,
+    "range": 550,
+    "moveSpeed": 330
   },
   "spells": {
     "P": {
       "id": "P",
       "name": "Signature of the Visionary",
       "cooldown": [
-        10
+        0
       ],
       "cost": [
-        50
+        0
       ],
       "effects": []
     },
@@ -45,7 +46,34 @@
         110,
         120
       ],
-      "effects": []
+      "range": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              50,
+              80,
+              110,
+              140,
+              170
+            ],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.699999988079071
+              }
+            ]
+          }
+        }
+      ]
     },
     "W": {
       "id": "W",
@@ -64,7 +92,34 @@
         105,
         110
       ],
-      "effects": []
+      "range": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              30,
+              32.5,
+              35,
+              37.5,
+              40
+            ],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.029999999329447746
+              }
+            ]
+          }
+        }
+      ]
     },
     "E": {
       "id": "E",
@@ -83,7 +138,34 @@
         65,
         70
       ],
-      "effects": []
+      "range": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              70,
+              110,
+              150,
+              190,
+              230
+            ],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.6499999761581421
+              }
+            ]
+          }
+        }
+      ]
     },
     "R": {
       "id": "R",
@@ -94,9 +176,36 @@
         80
       ],
       "cost": [
+        100,
+        100,
         100
       ],
-      "effects": []
+      "range": [
+        1300,
+        1300,
+        1300
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              200,
+              325,
+              450,
+              575,
+              700
+            ],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.800000011920929
+              }
+            ]
+          }
+        }
+      ]
     }
   }
 }

@@ -13,18 +13,19 @@
     "mr": 32,
     "mrPerLevel": 2.05,
     "attackSpeed": 0.667,
-    "attackSpeedRatio": 2.1,
-    "range": 125
+    "attackSpeedRatio": 0.667,
+    "range": 125,
+    "moveSpeed": 335
   },
   "spells": {
     "P": {
       "id": "P",
       "name": "Demon Shade",
       "cooldown": [
-        10
+        0
       ],
       "cost": [
-        50
+        0
       ],
       "effects": []
     },
@@ -32,6 +33,10 @@
       "id": "Q",
       "name": "Hate Spike",
       "cooldown": [
+        4,
+        4,
+        4,
+        4,
         4
       ],
       "cost": [
@@ -41,7 +46,29 @@
         55,
         60
       ],
-      "effects": []
+      "range": [
+        800,
+        800,
+        800,
+        800,
+        800
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              25,
+              30,
+              35,
+              40,
+              45
+            ],
+            "scalings": []
+          }
+        }
+      ]
     },
     "W": {
       "id": "W",
@@ -60,12 +87,43 @@
         90,
         100
       ],
-      "effects": []
+      "range": [
+        1200,
+        1300,
+        1400,
+        1500,
+        1600
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              250,
+              300,
+              350,
+              400,
+              450
+            ],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.6000000238418579
+              }
+            ]
+          }
+        }
+      ]
     },
     "E": {
       "id": "E",
       "name": "Whiplash",
       "cooldown": [
+        8,
+        8,
+        8,
+        8,
         8
       ],
       "cost": [
@@ -75,7 +133,34 @@
         55,
         60
       ],
-      "effects": []
+      "range": [
+        210,
+        210,
+        210,
+        210,
+        210
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              3,
+              3,
+              3,
+              3,
+              3
+            ],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.014999999664723873
+              }
+            ]
+          }
+        }
+      ]
     },
     "R": {
       "id": "R",
@@ -86,9 +171,30 @@
         80
       ],
       "cost": [
+        100,
+        100,
         100
       ],
-      "effects": []
+      "range": [
+        25000,
+        25000,
+        25000
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.75
+              }
+            ]
+          }
+        }
+      ]
     }
   }
 }

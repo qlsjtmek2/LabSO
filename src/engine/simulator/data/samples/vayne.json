@@ -13,18 +13,19 @@
     "mr": 30,
     "mrPerLevel": 1.3,
     "attackSpeed": 0.658,
-    "attackSpeedRatio": 3.3,
-    "range": 550
+    "attackSpeedRatio": 0.658,
+    "range": 550,
+    "moveSpeed": 330
   },
   "spells": {
     "P": {
       "id": "P",
       "name": "Night Hunter",
       "cooldown": [
-        10
+        0
       ],
       "cost": [
-        50
+        0
       ],
       "effects": []
     },
@@ -39,7 +40,18 @@
         2
       ],
       "cost": [
+        30,
+        30,
+        30,
+        30,
         30
+      ],
+      "range": [
+        300,
+        300,
+        300,
+        300,
+        300
       ],
       "effects": []
     },
@@ -47,10 +59,25 @@
       "id": "W",
       "name": "Silver Bolts",
       "cooldown": [
+        0,
+        0,
+        0,
+        0,
         0
       ],
       "cost": [
+        0,
+        0,
+        0,
+        0,
         0
+      ],
+      "range": [
+        750,
+        750,
+        750,
+        750,
+        750
       ],
       "effects": []
     },
@@ -65,7 +92,18 @@
         12
       ],
       "cost": [
+        90,
+        90,
+        90,
+        90,
         90
+      ],
+      "range": [
+        550,
+        550,
+        550,
+        550,
+        550
       ],
       "effects": []
     },
@@ -78,7 +116,14 @@
         70
       ],
       "cost": [
+        80,
+        80,
         80
+      ],
+      "range": [
+        1,
+        1,
+        1
       ],
       "effects": []
     }

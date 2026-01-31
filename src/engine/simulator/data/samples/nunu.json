@@ -13,18 +13,19 @@
     "mr": 32,
     "mrPerLevel": 2.05,
     "attackSpeed": 0.625,
-    "attackSpeedRatio": 2.25,
-    "range": 125
+    "attackSpeedRatio": 0.625,
+    "range": 125,
+    "moveSpeed": 345
   },
   "spells": {
     "P": {
       "id": "P",
       "name": "Call of the Freljord",
       "cooldown": [
-        10
+        0
       ],
       "cost": [
-        50
+        0
       ],
       "effects": []
     },
@@ -39,14 +40,44 @@
         9
       ],
       "cost": [
+        60,
+        60,
+        60,
+        60,
         60
       ],
-      "effects": []
+      "range": [
+        125,
+        125,
+        125,
+        125,
+        125
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              60,
+              100,
+              140,
+              180,
+              220
+            ],
+            "scalings": []
+          }
+        }
+      ]
     },
     "W": {
       "id": "W",
       "name": "Biggest Snowball Ever!",
       "cooldown": [
+        14,
+        14,
+        14,
+        14,
         14
       ],
       "cost": [
@@ -56,7 +87,29 @@
         65,
         70
       ],
-      "effects": []
+      "range": [
+        7500,
+        7500,
+        7500,
+        7500,
+        7500
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              150,
+              195,
+              240,
+              285,
+              330
+            ],
+            "scalings": []
+          }
+        }
+      ]
     },
     "E": {
       "id": "E",
@@ -75,7 +128,34 @@
         65,
         70
       ],
-      "effects": []
+      "range": [
+        625,
+        625,
+        625,
+        625,
+        625
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              14,
+              21,
+              28,
+              35,
+              42
+            ],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.11999999731779099
+              }
+            ]
+          }
+        }
+      ]
     },
     "R": {
       "id": "R",
@@ -86,9 +166,36 @@
         90
       ],
       "cost": [
+        100,
+        100,
         100
       ],
-      "effects": []
+      "range": [
+        650,
+        650,
+        650
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              625,
+              925,
+              1275,
+              1275,
+              1275
+            ],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 3
+              }
+            ]
+          }
+        }
+      ]
     }
   }
 }

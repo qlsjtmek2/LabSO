@@ -13,18 +13,19 @@
     "mr": 31,
     "mrPerLevel": 1.55,
     "attackSpeed": 0.625,
-    "attackSpeedRatio": 2.11,
-    "range": 525
+    "attackSpeedRatio": 0.625,
+    "range": 525,
+    "moveSpeed": 330
   },
   "spells": {
     "P": {
       "id": "P",
       "name": "Ravenous Flock",
       "cooldown": [
-        10
+        0
       ],
       "cost": [
-        50
+        0
       ],
       "effects": []
     },
@@ -45,7 +46,29 @@
         55,
         60
       ],
-      "effects": []
+      "range": [
+        750,
+        750,
+        750,
+        750,
+        750
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              60,
+              90,
+              120,
+              150,
+              180
+            ],
+            "scalings": []
+          }
+        }
+      ]
     },
     "W": {
       "id": "W",
@@ -64,7 +87,29 @@
         75,
         80
       ],
-      "effects": []
+      "range": [
+        5500,
+        6000,
+        6500,
+        7000,
+        7500
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              70,
+              105,
+              140,
+              175,
+              210
+            ],
+            "scalings": []
+          }
+        }
+      ]
     },
     "E": {
       "id": "E",
@@ -83,18 +128,64 @@
         65,
         70
       ],
-      "effects": []
+      "range": [
+        850,
+        850,
+        850,
+        850,
+        850
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              90,
+              130,
+              170,
+              210,
+              250
+            ],
+            "scalings": []
+          }
+        }
+      ]
     },
     "R": {
       "id": "R",
       "name": "Demonic Ascension",
       "cooldown": [
+        120,
+        120,
         120
       ],
       "cost": [
+        100,
+        100,
         100
       ],
-      "effects": []
+      "range": [
+        650,
+        650,
+        650
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              15,
+              25,
+              35,
+              45,
+              55
+            ],
+            "scalings": []
+          }
+        }
+      ]
     }
   }
 }

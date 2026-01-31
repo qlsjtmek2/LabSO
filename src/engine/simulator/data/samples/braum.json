@@ -13,18 +13,19 @@
     "mr": 32,
     "mrPerLevel": 2.05,
     "attackSpeed": 0.644,
-    "attackSpeedRatio": 3.5,
-    "range": 125
+    "attackSpeedRatio": 0.644,
+    "range": 125,
+    "moveSpeed": 335
   },
   "spells": {
     "P": {
       "id": "P",
       "name": "Concussive Blows",
       "cooldown": [
-        10
+        0
       ],
       "cost": [
-        50
+        0
       ],
       "effects": []
     },
@@ -45,15 +46,26 @@
         60,
         65
       ],
+      "range": [
+        1000,
+        1000,
+        1000,
+        1000,
+        1000
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
             "base": [
-              70
+              75,
+              125,
+              175,
+              225,
+              275
             ],
-            "ratios": []
+            "scalings": []
           }
         }
       ]
@@ -69,17 +81,32 @@
         8
       ],
       "cost": [
+        40,
+        40,
+        40,
+        40,
         40
+      ],
+      "range": [
+        650,
+        650,
+        650,
+        650,
+        650
       ],
       "effects": [
         {
           "type": "damage",
           "logic": {
-            "damageType": "Physical",
+            "damageType": "Magical",
             "base": [
-              3
+              20,
+              25,
+              30,
+              35,
+              40
             ],
-            "ratios": []
+            "scalings": []
           }
         }
       ]
@@ -101,22 +128,14 @@
         45,
         50
       ],
-      "effects": [
-        {
-          "type": "damage",
-          "logic": {
-            "damageType": "Physical",
-            "base": [
-              3,
-              3.25,
-              3.5,
-              3.75,
-              4
-            ],
-            "ratios": []
-          }
-        }
-      ]
+      "range": [
+        25000,
+        25000,
+        25000,
+        25000,
+        25000
+      ],
+      "effects": []
     },
     "R": {
       "id": "R",
@@ -127,7 +146,14 @@
         80
       ],
       "cost": [
+        100,
+        100,
         100
+      ],
+      "range": [
+        1250,
+        1250,
+        1250
       ],
       "effects": []
     }

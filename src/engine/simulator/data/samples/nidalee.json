@@ -13,18 +13,19 @@
     "mr": 30,
     "mrPerLevel": 1.45,
     "attackSpeed": 0.638,
-    "attackSpeedRatio": 3.22,
-    "range": 525
+    "attackSpeedRatio": 0.638,
+    "range": 525,
+    "moveSpeed": 335
   },
   "spells": {
     "P": {
       "id": "P",
       "name": "Prowl",
       "cooldown": [
-        10
+        0
       ],
       "cost": [
-        50
+        0
       ],
       "effects": []
     },
@@ -32,6 +33,10 @@
       "id": "Q",
       "name": "Javelin Toss / Takedown",
       "cooldown": [
+        6,
+        6,
+        6,
+        6,
         6
       ],
       "cost": [
@@ -40,6 +45,13 @@
         60,
         65,
         70
+      ],
+      "range": [
+        1500,
+        1500,
+        1500,
+        1500,
+        1500
       ],
       "effects": []
     },
@@ -60,12 +72,23 @@
         45,
         50
       ],
+      "range": [
+        900,
+        900,
+        900,
+        900,
+        900
+      ],
       "effects": []
     },
     "E": {
       "id": "E",
       "name": "Primal Surge / Swipe",
       "cooldown": [
+        12,
+        12,
+        12,
+        12,
         12
       ],
       "cost": [
@@ -75,16 +98,35 @@
         65,
         70
       ],
+      "range": [
+        900,
+        900,
+        900,
+        900,
+        900
+      ],
       "effects": []
     },
     "R": {
       "id": "R",
       "name": "Aspect Of The Cougar",
       "cooldown": [
+        3,
+        3,
+        3,
         3
       ],
       "cost": [
+        0,
+        0,
+        0,
         0
+      ],
+      "range": [
+        20,
+        20,
+        20,
+        20
       ],
       "effects": []
     }

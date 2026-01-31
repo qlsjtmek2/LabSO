@@ -13,18 +13,19 @@
     "mr": 32,
     "mrPerLevel": 1.3,
     "attackSpeed": 0.647,
-    "attackSpeedRatio": 1.5,
-    "range": 550
+    "attackSpeedRatio": 0.647,
+    "range": 550,
+    "moveSpeed": 335
   },
   "spells": {
     "P": {
       "id": "P",
       "name": "Serpentine Grace",
       "cooldown": [
-        10
+        0
       ],
       "cost": [
-        50
+        0
       ],
       "effects": []
     },
@@ -32,6 +33,10 @@
       "id": "Q",
       "name": "Noxious Blast",
       "cooldown": [
+        3.5,
+        3.5,
+        3.5,
+        3.5,
         3.5
       ],
       "cost": [
@@ -41,15 +46,25 @@
         65,
         70
       ],
+      "range": [
+        850,
+        850,
+        850,
+        850,
+        850
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              3
-            ],
-            "ratios": []
+            "base": [],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.6499999761581421
+              }
+            ]
           }
         }
       ]
@@ -71,19 +86,25 @@
         85,
         90
       ],
+      "range": [
+        700,
+        700,
+        700,
+        700,
+        700
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              40,
-              50,
-              60,
-              70,
-              80
-            ],
-            "ratios": []
+            "base": [],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.10000000149011612
+              }
+            ]
           }
         }
       ]
@@ -92,12 +113,42 @@
       "id": "E",
       "name": "Twin Fang",
       "cooldown": [
+        0.75,
+        0.75,
+        0.75,
+        0.75,
         0.75
       ],
       "cost": [
+        40,
+        40,
+        40,
+        40,
         40
       ],
-      "effects": []
+      "range": [
+        700,
+        700,
+        700,
+        700,
+        700
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              20,
+              43,
+              66,
+              89,
+              112
+            ],
+            "scalings": []
+          }
+        }
+      ]
     },
     "R": {
       "id": "R",
@@ -108,9 +159,31 @@
         80
       ],
       "cost": [
+        100,
+        100,
         100
       ],
-      "effects": []
+      "range": [
+        825,
+        825,
+        825
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              150,
+              250,
+              350,
+              450,
+              550
+            ],
+            "scalings": []
+          }
+        }
+      ]
     }
   }
 }

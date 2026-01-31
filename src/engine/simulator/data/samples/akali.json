@@ -13,18 +13,19 @@
     "mr": 37,
     "mrPerLevel": 2.05,
     "attackSpeed": 0.625,
-    "attackSpeedRatio": 3.2,
-    "range": 125
+    "attackSpeedRatio": 0.625,
+    "range": 125,
+    "moveSpeed": 345
   },
   "spells": {
     "P": {
       "id": "P",
       "name": "Assassin's Mark",
       "cooldown": [
-        10
+        0
       ],
       "cost": [
-        50
+        0
       ],
       "effects": []
     },
@@ -32,6 +33,10 @@
       "id": "Q",
       "name": "Five Point Strike",
       "cooldown": [
+        1.5,
+        1.5,
+        1.5,
+        1.5,
         1.5
       ],
       "cost": [
@@ -41,7 +46,29 @@
         80,
         70
       ],
-      "effects": []
+      "range": [
+        550,
+        550,
+        550,
+        550,
+        550
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              45,
+              70,
+              95,
+              120,
+              145
+            ],
+            "scalings": []
+          }
+        }
+      ]
     },
     "W": {
       "id": "W",
@@ -54,7 +81,18 @@
         16
       ],
       "cost": [
+        0,
+        0,
+        0,
+        0,
         0
+      ],
+      "range": [
+        350,
+        350,
+        350,
+        350,
+        350
       ],
       "effects": []
     },
@@ -69,9 +107,35 @@
         10
       ],
       "cost": [
+        30,
+        30,
+        30,
+        30,
         30
       ],
-      "effects": []
+      "range": [
+        825,
+        825,
+        825,
+        825,
+        825
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              70,
+              140,
+              210,
+              280,
+              350
+            ],
+            "scalings": []
+          }
+        }
+      ]
     },
     "R": {
       "id": "R",
@@ -82,9 +146,31 @@
         60
       ],
       "cost": [
+        0,
+        0,
         0
       ],
-      "effects": []
+      "range": [
+        675,
+        675,
+        675
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              110,
+              220,
+              330,
+              440,
+              550
+            ],
+            "scalings": []
+          }
+        }
+      ]
     }
   }
 }

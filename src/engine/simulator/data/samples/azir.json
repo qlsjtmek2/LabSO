@@ -13,18 +13,19 @@
     "mr": 30,
     "mrPerLevel": 1.3,
     "attackSpeed": 0.625,
-    "attackSpeedRatio": 5,
-    "range": 525
+    "attackSpeedRatio": 0.625,
+    "range": 525,
+    "moveSpeed": 330
   },
   "spells": {
     "P": {
       "id": "P",
       "name": "Shurima's Legacy",
       "cooldown": [
-        10
+        0
       ],
       "cost": [
-        50
+        0
       ],
       "effects": []
     },
@@ -45,23 +46,23 @@
         100,
         110
       ],
-      "effects": [
-        {
-          "type": "damage",
-          "logic": {
-            "damageType": "Magical",
-            "base": [
-              25
-            ],
-            "ratios": []
-          }
-        }
-      ]
+      "range": [
+        740,
+        740,
+        740,
+        740,
+        740
+      ],
+      "effects": []
     },
     "W": {
       "id": "W",
       "name": "Arise!",
       "cooldown": [
+        1.5,
+        1.5,
+        1.5,
+        1.5,
         1.5
       ],
       "cost": [
@@ -71,15 +72,20 @@
         25,
         20
       ],
+      "range": [
+        525,
+        525,
+        525,
+        525,
+        525
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              10
-            ],
-            "ratios": []
+            "base": [],
+            "scalings": []
           }
         }
       ]
@@ -95,7 +101,18 @@
         16
       ],
       "cost": [
+        60,
+        60,
+        60,
+        60,
         60
+      ],
+      "range": [
+        1100,
+        1100,
+        1100,
+        1100,
+        1100
       ],
       "effects": []
     },
@@ -108,9 +125,36 @@
         90
       ],
       "cost": [
+        100,
+        100,
         100
       ],
-      "effects": []
+      "range": [
+        250,
+        250,
+        250
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              200,
+              400,
+              600,
+              800,
+              1000
+            ],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.75
+              }
+            ]
+          }
+        }
+      ]
     }
   }
 }

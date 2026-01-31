@@ -13,18 +13,19 @@
     "mr": 32,
     "mrPerLevel": 2.05,
     "attackSpeed": 0.625,
-    "attackSpeedRatio": 1.5,
-    "range": 150
+    "attackSpeedRatio": 0.625,
+    "range": 150,
+    "moveSpeed": 340
   },
   "spells": {
     "P": {
       "id": "P",
       "name": "Colossal Smash",
       "cooldown": [
-        10
+        0
       ],
       "cost": [
-        50
+        0
       ],
       "effects": []
     },
@@ -45,7 +46,34 @@
         85,
         90
       ],
-      "effects": []
+      "range": [
+        825,
+        825,
+        825,
+        825,
+        825
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              70,
+              105,
+              140,
+              175,
+              210
+            ],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.699999988079071
+              }
+            ]
+          }
+        }
+      ]
     },
     "W": {
       "id": "W",
@@ -58,9 +86,40 @@
         14
       ],
       "cost": [
+        50,
+        50,
+        50,
+        50,
         50
       ],
-      "effects": []
+      "range": [
+        275,
+        275,
+        275,
+        275,
+        275
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.03999999910593033
+              },
+              {
+                "ratio": 0.07999999821186066
+              },
+              {
+                "ratio": 0.009999999776482582
+              }
+            ]
+          }
+        }
+      ]
     },
     "E": {
       "id": "E",
@@ -73,9 +132,40 @@
         7
       ],
       "cost": [
+        50,
+        50,
+        50,
+        50,
         50
       ],
-      "effects": []
+      "range": [
+        650,
+        650,
+        650,
+        650,
+        650
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              90,
+              130,
+              170,
+              210,
+              250
+            ],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.8999999761581421
+              }
+            ]
+          }
+        }
+      ]
     },
     "R": {
       "id": "R",
@@ -86,9 +176,36 @@
         140
       ],
       "cost": [
+        100,
+        100,
         100
       ],
-      "effects": []
+      "range": [
+        4000,
+        4750,
+        5500
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              150,
+              250,
+              350,
+              450,
+              550
+            ],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.699999988079071
+              }
+            ]
+          }
+        }
+      ]
     }
   }
 }

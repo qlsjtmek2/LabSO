@@ -13,18 +13,19 @@
     "mr": 32,
     "mrPerLevel": 2.05,
     "attackSpeed": 0.688,
-    "attackSpeedRatio": 3.5,
-    "range": 150
+    "attackSpeedRatio": 0.688,
+    "range": 150,
+    "moveSpeed": 340
   },
   "spells": {
     "P": {
       "id": "P",
       "name": "Fury of the North",
       "cooldown": [
-        10
+        0
       ],
       "cost": [
-        50
+        0
       ],
       "effects": []
     },
@@ -45,7 +46,29 @@
         75,
         80
       ],
-      "effects": []
+      "range": [
+        650,
+        650,
+        650,
+        650,
+        650
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              90,
+              140,
+              190,
+              240,
+              290
+            ],
+            "scalings": []
+          }
+        }
+      ]
     },
     "W": {
       "id": "W",
@@ -58,18 +81,18 @@
         5
       ],
       "cost": [
+        60,
+        60,
+        60,
+        60,
         60
       ],
-      "effects": []
-    },
-    "E": {
-      "id": "E",
-      "name": "Permafrost",
-      "cooldown": [
-        1.5
-      ],
-      "cost": [
-        20
+      "range": [
+        600,
+        600,
+        600,
+        600,
+        600
       ],
       "effects": [
         {
@@ -77,9 +100,54 @@
           "logic": {
             "damageType": "Magical",
             "base": [
-              1
+              5,
+              15,
+              25,
+              35,
+              45
             ],
-            "ratios": []
+            "scalings": []
+          }
+        }
+      ]
+    },
+    "E": {
+      "id": "E",
+      "name": "Permafrost",
+      "cooldown": [
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5
+      ],
+      "cost": [
+        20,
+        20,
+        20,
+        20,
+        20
+      ],
+      "range": [
+        560,
+        560,
+        560,
+        560,
+        560
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              55,
+              105,
+              155,
+              205,
+              255
+            ],
+            "scalings": []
           }
         }
       ]
@@ -93,17 +161,27 @@
         90
       ],
       "cost": [
+        100,
+        100,
         100
+      ],
+      "range": [
+        1300,
+        1300,
+        1300
       ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              1
-            ],
-            "ratios": []
+            "base": [],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.800000011920929
+              }
+            ]
           }
         }
       ]

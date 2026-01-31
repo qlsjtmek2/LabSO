@@ -13,18 +13,19 @@
     "mr": 32,
     "mrPerLevel": 2.05,
     "attackSpeed": 0.679,
-    "attackSpeedRatio": 2.5,
-    "range": 175
+    "attackSpeedRatio": 0.679,
+    "range": 175,
+    "moveSpeed": 355
   },
   "spells": {
     "P": {
       "id": "P",
       "name": "Double Strike",
       "cooldown": [
-        10
+        0
       ],
       "cost": [
-        50
+        0
       ],
       "effects": []
     },
@@ -45,16 +46,38 @@
         65,
         70
       ],
+      "range": [
+        600,
+        600,
+        600,
+        600,
+        600
+      ],
       "effects": []
     },
     "W": {
       "id": "W",
       "name": "Meditate",
       "cooldown": [
+        10,
+        10,
+        10,
+        10,
         10
       ],
       "cost": [
+        40,
+        40,
+        40,
+        40,
         40
+      ],
+      "range": [
+        20,
+        20,
+        20,
+        20,
+        20
       ],
       "effects": []
     },
@@ -62,10 +85,25 @@
       "id": "E",
       "name": "Wuju Style",
       "cooldown": [
+        14,
+        14,
+        14,
+        14,
         14
       ],
       "cost": [
+        0,
+        0,
+        0,
+        0,
         0
+      ],
+      "range": [
+        20,
+        20,
+        20,
+        20,
+        20
       ],
       "effects": []
     },
@@ -73,10 +111,19 @@
       "id": "R",
       "name": "Highlander",
       "cooldown": [
+        85,
+        85,
         85
       ],
       "cost": [
+        100,
+        100,
         100
+      ],
+      "range": [
+        1,
+        1,
+        1
       ],
       "effects": []
     }

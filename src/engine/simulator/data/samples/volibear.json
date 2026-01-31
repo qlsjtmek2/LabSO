@@ -13,18 +13,19 @@
     "mr": 32,
     "mrPerLevel": 2.05,
     "attackSpeed": 0.625,
-    "attackSpeedRatio": 2,
-    "range": 150
+    "attackSpeedRatio": 0.625,
+    "range": 150,
+    "moveSpeed": 340
   },
   "spells": {
     "P": {
       "id": "P",
       "name": "The Relentless Storm",
       "cooldown": [
-        10
+        0
       ],
       "cost": [
-        50
+        0
       ],
       "effects": []
     },
@@ -39,14 +40,49 @@
         10
       ],
       "cost": [
+        50,
+        50,
+        50,
+        50,
         50
       ],
-      "effects": []
+      "range": [
+        300,
+        300,
+        300,
+        300,
+        300
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              10,
+              30,
+              50,
+              70,
+              90
+            ],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 1
+              }
+            ]
+          }
+        }
+      ]
     },
     "W": {
       "id": "W",
       "name": "Frenzied Maul",
       "cooldown": [
+        5,
+        5,
+        5,
+        5,
         5
       ],
       "cost": [
@@ -56,18 +92,75 @@
         45,
         50
       ],
-      "effects": []
+      "range": [
+        325,
+        325,
+        325,
+        325,
+        325
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              5,
+              30,
+              55,
+              80,
+              105
+            ],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 1.100000023841858
+              }
+            ]
+          }
+        }
+      ]
     },
     "E": {
       "id": "E",
       "name": "Sky Splitter",
       "cooldown": [
+        14,
+        14,
+        14,
+        14,
         14
       ],
       "cost": [
+        60,
+        60,
+        60,
+        60,
         60
       ],
-      "effects": []
+      "range": [
+        1200,
+        1200,
+        1200,
+        1200,
+        1200
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              80,
+              110,
+              140,
+              170,
+              200
+            ],
+            "scalings": []
+          }
+        }
+      ]
     },
     "R": {
       "id": "R",
@@ -78,9 +171,30 @@
         110
       ],
       "cost": [
+        100,
+        100,
         100
       ],
-      "effects": []
+      "range": [
+        550,
+        550,
+        550
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 2.5
+              }
+            ]
+          }
+        }
+      ]
     }
   }
 }

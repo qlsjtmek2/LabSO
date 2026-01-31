@@ -13,18 +13,19 @@
     "mr": 32,
     "mrPerLevel": 2.05,
     "attackSpeed": 0.651,
-    "attackSpeedRatio": 3,
-    "range": 125
+    "attackSpeedRatio": 0.651,
+    "range": 125,
+    "moveSpeed": 345
   },
   "spells": {
     "P": {
       "id": "P",
       "name": "Flurry",
       "cooldown": [
-        10
+        0
       ],
       "cost": [
-        50
+        0
       ],
       "effects": []
     },
@@ -39,7 +40,18 @@
         6
       ],
       "cost": [
+        50,
+        50,
+        50,
+        50,
         50
+      ],
+      "range": [
+        1100,
+        1100,
+        1100,
+        1100,
+        1100
       ],
       "effects": []
     },
@@ -47,10 +59,25 @@
       "id": "W",
       "name": "Safeguard / Iron Will",
       "cooldown": [
+        12,
+        12,
+        12,
+        12,
         12
       ],
       "cost": [
+        50,
+        50,
+        50,
+        50,
         50
+      ],
+      "range": [
+        700,
+        700,
+        700,
+        700,
+        700
       ],
       "effects": []
     },
@@ -58,10 +85,25 @@
       "id": "E",
       "name": "Tempest / Cripple",
       "cooldown": [
+        8,
+        8,
+        8,
+        8,
         8
       ],
       "cost": [
+        50,
+        50,
+        50,
+        50,
         50
+      ],
+      "range": [
+        450,
+        450,
+        450,
+        450,
+        450
       ],
       "effects": []
     },
@@ -74,9 +116,36 @@
         60
       ],
       "cost": [
+        0,
+        0,
         0
       ],
-      "effects": []
+      "range": [
+        375,
+        375,
+        375
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              175,
+              400,
+              625,
+              850,
+              1075
+            ],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 2
+              }
+            ]
+          }
+        }
+      ]
     }
   }
 }

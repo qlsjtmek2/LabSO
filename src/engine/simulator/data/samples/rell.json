@@ -13,18 +13,19 @@
     "mr": 28,
     "mrPerLevel": 1.8,
     "attackSpeed": 0.625,
-    "attackSpeedRatio": 2,
-    "range": 175
+    "attackSpeedRatio": 0.625,
+    "range": 175,
+    "moveSpeed": 315
   },
   "spells": {
     "P": {
       "id": "P",
       "name": "Break the Mold",
       "cooldown": [
-        10
+        0
       ],
       "cost": [
-        50
+        0
       ],
       "effects": []
     },
@@ -39,18 +40,64 @@
         9
       ],
       "cost": [
+        50,
+        50,
+        50,
+        50,
         50
       ],
-      "effects": []
+      "range": [
+        600,
+        600,
+        600,
+        600,
+        600
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              60,
+              100,
+              140,
+              180,
+              220
+            ],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.6000000238418579
+              }
+            ]
+          }
+        }
+      ]
     },
     "W": {
       "id": "W",
       "name": "Ferromancy: Crash Down",
       "cooldown": [
+        10,
+        10,
+        10,
+        10,
         10
       ],
       "cost": [
+        40,
+        40,
+        40,
+        40,
         40
+      ],
+      "range": [
+        450,
+        450,
+        450,
+        450,
+        450
       ],
       "effects": []
     },
@@ -65,9 +112,40 @@
         10
       ],
       "cost": [
+        40,
+        40,
+        40,
+        40,
         40
       ],
-      "effects": []
+      "range": [
+        1200,
+        1200,
+        1200,
+        1200,
+        1200
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              0.05000000074505806,
+              0.054999999701976776,
+              0.05999999865889549,
+              0.06499999761581421,
+              0.07000000029802322
+            ],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.0003000000142492354
+              }
+            ]
+          }
+        }
+      ]
     },
     "R": {
       "id": "R",
@@ -78,9 +156,36 @@
         80
       ],
       "cost": [
+        100,
+        100,
         100
       ],
-      "effects": []
+      "range": [
+        200,
+        200,
+        200
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              60,
+              100,
+              140,
+              180,
+              220
+            ],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.550000011920929
+              }
+            ]
+          }
+        }
+      ]
     }
   }
 }

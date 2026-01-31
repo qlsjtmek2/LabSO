@@ -13,18 +13,19 @@
     "mr": 32,
     "mrPerLevel": 2.05,
     "attackSpeed": 0.658,
-    "attackSpeedRatio": 2.74,
-    "range": 125
+    "attackSpeedRatio": 0.658,
+    "range": 125,
+    "moveSpeed": 335
   },
   "spells": {
     "P": {
       "id": "P",
       "name": "Voracity",
       "cooldown": [
-        10
+        0
       ],
       "cost": [
-        50
+        0
       ],
       "effects": []
     },
@@ -39,9 +40,35 @@
         7
       ],
       "cost": [
+        0,
+        0,
+        0,
+        0,
         0
       ],
-      "effects": []
+      "range": [
+        625,
+        625,
+        625,
+        625,
+        625
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              80,
+              115,
+              150,
+              185,
+              220
+            ],
+            "scalings": []
+          }
+        }
+      ]
     },
     "W": {
       "id": "W",
@@ -54,20 +81,20 @@
         11
       ],
       "cost": [
+        0,
+        0,
+        0,
+        0,
         0
       ],
-      "effects": [
-        {
-          "type": "damage",
-          "logic": {
-            "damageType": "Physical",
-            "base": [
-              1.25
-            ],
-            "ratios": []
-          }
-        }
-      ]
+      "range": [
+        25000,
+        25000,
+        25000,
+        25000,
+        25000
+      ],
+      "effects": []
     },
     "E": {
       "id": "E",
@@ -80,7 +107,18 @@
         8
       ],
       "cost": [
+        0,
+        0,
+        0,
+        0,
         0
+      ],
+      "range": [
+        725,
+        725,
+        725,
+        725,
+        725
       ],
       "effects": []
     },
@@ -93,9 +131,31 @@
         45
       ],
       "cost": [
+        0,
+        0,
         0
       ],
-      "effects": []
+      "range": [
+        550,
+        550,
+        550
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              25,
+              37.5,
+              50,
+              62.5,
+              75
+            ],
+            "scalings": []
+          }
+        }
+      ]
     }
   }
 }

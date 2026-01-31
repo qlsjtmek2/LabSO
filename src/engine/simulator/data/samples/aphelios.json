@@ -13,18 +13,19 @@
     "mr": 30,
     "mrPerLevel": 1.3,
     "attackSpeed": 0.665,
-    "attackSpeedRatio": 2.1,
-    "range": 550
+    "attackSpeedRatio": 0.665,
+    "range": 550,
+    "moveSpeed": 325
   },
   "spells": {
     "P": {
       "id": "P",
       "name": "The Hitman and the Seer",
       "cooldown": [
-        10
+        0
       ],
       "cost": [
-        50
+        0
       ],
       "effects": []
     },
@@ -32,10 +33,28 @@
       "id": "Q",
       "name": "Weapon Abilites",
       "cooldown": [
+        9,
+        9,
+        9,
+        9,
+        9,
         9
       ],
       "cost": [
+        60,
+        60,
+        60,
+        60,
+        60,
         60
+      ],
+      "range": [
+        1450,
+        1450,
+        1450,
+        1450,
+        1450,
+        1450
       ],
       "effects": []
     },
@@ -43,10 +62,28 @@
       "id": "W",
       "name": "Phase",
       "cooldown": [
+        0.8,
+        0.8,
+        0.8,
+        0.8,
+        0.8,
         0.8
       ],
       "cost": [
+        0,
+        0,
+        0,
+        0,
+        0,
         0
+      ],
+      "range": [
+        250,
+        250,
+        250,
+        250,
+        250,
+        250
       ],
       "effects": []
     },
@@ -54,10 +91,28 @@
       "id": "E",
       "name": "Weapon Queue System",
       "cooldown": [
+        0,
+        0,
+        0,
+        0,
+        0,
         0
       ],
       "cost": [
+        0,
+        0,
+        0,
+        0,
+        0,
         0
+      ],
+      "range": [
+        1000,
+        1000,
+        1000,
+        1000,
+        1000,
+        1000
       ],
       "effects": []
     },
@@ -70,9 +125,40 @@
         100
       ],
       "cost": [
+        100,
+        100,
         100
       ],
-      "effects": []
+      "range": [
+        1300,
+        1300,
+        1300
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              125,
+              175,
+              225,
+              275,
+              325
+            ],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.20000000298023224
+              },
+              {
+                "stat": "ap",
+                "ratio": 1
+              }
+            ]
+          }
+        }
+      ]
     }
   }
 }

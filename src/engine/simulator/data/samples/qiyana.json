@@ -13,18 +13,19 @@
     "mr": 32,
     "mrPerLevel": 2.05,
     "attackSpeed": 0.688,
-    "attackSpeedRatio": 2.1,
-    "range": 150
+    "attackSpeedRatio": 0.688,
+    "range": 150,
+    "moveSpeed": 335
   },
   "spells": {
     "P": {
       "id": "P",
       "name": "Royal Privilege",
       "cooldown": [
-        10
+        0
       ],
       "cost": [
-        50
+        0
       ],
       "effects": []
     },
@@ -32,17 +33,56 @@
       "id": "Q",
       "name": "Elemental Wrath / Edge of Ixtal",
       "cooldown": [
+        7,
+        7,
+        7,
+        7,
         7
       ],
       "cost": [
+        35,
+        35,
+        35,
+        35,
         35
       ],
-      "effects": []
+      "range": [
+        525,
+        525,
+        525,
+        525,
+        525
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              70,
+              100,
+              130,
+              160,
+              190
+            ],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.8500000238418579
+              }
+            ]
+          }
+        }
+      ]
     },
     "W": {
       "id": "W",
       "name": "Terrashape",
       "cooldown": [
+        7,
+        7,
+        7,
+        7,
         7
       ],
       "cost": [
@@ -52,7 +92,34 @@
         40,
         45
       ],
-      "effects": []
+      "range": [
+        1100,
+        1100,
+        1100,
+        1100,
+        1100
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              8,
+              16,
+              24,
+              32,
+              40
+            ],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 1
+              }
+            ]
+          }
+        }
+      ]
     },
     "E": {
       "id": "E",
@@ -71,18 +138,69 @@
         55,
         60
       ],
-      "effects": []
+      "range": [
+        650,
+        650,
+        650,
+        650,
+        650
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              50,
+              90,
+              130,
+              170,
+              210
+            ],
+            "scalings": []
+          }
+        }
+      ]
     },
     "R": {
       "id": "R",
       "name": "Supreme Display of Talent",
       "cooldown": [
+        120,
+        120,
         120
       ],
       "cost": [
+        100,
+        100,
         100
       ],
-      "effects": []
+      "range": [
+        950,
+        950,
+        950
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              100,
+              200,
+              300,
+              400,
+              500
+            ],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 1.25
+              }
+            ]
+          }
+        }
+      ]
     }
   }
 }

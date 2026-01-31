@@ -13,18 +13,19 @@
     "mr": 32,
     "mrPerLevel": 2.05,
     "attackSpeed": 0.638,
-    "attackSpeedRatio": 2,
-    "range": 125
+    "attackSpeedRatio": 0.638,
+    "range": 125,
+    "moveSpeed": 335
   },
   "spells": {
     "P": {
       "id": "P",
       "name": "Eternal Hunger",
       "cooldown": [
-        10
+        0
       ],
       "cost": [
-        50
+        0
       ],
       "effects": []
     },
@@ -45,7 +46,28 @@
         95,
         100
       ],
-      "effects": []
+      "range": [
+        365,
+        365,
+        365,
+        365,
+        365
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 1
+              }
+            ]
+          }
+        }
+      ]
     },
     "W": {
       "id": "W",
@@ -58,7 +80,18 @@
         40
       ],
       "cost": [
+        55,
+        55,
+        55,
+        55,
         55
+      ],
+      "range": [
+        4000,
+        4000,
+        4000,
+        4000,
+        4000
       ],
       "effects": []
     },
@@ -73,24 +106,20 @@
         11
       ],
       "cost": [
+        40,
+        40,
+        40,
+        40,
         40
       ],
-      "effects": [
-        {
-          "type": "damage",
-          "logic": {
-            "damageType": "Physical",
-            "base": [
-              35,
-              40,
-              45,
-              50,
-              55
-            ],
-            "ratios": []
-          }
-        }
-      ]
+      "range": [
+        375,
+        375,
+        375,
+        375,
+        375
+      ],
+      "effects": []
     },
     "R": {
       "id": "R",
@@ -101,9 +130,36 @@
         70
       ],
       "cost": [
+        100,
+        100,
         100
       ],
-      "effects": []
+      "range": [
+        25000,
+        25000,
+        25000
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              175,
+              350,
+              525,
+              700,
+              875
+            ],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 1.6699999570846558
+              }
+            ]
+          }
+        }
+      ]
     }
   }
 }

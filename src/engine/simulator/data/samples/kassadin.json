@@ -13,18 +13,19 @@
     "mr": 30,
     "mrPerLevel": 1.3,
     "attackSpeed": 0.64,
-    "attackSpeedRatio": 3.7,
-    "range": 150
+    "attackSpeedRatio": 0.64,
+    "range": 150,
+    "moveSpeed": 335
   },
   "spells": {
     "P": {
       "id": "P",
       "name": "Void Stone",
       "cooldown": [
-        10
+        0
       ],
       "cost": [
-        50
+        0
       ],
       "effects": []
     },
@@ -45,15 +46,37 @@
         75,
         80
       ],
+      "range": [
+        650,
+        650,
+        650,
+        650,
+        650
+      ],
       "effects": []
     },
     "W": {
       "id": "W",
       "name": "Nether Blade",
       "cooldown": [
+        7,
+        7,
+        7,
+        7,
         7
       ],
       "cost": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "range": [
+        1,
+        1,
+        1,
+        1,
         1
       ],
       "effects": []
@@ -75,22 +98,14 @@
         75,
         80
       ],
-      "effects": [
-        {
-          "type": "damage",
-          "logic": {
-            "damageType": "Magical",
-            "base": [
-              50,
-              60,
-              70,
-              80,
-              90
-            ],
-            "ratios": []
-          }
-        }
-      ]
+      "range": [
+        400,
+        400,
+        400,
+        400,
+        400
+      ],
+      "effects": []
     },
     "R": {
       "id": "R",
@@ -101,7 +116,14 @@
         2
       ],
       "cost": [
+        40,
+        40,
         40
+      ],
+      "range": [
+        500,
+        500,
+        500
       ],
       "effects": []
     }

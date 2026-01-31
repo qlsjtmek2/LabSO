@@ -13,18 +13,19 @@
     "mr": 32,
     "mrPerLevel": 2.05,
     "attackSpeed": 0.625,
-    "attackSpeedRatio": 2.125,
-    "range": 125
+    "attackSpeedRatio": 0.625,
+    "range": 125,
+    "moveSpeed": 330
   },
   "spells": {
     "P": {
       "id": "P",
       "name": "Triumphant Roar",
       "cooldown": [
-        10
+        0
       ],
       "cost": [
-        50
+        0
       ],
       "effects": []
     },
@@ -45,6 +46,13 @@
         65,
         70
       ],
+      "range": [
+        365,
+        365,
+        365,
+        365,
+        365
+      ],
       "effects": []
     },
     "W": {
@@ -63,6 +71,13 @@
         60,
         65,
         70
+      ],
+      "range": [
+        650,
+        650,
+        650,
+        650,
+        650
       ],
       "effects": []
     },
@@ -83,7 +98,23 @@
         65,
         70
       ],
-      "effects": []
+      "range": [
+        350,
+        350,
+        350,
+        350,
+        350
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [],
+            "scalings": []
+          }
+        }
+      ]
     },
     "R": {
       "id": "R",
@@ -94,7 +125,14 @@
         80
       ],
       "cost": [
+        100,
+        100,
         100
+      ],
+      "range": [
+        1,
+        1,
+        1
       ],
       "effects": []
     }

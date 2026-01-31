@@ -13,18 +13,19 @@
     "mr": 32,
     "mrPerLevel": 2.05,
     "attackSpeed": 0.625,
-    "attackSpeedRatio": 1,
-    "range": 175
+    "attackSpeedRatio": 0.625,
+    "range": 175,
+    "moveSpeed": 340
   },
   "spells": {
     "P": {
       "id": "P",
       "name": "Hemorrhage",
       "cooldown": [
-        10
+        0
       ],
       "cost": [
-        50
+        0
       ],
       "effects": []
     },
@@ -45,29 +46,40 @@
         40,
         45
       ],
+      "range": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
       "effects": []
     },
     "W": {
       "id": "W",
       "name": "Crippling Strike",
       "cooldown": [
+        5,
+        5,
+        5,
+        5,
         5
       ],
       "cost": [
+        40,
+        40,
+        40,
+        40,
         40
       ],
-      "effects": [
-        {
-          "type": "damage",
-          "logic": {
-            "damageType": "Physical",
-            "base": [
-              90
-            ],
-            "ratios": []
-          }
-        }
-      ]
+      "range": [
+        300,
+        300,
+        300,
+        300,
+        300
+      ],
+      "effects": []
     },
     "E": {
       "id": "E",
@@ -86,22 +98,14 @@
         40,
         30
       ],
-      "effects": [
-        {
-          "type": "damage",
-          "logic": {
-            "damageType": "Physical",
-            "base": [
-              20,
-              25,
-              30,
-              35,
-              40
-            ],
-            "ratios": []
-          }
-        }
-      ]
+      "range": [
+        535,
+        535,
+        535,
+        535,
+        535
+      ],
+      "effects": []
     },
     "R": {
       "id": "R",
@@ -115,6 +119,11 @@
         100,
         100,
         0
+      ],
+      "range": [
+        460,
+        460,
+        460
       ],
       "effects": []
     }

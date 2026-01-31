@@ -13,18 +13,19 @@
     "mr": 32,
     "mrPerLevel": 2.05,
     "attackSpeed": 0.644,
-    "attackSpeedRatio": 2.5,
-    "range": 125
+    "attackSpeedRatio": 0.644,
+    "range": 125,
+    "moveSpeed": 340
   },
   "spells": {
     "P": {
       "id": "P",
       "name": "Adaptive Defenses",
       "cooldown": [
-        10
+        0
       ],
       "cost": [
-        50
+        0
       ],
       "effects": []
     },
@@ -39,9 +40,29 @@
         5
       ],
       "cost": [
+        25,
+        25,
+        25,
+        25,
         25
       ],
-      "effects": []
+      "range": [
+        325,
+        325,
+        325,
+        325,
+        325
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [],
+            "scalings": []
+          }
+        }
+      ]
     },
     "W": {
       "id": "W",
@@ -60,7 +81,29 @@
         65,
         70
       ],
-      "effects": []
+      "range": [
+        610,
+        610,
+        610,
+        610,
+        610
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              60,
+              85,
+              110,
+              135,
+              160
+            ],
+            "scalings": []
+          }
+        }
+      ]
     },
     "E": {
       "id": "E",
@@ -73,9 +116,35 @@
         12
       ],
       "cost": [
+        70,
+        70,
+        70,
+        70,
         70
       ],
-      "effects": []
+      "range": [
+        800,
+        800,
+        800,
+        800,
+        800
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              60,
+              90,
+              120,
+              150,
+              180
+            ],
+            "scalings": []
+          }
+        }
+      ]
     },
     "R": {
       "id": "R",
@@ -86,7 +155,14 @@
         90
       ],
       "cost": [
+        100,
+        100,
         100
+      ],
+      "range": [
+        475,
+        475,
+        475
       ],
       "effects": []
     }

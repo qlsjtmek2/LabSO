@@ -13,18 +13,19 @@
     "mr": 30,
     "mrPerLevel": 1.3,
     "attackSpeed": 0.658,
-    "attackSpeedRatio": 2,
-    "range": 450
+    "attackSpeedRatio": 0.658,
+    "range": 450,
+    "moveSpeed": 330
   },
   "spells": {
     "P": {
       "id": "P",
       "name": "Crimson Pact",
       "cooldown": [
-        10
+        0
       ],
       "cost": [
-        50
+        0
       ],
       "effects": []
     },
@@ -39,9 +40,34 @@
         4.6
       ],
       "cost": [
+        0,
+        0,
+        0,
+        0,
         0
       ],
-      "effects": []
+      "range": [
+        600,
+        600,
+        600,
+        600,
+        600
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.6000000238418579
+              }
+            ]
+          }
+        }
+      ]
     },
     "W": {
       "id": "W",
@@ -54,7 +80,18 @@
         16
       ],
       "cost": [
+        0,
+        0,
+        0,
+        0,
         0
+      ],
+      "range": [
+        350,
+        350,
+        350,
+        350,
+        350
       ],
       "effects": []
     },
@@ -69,31 +106,57 @@
         5
       ],
       "cost": [
+        0,
+        0,
+        0,
+        0,
         0
       ],
-      "effects": []
-    },
-    "R": {
-      "id": "R",
-      "name": "Hemoplague",
-      "cooldown": [
-        120
-      ],
-      "cost": [
-        0
+      "range": [
+        600,
+        600,
+        600,
+        600,
+        600
       ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              10
-            ],
-            "ratios": []
+            "base": [],
+            "scalings": [
+              {
+                "ratio": 0.014999999664723873
+              },
+              {
+                "stat": "ap",
+                "ratio": 0.3499999940395355
+              }
+            ]
           }
         }
       ]
+    },
+    "R": {
+      "id": "R",
+      "name": "Hemoplague",
+      "cooldown": [
+        120,
+        120,
+        120
+      ],
+      "cost": [
+        0,
+        0,
+        0
+      ],
+      "range": [
+        625,
+        625,
+        625
+      ],
+      "effects": []
     }
   }
 }

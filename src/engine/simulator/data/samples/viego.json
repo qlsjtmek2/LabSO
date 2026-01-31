@@ -13,18 +13,19 @@
     "mr": 32,
     "mrPerLevel": 2.05,
     "attackSpeed": 0.658,
-    "attackSpeedRatio": 2.75,
-    "range": 200
+    "attackSpeedRatio": 0.658,
+    "range": 200,
+    "moveSpeed": 345
   },
   "spells": {
     "P": {
       "id": "P",
       "name": "Sovereign's Domination",
       "cooldown": [
-        10
+        0
       ],
       "cost": [
-        50
+        0
       ],
       "effects": []
     },
@@ -39,20 +40,81 @@
         3
       ],
       "cost": [
+        0,
+        0,
+        0,
+        0,
         0
       ],
-      "effects": []
+      "range": [
+        600,
+        600,
+        600,
+        600,
+        600
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              25,
+              40,
+              55,
+              70,
+              85
+            ],
+            "scalings": []
+          }
+        }
+      ]
     },
     "W": {
       "id": "W",
       "name": "Spectral Maw",
       "cooldown": [
+        8,
+        8,
+        8,
+        8,
         8
       ],
       "cost": [
+        0,
+        0,
+        0,
+        0,
         0
       ],
-      "effects": []
+      "range": [
+        400,
+        400,
+        400,
+        400,
+        400
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              80,
+              135,
+              190,
+              245,
+              300
+            ],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 1
+              }
+            ]
+          }
+        }
+      ]
     },
     "E": {
       "id": "E",
@@ -65,9 +127,40 @@
         6
       ],
       "cost": [
+        0,
+        0,
+        0,
+        0,
         0
       ],
-      "effects": []
+      "range": [
+        750,
+        750,
+        750,
+        750,
+        750
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              0.25,
+              0.2750000059604645,
+              0.30000001192092896,
+              0.32499998807907104,
+              0.3499999940395355
+            ],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.00039999998989515007
+              }
+            ]
+          }
+        }
+      ]
     },
     "R": {
       "id": "R",
@@ -78,9 +171,25 @@
         80
       ],
       "cost": [
+        0,
+        0,
         0
       ],
-      "effects": []
+      "range": [
+        500,
+        500,
+        500
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [],
+            "scalings": []
+          }
+        }
+      ]
     }
   }
 }

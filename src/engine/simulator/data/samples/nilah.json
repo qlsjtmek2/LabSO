@@ -13,18 +13,19 @@
     "mr": 32,
     "mrPerLevel": 2.05,
     "attackSpeed": 0.697,
-    "attackSpeedRatio": 1.25,
-    "range": 225
+    "attackSpeedRatio": 0.697,
+    "range": 225,
+    "moveSpeed": 340
   },
   "spells": {
     "P": {
       "id": "P",
       "name": "Joy Unending",
       "cooldown": [
-        10
+        0
       ],
       "cost": [
-        50
+        0
       ],
       "effects": []
     },
@@ -32,12 +33,42 @@
       "id": "Q",
       "name": "Formless Blade",
       "cooldown": [
+        4,
+        4,
+        4,
+        4,
         4
       ],
       "cost": [
+        30,
+        30,
+        30,
+        30,
         30
       ],
-      "effects": []
+      "range": [
+        600,
+        600,
+        600,
+        600,
+        600
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              0,
+              10,
+              20,
+              30,
+              40
+            ],
+            "scalings": []
+          }
+        }
+      ]
     },
     "W": {
       "id": "W",
@@ -56,18 +87,60 @@
         15,
         0
       ],
+      "range": [
+        150,
+        150,
+        150,
+        150,
+        150
+      ],
       "effects": []
     },
     "E": {
       "id": "E",
       "name": "Slipstream",
       "cooldown": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
         0.5
       ],
       "cost": [
+        40,
+        40,
+        40,
+        40,
         40
       ],
-      "effects": []
+      "range": [
+        550,
+        550,
+        550,
+        550,
+        550
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              60,
+              70,
+              80,
+              90,
+              100
+            ],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.20000000298023224
+              }
+            ]
+          }
+        }
+      ]
     },
     "R": {
       "id": "R",
@@ -78,9 +151,36 @@
         80
       ],
       "cost": [
+        100,
+        100,
         100
       ],
-      "effects": []
+      "range": [
+        400,
+        400,
+        400
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              125,
+              225,
+              325,
+              425,
+              525
+            ],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 1
+              }
+            ]
+          }
+        }
+      ]
     }
   }
 }

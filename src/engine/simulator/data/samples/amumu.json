@@ -13,18 +13,19 @@
     "mr": 32,
     "mrPerLevel": 2.05,
     "attackSpeed": 0.736,
-    "attackSpeedRatio": 2.18,
-    "range": 125
+    "attackSpeedRatio": 0.736,
+    "range": 125,
+    "moveSpeed": 335
   },
   "spells": {
     "P": {
       "id": "P",
       "name": "Cursed Touch",
       "cooldown": [
-        10
+        0
       ],
       "cost": [
-        50
+        0
       ],
       "effects": []
     },
@@ -32,32 +33,51 @@
       "id": "Q",
       "name": "Bandage Toss",
       "cooldown": [
+        3,
+        3,
+        3,
+        3,
         3
       ],
       "cost": [
+        50,
+        50,
+        50,
+        50,
         50
       ],
-      "effects": [
-        {
-          "type": "damage",
-          "logic": {
-            "damageType": "Magical",
-            "base": [
-              1
-            ],
-            "ratios": []
-          }
-        }
-      ]
+      "range": [
+        1100,
+        1100,
+        1100,
+        1100,
+        1100
+      ],
+      "effects": []
     },
     "W": {
       "id": "W",
       "name": "Despair",
       "cooldown": [
+        1,
+        1,
+        1,
+        1,
         1
       ],
       "cost": [
+        8,
+        8,
+        8,
+        8,
         8
+      ],
+      "range": [
+        300,
+        300,
+        300,
+        300,
+        300
       ],
       "effects": []
     },
@@ -72,7 +92,18 @@
         5
       ],
       "cost": [
+        35,
+        35,
+        35,
+        35,
         35
+      ],
+      "range": [
+        350,
+        350,
+        350,
+        350,
+        350
       ],
       "effects": []
     },
@@ -88,6 +119,11 @@
         100,
         150,
         200
+      ],
+      "range": [
+        550,
+        550,
+        550
       ],
       "effects": []
     }

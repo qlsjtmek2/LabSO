@@ -13,18 +13,19 @@
     "mr": 25,
     "mrPerLevel": 1.1,
     "attackSpeed": 0.625,
-    "attackSpeedRatio": 1,
-    "range": 425
+    "attackSpeedRatio": 0.625,
+    "range": 425,
+    "moveSpeed": 330
   },
   "spells": {
     "P": {
       "id": "P",
       "name": "Feline Friendship",
       "cooldown": [
-        10
+        0
       ],
       "cost": [
-        50
+        0
       ],
       "effects": []
     },
@@ -32,6 +33,11 @@
       "id": "Q",
       "name": "Prowling Projectile",
       "cooldown": [
+        6.5,
+        6.5,
+        6.5,
+        6.5,
+        6.5,
         6.5
       ],
       "cost": [
@@ -42,23 +48,74 @@
         70,
         75
       ],
-      "effects": []
+      "range": [
+        25000,
+        25000,
+        25000,
+        25000,
+        25000,
+        25000
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              60,
+              95,
+              130,
+              165,
+              200
+            ],
+            "scalings": []
+          }
+        }
+      ]
     },
     "W": {
       "id": "W",
       "name": "You and Me!",
       "cooldown": [
+        0,
+        0,
+        0,
+        0,
         0
       ],
       "cost": [
+        0,
+        0,
+        0,
+        0,
         0
       ],
-      "effects": []
+      "range": [
+        25000,
+        25000,
+        25000,
+        25000,
+        25000
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [],
+            "scalings": []
+          }
+        }
+      ]
     },
     "E": {
       "id": "E",
       "name": "Zoomies",
       "cooldown": [
+        10,
+        10,
+        10,
+        10,
         10
       ],
       "cost": [
@@ -68,7 +125,29 @@
         110,
         120
       ],
-      "effects": []
+      "range": [
+        25000,
+        25000,
+        25000,
+        25000,
+        25000
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              65,
+              90,
+              115,
+              140,
+              165
+            ],
+            "scalings": []
+          }
+        }
+      ]
     },
     "R": {
       "id": "R",
@@ -79,9 +158,36 @@
         100
       ],
       "cost": [
+        100,
+        100,
         100
       ],
-      "effects": []
+      "range": [
+        1100,
+        1100,
+        1100
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              75,
+              125,
+              175,
+              225,
+              275
+            ],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.25
+              }
+            ]
+          }
+        }
+      ]
     }
   }
 }

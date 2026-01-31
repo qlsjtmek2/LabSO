@@ -13,18 +13,19 @@
     "mr": 32,
     "mrPerLevel": 1.5,
     "attackSpeed": 0.658,
-    "attackSpeedRatio": 2.5,
-    "range": 125
+    "attackSpeedRatio": 0.658,
+    "range": 125,
+    "moveSpeed": 350
   },
   "spells": {
     "P": {
       "id": "P",
       "name": "Fury of the Dragonborn",
       "cooldown": [
-        10
+        0
       ],
       "cost": [
-        50
+        0
       ],
       "effects": []
     },
@@ -39,7 +40,18 @@
         6
       ],
       "cost": [
+        0,
+        0,
+        0,
+        0,
         0
+      ],
+      "range": [
+        650,
+        650,
+        650,
+        650,
+        650
       ],
       "effects": []
     },
@@ -47,10 +59,25 @@
       "id": "W",
       "name": "Burnout",
       "cooldown": [
+        12,
+        12,
+        12,
+        12,
         12
       ],
       "cost": [
+        0,
+        0,
+        0,
+        0,
         0
+      ],
+      "range": [
+        325,
+        325,
+        325,
+        325,
+        325
       ],
       "effects": []
     },
@@ -65,7 +92,18 @@
         8
       ],
       "cost": [
+        0,
+        0,
+        0,
+        0,
         0
+      ],
+      "range": [
+        925,
+        925,
+        925,
+        925,
+        925
       ],
       "effects": []
     },
@@ -73,10 +111,19 @@
       "id": "R",
       "name": "Dragon's Descent",
       "cooldown": [
+        0,
+        0,
         0
       ],
       "cost": [
+        0,
+        0,
         0
+      ],
+      "range": [
+        850,
+        850,
+        850
       ],
       "effects": []
     }

@@ -13,18 +13,19 @@
     "mr": 32,
     "mrPerLevel": 2.05,
     "attackSpeed": 0.694,
-    "attackSpeedRatio": 3,
-    "range": 125
+    "attackSpeedRatio": 0.694,
+    "range": 125,
+    "moveSpeed": 345
   },
   "spells": {
     "P": {
       "id": "P",
       "name": "Backstab",
       "cooldown": [
-        10
+        0
       ],
       "cost": [
-        50
+        0
       ],
       "effects": []
     },
@@ -39,7 +40,18 @@
         11
       ],
       "cost": [
+        40,
+        40,
+        40,
+        40,
         40
+      ],
+      "range": [
+        400,
+        400,
+        400,
+        400,
+        400
       ],
       "effects": []
     },
@@ -47,6 +59,10 @@
       "id": "W",
       "name": "Jack In The Box",
       "cooldown": [
+        15,
+        15,
+        15,
+        15,
         15
       ],
       "cost": [
@@ -56,16 +72,38 @@
         55,
         50
       ],
+      "range": [
+        500,
+        500,
+        500,
+        500,
+        500
+      ],
       "effects": []
     },
     "E": {
       "id": "E",
       "name": "Two-Shiv Poison",
       "cooldown": [
+        8,
+        8,
+        8,
+        8,
         8
       ],
       "cost": [
+        75,
+        75,
+        75,
+        75,
         75
+      ],
+      "range": [
+        625,
+        625,
+        625,
+        625,
+        625
       ],
       "effects": []
     },
@@ -78,7 +116,14 @@
         80
       ],
       "cost": [
+        100,
+        100,
         100
+      ],
+      "range": [
+        200,
+        200,
+        200
       ],
       "effects": []
     }

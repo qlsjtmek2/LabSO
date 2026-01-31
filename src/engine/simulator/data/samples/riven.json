@@ -13,18 +13,19 @@
     "mr": 32,
     "mrPerLevel": 2.05,
     "attackSpeed": 0.625,
-    "attackSpeedRatio": 3.5,
-    "range": 125
+    "attackSpeedRatio": 0.625,
+    "range": 125,
+    "moveSpeed": 340
   },
   "spells": {
     "P": {
       "id": "P",
       "name": "Runic Blade",
       "cooldown": [
-        10
+        0
       ],
       "cost": [
-        50
+        0
       ],
       "effects": []
     },
@@ -32,10 +33,25 @@
       "id": "Q",
       "name": "Broken Wings",
       "cooldown": [
+        13,
+        13,
+        13,
+        13,
         13
       ],
       "cost": [
+        0,
+        0,
+        0,
+        0,
         0
+      ],
+      "range": [
+        275,
+        275,
+        275,
+        275,
+        275
       ],
       "effects": []
     },
@@ -50,7 +66,18 @@
         7
       ],
       "cost": [
+        0,
+        0,
+        0,
+        0,
         0
+      ],
+      "range": [
+        260,
+        260,
+        260,
+        260,
+        260
       ],
       "effects": []
     },
@@ -65,7 +92,18 @@
         6
       ],
       "cost": [
+        0,
+        0,
+        0,
+        0,
         0
+      ],
+      "range": [
+        250,
+        250,
+        250,
+        250,
+        250
       ],
       "effects": []
     },
@@ -78,7 +116,14 @@
         60
       ],
       "cost": [
+        0,
+        0,
         0
+      ],
+      "range": [
+        200,
+        200,
+        200
       ],
       "effects": []
     }

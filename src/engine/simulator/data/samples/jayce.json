@@ -13,18 +13,19 @@
     "mr": 30,
     "mrPerLevel": 1.3,
     "attackSpeed": 0.658,
-    "attackSpeedRatio": 3,
-    "range": 125
+    "attackSpeedRatio": 0.658,
+    "range": 125,
+    "moveSpeed": 335
   },
   "spells": {
     "P": {
       "id": "P",
       "name": "Hextech Capacitor",
       "cooldown": [
-        10
+        0
       ],
       "cost": [
-        50
+        0
       ],
       "effects": []
     },
@@ -40,7 +41,20 @@
         6
       ],
       "cost": [
+        40,
+        40,
+        40,
+        40,
+        40,
         40
+      ],
+      "range": [
+        600,
+        600,
+        600,
+        600,
+        600,
+        600
       ],
       "effects": []
     },
@@ -48,10 +62,28 @@
       "id": "W",
       "name": "Lightning Field / Hyper Charge",
       "cooldown": [
+        10,
+        10,
+        10,
+        10,
+        10,
         10
       ],
       "cost": [
+        40,
+        40,
+        40,
+        40,
+        40,
         40
+      ],
+      "range": [
+        285,
+        285,
+        285,
+        285,
+        285,
+        285
       ],
       "effects": []
     },
@@ -67,7 +99,20 @@
         10
       ],
       "cost": [
+        55,
+        55,
+        55,
+        55,
+        55,
         55
+      ],
+      "range": [
+        240,
+        240,
+        240,
+        240,
+        240,
+        240
       ],
       "effects": []
     },
@@ -79,6 +124,9 @@
       ],
       "cost": [
         0
+      ],
+      "range": [
+        600
       ],
       "effects": []
     }

@@ -13,18 +13,19 @@
     "mr": 28,
     "mrPerLevel": 2.05,
     "attackSpeed": 0.69,
-    "attackSpeedRatio": 3,
-    "range": 175
+    "attackSpeedRatio": 0.69,
+    "range": 175,
+    "moveSpeed": 340
   },
   "spells": {
     "P": {
       "id": "P",
       "name": "Stone Skin",
       "cooldown": [
-        10
+        0
       ],
       "cost": [
-        50
+        0
       ],
       "effects": []
     },
@@ -39,7 +40,18 @@
         6
       ],
       "cost": [
+        20,
+        20,
+        20,
+        20,
         20
+      ],
+      "range": [
+        250,
+        275,
+        300,
+        325,
+        350
       ],
       "effects": []
     },
@@ -60,6 +72,13 @@
         45,
         40
       ],
+      "range": [
+        275,
+        275,
+        275,
+        275,
+        275
+      ],
       "effects": []
     },
     "E": {
@@ -79,6 +98,13 @@
         45,
         50
       ],
+      "range": [
+        650,
+        650,
+        650,
+        650,
+        650
+      ],
       "effects": []
     },
     "R": {
@@ -90,7 +116,14 @@
         90
       ],
       "cost": [
+        100,
+        100,
         100
+      ],
+      "range": [
+        315,
+        315,
+        315
       ],
       "effects": []
     }

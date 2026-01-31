@@ -13,18 +13,19 @@
     "mr": 30,
     "mrPerLevel": 1.55,
     "attackSpeed": 0.625,
-    "attackSpeedRatio": 3.5,
-    "range": 450
+    "attackSpeedRatio": 0.625,
+    "range": 450,
+    "moveSpeed": 330
   },
   "spells": {
     "P": {
       "id": "P",
       "name": "Damnation",
       "cooldown": [
-        10
+        0
       ],
       "cost": [
-        50
+        0
       ],
       "effects": []
     },
@@ -39,9 +40,35 @@
         9
       ],
       "cost": [
+        70,
+        70,
+        70,
+        70,
         70
       ],
-      "effects": []
+      "range": [
+        1075,
+        1075,
+        1075,
+        1075,
+        1075
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              100,
+              150,
+              200,
+              250,
+              300
+            ],
+            "scalings": []
+          }
+        }
+      ]
     },
     "W": {
       "id": "W",
@@ -60,7 +87,29 @@
         65,
         70
       ],
-      "effects": []
+      "range": [
+        950,
+        950,
+        950,
+        950,
+        950
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              50,
+              70,
+              90,
+              110,
+              130
+            ],
+            "scalings": []
+          }
+        }
+      ]
     },
     "E": {
       "id": "E",
@@ -79,19 +128,20 @@
         75,
         80
       ],
+      "range": [
+        500,
+        500,
+        500,
+        500,
+        500
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              20,
-              25,
-              30,
-              35,
-              40
-            ],
-            "ratios": []
+            "base": [],
+            "scalings": []
           }
         }
       ]
@@ -105,20 +155,16 @@
         80
       ],
       "cost": [
+        100,
+        100,
         100
       ],
-      "effects": [
-        {
-          "type": "damage",
-          "logic": {
-            "damageType": "Magical",
-            "base": [
-              2
-            ],
-            "ratios": []
-          }
-        }
-      ]
+      "range": [
+        450,
+        450,
+        450
+      ],
+      "effects": []
     }
   }
 }

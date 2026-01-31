@@ -13,18 +13,19 @@
     "mr": 32,
     "mrPerLevel": 2.05,
     "attackSpeed": 0.7,
-    "attackSpeedRatio": 1.9,
-    "range": 125
+    "attackSpeedRatio": 0.7,
+    "range": 125,
+    "moveSpeed": 345
   },
   "spells": {
     "P": {
       "id": "P",
       "name": "Noxious Slipstream",
       "cooldown": [
-        10
+        0
       ],
       "cost": [
-        50
+        0
       ],
       "effects": []
     },
@@ -32,10 +33,25 @@
       "id": "Q",
       "name": "Poison Trail",
       "cooldown": [
+        0,
+        0,
+        0,
+        0,
         0
       ],
       "cost": [
+        13,
+        13,
+        13,
+        13,
         13
+      ],
+      "range": [
+        20,
+        20,
+        20,
+        20,
+        20
       ],
       "effects": []
     },
@@ -56,6 +72,13 @@
         90,
         100
       ],
+      "range": [
+        1000,
+        1000,
+        1000,
+        1000,
+        1000
+      ],
       "effects": []
     },
     "E": {
@@ -75,31 +98,32 @@
         90,
         100
       ],
-      "effects": [
-        {
-          "type": "damage",
-          "logic": {
-            "damageType": "Magical",
-            "base": [
-              1,
-              1.25,
-              1.5,
-              1.75,
-              2
-            ],
-            "ratios": []
-          }
-        }
-      ]
+      "range": [
+        125,
+        125,
+        125,
+        125,
+        125
+      ],
+      "effects": []
     },
     "R": {
       "id": "R",
       "name": "Insanity Potion",
       "cooldown": [
+        100,
+        100,
         100
       ],
       "cost": [
+        100,
+        100,
         100
+      ],
+      "range": [
+        20,
+        20,
+        20
       ],
       "effects": []
     }

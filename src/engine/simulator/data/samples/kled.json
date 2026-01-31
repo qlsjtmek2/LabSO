@@ -13,18 +13,19 @@
     "mr": 28,
     "mrPerLevel": 2.05,
     "attackSpeed": 0.625,
-    "attackSpeedRatio": 3.5,
-    "range": 125
+    "attackSpeedRatio": 0.625,
+    "range": 125,
+    "moveSpeed": 345
   },
   "spells": {
     "P": {
       "id": "P",
       "name": "Skaarl, the Cowardly Lizard",
       "cooldown": [
-        10
+        0
       ],
       "cost": [
-        50
+        0
       ],
       "effects": []
     },
@@ -39,9 +40,40 @@
         7
       ],
       "cost": [
+        0,
+        0,
+        0,
+        0,
         0
       ],
-      "effects": []
+      "range": [
+        800,
+        800,
+        800,
+        800,
+        800
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              30,
+              55,
+              80,
+              105,
+              130
+            ],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.6000000238418579
+              }
+            ]
+          }
+        }
+      ]
     },
     "W": {
       "id": "W",
@@ -54,9 +86,43 @@
         9
       ],
       "cost": [
+        0,
+        0,
+        0,
+        0,
         0
       ],
-      "effects": []
+      "range": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              4.5,
+              5,
+              5.5,
+              6,
+              6.5
+            ],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.019999999552965164
+              },
+              {
+                "ratio": 0.004000000189989805
+              }
+            ]
+          }
+        }
+      ]
     },
     "E": {
       "id": "E",
@@ -69,9 +135,40 @@
         9
       ],
       "cost": [
+        0,
+        0,
+        0,
+        0,
         0
       ],
-      "effects": []
+      "range": [
+        550,
+        550,
+        550,
+        550,
+        550
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              35,
+              60,
+              85,
+              110,
+              135
+            ],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.550000011920929
+              }
+            ]
+          }
+        }
+      ]
     },
     "R": {
       "id": "R",
@@ -82,9 +179,36 @@
         110
       ],
       "cost": [
+        0,
+        0,
         0
       ],
-      "effects": []
+      "range": [
+        3500,
+        4000,
+        4500
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              4,
+              6,
+              8,
+              10,
+              12
+            ],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.029999999329447746
+              }
+            ]
+          }
+        }
+      ]
     }
   }
 }

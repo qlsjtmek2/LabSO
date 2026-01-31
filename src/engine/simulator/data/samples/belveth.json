@@ -13,18 +13,19 @@
     "mr": 32,
     "mrPerLevel": 2.05,
     "attackSpeed": 0.85,
-    "attackSpeedRatio": 0,
-    "range": 150
+    "attackSpeedRatio": 0.85,
+    "range": 150,
+    "moveSpeed": 340
   },
   "spells": {
     "P": {
       "id": "P",
       "name": "Death in Lavender ",
       "cooldown": [
-        10
+        0
       ],
       "cost": [
-        50
+        0
       ],
       "effects": []
     },
@@ -32,12 +33,42 @@
       "id": "Q",
       "name": "Void Surge",
       "cooldown": [
+        1,
+        1,
+        1,
+        1,
         1
       ],
       "cost": [
+        0,
+        0,
+        0,
+        0,
         0
       ],
-      "effects": []
+      "range": [
+        450,
+        450,
+        450,
+        450,
+        450
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              0,
+              5,
+              10,
+              15,
+              20
+            ],
+            "scalings": []
+          }
+        }
+      ]
     },
     "W": {
       "id": "W",
@@ -50,9 +81,44 @@
         8
       ],
       "cost": [
+        0,
+        0,
+        0,
+        0,
         0
       ],
-      "effects": []
+      "range": [
+        715,
+        715,
+        715,
+        715,
+        715
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              70,
+              110,
+              150,
+              190,
+              230
+            ],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 1.25
+              },
+              {
+                "stat": "ap",
+                "ratio": 1
+              }
+            ]
+          }
+        }
+      ]
     },
     "E": {
       "id": "E",
@@ -65,20 +131,80 @@
         16
       ],
       "cost": [
+        0,
+        0,
+        0,
+        0,
         0
       ],
-      "effects": []
+      "range": [
+        500,
+        500,
+        500,
+        500,
+        500
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              6,
+              7,
+              8,
+              9,
+              10
+            ],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.07999999821186066
+              }
+            ]
+          }
+        }
+      ]
     },
     "R": {
       "id": "R",
       "name": "Endless Banquet",
       "cooldown": [
+        1,
+        1,
         1
       ],
       "cost": [
+        0,
+        0,
         0
       ],
-      "effects": []
+      "range": [
+        450,
+        450,
+        450
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              6,
+              8,
+              10,
+              12,
+              14
+            ],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.11999999731779099
+              }
+            ]
+          }
+        }
+      ]
     }
   }
 }

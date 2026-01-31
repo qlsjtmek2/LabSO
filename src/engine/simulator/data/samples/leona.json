@@ -13,18 +13,19 @@
     "mr": 32,
     "mrPerLevel": 2.05,
     "attackSpeed": 0.625,
-    "attackSpeedRatio": 2.9,
-    "range": 125
+    "attackSpeedRatio": 0.625,
+    "range": 125,
+    "moveSpeed": 335
   },
   "spells": {
     "P": {
       "id": "P",
       "name": "Sunlight",
       "cooldown": [
-        10
+        0
       ],
       "cost": [
-        50
+        0
       ],
       "effects": []
     },
@@ -32,6 +33,10 @@
       "id": "Q",
       "name": "Shield of Daybreak",
       "cooldown": [
+        5,
+        5,
+        5,
+        5,
         5
       ],
       "cost": [
@@ -41,18 +46,14 @@
         45,
         50
       ],
-      "effects": [
-        {
-          "type": "damage",
-          "logic": {
-            "damageType": "Magical",
-            "base": [
-              1
-            ],
-            "ratios": []
-          }
-        }
-      ]
+      "range": [
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "effects": []
     },
     "W": {
       "id": "W",
@@ -65,7 +66,18 @@
         10
       ],
       "cost": [
+        60,
+        60,
+        60,
+        60,
         60
+      ],
+      "range": [
+        450,
+        450,
+        450,
+        450,
+        450
       ],
       "effects": []
     },
@@ -86,18 +98,14 @@
         55,
         60
       ],
-      "effects": [
-        {
-          "type": "damage",
-          "logic": {
-            "damageType": "Magical",
-            "base": [
-              0.5
-            ],
-            "ratios": []
-          }
-        }
-      ]
+      "range": [
+        875,
+        875,
+        875,
+        875,
+        875
+      ],
+      "effects": []
     },
     "R": {
       "id": "R",
@@ -108,7 +116,14 @@
         60
       ],
       "cost": [
+        100,
+        100,
         100
+      ],
+      "range": [
+        1200,
+        1200,
+        1200
       ],
       "effects": []
     }

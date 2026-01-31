@@ -13,18 +13,19 @@
     "mr": 32,
     "mrPerLevel": 2.05,
     "attackSpeed": 0.751,
-    "attackSpeedRatio": 3,
-    "range": 125
+    "attackSpeedRatio": 0.751,
+    "range": 125,
+    "moveSpeed": 340
   },
   "spells": {
     "P": {
       "id": "P",
       "name": "Ki Barrier",
       "cooldown": [
-        10
+        0
       ],
       "cost": [
-        50
+        0
       ],
       "effects": []
     },
@@ -45,7 +46,23 @@
         110,
         100
       ],
-      "effects": []
+      "range": [
+        400,
+        400,
+        400,
+        400,
+        400
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [],
+            "scalings": []
+          }
+        }
+      ]
     },
     "W": {
       "id": "W",
@@ -58,20 +75,20 @@
         10
       ],
       "cost": [
+        40,
+        40,
+        40,
+        40,
         40
       ],
-      "effects": [
-        {
-          "type": "damage",
-          "logic": {
-            "damageType": "Physical",
-            "base": [
-              1.75
-            ],
-            "ratios": []
-          }
-        }
-      ]
+      "range": [
+        400,
+        400,
+        400,
+        400,
+        400
+      ],
+      "effects": []
     },
     "E": {
       "id": "E",
@@ -84,9 +101,35 @@
         10
       ],
       "cost": [
+        150,
+        150,
+        150,
+        150,
         150
       ],
-      "effects": []
+      "range": [
+        600,
+        600,
+        600,
+        600,
+        600
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              60,
+              85,
+              110,
+              135,
+              160
+            ],
+            "scalings": []
+          }
+        }
+      ]
     },
     "R": {
       "id": "R",
@@ -97,9 +140,35 @@
         160
       ],
       "cost": [
+        0,
+        0,
         0
       ],
-      "effects": []
+      "range": [
+        35000,
+        35000,
+        35000
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              120,
+              220,
+              320,
+              420,
+              520
+            ],
+            "scalings": [
+              {
+                "ratio": 0.15000000596046448
+              }
+            ]
+          }
+        }
+      ]
     }
   }
 }

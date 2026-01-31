@@ -13,18 +13,19 @@
     "mr": 32,
     "mrPerLevel": 2.05,
     "attackSpeed": 0.688,
-    "attackSpeedRatio": 3.3,
-    "range": 125
+    "attackSpeedRatio": 0.688,
+    "range": 125,
+    "moveSpeed": 340
   },
   "spells": {
     "P": {
       "id": "P",
       "name": "Z-Drive Resonance",
       "cooldown": [
-        10
+        0
       ],
       "cost": [
-        50
+        0
       ],
       "effects": []
     },
@@ -45,19 +46,31 @@
         80,
         90
       ],
+      "range": [
+        1075,
+        1075,
+        1075,
+        1075,
+        1075
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
             "base": [
-              40,
-              45,
-              50,
-              55,
-              60
+              80,
+              95,
+              110,
+              125,
+              140
             ],
-            "ratios": []
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.30000001192092896
+              }
+            ]
           }
         }
       ]
@@ -79,15 +92,31 @@
         45,
         50
       ],
+      "range": [
+        1600,
+        1600,
+        1600,
+        1600,
+        1600
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
             "base": [
-              2.25
+              3,
+              3,
+              3,
+              3,
+              3
             ],
-            "ratios": []
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.029999999329447746
+              }
+            ]
           }
         }
       ]
@@ -109,7 +138,28 @@
         55,
         60
       ],
-      "effects": []
+      "range": [
+        325,
+        325,
+        325,
+        325,
+        325
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.4000000059604645
+              }
+            ]
+          }
+        }
+      ]
     },
     "R": {
       "id": "R",
@@ -120,9 +170,36 @@
         50
       ],
       "cost": [
+        100,
+        100,
         100
       ],
-      "effects": []
+      "range": [
+        850,
+        850,
+        850
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              200,
+              350,
+              500,
+              650,
+              800
+            ],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 1.75
+              }
+            ]
+          }
+        }
+      ]
     }
   }
 }

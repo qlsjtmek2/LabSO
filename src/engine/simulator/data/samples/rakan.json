@@ -13,18 +13,19 @@
     "mr": 32,
     "mrPerLevel": 2.05,
     "attackSpeed": 0.635,
-    "attackSpeedRatio": 3,
-    "range": 300
+    "attackSpeedRatio": 0.635,
+    "range": 300,
+    "moveSpeed": 335
   },
   "spells": {
     "P": {
       "id": "P",
       "name": "Fey Feathers",
       "cooldown": [
-        10
+        0
       ],
       "cost": [
-        50
+        0
       ],
       "effects": []
     },
@@ -39,9 +40,35 @@
         7
       ],
       "cost": [
+        45,
+        45,
+        45,
+        45,
         45
       ],
-      "effects": []
+      "range": [
+        850,
+        850,
+        850,
+        850,
+        850
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              70,
+              115,
+              160,
+              205,
+              250
+            ],
+            "scalings": []
+          }
+        }
+      ]
     },
     "W": {
       "id": "W",
@@ -60,12 +87,43 @@
         80,
         90
       ],
-      "effects": []
+      "range": [
+        600,
+        600,
+        600,
+        600,
+        600
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              70,
+              120,
+              170,
+              220,
+              270
+            ],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.800000011920929
+              }
+            ]
+          }
+        }
+      ]
     },
     "E": {
       "id": "E",
       "name": "Battle Dance",
       "cooldown": [
+        0,
+        0,
+        0,
+        0,
         0
       ],
       "cost": [
@@ -75,15 +133,31 @@
         55,
         60
       ],
+      "range": [
+        650,
+        650,
+        650,
+        650,
+        650
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
-            "damageType": "Physical",
+            "damageType": "Magical",
             "base": [
-              5
+              50,
+              75,
+              100,
+              125,
+              150
             ],
-            "ratios": []
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.699999988079071
+              }
+            ]
           }
         }
       ]
@@ -97,17 +171,27 @@
         90
       ],
       "cost": [
+        100,
+        100,
         100
+      ],
+      "range": [
+        150,
+        150,
+        150
       ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              4
-            ],
-            "ratios": []
+            "base": [],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.5
+              }
+            ]
           }
         }
       ]

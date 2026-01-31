@@ -13,18 +13,19 @@
     "mr": 30,
     "mrPerLevel": 1.3,
     "attackSpeed": 0.665,
-    "attackSpeedRatio": 2.65,
-    "range": 500
+    "attackSpeedRatio": 0.665,
+    "range": 500,
+    "moveSpeed": 330
   },
   "spells": {
     "P": {
       "id": "P",
       "name": "Icathian Surprise",
       "cooldown": [
-        10
+        0
       ],
       "cost": [
-        50
+        0
       ],
       "effects": []
     },
@@ -32,21 +33,66 @@
       "id": "Q",
       "name": "Caustic Spittle",
       "cooldown": [
+        7,
+        7,
+        7,
+        7,
         7
       ],
       "cost": [
+        40,
+        40,
+        40,
+        40,
         40
       ],
-      "effects": []
+      "range": [
+        1175,
+        1175,
+        1175,
+        1175,
+        1175
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              80,
+              125,
+              170,
+              215,
+              260
+            ],
+            "scalings": []
+          }
+        }
+      ]
     },
     "W": {
       "id": "W",
       "name": "Bio-Arcane Barrage",
       "cooldown": [
+        17,
+        17,
+        17,
+        17,
         17
       ],
       "cost": [
+        40,
+        40,
+        40,
+        40,
         40
+      ],
+      "range": [
+        530,
+        530,
+        530,
+        530,
+        530
       ],
       "effects": []
     },
@@ -54,6 +100,10 @@
       "id": "E",
       "name": "Void Ooze",
       "cooldown": [
+        12,
+        12,
+        12,
+        12,
         12
       ],
       "cost": [
@@ -62,6 +112,13 @@
         70,
         85,
         100
+      ],
+      "range": [
+        1200,
+        1200,
+        1200,
+        1200,
+        1200
       ],
       "effects": []
     },
@@ -74,7 +131,14 @@
         1
       ],
       "cost": [
+        40,
+        40,
         40
+      ],
+      "range": [
+        1300,
+        1550,
+        1800
       ],
       "effects": []
     }

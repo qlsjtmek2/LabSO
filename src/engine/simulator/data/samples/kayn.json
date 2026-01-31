@@ -13,18 +13,19 @@
     "mr": 32,
     "mrPerLevel": 2.05,
     "attackSpeed": 0.669,
-    "attackSpeedRatio": 2.7,
-    "range": 175
+    "attackSpeedRatio": 0.669,
+    "range": 175,
+    "moveSpeed": 340
   },
   "spells": {
     "P": {
       "id": "P",
       "name": "The Darkin Scythe",
       "cooldown": [
-        10
+        0
       ],
       "cost": [
-        50
+        0
       ],
       "effects": []
     },
@@ -39,9 +40,29 @@
         5
       ],
       "cost": [
+        40,
+        40,
+        40,
+        40,
         40
       ],
-      "effects": []
+      "range": [
+        350,
+        350,
+        350,
+        350,
+        350
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [],
+            "scalings": []
+          }
+        }
+      ]
     },
     "W": {
       "id": "W",
@@ -60,15 +81,25 @@
         55,
         60
       ],
+      "range": [
+        700,
+        700,
+        700,
+        700,
+        700
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
-            "damageType": "Physical",
-            "base": [
-              1
-            ],
-            "ratios": []
+            "damageType": "Magical",
+            "base": [],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 1.100000023841858
+              }
+            ]
           }
         }
       ]
@@ -84,17 +115,31 @@
         13
       ],
       "cost": [
+        90,
+        90,
+        90,
+        90,
         90
+      ],
+      "range": [
+        400,
+        400,
+        400,
+        400,
+        400
       ],
       "effects": [
         {
           "type": "damage",
           "logic": {
-            "damageType": "Physical",
-            "base": [
-              40
-            ],
-            "ratios": []
+            "damageType": "Magical",
+            "base": [],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.44999998807907104
+              }
+            ]
           }
         }
       ]
@@ -108,9 +153,36 @@
         80
       ],
       "cost": [
+        100,
+        100,
         100
       ],
-      "effects": []
+      "range": [
+        550,
+        550,
+        550
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              150,
+              250,
+              350,
+              450,
+              550
+            ],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 1.5
+              }
+            ]
+          }
+        }
+      ]
     }
   }
 }

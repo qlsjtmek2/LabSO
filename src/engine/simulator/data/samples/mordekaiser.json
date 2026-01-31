@@ -13,18 +13,19 @@
     "mr": 32,
     "mrPerLevel": 2.05,
     "attackSpeed": 0.625,
-    "attackSpeedRatio": 1,
-    "range": 175
+    "attackSpeedRatio": 0.625,
+    "range": 175,
+    "moveSpeed": 335
   },
   "spells": {
     "P": {
       "id": "P",
       "name": "Darkness Rise",
       "cooldown": [
-        10
+        0
       ],
       "cost": [
-        50
+        0
       ],
       "effects": []
     },
@@ -39,9 +40,35 @@
         4
       ],
       "cost": [
+        0,
+        0,
+        0,
+        0,
         0
       ],
-      "effects": []
+      "range": [
+        675,
+        675,
+        675,
+        675,
+        675
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              80,
+              115,
+              150,
+              185,
+              220
+            ],
+            "scalings": []
+          }
+        }
+      ]
     },
     "W": {
       "id": "W",
@@ -54,9 +81,29 @@
         8
       ],
       "cost": [
+        0,
+        0,
+        0,
+        0,
         0
       ],
-      "effects": []
+      "range": [
+        25000,
+        25000,
+        25000,
+        25000,
+        25000
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [],
+            "scalings": []
+          }
+        }
+      ]
     },
     "E": {
       "id": "E",
@@ -69,9 +116,40 @@
         10
       ],
       "cost": [
+        0,
+        0,
+        0,
+        0,
         0
       ],
-      "effects": []
+      "range": [
+        700,
+        700,
+        700,
+        700,
+        700
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              60,
+              75,
+              90,
+              105,
+              120
+            ],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.4000000059604645
+              }
+            ]
+          }
+        }
+      ]
     },
     "R": {
       "id": "R",
@@ -82,7 +160,14 @@
         100
       ],
       "cost": [
+        0,
+        0,
         0
+      ],
+      "range": [
+        650,
+        650,
+        650
       ],
       "effects": []
     }
