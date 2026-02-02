@@ -258,7 +258,11 @@ export default function AnalysisResult({ result, version }: AnalysisResultProps)
           <div className="bg-[#1a1d24] rounded-3xl p-6 border border-gray-700 shadow-2xl relative overflow-hidden">
             <div className="absolute top-0 right-0 w-32 h-32 bg-red-600/5 blur-[40px] rounded-full pointer-events-none" />
             
-            <h3 className="text-sm font-bold text-gray-400 uppercase mb-6 tracking-wider">구간별 파워 커브</h3>
+            <h3 className="text-sm font-bold text-gray-400 uppercase mb-2 tracking-wider">구간별 파워 커브</h3>
+            <p className="text-[10px] text-gray-500 mb-6 flex gap-3">
+              <span>⚔️ 풀콤보 데미지 (QWE평R)</span>
+              <span>🛡️ 생존력 (Effective HP)</span>
+            </p>
             
             <div className="space-y-6">
               {buildRecommendation.powerCurve ? (
@@ -270,15 +274,25 @@ export default function AnalysisResult({ result, version }: AnalysisResultProps)
                     <div key={point.level}>
                       <div className="flex justify-between items-end mb-1">
                         <span className="text-xs text-gray-400 font-bold">Lv.{point.level}</span>
-                        <span className="text-sm font-black text-white">{point.damage.toLocaleString()}</span>
+                        <div className="text-right">
+                          <span className="text-sm font-black text-white mr-2">{point.damage.toLocaleString()}</span>
+                          <span className="text-[10px] text-gray-500 font-mono">({point.survivability.toLocaleString()} EHP)</span>
+                        </div>
                       </div>
-                      <div className="w-full bg-gray-800 h-2 rounded-full overflow-hidden flex">
+                      <div className="w-full bg-gray-800 h-2 rounded-full overflow-hidden flex mb-1">
                         <div 
                           className={`h-full rounded-full transition-all duration-1000 ${
                             idx === 3 ? 'bg-gradient-to-r from-red-600 to-red-400' : 'bg-gray-600'
                           }`} 
                           style={{ width: `${percent}%` }} 
                         />
+                      </div>
+                      {/* 생존력 바 (작게 표시) */}
+                      <div className="w-full bg-gray-800/50 h-1 rounded-full overflow-hidden flex">
+                         <div 
+                          className="h-full bg-green-500/50 rounded-full"
+                          style={{ width: `${Math.min(100, (point.survivability / 5000) * 100)}%` }}
+                         />
                       </div>
                     </div>
                   );

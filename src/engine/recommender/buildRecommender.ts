@@ -192,14 +192,23 @@ export class BuildRecommender {
         mr: 30 + (level * 2)
       };
 
-      // QWE 콤보 시뮬레이션
+      // QWE 콤보 시뮬레이션 (표준 풀콤보: Q-W-E-AA-R)
       const events = model.simulateCombo(['Q', 'W', 'E', 'AA', 'R'], scaledEnemy);
       const totalDamage = events.reduce((sum, e) => sum + e.mitigatedDamage, 0);
+
+      // 생존력 지표 (Effective HP)
+      // 물리/마법 데미지 50:50 상황 가정
+      const hp = model['stats'].hp;
+      const armor = model['stats'].armor;
+      const mr = model['stats'].mr;
+      const ehpPhysical = hp * (1 + armor / 100);
+      const ehpMagical = hp * (1 + mr / 100);
+      const survivability = Math.round((ehpPhysical + ehpMagical) / 2);
 
       results.push({
         level,
         damage: Math.round(totalDamage),
-        survivability: Math.round(model['stats'].hp + model['stats'].armor * 2), // 단순 생존력 지표
+        survivability, 
         items: currentItems
       });
     }
