@@ -1,9 +1,10 @@
 /**
- * 시뮬레이터 타입 정의
+ * 시뮬레이터 타입 정의 (V2)
  */
 
 // 기본 스탯
 export interface CombatStats {
+  level: number; // 레벨 추가
   hp: number;
   maxHp: number;
   mana: number;
@@ -15,6 +16,7 @@ export interface CombatStats {
   mr: number;
   
   attackSpeed: number;
+  range: number; // 사거리 추가
   movementSpeed: number; // 이동 속도 추가
   abilityHaste: number;
   
@@ -28,6 +30,12 @@ export interface CombatStats {
   
   omnivamp: number;       // 모든 피해 흡혈
   lifesteal: number;      // 생명력 흡수
+}
+
+// 데미지 결과
+export interface DamageResult {
+  type: 'Physical' | 'Magical' | 'True';
+  damage: number;
 }
 
 // 데미지 이벤트
@@ -52,10 +60,16 @@ export interface SimulationResult {
 
 // 아이템 스크립트 인터페이스
 export interface ItemScript {
-  id: number;
+  id?: number;
   name: string;
   stats: Partial<CombatStats>;
   
-  // 공격 시 발동 효과 (온힛)
-  onHit?: (target: CombatStats, source: CombatStats) => { type: 'Physical' | 'Magical'; damage: number };
+  // 공격 적중 시 발동 (온힛)
+  onHit?: (target: CombatStats, source: CombatStats) => DamageResult | null;
+  
+  // 공격 동작 시 발동 (구인수 등)
+  onAttack?: (target: CombatStats, source: CombatStats) => void; 
+  
+  // 패시브 효과 (스탯 보정 등)
+  passive?: (stats: CombatStats) => void;
 }

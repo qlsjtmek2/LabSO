@@ -24,41 +24,67 @@ export class GenericChampionModel {
 
   // 레벨과 아이템을 반영한 최종 스탯 계산
   private calculateStats(base: ChampionSchema['baseStats'], items: ItemScript[], level: number): CombatStats {
-    // 성장 스탯 적용 공식: Base + Growth * (Level - 1) * (0.7025 + 0.0175 * (Level - 1))
-    // 단순화를 위해 선형으로 가정하거나 정밀 공식을 적용
+    // 성장 스탯 적용 공식
     const growthMod = level - 1; 
 
-    let stats: CombatStats = {
-      hp: base.hp + (base.hpPerLevel * growthMod),
-      maxHp: base.hp + (base.hpPerLevel * growthMod),
-      mana: base.mp + (base.mpPerLevel * growthMod),
-      ad: base.ad + (base.adPerLevel * growthMod),
-      ap: 0,
-      armor: base.armor + (base.armorPerLevel * growthMod),
-      mr: base.mr + (base.mrPerLevel * growthMod),
-      attackSpeed: base.attackSpeed * (1 + (base.attackSpeedRatio * growthMod / 100)), // AS는 % 증가
+    // 초기 보너스 스탯 누적 객체
+    let bonusStats = {
+      hp: 0, mp: 0, ad: 0, ap: 0, armor: 0, mr: 0,
+      attackSpeed: (base.attackSpeedRatio * growthMod / 100), // 성장 공속 (%)
       abilityHaste: 0,
       critChance: 0,
-      critDamage: 1.75,
+      critDamage: 0,
       lethality: 0,
       armorPen: 0,
       magicPenFlat: 0,
       magicPenPercent: 0,
       omnivamp: 0,
       lifesteal: 0,
-      movementSpeed: 340 // 기본값
+      moveSpeed: 0
     };
 
     // 아이템 스탯 합산
     items.forEach(item => {
-      if (item.stats.ad) stats.ad += item.stats.ad;
-      if (item.stats.ap) stats.ap += item.stats.ap;
-      if (item.stats.hp) {
-        stats.hp += item.stats.hp;
-        stats.maxHp += item.stats.hp;
-      }
-      // ... 기타 스탯 적용
+      const s = item.stats;
+      if (s.hp) bonusStats.hp += s.hp;
+      if (s.mana) bonusStats.mp += s.mana;
+      if (s.ad) bonusStats.ad += s.ad;
+      if (s.ap) bonusStats.ap += s.ap;
+      if (s.armor) bonusStats.armor += s.armor;
+      if (s.mr) bonusStats.mr += s.mr;
+      if (s.attackSpeed) bonusStats.attackSpeed += s.attackSpeed;
+      if (s.abilityHaste) bonusStats.abilityHaste += s.abilityHaste;
+      if (s.critChance) bonusStats.critChance += s.critChance;
+      if (s.lethality) bonusStats.lethality += s.lethality;
+      // ... 기타 스탯
     });
+
+    // 최종 스탯 계산
+    // 공속: Base + (Ratio * Bonus%)
+    const finalAs = base.attackSpeed + (base.attackSpeedRatio * bonusStats.attackSpeed);
+
+    let stats: CombatStats = {
+      level: level,
+      hp: base.hp + (base.hpPerLevel * growthMod) + bonusStats.hp,
+      maxHp: base.hp + (base.hpPerLevel * growthMod) + bonusStats.hp,
+      mana: base.mp + (base.mpPerLevel * growthMod) + bonusStats.mp,
+      ad: base.ad + (base.adPerLevel * growthMod) + bonusStats.ad,
+      ap: bonusStats.ap,
+      armor: base.armor + (base.armorPerLevel * growthMod) + bonusStats.armor,
+      mr: base.mr + (base.mrPerLevel * growthMod) + bonusStats.mr,
+      attackSpeed: Math.min(2.5, finalAs), // Cap 2.5
+      range: base.range + (bonusStats['range'] || 0), // 사거리 추가
+      abilityHaste: bonusStats.abilityHaste,
+      critChance: Math.min(1.0, bonusStats.critChance), // Cap 100%
+      critDamage: 1.75 + bonusStats.critDamage, // 기본 175% + 아이템(인피)
+      lethality: bonusStats.lethality,
+      armorPen: bonusStats.armorPen,
+      magicPenFlat: bonusStats.magicPenFlat,
+      magicPenPercent: bonusStats.magicPenPercent,
+      omnivamp: bonusStats.omnivamp,
+      lifesteal: bonusStats.lifesteal,
+      movementSpeed: (base.moveSpeed || 330) + bonusStats.moveSpeed
+    };
 
     return stats;
   }

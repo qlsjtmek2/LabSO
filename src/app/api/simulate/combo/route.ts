@@ -3,6 +3,7 @@ import path from 'path';
 import fs from 'fs/promises';
 import { GenericChampionModel } from '@/engine/simulator/models/GenericChampion';
 import { ItemScript, CombatStats } from '@/engine/core/types';
+import { ItemFactory } from '@/engine/simulator/items/itemFactory';
 
 // 아이템 데이터 로드 (DataDragon JSON)
 async function getItemData(itemIds: number[]): Promise<ItemScript[]> {
@@ -23,24 +24,8 @@ async function getItemData(itemIds: number[]): Promise<ItemScript[]> {
       const itemData = itemsJson[String(id)] || itemsJson[id];
       if (!itemData) return { name: 'Unknown', stats: {} };
 
-      // DataDragon 스탯을 엔진 스탯으로 변환
-      const stats: Partial<CombatStats> = {
-        ad: itemData.stats?.FlatPhysicalDamageMod || 0,
-        ap: itemData.stats?.FlatMagicDamageMod || 0,
-        hp: itemData.stats?.FlatHPPoolMod || 0,
-        armor: itemData.stats?.FlatArmorMod || 0,
-        mr: itemData.stats?.FlatSpellBlockMod || 0,
-        attackSpeed: itemData.stats?.PercentAttackSpeedMod || 0, // % 단위 주의 (0.15 = 15%)
-        abilityHaste: 0, // 최신 DD 데이터 구조 확인 필요 (여기선 생략)
-        moveSpeed: itemData.stats?.FlatMovementSpeedMod || 0,
-        critChance: itemData.stats?.FlatCritChanceMod || 0,
-      };
-
-      return {
-        name: itemData.name,
-        stats: stats as any,
-        // onHit 로직은 복잡하므로 일단 생략하거나 추후 구현
-      };
+      // ID 주입 후 Factory 사용
+      return ItemFactory.createItem({ ...itemData, id });
     });
   } catch (error) {
     console.error('Error loading item data:', error);

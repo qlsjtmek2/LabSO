@@ -18,10 +18,13 @@ export class DamageEngine {
     if (damageType === 'True') return rawDamage;
 
     if (damageType === 'Physical') {
+      // Lethality 공식 적용 (Level Scaling)
+      const flatPen = attacker.lethality * (0.6 + 0.4 * (attacker.level || 18) / 18);
+      
       const effectiveArmor = this.calculateEffectiveDefense(
         defender.armor,
         attacker.armorPen, // % 관통
-        attacker.lethality // 고정 관통 (레벨 비례 로직은 단순화를 위해 생략하거나 여기서 처리)
+        flatPen
       );
       return rawDamage * this.getDamageMultiplier(effectiveArmor);
     }
