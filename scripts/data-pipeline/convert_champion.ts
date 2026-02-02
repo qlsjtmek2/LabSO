@@ -10,45 +10,54 @@ const STAT_MAPPING: Record<number, string> = {
   2: 'ap',
   1: 'bonusAd', // Often bonus AD
   0: 'ad',      // Total AD
-  3: 'bonusAd', // Sometimes 3? Need verification.
+  3: 'bonusAd', 
   5: 'bonusAttackSpeed',
-  // Add more as discovered
+};
+
+// DDragon vars link mapping
+const LINK_MAPPING: Record<string, string> = {
+  'attackdamage': 'ad',
+  'bonusattackdamage': 'bonusAd',
+  'spelldamage': 'ap',
+  'armor': 'armor',
+  'bonusarmor': 'bonusArmor',
+  'spellblock': 'mr',
+  'bonusspellblock': 'bonusMr',
+  'bonushealth': 'bonusHp',
+  'health': 'hp',
+  'critchance': 'critChance',
+  'attackSpeed': 'attackSpeed'
 };
 
 async function convertChampions() {
   try {
-    // 1. Load DDragon Data (Base Stats Source)
     const ddragonPath = path.join(RAW_DIR, 'ddragon_championFull.json');
     const ddragonData = JSON.parse(await fs.readFile(ddragonPath, 'utf-8'));
     const champions = Object.values(ddragonData.data);
 
     console.log(`Loaded ${champions.length} champions from DataDragon.`);
 
+    // Load Bin Files List once
+    let binFiles: string[] = [];
+    try {
+        binFiles = await fs.readdir(BIN_DIR);
+    } catch (e) {
+        console.warn('Bin directory not found or empty.');
+    }
+
     for (const champ of champions as any[]) {
-      const alias = champ.id; // DDragon ID is the alias (e.g. "Ahri")
-      // const key = champ.key;  // Numeric ID (e.g. "103")
-      
-      // Load Bin Data (Spell Data Source)
-      // Bin files are named by CDragon alias which usually matches DDragon ID
-      // But we need to handle case sensitivity. CDragon uses PascalCase usually for file names?
-      // Fetcher saved as `summary.alias`. Usually PascalCase.
-      
-      // Try to find the bin file case-insensitively
-      const binFiles = await fs.readdir(BIN_DIR);
-      const targetBinFile = binFiles.find(f => f.toLowerCase() === `${alias.toLowerCase()}.bin.json`);
-      
+      const alias = champ.id; 
+
+      // Load Bin Data (Lazy)
       let binData: any = {};
+      const targetBinFile = binFiles.find(f => f.toLowerCase() === `${alias.toLowerCase()}.bin.json`);
       if (targetBinFile) {
         try {
           binData = JSON.parse(await fs.readFile(path.join(BIN_DIR, targetBinFile), 'utf-8'));
-        } catch (e) {
-          console.warn(`Failed to parse bin data for ${alias}`);
-        }
-      } else {
-        // console.warn(`Bin data not found for ${alias} (File missing)`);
+        } catch (e) { /* ignore */ }
       }
 
-      // 1. Base Stats (From DDragon)
+      // 1. Base Stats
       const baseStats = {
         hp: champ.stats.hp,
         hpPerLevel: champ.stats.hpperlevel,
@@ -61,7 +70,7 @@ async function convertChampions() {
         mr: champ.stats.spellblock,
         mrPerLevel: champ.stats.spellblockperlevel,
         attackSpeed: champ.stats.attackspeed,
-        attackSpeedRatio: champ.stats.attackspeedratio || champ.stats.attackspeed, // Fallback
+        attackSpeedRatio: champ.stats.attackspeedratio || champ.stats.attackspeed,
         range: champ.stats.attackrange,
         moveSpeed: champ.stats.movespeed
       };
@@ -69,66 +78,94 @@ async function convertChampions() {
       // 2. Spells
       const spells: any = { P: {}, Q: {}, W: {}, E: {}, R: {} };
       
-      // Parse Passive
       spells.P = {
         id: 'P',
         name: champ.passive.name,
-        cooldown: [0],
-        cost: [0],
-        effects: [] 
+        cooldown: [0], cost: [0], effects: [] 
       };
 
-      // Parse Q, W, E, R
       ['Q', 'W', 'E', 'R'].forEach((spellKey, idx) => {
-        // DDragon spells array is ordered Q, W, E, R
-        const ddragonSpell = champ.spells[idx];
-        if (!ddragonSpell) return;
+        const spell = champ.spells[idx];
+        if (!spell) return;
+
+        // Damage Type Inference
+        let damageType = 'Physical';
+        const tooltipLower = spell.tooltip.toLowerCase();
+        if (tooltipLower.includes('magic damage')) damageType = 'Magical';
+        else if (tooltipLower.includes('true damage')) damageType = 'True';
+        else if (tooltipLower.includes('physical damage')) damageType = 'Physical';
+        
+        // Base Damage (DDragon)
+        const baseDamage = spell.effect[1] || [];
+
+        // Scalings (DDragon)
+        const scalings: any[] = [];
+        if (spell.vars && spell.vars.length > 0) {
+            spell.vars.forEach((v: any) => {
+                const stat = LINK_MAPPING[v.link];
+                if (stat) {
+                    scalings.push({
+                        stat: stat,
+                        ratio: v.coeff
+                    });
+                }
+            });
+        }
+
+        // Fallback to Bin Data if DDragon is insufficient
+        // Condition: No scalings AND (No base damage OR base damage is all 0)
+        const isDDragonMissing = scalings.length === 0 && (!baseDamage || baseDamage.length === 0 || baseDamage.every((v:any) => v === 0));
+        
+        let logic: any = {
+            damageType: damageType,
+            base: baseDamage,
+            scalings: scalings
+        };
+
+        if (isDDragonMissing && targetBinFile) {
+            let binAlias = alias;
+            if (alias === 'Wukong') binAlias = 'MonkeyKing'; 
+            
+            // Try keys
+            const patterns = [
+                `Characters/${binAlias}/Spells/${binAlias}${spellKey}Ability/${binAlias}${spellKey}`,
+                `Characters/${binAlias}/Spells/${binAlias}${spellKey}`, 
+                `Characters/${binAlias}/Spells/${binAlias}${spellKey}Ability`
+            ];
+
+            let binSpell: any = null;
+            for (const p of patterns) {
+                if (binData[p]) {
+                    binSpell = binData[p];
+                    break;
+                }
+            }
+
+            if (binSpell && binSpell.mSpell) {
+                const binLogic = parseDamageLogic(binSpell.mSpell);
+                if (binLogic) {
+                    // Merge: Use Bin logic but keep DDragon damageType if reliable
+                    logic = binLogic;
+                    logic.damageType = damageType;
+                }
+            }
+        }
 
         spells[spellKey] = {
             id: spellKey,
-            name: ddragonSpell.name,
-            cooldown: ddragonSpell.cooldown,
-            cost: ddragonSpell.cost, // DDragon has cost array
-            range: ddragonSpell.range,
-            effects: []
-        };
-        
-        // Find Spell Data in Bin
-        // CDragon Keys: Characters/{Alias}/Spells/{Alias}{Key}Ability/{Alias}{Key}
-        // Alias is usually the DDragon ID (PascalCase)
-        
-        // Special case: Wukong is MonkeyKing in CDragon/Bin keys
-        let binAlias = alias;
-        if (alias === 'Wukong') binAlias = 'MonkeyKing'; // Mapping if needed
-        // Renekton -> Renekton.
-        
-        // Try multiple patterns
-        const patterns = [
-            `Characters/${binAlias}/Spells/${binAlias}${spellKey}Ability/${binAlias}${spellKey}`,
-            `Characters/${binAlias}/Spells/${binAlias}${spellKey}`, // Old pattern
-            `Characters/${binAlias}/Spells/${binAlias}${spellKey}Ability`
-        ];
-
-        let binSpell: any = null;
-        for (const p of patterns) {
-            if (binData[p]) {
-                binSpell = binData[p];
-                break;
-            }
-        }
-
-        if (binSpell && binSpell.mSpell) {
-            const logic = parseDamageLogic(binSpell.mSpell);
-            if (logic) {
-                spells[spellKey].effects.push({
+            name: spell.name,
+            cooldown: spell.cooldown,
+            cost: spell.cost,
+            range: spell.range,
+            effects: [
+                {
                     type: 'damage',
                     logic: logic
-                });
-            }
-        }
+                }
+            ]
+        };
       });
 
-      // Construct Final JSON
       const result = {
         id: alias,
         name: champ.name,
@@ -137,65 +174,70 @@ async function convertChampions() {
       };
 
       await fs.writeFile(path.join(OUTPUT_DIR, `${alias}.json`), JSON.stringify(result, null, 2));
-      // console.log(`Converted ${alias}`);
     }
-    console.log(`Conversion complete. Processed ${champions.length} champions.`);
+    console.log(`Conversion complete using DDragon (Hybrid).`);
   } catch (error) {
     console.error('Conversion Error:', error);
   }
 }
 
-function parseCoefficients(coeffs: number[]): number[] {
-    return coeffs ? coeffs.slice(0, 5) : []; // Usually 5 levels, CDragon gives more sometimes
-}
-
 function parseDamageLogic(mSpell: any): any {
-    // Try to find "TotalDamage" or similar in mSpellCalculations
-    // Defaulting to first calculation that looks like damage
-    
     if (!mSpell.mSpellCalculations) return null;
 
     const calcKeys = Object.keys(mSpell.mSpellCalculations);
-    // Prioritize "TotalDamage", "Damage", "MaxDamage"
     const targetKey = calcKeys.find(k => k.includes('Damage') && !k.includes('Tool')) || calcKeys[0];
     
     if (!targetKey) return null;
 
     const calculation = mSpell.mSpellCalculations[targetKey];
     const logic: any = {
-        damageType: 'Magical', // Default, infer from somewhere else if possible (tacticalInfo.damageType?)
+        damageType: 'Physical', // Default
         base: [],
         scalings: []
     };
 
     if (calculation.mFormulaParts) {
         calculation.mFormulaParts.forEach((part: any) => {
-            // Base Damage (DataValue)
+            // 1. Base Damage (NamedDataValue)
             if (part.__type === 'NamedDataValueCalculationPart' && part.mDataValue) {
                 const dataValue = mSpell.DataValues?.find((d: any) => d.mName === part.mDataValue);
                 if (dataValue && dataValue.mValues) {
-                    // mValues often [0, lv1, lv2...] or [lv1, lv2...]
-                    // We assume 1-based index usually for levels 1-5
                     logic.base = dataValue.mValues.slice(1, 6); 
                 }
             }
-            // Scaling (Coefficient)
+            // 2. Scaling (Coefficient)
             else if (part.__type === 'StatByCoefficientCalculationPart') {
-                 // mStat: 2=AP, 0=TotalAD?
-                 // If mStat is undefined, check mCoefficient.
-                 // Heuristic: if mCoefficient is defined, look for mStat.
-                 const statType = STAT_MAPPING[part.mStat] || 'ap'; // Default to AP if unknown? Risky.
-                 // Actually, if mStat is missing, it's often implied by the context or it's a fixed value?
-                 // Let's default to 'ap' only if reasonable or skip.
-                 
-                 // Note: Ahri's bin showed mCoefficient: 0.5 without mStat.
-                 // If mStat is missing, we might assume AP for mages?
-                 // Let's check logic.damageType later.
-                 
+                 let statType = STAT_MAPPING[part.mStat] || 'ap'; 
                  logic.scalings.push({
-                     stat: part.mStat !== undefined ? STAT_MAPPING[part.mStat] : 'ap', // Fallback
+                     stat: statType,
                      ratio: part.mCoefficient || 0
                  });
+            }
+            // 3. Scaling (NamedDataValue - e.g. Garen Q tADRatio)
+            else if (part.__type === 'StatByNamedDataValueCalculationPart') {
+                const name = part.mDataValue.toLowerCase();
+                let statType = 'ap';
+                
+                // Heuristic Name Matching
+                if (name.includes('ad') || name.includes('attackdamage')) {
+                    statType = name.includes('bonus') ? 'bonusAd' : 'ad';
+                } else if (name.includes('ap') || name.includes('spell')) {
+                    statType = 'ap';
+                } else if (name.includes('hp') || name.includes('health')) {
+                    statType = name.includes('bonus') ? 'bonusHp' : 'hp';
+                } else if (name.includes('armor')) {
+                    statType = name.includes('bonus') ? 'bonusArmor' : 'armor';
+                } else if (part.mStat !== undefined) {
+                    statType = STAT_MAPPING[part.mStat] || 'ap';
+                }
+
+                const dataValue = mSpell.DataValues?.find((d: any) => d.mName === part.mDataValue);
+                const ratios = dataValue?.mValues?.slice(1, 6) || [0];
+                
+                logic.scalings.push({
+                    stat: statType,
+                    ratio: ratios // V2 schema supports array ratio
+                });
             }
         });
     }

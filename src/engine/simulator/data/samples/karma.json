@@ -65,7 +65,18 @@
               210,
               260
             ],
-            "scalings": []
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": [
+                  0.699999988079071,
+                  0.699999988079071,
+                  0.699999988079071,
+                  0.699999988079071,
+                  0.699999988079071
+                ]
+              }
+            ]
           }
         }
       ]
@@ -94,7 +105,22 @@
         675,
         675
       ],
-      "effects": []
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "scalings": []
+          }
+        }
+      ]
     },
     "E": {
       "id": "E",
@@ -120,7 +146,22 @@
         800,
         800
       ],
-      "effects": []
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Physical",
+            "base": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "scalings": []
+          }
+        }
+      ]
     },
     "R": {
       "id": "R",
@@ -143,7 +184,21 @@
         1100,
         1100
       ],
-      "effects": []
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "scalings": []
+          }
+        }
+      ]
     }
   }
 }

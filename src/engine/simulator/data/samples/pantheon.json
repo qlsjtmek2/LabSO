@@ -57,7 +57,7 @@
         {
           "type": "damage",
           "logic": {
-            "damageType": "Magical",
+            "damageType": "Physical",
             "base": [
               70,
               100,
@@ -107,7 +107,7 @@
         {
           "type": "damage",
           "logic": {
-            "damageType": "Magical",
+            "damageType": "Physical",
             "base": [
               0,
               0,
@@ -153,7 +153,7 @@
         {
           "type": "damage",
           "logic": {
-            "damageType": "Magical",
+            "damageType": "Physical",
             "base": [],
             "scalings": [
               {
@@ -195,7 +195,18 @@
               900,
               1100
             ],
-            "scalings": []
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": [
+                  1,
+                  1,
+                  1,
+                  1,
+                  1
+                ]
+              }
+            ]
           }
         }
       ]

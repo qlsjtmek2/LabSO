@@ -65,7 +65,18 @@
               107.5,
               125
             ],
-            "scalings": []
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": [
+                  0.5,
+                  0.5,
+                  0.5,
+                  0.5,
+                  0.5
+                ]
+              }
+            ]
           }
         }
       ]
@@ -94,7 +105,22 @@
         900,
         900
       ],
-      "effects": []
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Physical",
+            "base": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "scalings": []
+          }
+        }
+      ]
     },
     "E": {
       "id": "E",
@@ -160,7 +186,20 @@
         4500,
         6500
       ],
-      "effects": []
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Physical",
+            "base": [
+              4,
+              4,
+              4
+            ],
+            "scalings": []
+          }
+        }
+      ]
     }
   }
 }

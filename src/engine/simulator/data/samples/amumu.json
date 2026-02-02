@@ -53,7 +53,22 @@
         1100,
         1100
       ],
-      "effects": []
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              70,
+              95,
+              120,
+              145,
+              170
+            ],
+            "scalings": []
+          }
+        }
+      ]
     },
     "W": {
       "id": "W",
@@ -79,7 +94,22 @@
         300,
         300
       ],
-      "effects": []
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "scalings": []
+          }
+        }
+      ]
     },
     "E": {
       "id": "E",
@@ -105,7 +135,22 @@
         350,
         350
       ],
-      "effects": []
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              5,
+              7,
+              9,
+              11,
+              13
+            ],
+            "scalings": []
+          }
+        }
+      ]
     },
     "R": {
       "id": "R",
@@ -125,7 +170,20 @@
         550,
         550
       ],
-      "effects": []
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              0,
+              0,
+              0
+            ],
+            "scalings": []
+          }
+        }
+      ]
     }
   }
 }

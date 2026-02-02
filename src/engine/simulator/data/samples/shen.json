@@ -58,7 +58,13 @@
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [],
+            "base": [
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
             "scalings": []
           }
         }
@@ -88,7 +94,22 @@
         400,
         400
       ],
-      "effects": []
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Physical",
+            "base": [
+              1.75,
+              1.75,
+              1.75,
+              1.75,
+              1.75
+            ],
+            "scalings": []
+          }
+        }
+      ]
     },
     "E": {
       "id": "E",
@@ -118,7 +139,7 @@
         {
           "type": "damage",
           "logic": {
-            "damageType": "Magical",
+            "damageType": "Physical",
             "base": [
               60,
               85,
@@ -126,7 +147,18 @@
               135,
               160
             ],
-            "scalings": []
+            "scalings": [
+              {
+                "stat": "bonusHp",
+                "ratio": [
+                  0.10999999940395355,
+                  0.10999999940395355,
+                  0.10999999940395355,
+                  0.10999999940395355,
+                  0.10999999940395355
+                ]
+              }
+            ]
           }
         }
       ]
@@ -153,7 +185,7 @@
         {
           "type": "damage",
           "logic": {
-            "damageType": "Magical",
+            "damageType": "Physical",
             "base": [
               120,
               220,
@@ -163,7 +195,18 @@
             ],
             "scalings": [
               {
+                "stat": "ap",
                 "ratio": 0.15000000596046448
+              },
+              {
+                "stat": "ap",
+                "ratio": [
+                  1.350000023841858,
+                  1.350000023841858,
+                  1.350000023841858,
+                  1.350000023841858,
+                  1.350000023841858
+                ]
               }
             ]
           }

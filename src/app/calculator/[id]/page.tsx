@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
 import { getLatestVersion, getChampionDetail, getItems } from '@/lib/dataDragon';
 import Link from 'next/link';
+import SimulationReport from '@/components/calculator/SimulationReport';
 
 export default function CalculatorPage() {
   const { id } = useParams();
@@ -375,7 +376,12 @@ export default function CalculatorPage() {
                         )}
                     </div>
 
-                    <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-end gap-6">
+import SimulationReport from '@/components/calculator/SimulationReport';
+
+export default function CalculatorPage() {
+  const { id } = useParams();
+// ... (중략)
+                    <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-end gap-6 mb-8">
                         <div>
                             <p className="text-blue-500 text-xs font-black uppercase tracking-widest mb-2">TOTAL BURST DAMAGE</p>
                             <div className="text-7xl md:text-8xl font-black text-white tracking-tighter drop-shadow-2xl">
@@ -387,10 +393,15 @@ export default function CalculatorPage() {
                             </div>
                         </div>
                         <div className="text-right text-gray-500 text-xs space-y-1">
-                            <p>적 방어력 0 기준</p>
-                            <p>계산된 데미지 수치</p>
+                            <p>적 방어력 100 / 마저 100 기준</p>
+                            <p>실제 데미지 시뮬레이션 결과</p>
                         </div>
                     </div>
+
+                    {/* 상세 리포트 */}
+                    {!isSimulating && simulationResult.totalDamage > 0 && (
+                        <SimulationReport result={simulationResult} />
+                    )}
                 </div>
             </section>
         </div>

@@ -57,7 +57,7 @@
         {
           "type": "damage",
           "logic": {
-            "damageType": "Magical",
+            "damageType": "Physical",
             "base": [
               45,
               60,
@@ -65,12 +65,7 @@
               90,
               105
             ],
-            "scalings": [
-              {
-                "stat": "ap",
-                "ratio": 0.5
-              }
-            ]
+            "scalings": []
           }
         }
       ]
@@ -99,7 +94,22 @@
         1000,
         1000
       ],
-      "effects": []
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Physical",
+            "base": [
+              35,
+              40,
+              45,
+              50,
+              55
+            ],
+            "scalings": []
+          }
+        }
+      ]
     },
     "E": {
       "id": "E",
@@ -129,7 +139,7 @@
         {
           "type": "damage",
           "logic": {
-            "damageType": "Magical",
+            "damageType": "Physical",
             "base": [
               50,
               65,
@@ -137,7 +147,14 @@
               95,
               110
             ],
-            "scalings": []
+            "scalings": [
+              {
+                "stat": "ad",
+                "ratio": [
+                  0
+                ]
+              }
+            ]
           }
         }
       ]
@@ -164,7 +181,7 @@
         {
           "type": "damage",
           "logic": {
-            "damageType": "Magical",
+            "damageType": "Physical",
             "base": [
               200,
               300,

@@ -57,7 +57,7 @@
         {
           "type": "damage",
           "logic": {
-            "damageType": "Magical",
+            "damageType": "Physical",
             "base": [
               30,
               40,
@@ -65,7 +65,18 @@
               60,
               70
             ],
-            "scalings": []
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": [
+                  0.30000001192092896,
+                  0.30000001192092896,
+                  0.30000001192092896,
+                  0.30000001192092896,
+                  0.30000001192092896
+                ]
+              }
+            ]
           }
         }
       ]
@@ -94,7 +105,22 @@
         850,
         850
       ],
-      "effects": []
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Physical",
+            "base": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "scalings": []
+          }
+        }
+      ]
     },
     "E": {
       "id": "E",
@@ -124,7 +150,7 @@
         {
           "type": "damage",
           "logic": {
-            "damageType": "Magical",
+            "damageType": "Physical",
             "base": [
               80,
               120,
@@ -132,7 +158,28 @@
               200,
               240
             ],
-            "scalings": []
+            "scalings": [
+              {
+                "stat": "ad",
+                "ratio": [
+                  1,
+                  1,
+                  1,
+                  1,
+                  1
+                ]
+              },
+              {
+                "stat": "ap",
+                "ratio": [
+                  0.800000011920929,
+                  0.800000011920929,
+                  0.800000011920929,
+                  0.800000011920929,
+                  0.800000011920929
+                ]
+              }
+            ]
           }
         }
       ]
@@ -155,7 +202,20 @@
         400,
         400
       ],
-      "effects": []
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Physical",
+            "base": [
+              50,
+              75,
+              100
+            ],
+            "scalings": []
+          }
+        }
+      ]
     }
   }
 }

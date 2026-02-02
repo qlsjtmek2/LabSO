@@ -111,7 +111,14 @@
               57,
               70
             ],
-            "scalings": []
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": [
+                  0
+                ]
+              }
+            ]
           }
         }
       ]
@@ -144,7 +151,7 @@
         {
           "type": "damage",
           "logic": {
-            "damageType": "Magical",
+            "damageType": "Physical",
             "base": [
               100,
               155,

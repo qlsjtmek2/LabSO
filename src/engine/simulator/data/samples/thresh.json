@@ -60,10 +60,10 @@
             "damageType": "Magical",
             "base": [
               100,
-              150,
-              200,
-              250,
-              300
+              100,
+              100,
+              100,
+              100
             ],
             "scalings": []
           }
@@ -98,13 +98,13 @@
         {
           "type": "damage",
           "logic": {
-            "damageType": "Magical",
+            "damageType": "Physical",
             "base": [
-              50,
-              70,
-              90,
-              110,
-              130
+              1,
+              1,
+              1,
+              1,
+              1
             ],
             "scalings": []
           }
@@ -140,7 +140,13 @@
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [],
+            "base": [
+              75,
+              120,
+              165,
+              210,
+              255
+            ],
             "scalings": []
           }
         }
@@ -164,7 +170,20 @@
         450,
         450
       ],
-      "effects": []
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              250,
+              400,
+              550
+            ],
+            "scalings": []
+          }
+        }
+      ]
     }
   }
 }

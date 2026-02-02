@@ -53,7 +53,22 @@
         740,
         740
       ],
-      "effects": []
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              60,
+              80,
+              100,
+              120,
+              140
+            ],
+            "scalings": []
+          }
+        }
+      ]
     },
     "W": {
       "id": "W",
@@ -84,7 +99,13 @@
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [],
+            "base": [
+              10,
+              10,
+              10,
+              10,
+              10
+            ],
             "scalings": []
           }
         }
@@ -114,7 +135,22 @@
         1100,
         1100
       ],
-      "effects": []
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              1700,
+              1700,
+              1700,
+              1700,
+              1700
+            ],
+            "scalings": []
+          }
+        }
+      ]
     },
     "R": {
       "id": "R",
@@ -142,16 +178,9 @@
             "base": [
               200,
               400,
-              600,
-              800,
-              1000
+              600
             ],
-            "scalings": [
-              {
-                "stat": "ap",
-                "ratio": 0.75
-              }
-            ]
+            "scalings": []
           }
         }
       ]

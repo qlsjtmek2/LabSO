@@ -98,13 +98,14 @@
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [],
-            "scalings": [
-              {
-                "stat": "ap",
-                "ratio": 0.699999988079071
-              }
-            ]
+            "base": [
+              70,
+              105,
+              140,
+              175,
+              210
+            ],
+            "scalings": []
           }
         }
       ]
@@ -138,13 +139,14 @@
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [],
-            "scalings": [
-              {
-                "stat": "ap",
-                "ratio": 0.6000000238418579
-              }
-            ]
+            "base": [
+              70,
+              105,
+              140,
+              175,
+              210
+            ],
+            "scalings": []
           }
         }
       ]
@@ -179,7 +181,18 @@
               450,
               550
             ],
-            "scalings": []
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": [
+                  0.75,
+                  0.75,
+                  0.75,
+                  0.75,
+                  0.75
+                ]
+              }
+            ]
           }
         }
       ]

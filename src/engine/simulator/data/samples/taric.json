@@ -57,13 +57,13 @@
         {
           "type": "damage",
           "logic": {
-            "damageType": "Magical",
+            "damageType": "Physical",
             "base": [
-              15,
-              15,
-              15,
-              15,
-              15
+              25,
+              25,
+              25,
+              25,
+              25
             ],
             "scalings": []
           }
@@ -98,9 +98,20 @@
         {
           "type": "damage",
           "logic": {
-            "damageType": "Magical",
+            "damageType": "Physical",
             "base": [],
-            "scalings": []
+            "scalings": [
+              {
+                "stat": "bonusArmor",
+                "ratio": [
+                  0.05999999865889549,
+                  0.07000000029802322,
+                  0.07999999821186066,
+                  0.09000000357627869,
+                  0.10000000149011612
+                ]
+              }
+            ]
           }
         }
       ]
@@ -134,17 +145,14 @@
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [],
-            "scalings": [
-              {
-                "stat": "ap",
-                "ratio": 0.5
-              },
-              {
-                "stat": "bonusAd",
-                "ratio": 0.5
-              }
-            ]
+            "base": [
+              90,
+              130,
+              170,
+              210,
+              250
+            ],
+            "scalings": []
           }
         }
       ]
@@ -167,7 +175,20 @@
         400,
         400
       ],
-      "effects": []
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Physical",
+            "base": [
+              0,
+              0,
+              0
+            ],
+            "scalings": []
+          }
+        }
+      ]
     }
   }
 }
