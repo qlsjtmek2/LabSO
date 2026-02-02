@@ -258,31 +258,43 @@ export default function AnalysisResult({ result, version }: AnalysisResultProps)
           <div className="bg-[#1a1d24] rounded-3xl p-6 border border-gray-700 shadow-2xl relative overflow-hidden">
             <div className="absolute top-0 right-0 w-32 h-32 bg-red-600/5 blur-[40px] rounded-full pointer-events-none" />
             
-            <h3 className="text-sm font-bold text-gray-400 uppercase mb-6 tracking-wider">전투 시뮬레이션 (18Lv 기준)</h3>
+            <h3 className="text-sm font-bold text-gray-400 uppercase mb-6 tracking-wider">구간별 파워 커브</h3>
             
-            <div className="space-y-8">
-              <div>
-                <div className="flex justify-between items-end mb-2">
-                  <span className="text-xs text-gray-500">콤보 총 데미지</span>
-                  <span className="text-3xl font-black text-white">{simulationStats?.damage?.toLocaleString() || 'N/A'}</span>
+            <div className="space-y-6">
+              {buildRecommendation.powerCurve ? (
+                buildRecommendation.powerCurve.map((point, idx) => {
+                  const maxDamage = Math.max(...buildRecommendation.powerCurve!.map(p => p.damage));
+                  const percent = (point.damage / maxDamage) * 100;
+                  
+                  return (
+                    <div key={point.level}>
+                      <div className="flex justify-between items-end mb-1">
+                        <span className="text-xs text-gray-400 font-bold">Lv.{point.level}</span>
+                        <span className="text-sm font-black text-white">{point.damage.toLocaleString()}</span>
+                      </div>
+                      <div className="w-full bg-gray-800 h-2 rounded-full overflow-hidden flex">
+                        <div 
+                          className={`h-full rounded-full transition-all duration-1000 ${
+                            idx === 3 ? 'bg-gradient-to-r from-red-600 to-red-400' : 'bg-gray-600'
+                          }`} 
+                          style={{ width: `${percent}%` }} 
+                        />
+                      </div>
+                    </div>
+                  );
+                })
+              ) : (
+                // 기존 단일 뷰 (Fallback)
+                <div>
+                  <div className="flex justify-between items-end mb-2">
+                    <span className="text-xs text-gray-500">콤보 총 데미지 (18Lv)</span>
+                    <span className="text-3xl font-black text-white">{simulationStats?.damage?.toLocaleString() || 'N/A'}</span>
+                  </div>
+                  <div className="w-full bg-gray-800 h-2.5 rounded-full overflow-hidden">
+                    <div className="bg-gradient-to-r from-red-600 to-red-400 h-full rounded-full" style={{ width: simulationStats?.damage ? '85%' : '0%' }} />
+                  </div>
                 </div>
-                <div className="w-full bg-gray-800 h-2.5 rounded-full overflow-hidden">
-                  <div className="bg-gradient-to-r from-red-600 to-red-400 h-full rounded-full" style={{ width: simulationStats?.damage ? '85%' : '0%' }} />
-                </div>
-                <p className="text-[10px] text-gray-500 mt-2 text-right">대상: 방어력 100 / 체력 2000 샌드백</p>
-              </div>
-
-              <div>
-                <div className="flex justify-between items-end mb-2">
-                  <span className="text-xs text-gray-500">생존력 지수</span>
-                  <span className={`text-xl font-bold ${simulationStats?.survivability ? 'text-green-400' : 'text-yellow-400'}`}>
-                    {simulationStats?.survivability ? (simulationStats.survivability > 0.7 ? '매우 높음' : '보통') : '보통'}
-                  </span>
-                </div>
-                <div className="w-full bg-gray-800 h-2.5 rounded-full overflow-hidden">
-                  <div className="bg-gradient-to-r from-green-600 to-green-400 h-full rounded-full" style={{ width: `${(simulationStats?.survivability || 0.6) * 100}%` }} />
-                </div>
-              </div>
+              )}
 
               <div className="pt-6 border-t border-gray-700">
                 <p className="text-xs text-yellow-500 mb-4 font-bold">AI의 빌드 선정 이유</p>

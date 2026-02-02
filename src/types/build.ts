@@ -102,6 +102,14 @@ export interface BuildRecommendation {
     survivability: number;
     dps: number;
   };
+  
+  // 레벨별 파워 커브 (6, 11, 16, 18)
+  powerCurve?: Array<{
+    level: number;
+    damage: number;
+    survivability: number;
+    items: number[]; // 당시 보유 아이템 ID
+  }>;
 }
 
 // 아이템 정보 (DataDragon에서 가져온 데이터 + 추가 메타)

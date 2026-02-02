@@ -65,6 +65,9 @@ export class BuildRecommender {
 
     // 모든 챔피언에 대해 시뮬레이션 데이터 동적 로드
     let simRecommendations: ItemRecommendation[] = [];
+    let bestIndividual: any = null;
+    let geneticItems: any[] = [];
+    
     const schema = await loadChampionSchema(myChampion.id);
     
     if (schema) {
@@ -113,15 +116,22 @@ export class BuildRecommender {
         enemySchema || undefined // V2 엔진용 적 스키마 전달
       );
 
-      const bestIndividual = await geneticOptimizer.run();
+      bestIndividual = await geneticOptimizer.run();
       
-      const geneticItems = bestIndividual.genes.items.map(id => ({
+      geneticItems = bestIndividual.genes.items.map((id: number) => ({
         itemId: id,
         slot: 'core' as const,
         reason: "유전 알고리즘 시뮬레이션 결과 최고의 효율을 보인 아이템입니다.",
         score: 1.0,
         ruleId: 'genetic-optimized'
       }));
+
+      // 5. 파워 커브 시뮬레이션 (6, 11, 16, 18레벨)
+      const powerCurve = await this.simulatePowerCurve(
+        schema as ChampionSchema,
+        bestIndividual.genes.items,
+        enemyStats
+      );
 
       return this.aggregateResults(
         evaluation.appliedRules, 
@@ -133,12 +143,68 @@ export class BuildRecommender {
           survivability: Math.round(bestIndividual.stats.survivability),
           dps: Math.round(bestIndividual.stats.damage / 3)
         },
-        bestIndividual // 전달
+        bestIndividual,
+        powerCurve
       );
     }
 
     // 결과 집계
     return this.aggregateResults(evaluation.appliedRules, simRecommendations, myChampion, matchup);
+  }
+
+  // 파워 커브 시뮬레이션
+  private async simulatePowerCurve(
+    schema: ChampionSchema,
+    finalItems: number[],
+    enemyStats: any
+  ): Promise<any[]> {
+    const levels = [6, 11, 16, 18];
+    const itemProgression: Record<number, number[]> = {
+      6:  [finalItems[0] || 1055], // 도란검 or 첫템
+      11: finalItems.slice(0, 2), // 2코어
+      16: finalItems.slice(0, 4), // 4코어
+      18: finalItems // 풀템
+    };
+
+    const results = [];
+    
+    // GenericChampionModel 동적 임포트 (순환 참조 방지)
+    const { GenericChampionModel } = await import('../simulator/models/GenericChampion');
+    const { ItemFactory } = await import('../simulator/items/itemFactory');
+
+    // items.json 로드
+    const itemsData = (await import('../../data/json/items.json')).default;
+
+    for (const level of levels) {
+      const currentItems = itemProgression[level];
+      const itemScripts = currentItems.map(id => {
+        const data = (itemsData as any)[String(id)];
+        return data ? ItemFactory.createItem({ ...data, id }) : { name: 'Unknown', stats: {} };
+      });
+
+      const model = new GenericChampionModel(schema, itemScripts, level);
+      
+      // 적 스탯 조정 (레벨에 맞게)
+      const scaledEnemy = {
+        ...enemyStats,
+        hp: 1000 + (level * 80),
+        armor: 30 + (level * 3),
+        mr: 30 + (level * 2)
+      };
+
+      // QWE 콤보 시뮬레이션
+      const events = model.simulateCombo(['Q', 'W', 'E', 'AA', 'R'], scaledEnemy);
+      const totalDamage = events.reduce((sum, e) => sum + e.mitigatedDamage, 0);
+
+      results.push({
+        level,
+        damage: Math.round(totalDamage),
+        survivability: Math.round(model['stats'].hp + model['stats'].armor * 2), // 단순 생존력 지표
+        items: currentItems
+      });
+    }
+
+    return results;
   }
 
   // 후보군 생성 유틸리티
@@ -178,7 +244,8 @@ export class BuildRecommender {
     myChampion: ChampionMeta,
     matchup: MatchupAnalysis | null,
     simulationStats?: any,
-    bestIndividual?: any // 유전 알고리즘 결과 (타입은 any로 받지만 실제로는 Individual)
+    bestIndividual?: any, // 유전 알고리즘 결과 (타입은 any로 받지만 실제로는 Individual)
+    powerCurve?: any[]
   ): BuildRecommendation { // 리턴 타입 명시 (Promise 아님)
     const bySlot: Record<string, ItemRecommendation[]> = {
       starter: [], core: [], situational: [], boots: [],
@@ -221,6 +288,7 @@ export class BuildRecommender {
       skillOrder: bestIndividual?.genes.skillOrder,
       summonerSpells: bestIndividual?.genes.summonerSpells,
       simulationStats: simulationStats,
+      powerCurve: powerCurve
     };
   }
 
