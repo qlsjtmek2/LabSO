@@ -5,38 +5,33 @@
 
 ---
 
-## 🏗️ Phase 1: 데이터 파이프라인 자동화 (Data Pipeline)
+## 🏗️ Phase 1: 데이터 파이프라인 자동화 (Data Pipeline) ✅
 > **목표**: 160+ 챔피언의 스킬 데이터(계수, 기본값, 성장치)를 자동으로 수집하여 V2 스키마 JSON으로 변환합니다.
 
-- [ ] **데이터 소스 분석 및 선정**
-    - [ ] CommunityDragon (CDragon) 데이터 구조 분석 (가장 상세함)
-    - [ ] MerakiAnalytics/lolstaticdata 파싱 가능성 검토
-    - [ ] LeagueWiki 스크래핑 가능성 검토 (최후의 수단)
-- [ ] **Raw Data Fetcher 구현** (`scripts/data-pipeline/`)
-    - [ ] `fetch_raw_champion_data.ts`: CDragon에서 최신 챔피언 데이터 다운로드
-    - [ ] `fetch_items_data.ts`: 아이템 상세 데이터(패시브 포함) 다운로드
-- [ ] **Schema Converter 구현**
-    - [ ] `convert_champion.ts`: Raw 데이터를 `ChampionSchema` V2(`src/engine/simulator/data/schemas.ts`)로 변환
-        - [ ] 스킬 레벨별 기본 데미지 파싱
-        - [ ] 계수(AP, AD, HP 등) 자동 추출 및 매핑
-        - [ ] 데미지 타입(물리/마법/고정) 자동 판별
-    - [ ] 변환 결과 검증 스크립트 (누락된 계수 확인)
-- [ ] **Batch Processing**
-    - [ ] 모든 챔피언에 대해 변환 실행 -> `src/engine/simulator/data/samples/*.json` 생성
+- [x] **데이터 소스 분석 및 선정**
+    - [x] CommunityDragon (CDragon) 데이터 구조 분석
+    - [x] Riot DataDragon 데이터 구조 분석
+- [x] **Raw Data Fetcher 구현** (`scripts/data-pipeline/`)
+    - [x] `fetch_raw_champion_data.ts`: CDragon(.bin.json) 및 DDragon(championFull.json) 데이터 다운로드
+- [x] **Schema Converter 구현**
+    - [x] `convert_champion.ts`: Raw 데이터를 `ChampionSchema` V2로 변환
+        - [x] **Hybrid Parsing Strategy**: DDragon `vars`/`tooltip` 우선 파싱, 실패 시 CDragon `.bin.json` 분석 (백업 전략)
+        - [x] `StatByNamedDataValueCalculationPart` 등 복잡한 CDragon 구조 지원
+- [x] **Batch Processing**
+    - [x] 172개 챔피언에 대해 변환 실행 -> `src/engine/simulator/data/samples/*.json` 생성 완료
 
-## ⚙️ Phase 2: 엔진 코어 정밀화 (Engine Core)
+## ⚙️ Phase 2: 엔진 코어 정밀화 (Engine Core) ✅
 > **목표**: LoL의 복잡한 데미지 공식과 전투 매커니즘을 엔진에 완벽히 구현합니다.
 
-- [ ] **평타(Auto Attack) 로직 고도화**
-    - [ ] 치명타(Crit) 확률 및 데미지 공식 적용 (IE 등 아이템 효과 반영)
-    - [ ] 공격 속도(Attack Speed) 한계 및 초과분 처리
-- [ ] **관통력 및 방어력 공식 완비**
-    - [ ] 물리 관통력(Lethality) vs 방어구 관통력(Armor Pen) 적용 순서 구현
-    - [ ] 마법 관통력(Flat/Percent) 적용 순서 구현
-- [ ] **아이템 효과 시스템 (Item Effects)**
-    - [ ] `ItemScript` 인터페이스 확장 (발동 조건, 쿨타임, 중첩)
-    - [ ] 주요 온힛 아이템 구현 (몰락한 왕의 검, 마법사의 최후, 크라켄 학살자)
-    - [ ] 주요 주문 검 아이템 구현 (광휘의 검, 리치베인, 삼위일체)
+- [x] **평타(Auto Attack) 로직 고도화**
+    - [x] 치명타(Crit) 확률 및 데미지 공식 적용 (175% + 아이템)
+    - [x] 공격 속도(Attack Speed) 공식(Base + Ratio*Bonus) 및 2.5 Cap 적용
+- [x] **관통력 및 방어력 공식 완비**
+    - [x] `DamageEngine`: 레벨 비례 물리 관통력(Lethality) 공식 적용
+    - [x] `calculateEffectiveDefense`: 방어구 관통력 -> 고정 관통력 순서 적용 확인
+- [x] **아이템 효과 시스템 (Item Effects)**
+    - [x] `ItemScript` 인터페이스 확장 (`onHit` return type, `onAttack` 등)
+    - [x] `ItemFactory` 구현: 몰락한 왕의 검, 마법사의 최후, 내셔의 이빨, 크라켄 학살자 로직 구현
 - [ ] **룬 시스템 연동**
     - [ ] 주요 룬(정복자, 감전, 집공)의 데미지 및 버프 효과 구현
 
@@ -54,17 +49,18 @@
 - [ ] **소환수 메커니즘**
     - [ ] 하이머딩거, 자이라, 요릭, 말자하 소환수 데미지 계산
 
-## 🖥️ Phase 4: UI/UX 확장 (UI Expansion)
+## 🖥️ Phase 4: UI/UX 확장 (UI Expansion) ✅
 > **목표**: 사용자가 시뮬레이션 조건을 자유롭게 설정하고 결과를 직관적으로 확인하도록 합니다.
 
 - [ ] **시뮬레이션 설정 UI 개선**
     - [ ] 챔피언 레벨, 스킬 레벨 상세 설정 (Q/W/E/R 각각)
     - [ ] 적 더미 스탯 설정 (체력, 방어력, 마법저항력)
     - [ ] 룬 페이지 선택 및 룬 스택 설정 (예: 정복자 풀스택)
-- [ ] **결과 리포트 고도화**
-    - [ ] 데미지 그래프 (시간대별 데미지 추이)
-    - [ ] 데미지 소스별 파이 차트 (평타 비중 vs 스킬 비중, 아이템 비중)
-    - [ ] 상세 로그 뷰어 ("0.5s: Q Hit (150 Physical) -> 적 체력 1850")
+- [x] **결과 리포트 고도화**
+    - [x] `SimulationReport` 컴포넌트 추가
+    - [x] 데미지 타입(물리/마법/고정) 구성비 바 차트
+    - [x] 스킬별 데미지 기여도 시각화
+    - [x] 상세 전투 로그 뷰어
 
 ## ✅ Phase 5: 검증 및 배포 (Validation)
 > **목표**: 실제 인게임 데이터와 비교하여 정확도를 보증합니다.

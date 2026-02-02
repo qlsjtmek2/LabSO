@@ -69,6 +69,8 @@ export class BuildRecommender {
     
     if (schema) {
       const enemyStats = {
+        level: 18,
+        range: 125,
         hp: 2000, maxHp: 2000, mana: 0, ad: 100, ap: 0,
         armor: enemyAnalysis.totalAD * 10 + 50,
         mr: enemyAnalysis.totalAP * 10 + 40,
@@ -217,7 +219,8 @@ export class BuildRecommender {
       reasons,
       // 유전 알고리즘 결과 매핑
       skillOrder: bestIndividual?.genes.skillOrder,
-      summonerSpells: bestIndividual?.genes.summonerSpells
+      summonerSpells: bestIndividual?.genes.summonerSpells,
+      simulationStats: simulationStats,
     };
   }
 

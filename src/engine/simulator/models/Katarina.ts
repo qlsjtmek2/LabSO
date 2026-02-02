@@ -30,7 +30,7 @@ export class KatarinaModel {
     const events: DamageEvent[] = [];
     let currentTime = 0;
 
-    const dealDamage = (name: string, raw: number, type: 'Physical' | 'Magical') => {
+    const dealDamage = (name: string, raw: number, type: 'Physical' | 'Magical' | 'True') => {
       const dmg = DamageEngine.calculateDamage(raw, type, this.stats, target);
       events.push({
         source: name,
@@ -46,7 +46,9 @@ export class KatarinaModel {
       this.items.forEach(item => {
         if (item.onHit) {
           const effect = item.onHit(target, this.stats);
-          dealDamage(item.name, effect.damage, effect.type);
+          if (effect) {
+            dealDamage(item.name, effect.damage, effect.type);
+          }
         }
       });
     };
@@ -83,7 +85,9 @@ export class KatarinaModel {
       this.items.forEach(item => {
         if (item.onHit) {
           const effect = item.onHit(target, this.stats);
-          dealDamage(`${item.name} (R)`, effect.damage * 0.3, effect.type);
+          if (effect) {
+            dealDamage(`${item.name} (R)`, effect.damage * 0.3, effect.type);
+          }
         }
       });
     }

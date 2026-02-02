@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import path from 'path';
 import fs from 'fs/promises';
 import { GenericChampionModel } from '@/engine/simulator/models/GenericChampion';
-import { ItemScript, CombatStats } from '@/engine/core/types';
+import { ItemScript, CombatStats } from '@/engine/simulator/core/types';
 import { ItemFactory } from '@/engine/simulator/items/itemFactory';
 
 // 아이템 데이터 로드 (DataDragon JSON)
@@ -58,6 +58,8 @@ export async function POST(request: Request) {
 
     // 4. 타겟 더미 설정 (기본값)
     const targetDummy: CombatStats = {
+      level: 1, // 더미 레벨
+      range: 0, // 더미 사거리
       hp: 2000,
       maxHp: 2000,
       armor: 100,

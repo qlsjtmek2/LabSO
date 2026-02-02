@@ -57,6 +57,8 @@ export class ChampionModelV2 implements Entity {
     // 성장 스탯 공식 적용
     const growth = level - 1;
     return {
+      level: level,
+      range: base.range || 125,
       hp: base.hp + base.hpPerLevel * growth,
       maxHp: base.hp + base.hpPerLevel * growth,
       mana: base.mp + base.mpPerLevel * growth,
@@ -134,7 +136,7 @@ export class ChampionModelV2 implements Entity {
 
     // 데미지 적용
     spell.effects.forEach(effect => {
-      if (effect.type === 'damage') {
+      if (effect.type === 'damage' && effect.logic) {
         const damage = this.calculateDamage(effect.logic, target);
         // 엔진을 통해 데미지 적용
         engine.applyDamage(this, target, damage, effect.logic.damageType);

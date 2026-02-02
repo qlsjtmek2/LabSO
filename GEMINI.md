@@ -1,35 +1,92 @@
-# 🔴 RabSO 프로젝트 가이드라인
+# LoL Adaptive Build & Strategy Optimizer (LabSO)
 
-## 핵심 아키텍처 (Simulator V2)
+## Project Overview
 
-### 1. 이벤트 기반 전투 엔진 (`src/engine/simulator/v2/core`)
-- 모든 행위는 `GameEvent`로 발행됨.
-- 아이템, 룬, 챔피언 패시브는 이 이벤트를 리스닝하여 반응함.
-- `SimulationEngine`: 0.1초 단위의 틱과 이벤트 브로드캐스팅 관리.
+LabSO is a web application designed to help League of Legends players optimize their builds and analyze strategies. It leverages the Riot Games API and CommunityDragon to provide data-driven insights, such as adaptive item recommendations, combo damage calculations, and analysis of expert players' match timelines.
 
-### 2. 타임라인 및 경제 시스템 (`src/engine/simulator/v2/timeline`)
-- `TimelineSimulator`: 0~25분 사이의 성장 곡선을 시뮬레이션함.
-- `BuildPathGenerator`: 현재 골드 상황에서 최적의 하위템 구매 트리 생성.
-- `GPM` (Gold Per Minute) 상수를 통해 현실적인 성장 속도 반영.
+## Tech Stack
 
-### 3. 유전 알고리즘 (`src/engine/simulator/genetic`)
-- `GeneticOptimizer`: V2 엔진을 수만 번 호출하여 적합도 평가.
-- `Fitness`: (라인전 킬/골드 격차) + (후반 전투 승리 여부) + (생존 HP)를 종합하여 산출.
+*   **Framework:** [Next.js](https://nextjs.org/) (App Router)
+*   **Language:** [TypeScript](https://www.typescriptlang.org/)
+*   **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+*   **Data Source:** Riot Games API (DDragon), CommunityDragon (CDragon)
+*   **Utilities:** `axios` for API requests, `hangul-js` for Korean search support.
 
-## 🔴 CRITICAL RULES
+## Getting Started
 
-- **데이터 무결성**: `src/data/json/` 아래의 챔피언/아이템 데이터를 수정하기 전 반드시 `data-pipeline` 스크립트를 통해 생성되었는지 확인할 것.
-- **V2 엔진 우선**: 새로운 기능을 추가할 때는 V1(`buildOptimizer.ts`)이 아닌 V2 엔진(`v2/`) 구조를 확장할 것.
-- **챔피언 로직**: 특수 기믹이 필요한 경우 `src/engine/simulator/v2/champions/index.ts`에 로직을 추가하여 `ChampionModelV2`에 주입할 것.
+### Prerequisites
 
-## 💻 현재 상태
-- [DONE] V2 이벤트 기반 시뮬레이션 엔진 구축.
-- [DONE] 타임라인 기반 성장 시뮬레이터 통합.
-- [DONE] 172개 챔피언 정밀 데이터 파이프라인 완성.
-- [DONE] 주요 챔피언(카타리나, 이즈, 베인 등) 메커니즘 특수 구현.
-- [DONE] UI/UX 리뉴얼 및 아이템 툴팁 연동.
+*   Node.js (v18 or later recommended)
+*   A Riot Games API Key (Development Key)
 
-## 🚀 향후 과제
-- **전 챔피언 특수 로직 구현**: 172개 챔피언 전체의 패시브/특수 기믹 스크립트화.
-- **멀티 시나리오**: 한타(5:5) 상황을 가정한 간이 시뮬레이션 모드 추가.
-- **성능 최적화**: 100만 회 이상의 시뮬레이션을 위한 Web Worker 도입.
+### Installation
+
+1.  **Clone the repository:**
+    ```bash
+    git clone <repository-url>
+    cd lol-adaptive-build-optimizer
+    ```
+
+2.  **Install dependencies:**
+    ```bash
+    npm install
+    ```
+
+3.  **Configure Environment Variables:**
+    Create a `.env.local` file in the root directory and add your Riot API Key:
+    ```env
+    RIOT_API_KEY=RGAPI-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+    ```
+
+### Running the Development Server
+
+Start the development server:
+
+```bash
+npm run dev
+# or with a specific port
+npm run dev -- -p 3001
+```
+
+Access the application at `http://localhost:3000` (or the port you specified).
+
+## Project Structure
+
+*   `src/app/`: Next.js App Router structure.
+    *   `api/simulate/`: Server-side simulation endpoints.
+    *   `calculator/[id]/`: Champion combo damage calculator page.
+*   `src/engine/`: Core simulation engine.
+    *   `simulator/models/GenericChampion.ts`: Universal champion model handling V2 schema.
+    *   `simulator/core/damageEngine.ts`: Precise damage calculation logic (Lethality, Penetration).
+    *   `simulator/data/samples/`: Generated champion data JSONs (172+ champions).
+    *   `simulator/items/itemFactory.ts`: Item effect implementation (BoRK, Kraken, etc.).
+*   `scripts/data-pipeline/`: Automated data fetching and conversion scripts.
+    *   `fetch_raw_champion_data.ts`: Downloads raw data from CDragon/DDragon.
+    *   `convert_champion.ts`: Converts raw data to Engine Schema V2 (Hybrid Parsing).
+
+## Key Features
+
+1.  **Summoner Search & Match History:**
+    *   Search for summoners by Name and Tag.
+    *   View recent match history with KDA and win/loss status.
+
+2.  **Advanced Champion Simulator:**
+    *   **Precision Engine:** Calculates damage using official LoL formulas (Lethality scaling, Armor/MR penetration order).
+    *   **Universal Support:** Supports all 172+ champions via automated data pipeline.
+    *   **Item Effects:** Simulates complex item passives like Blade of the Ruined King, Kraken Slayer, and Wit's End.
+    *   **Visualization:** Provides detailed damage reports (Physical/Magical/True split, skill contribution, combat log).
+
+3.  **Expert Strategy Analysis:**
+    *   Analyze specific matches from the history.
+    *   **Item Build Timeline:** Visual timeline of item purchases.
+
+## Development Conventions
+
+*   **Styling:** Use Tailwind CSS utility classes for styling. A dark, neon-themed aesthetic is preferred for this project.
+*   **API Usage:** Always use the server-side API routes (`src/app/api/...`) to communicate with Riot API to protect the API Key.
+*   **Simulation Data:** DO NOT manually edit champion JSONs. Use `scripts/data-pipeline` to regenerate data from official sources.
+*   **Components:** Prefer functional components with React Hooks.
+
+## Note
+
+The Riot API Development Key expires every 24 hours. Ensure you regenerate it and update `.env.local` if you encounter `403` or `401` errors.

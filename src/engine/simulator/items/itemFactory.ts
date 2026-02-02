@@ -64,7 +64,7 @@ export const ItemFactory = {
         mr: itemData.stats?.FlatSpellBlockMod || 0,
         attackSpeed: itemData.stats?.PercentAttackSpeedMod || 0,
         critChance: itemData.stats?.FlatCritChanceMod || 0,
-        moveSpeed: itemData.stats?.FlatMovementSpeedMod || 0,
+        movementSpeed: itemData.stats?.FlatMovementSpeedMod || 0,
         // TODO: Ability Haste, Lethality parsing from description or special fields
       }
     };

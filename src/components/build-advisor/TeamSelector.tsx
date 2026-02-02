@@ -9,6 +9,7 @@ interface TeamSelectorProps {
   onClearSlot: (team: 'ally' | 'enemy', index: number, e: React.MouseEvent) => void;
   onSetMyChampion: (lane: Lane) => void;
   onSwapTeams: () => void;
+  onRandomize: (team: 'ally' | 'enemy') => void;
   version: string;
 }
 
@@ -29,6 +30,7 @@ export default function TeamSelector({
   onClearSlot,
   onSetMyChampion,
   onSwapTeams,
+  onRandomize,
   version,
 }: TeamSelectorProps) {
   
@@ -146,14 +148,23 @@ export default function TeamSelector({
         
         {/* Ally Team */}
         <div className="flex-1">
-          <div className="flex items-center gap-3 mb-6 pb-4 border-b border-blue-900/30">
-            <div className="w-10 h-10 rounded-lg bg-blue-900/20 border border-blue-500/30 flex items-center justify-center text-blue-400">
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z" /></svg>
+          <div className="flex items-center gap-3 mb-6 pb-4 border-b border-blue-900/30 justify-between">
+            <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-lg bg-blue-900/20 border border-blue-500/30 flex items-center justify-center text-blue-400">
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z" /></svg>
+                </div>
+                <div>
+                <h2 className="text-xl font-black text-white italic tracking-wide">BLUE TEAM</h2>
+                <p className="text-xs text-blue-400 font-medium">우리 팀 (Win Condition)</p>
+                </div>
             </div>
-            <div>
-              <h2 className="text-xl font-black text-white italic tracking-wide">BLUE TEAM</h2>
-              <p className="text-xs text-blue-400 font-medium">우리 팀 (Win Condition)</p>
-            </div>
+            <button 
+                onClick={() => onRandomize('ally')}
+                className="p-2 rounded-lg bg-gray-800 hover:bg-gray-700 text-gray-400 hover:text-white transition border border-gray-700"
+                title="랜덤 조합 생성"
+            >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+            </button>
           </div>
           <div className="grid grid-cols-5 gap-3 lg:gap-4">
             {allySlots.map((slot, idx) => renderSlot(slot, idx, 'ally'))}
@@ -198,13 +209,22 @@ export default function TeamSelector({
 
         {/* Enemy Team */}
         <div className="flex-1">
-          <div className="flex items-center justify-end gap-3 mb-6 pb-4 border-b border-red-900/30 text-right">
-            <div>
-              <h2 className="text-xl font-black text-white italic tracking-wide">RED TEAM</h2>
-              <p className="text-xs text-red-400 font-medium">상대 팀 (Counter Strategy)</p>
-            </div>
-            <div className="w-10 h-10 rounded-lg bg-red-900/20 border border-red-500/30 flex items-center justify-center text-red-400">
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1.323l3.954 1.582 1.599-.8a1 1 0 01.894 1.79l-1.233.616 1.738 5.42a1 1 0 01-.285 1.05A3.989 3.989 0 0115 15a3.989 3.989 0 01-2.667-1.019 1 1 0 01-.285-1.05l1.715-5.349L11 6.477V16h2a1 1 0 110 2H7a1 1 0 110-2h2V6.477L6.237 7.582l1.715 5.349a1 1 0 01-.285 1.05A3.989 3.989 0 015 15a3.989 3.989 0 01-2.667-1.019 1 1 0 01-.285-1.05l1.738-5.42-1.233-.617a1 1 0 01.894-1.788l1.599.799L9 4.323V3a1 1 0 011-1z" /></svg>
+          <div className="flex items-center justify-between gap-3 mb-6 pb-4 border-b border-red-900/30 text-right">
+            <button 
+                onClick={() => onRandomize('enemy')}
+                className="p-2 rounded-lg bg-gray-800 hover:bg-gray-700 text-gray-400 hover:text-white transition border border-gray-700"
+                title="랜덤 조합 생성"
+            >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+            </button>
+            <div className="flex items-center gap-3">
+                <div>
+                <h2 className="text-xl font-black text-white italic tracking-wide">RED TEAM</h2>
+                <p className="text-xs text-red-400 font-medium">상대 팀 (Counter Strategy)</p>
+                </div>
+                <div className="w-10 h-10 rounded-lg bg-red-900/20 border border-red-500/30 flex items-center justify-center text-red-400">
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1.323l3.954 1.582 1.599-.8a1 1 0 01.894 1.79l-1.233.616 1.738 5.42a1 1 0 01-.285 1.05A3.989 3.989 0 0115 15a3.989 3.989 0 01-2.667-1.019 1 1 0 01-.285-1.05l1.715-5.349L11 6.477V16h2a1 1 0 110 2H7a1 1 0 110-2h2V6.477L6.237 7.582l1.715 5.349a1 1 0 01-.285 1.05A3.989 3.989 0 015 15a3.989 3.989 0 01-2.667-1.019 1 1 0 01-.285-1.05l1.738-5.42-1.233-.617a1 1 0 01.894-1.788l1.599.799L9 4.323V3a1 1 0 011-1z" /></svg>
+                </div>
             </div>
           </div>
           <div className="grid grid-cols-5 gap-3 lg:gap-4">

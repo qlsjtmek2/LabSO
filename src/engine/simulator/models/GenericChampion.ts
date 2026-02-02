@@ -32,6 +32,7 @@ export class GenericChampionModel {
       hp: 0, mp: 0, ad: 0, ap: 0, armor: 0, mr: 0,
       attackSpeed: (base.attackSpeedRatio * growthMod / 100), // 성장 공속 (%)
       abilityHaste: 0,
+      range: 0, // 사거리 추가
       critChance: 0,
       critDamage: 0,
       lethality: 0,
@@ -73,7 +74,7 @@ export class GenericChampionModel {
       armor: base.armor + (base.armorPerLevel * growthMod) + bonusStats.armor,
       mr: base.mr + (base.mrPerLevel * growthMod) + bonusStats.mr,
       attackSpeed: Math.min(2.5, finalAs), // Cap 2.5
-      range: base.range + (bonusStats['range'] || 0), // 사거리 추가
+      range: base.range + bonusStats.range, // 사거리 추가
       abilityHaste: bonusStats.abilityHaste,
       critChance: Math.min(1.0, bonusStats.critChance), // Cap 100%
       critDamage: 1.75 + bonusStats.critDamage, // 기본 175% + 아이템(인피)
@@ -191,19 +192,21 @@ export class GenericChampionModel {
             this.items.forEach(item => {
               if (item.onHit) {
                 const onHitDmg = item.onHit(target, this.stats);
-                events.push({
-                  source: `${item.name} (On-hit)`,
-                  type: onHitDmg.type,
-                  rawDamage: onHitDmg.damage * effect.logic.onHitEffectiveness!,
-                  mitigatedDamage: DamageEngine.calculateDamage(
-                    onHitDmg.damage * effect.logic.onHitEffectiveness!,
-                    onHitDmg.type,
-                    this.stats,
-                    target
-                  ),
-                  timestamp: time + (i * 0.5),
-                  isCrit: false
-                });
+                if (onHitDmg) {
+                  events.push({
+                    source: `${item.name} (On-hit)`,
+                    type: onHitDmg.type,
+                    rawDamage: onHitDmg.damage * effect.logic!.onHitEffectiveness!,
+                    mitigatedDamage: DamageEngine.calculateDamage(
+                      onHitDmg.damage * effect.logic!.onHitEffectiveness!,
+                      onHitDmg.type,
+                      this.stats,
+                      target
+                    ),
+                    timestamp: time + (i * 0.5),
+                    isCrit: false
+                  });
+                }
               }
             });
           }
@@ -212,6 +215,8 @@ export class GenericChampionModel {
     });
 
     return events;
+  }
+
   // 평타 수행
   public performAutoAttack(target: CombatStats, time: number): DamageEvent[] {
     const events: DamageEvent[] = [];
@@ -242,19 +247,21 @@ export class GenericChampionModel {
     this.items.forEach(item => {
       if (item.onHit) {
         const onHitDmg = item.onHit(target, this.stats);
-        events.push({
-          source: `${item.name} (On-hit)`,
-          type: onHitDmg.type,
-          rawDamage: onHitDmg.damage,
-          mitigatedDamage: DamageEngine.calculateDamage(
-            onHitDmg.damage,
-            onHitDmg.type,
-            this.stats,
-            target
-          ),
-          timestamp: time,
-          isCrit: false
-        });
+        if (onHitDmg) {
+          events.push({
+            source: `${item.name} (On-hit)`,
+            type: onHitDmg.type,
+            rawDamage: onHitDmg.damage,
+            mitigatedDamage: DamageEngine.calculateDamage(
+              onHitDmg.damage,
+              onHitDmg.type,
+              this.stats,
+              target
+            ),
+            timestamp: time,
+            isCrit: false
+          });
+        }
       }
     });
 

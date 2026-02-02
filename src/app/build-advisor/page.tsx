@@ -168,6 +168,56 @@ export default function BuildAdvisorPage() {
     setAnalysisResult(null);
   };
 
+  // 랜덤 팀 생성
+  const handleRandomizeTeam = (team: 'ally' | 'enemy') => {
+    if (champions.length === 0) return;
+
+    // 역할군별 필터링 함수
+    const getChampsByRole = (tags: string[]) => {
+        return champions.filter(c => c.tags.some((t: string) => tags.includes(t)));
+    };
+
+    const topPool = getChampsByRole(['Fighter', 'Tank']);
+    const jglPool = getChampsByRole(['Assassin', 'Fighter', 'Tank']);
+    const midPool = getChampsByRole(['Mage', 'Assassin']);
+    const adcPool = getChampsByRole(['Marksman']);
+    const supPool = getChampsByRole(['Support', 'Tank', 'Mage']);
+
+    const pools = [topPool, jglPool, midPool, adcPool, supPool];
+    
+    // 랜덤 선택
+    const randomChamps = pools.map(pool => {
+        if (pool.length === 0) return champions[Math.floor(Math.random() * champions.length)];
+        return pool[Math.floor(Math.random() * pool.length)];
+    });
+
+    const newSlots = LANES.map((lane, idx) => {
+        const champ = randomChamps[idx];
+        const meta = getChampionMeta(champ.id) || {
+            id: champ.id,
+            name: champ.name,
+            class: champ.tags[0] || 'Bruiser',
+            damageType: 'AD' as const,
+            damageProfile: { burst: 5, sustained: 5, poke: 5 },
+            lanes: [lane],
+            primaryLane: lane,
+            powerSpike: { early: 5, mid: 5, late: 5, itemSpikes: [5, 5, 5], levelSpikes: [6, 11, 16] },
+            ccTypes: [],
+            ccPower: 5,
+            range: 'Melee' as const,
+            mobility: 5,
+            winCondition: { role: 'Carry' as const, teamfightPriority: 'Neutral' as const, scalingType: 'Mid' as const },
+            defaultBuildIds: [],
+            defaultRuneIds: [],
+            tags: champ.tags,
+        };
+        return { lane, champion: meta };
+    });
+
+    if (team === 'ally') setAllySlots(newSlots);
+    else setEnemySlots(newSlots);
+  };
+
   // 분석 가능 여부
   const canAnalyze =
     myChampionLane !== null &&
@@ -347,6 +397,7 @@ export default function BuildAdvisorPage() {
           onClearSlot={handleClearSlot}
           onSetMyChampion={handleSetMyChampion}
           onSwapTeams={handleSwapTeams}
+          onRandomize={handleRandomizeTeam}
           version={version}
         />
 

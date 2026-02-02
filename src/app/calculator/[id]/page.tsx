@@ -290,7 +290,7 @@ export default function CalculatorPage() {
 
         {/* Right Main */}
         <div className="lg:col-span-8 space-y-6">
-            <section className="bg-gray-900 rounded-[2.5rem] p-8 md:p-12 border border-gray-800 relative overflow-hidden min-h-[600px] flex flex-col">
+            <section className="bg-gray-900 rounded-[2.5rem] p-8 md:p-12 border border-gray-800 relative min-h-[600px] flex flex-col">
                 <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600/5 rounded-full blur-[100px] pointer-events-none" />
                 
                 <div className="flex justify-between items-center mb-10 relative z-10">
@@ -376,11 +376,6 @@ export default function CalculatorPage() {
                         )}
                     </div>
 
-import SimulationReport from '@/components/calculator/SimulationReport';
-
-export default function CalculatorPage() {
-  const { id } = useParams();
-// ... (중략)
                     <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-end gap-6 mb-8">
                         <div>
                             <p className="text-blue-500 text-xs font-black uppercase tracking-widest mb-2">TOTAL BURST DAMAGE</p>
@@ -399,7 +394,7 @@ export default function CalculatorPage() {
                     </div>
 
                     {/* 상세 리포트 */}
-                    {!isSimulating && simulationResult.totalDamage > 0 && (
+                    {!isSimulating && simulationResult.events && simulationResult.events.length > 0 && (
                         <SimulationReport result={simulationResult} />
                     )}
                 </div>

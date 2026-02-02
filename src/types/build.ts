@@ -95,6 +95,13 @@ export interface BuildRecommendation {
   // 유전 알고리즘 분석 결과
   skillOrder?: string[];
   summonerSpells?: string[];
+  
+  // 시뮬레이션 결과
+  simulationStats?: {
+    damage: number;
+    survivability: number;
+    dps: number;
+  };
 }
 
 // 아이템 정보 (DataDragon에서 가져온 데이터 + 추가 메타)

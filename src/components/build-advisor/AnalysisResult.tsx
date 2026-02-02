@@ -13,18 +13,13 @@ interface AnalysisResultProps {
     strategyGuide: StrategyGuide;
     runeTemplate: RuneTemplate | null;
     comparison: ReturnType<typeof compareTeams>;
-    // 시뮬레이션 상세 데이터 추가
-    simulationStats?: {
-      damage: number;
-      survivability: number;
-      dps: number;
-    };
   };
   version: string; // 버전 정보 추가
 }
 
 export default function AnalysisResult({ result, version }: AnalysisResultProps) {
-  const { matchup, buildRecommendation, strategyGuide, runeTemplate, allyAnalysis, simulationStats } = result;
+  const { matchup, buildRecommendation, strategyGuide, runeTemplate, allyAnalysis } = result;
+  const { simulationStats } = buildRecommendation;
 
   // 아이템 정보 가져오기 헬퍼 (키가 문자열일 수 있으므로 변환)
   const getItemInfo = (id: number) => {
@@ -269,10 +264,10 @@ export default function AnalysisResult({ result, version }: AnalysisResultProps)
               <div>
                 <div className="flex justify-between items-end mb-2">
                   <span className="text-xs text-gray-500">콤보 총 데미지</span>
-                  <span className="text-3xl font-black text-white">{simulationStats?.damage || '2,450'}</span>
+                  <span className="text-3xl font-black text-white">{simulationStats?.damage?.toLocaleString() || 'N/A'}</span>
                 </div>
                 <div className="w-full bg-gray-800 h-2.5 rounded-full overflow-hidden">
-                  <div className="bg-gradient-to-r from-red-600 to-red-400 h-full rounded-full" style={{ width: '85%' }} />
+                  <div className="bg-gradient-to-r from-red-600 to-red-400 h-full rounded-full" style={{ width: simulationStats?.damage ? '85%' : '0%' }} />
                 </div>
                 <p className="text-[10px] text-gray-500 mt-2 text-right">대상: 방어력 100 / 체력 2000 샌드백</p>
               </div>
