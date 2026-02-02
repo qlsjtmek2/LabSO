@@ -29,6 +29,19 @@ const LINK_MAPPING: Record<string, string> = {
   'attackSpeed': 'attackSpeed'
 };
 
+const TRANSFORMATION_MAP: Record<string, Record<string, string[]>> = {
+  'Nidalee': {
+    'Q_Form2': ['Characters/Nidalee/Spells/Takedown'],
+    'W_Form2': ['Characters/Nidalee/Spells/Pounce'],
+    'E_Form2': ['Characters/Nidalee/Spells/Swipe']
+  },
+  'Jayce': {
+    'Q_Form2': ['Characters/Jayce/Spells/JayceToTheSkiesAbility/JayceToTheSkies'],
+    'W_Form2': ['Characters/Jayce/Spells/JayceStaticFieldAbility/JayceStaticField'],
+    'E_Form2': ['Characters/Jayce/Spells/JayceThunderingBlowAbility/JayceThunderingBlow']
+  }
+};
+
 async function convertChampions() {
   try {
     const ddragonPath = path.join(RAW_DIR, 'ddragon_championFull.json');
@@ -166,6 +179,42 @@ async function convertChampions() {
         };
       });
 
+      // Process Transformation Spells (Alt Forms)
+      if (TRANSFORMATION_MAP[alias] && targetBinFile) {
+        for (const [key, paths] of Object.entries(TRANSFORMATION_MAP[alias])) {
+            let binSpell: any = null;
+            for (const p of paths) {
+                if (binData[p]) {
+                    binSpell = binData[p];
+                    break;
+                }
+            }
+
+            if (binSpell && binSpell.mSpell) {
+                let binLogic = parseDamageLogic(binSpell.mSpell);
+                if (!binLogic) {
+                    binLogic = parseLegacyDamageLogic(binSpell.mSpell);
+                }
+
+                if (binLogic) {
+                    spells[key] = {
+                        id: key,
+                        name: `${key} (Form 2)`,
+                        cooldown: [0], // 쿨타임은 기본 스킬 공유하거나 별도 설정 필요하지만 여기선 0
+                        cost: [0],
+                        range: [0],
+                        effects: [
+                            {
+                                type: 'damage',
+                                logic: binLogic
+                            }
+                        ]
+                    };
+                }
+            }
+        }
+      }
+
       const result = {
         id: alias,
         name: champ.name,
@@ -179,6 +228,67 @@ async function convertChampions() {
   } catch (error) {
     console.error('Conversion Error:', error);
   }
+}
+
+function parseLegacyDamageLogic(mSpell: any): any {
+    const logic: any = {
+        damageType: 'Physical', // Default
+        base: [],
+        scalings: []
+    };
+
+    // 1. Base Damage (Heuristic)
+    if (mSpell.mEffectAmount) {
+        // Try index 1 first, then 2. (Indices 0-6 in values array usually correspond to levels 0-6? Or 1-5?)
+        // Raw values usually [0, val1, val2, val3, val4, val5, val6]
+        const c1 = mSpell.mEffectAmount[1]?.value;
+        const c2 = mSpell.mEffectAmount[2]?.value;
+        
+        // Pick one that looks like damage (e.g. max value > 20)
+        const max1 = c1 ? Math.max(...c1) : 0;
+        const max2 = c2 ? Math.max(...c2) : 0;
+        
+        // If max2 is significantly larger, use it. Else use c1.
+        if (max2 > 20 && max2 > max1) logic.base = c2.slice(1, 6);
+        else if (c1) logic.base = c1.slice(1, 6);
+    }
+
+    // 2. Scalings (DataValues)
+    if (mSpell.DataValues) {
+        mSpell.DataValues.forEach((dv: any) => {
+            const name = dv.mName.toLowerCase();
+            let statType = '';
+            if (name.includes('totalad')) statType = 'ad';
+            else if (name.includes('bonusad')) statType = 'bonusAd';
+            else if (name.includes('ap') || name.includes('ability')) statType = 'ap';
+            else if (name.includes('health') || name.includes('hp')) statType = 'bonusHp';
+            
+            if (statType) {
+                // Use first non-zero value or standard slice?
+                // mValues is usually uniform for ratios
+                const ratio = dv.mValues[1] || dv.mValues[0] || 0;
+                logic.scalings.push({
+                    stat: statType,
+                    ratio: ratio
+                });
+            }
+        });
+    }
+
+    // 3. Coefficients (Fallback for AP)
+    const hasAP = logic.scalings.some((s: any) => s.stat === 'ap');
+    if (!hasAP) {
+        if (mSpell.mCoefficient2 > 0) {
+             logic.scalings.push({ stat: 'ap', ratio: mSpell.mCoefficient2 });
+        } else if (mSpell.mCoefficient > 0) {
+             // Heuristic: If mCoefficient exists but no scalings found at all, assume AP
+             if (logic.scalings.length === 0) {
+                 logic.scalings.push({ stat: 'ap', ratio: mSpell.mCoefficient });
+             }
+        }
+    }
+
+    return logic;
 }
 
 function parseDamageLogic(mSpell: any): any {

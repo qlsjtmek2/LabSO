@@ -188,6 +188,112 @@
           }
         }
       ]
+    },
+    "Q_Form2": {
+      "id": "Q_Form2",
+      "name": "Q_Form2 (Form 2)",
+      "cooldown": [
+        0
+      ],
+      "cost": [
+        0
+      ],
+      "range": [
+        0
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Physical",
+            "base": [
+              5,
+              30,
+              55,
+              80,
+              80
+            ],
+            "scalings": [
+              {
+                "stat": "ad",
+                "ratio": 0.75
+              },
+              {
+                "stat": "ap",
+                "ratio": 0.4000000059604645
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "W_Form2": {
+      "id": "W_Form2",
+      "name": "W_Form2 (Form 2)",
+      "cooldown": [
+        0
+      ],
+      "cost": [
+        0
+      ],
+      "range": [
+        0
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Physical",
+            "base": [
+              750,
+              750,
+              750,
+              750,
+              750
+            ],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.20000000298023224
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "E_Form2": {
+      "id": "E_Form2",
+      "name": "E_Form2 (Form 2)",
+      "cooldown": [
+        0
+      ],
+      "cost": [
+        0
+      ],
+      "range": [
+        0
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Physical",
+            "base": [
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.44999998807907104
+              }
+            ]
+          }
+        }
+      ]
     }
   }
 }

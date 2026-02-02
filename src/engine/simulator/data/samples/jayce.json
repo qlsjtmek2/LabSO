@@ -188,6 +188,102 @@
           }
         }
       ]
+    },
+    "Q_Form2": {
+      "id": "Q_Form2",
+      "name": "Q_Form2 (Form 2)",
+      "cooldown": [
+        0
+      ],
+      "cost": [
+        0
+      ],
+      "range": [
+        0
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Physical",
+            "base": [
+              60,
+              105,
+              150,
+              195,
+              240
+            ],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 1.350000023841858
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "W_Form2": {
+      "id": "W_Form2",
+      "name": "W_Form2 (Form 2)",
+      "cooldown": [
+        0
+      ],
+      "cost": [
+        0
+      ],
+      "range": [
+        0
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Physical",
+            "base": [
+              140,
+              200,
+              260,
+              320,
+              380
+            ],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 1
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "E_Form2": {
+      "id": "E_Form2",
+      "name": "E_Form2 (Form 2)",
+      "cooldown": [
+        0
+      ],
+      "cost": [
+        0
+      ],
+      "range": [
+        0
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Physical",
+            "base": [],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 1
+              }
+            ]
+          }
+        }
+      ]
     }
   }
 }

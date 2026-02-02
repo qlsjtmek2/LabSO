@@ -15,6 +15,7 @@ export class GenericChampionModel {
   private items: ItemScript[];
   private level: number;
   private stacks: number;
+  private form: number = 0; // 0: Base, 1: Alt
 
   constructor(schema: ChampionSchema, items: ItemScript[], level: number = 18, stacks: number = 0) {
     this.schema = schema;
@@ -22,6 +23,10 @@ export class GenericChampionModel {
     this.level = level;
     this.stacks = stacks;
     this.stats = this.calculateStats(schema.baseStats, items, level);
+  }
+
+  public toggleForm() {
+    this.form = (this.form + 1) % 2;
   }
 
   // 레벨과 아이템을 반영한 최종 스탯 계산
@@ -174,10 +179,22 @@ export class GenericChampionModel {
 
   // 스킬 사용 시뮬레이션
   public castSpell(spellKey: 'Q' | 'W' | 'E' | 'R', target: CombatStats, time: number, skillLevel: number = 5): DamageEvent[] {
-    const spell = this.schema.spells[spellKey];
+    let actualKey = spellKey;
+    
+    // 폼 변환 체크
+    if (this.form === 1 && ['Q', 'W', 'E'].includes(spellKey)) {
+        const altKey = `${spellKey}_Form2`;
+        if ((this.schema.spells as any)[altKey]) {
+            actualKey = altKey as any;
+        }
+    }
+
+    const spell = (this.schema.spells as any)[actualKey];
+    if (!spell) return []; // 스킬 데이터 없음
+
     const events: DamageEvent[] = [];
 
-    spell.effects.forEach(effect => {
+    spell.effects.forEach((effect: any) => {
       if (effect.type === 'damage' && effect.logic) {
         let rawDmg = this.calculateSpellDamage(effect.logic, target, skillLevel);
         
@@ -199,7 +216,7 @@ export class GenericChampionModel {
           );
 
           events.push({
-            source: `${spell.name} (${spellKey})`,
+            source: `${spell.name} (${actualKey})`,
             type: effect.logic.damageType,
             rawDamage: dmgPerTick,
             mitigatedDamage: mitigated,
@@ -305,6 +322,14 @@ export class GenericChampionModel {
         const events = this.performAutoAttack(target, currentTime);
         allEvents.push(...events);
       } else if (['Q', 'W', 'E', 'R'].includes(action)) {
+        
+        // 변신 챔피언 R 사용 시 폼 전환
+        if (action === 'R' && ['Nidalee', 'Jayce', 'Elise'].includes(this.schema.id)) {
+            this.toggleForm();
+            // R 자체 데미지/효과가 있다면 castSpell 호출 (니달리/엘리스는 0뎀, 제이스는 변신 효과)
+            // 일단 호출해서 이벤트 발생시킴
+        }
+
         const events = this.castSpell(
           action as 'Q' | 'W' | 'E' | 'R', 
           target, 
