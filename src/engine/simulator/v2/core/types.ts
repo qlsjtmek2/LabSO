@@ -58,8 +58,14 @@ export interface ItemV2 {
   onEvent?: (event: GameEvent, owner: Entity, context: SimulationContext) => void;
 }
 
+export interface ISimulationEngine {
+  applyDamage(source: Entity, target: Entity, rawAmount: number, type: 'Physical' | 'Magical' | 'True'): void;
+  broadcastEvent(event: GameEvent): void;
+}
+
 export interface SimulationContext {
   time: number;
   events: GameEvent[];
   log: (msg: string) => void;
+  engine: ISimulationEngine;
 }

@@ -11,7 +11,7 @@ export class RuneFactory {
       case 'Conqueror': return this.Conqueror();
       case 'Electrocute': return this.Electrocute();
       case 'LethalTempo': return this.LethalTempo();
-      // ... 추가 룬
+      case 'PressTheAttack': return this.PressTheAttack();
       default: return null;
     }
   }
@@ -21,37 +21,36 @@ export class RuneFactory {
     return {
       id: 'Conqueror',
       name: '정복자',
-      duration: 0, // 영구 지속 (전투 중)
+      duration: 5, // 스택 지속시간 (갱신됨)
       stacks: 0,
       maxStacks: 12,
-      stats: {}, // 동적 스탯은 onEvent에서 처리
-
+      
       onEvent: (event, ctx) => {
         const owner = event.source;
         if (!owner) return;
+        const self = owner.buffs.find(b => b.id === 'Conqueror');
+        if (!self) return;
 
-        // 스택 쌓기: 공격이나 스킬 적중 시
-        if ((event.type === 'OnHit' || event.type === 'OnSpellHit') && event.source === owner) {
-          const self = owner.buffs.find(b => b.id === 'Conqueror');
-          if (!self) return;
-
-          // 근접 2스택, 원거리 1스택 (여기선 근접 가정)
+        // 스택 쌓기
+        if ((event.type === 'OnHit' || event.type === 'OnSpellHit') && event.source === owner && event.target) {
+          // 근접 2, 원거리 1 (일단 2로 고정)
           const stackGain = 2; 
+          const prevStacks = self.stacks;
           self.stacks = Math.min(self.maxStacks, self.stacks + stackGain);
-          
-          // 스택당 적응형 능력치 (레벨 비례, 여기선 18렙 기준 4.5로 가정)
-          // 실제로는 owner.stats.ad/ap를 직접 수정하거나 별도 버프 로직 필요
-          // V2 엔진은 stats 재계산 로직이 필요함. 일단 로그로 확인.
-          ctx.log(`정복자 스택: ${self.stacks}`);
+          self.duration = 5; // 지속시간 갱신
+
+          if (prevStacks < self.maxStacks && self.stacks === self.maxStacks) {
+            ctx.log(`[Rune] 정복자 풀스택 달성!`);
+          }
         }
 
-        // 풀스택 효과: 피해량의 8% 회복
-        if (event.type === 'OnPostTakeDamage' && event.source === owner) {
-          const self = owner.buffs.find(b => b.id === 'Conqueror');
-          if (self && self.stacks >= self.maxStacks) {
-            const healing = (event.damage || 0) * 0.08;
+        // 데미지 증가 (단순화: 이벤트 때마다 추가 데미지를 주는 방식이 아니라 스탯이 올라야 함)
+        // 여기서는 풀스택 힐링만 구현
+        if (event.type === 'OnPostTakeDamage' && event.source === owner && event.damageType !== 'True') {
+          if (self.stacks >= self.maxStacks) {
+            const healing = (event.damage || 0) * 0.08; // 8% 흡혈
             owner.currentHp = Math.min(owner.stats.maxHp, owner.currentHp + healing);
-            ctx.log(`정복자 회복: ${healing.toFixed(1)}`);
+            // ctx.log(`[Rune] 정복자 회복: ${healing.toFixed(1)}`);
           }
         }
       }
@@ -60,13 +59,14 @@ export class RuneFactory {
 
   // 2. 감전 (Electrocute)
   static Electrocute(): Buff {
-    // 감전은 내부 쿨다운과 카운트가 필요함.
-    // Buff의 'stacks'를 카운트로 활용 (3타)
+    // 내부 상태: lastHitTime, hitCount, cooldown
+    // Buff 객체는 단순 데이터라 클로저 변수 사용 불가 (매번 create되므로 가능할지도? 하지만 직렬화 고려하면 buff.data 같은게 있어야 함)
+    // 여기서는 stacks를 hitCount로, duration을 cooldown으로 활용
     return {
       id: 'Electrocute',
       name: '감전',
-      duration: 0,
-      stacks: 0,
+      duration: 0, // 쿨다운 타이머로 사용
+      stacks: 0,   // 적중 횟수
       maxStacks: 3,
       
       onEvent: (event, ctx) => {
@@ -75,27 +75,24 @@ export class RuneFactory {
         const self = owner.buffs.find(b => b.id === 'Electrocute');
         if (!self) return;
 
-        // 쿨다운 중이면 무시 (duration을 쿨다운 타이머로 사용)
+        // 쿨다운 체크
         if (self.duration > 0) return;
 
-        // 3초 내에 3타 (시간 제한 로직은 복잡하니 단순화: 쿨 아니면 스택 쌓임)
-        if ((event.type === 'OnHit' || event.type === 'OnSpellHit') && event.source === owner) {
+        // 스택 쌓기 (3초 내 3타 로직은 복잡하므로 단순화: 쿨 아니면 쌓임. 타임아웃은 별도 로직 필요하지만 생략)
+        if ((event.type === 'OnHit' || event.type === 'OnSpellHit') && event.source === owner && event.target) {
           self.stacks++;
           
           if (self.stacks >= 3) {
-            // 발동!
-            const level = 18;
-            const baseDmg = 30 + 150; // 180 (18렙)
-            const bonusAd = owner.stats.ad - 100; // 대충 추가 AD 추정
+            // 데미지 계산 (18레벨 기준)
+            const baseDmg = 180; 
+            const bonusAd = owner.stats.ad - 100; // 기본 AD 제외 근사치
             const ap = owner.stats.ap;
-            
             const damage = baseDmg + (bonusAd * 0.4) + (ap * 0.25);
             
-            // 데미지 적용 요청 (이벤트 발생이 아니라 직접 적용해야 무한 루프 방지)
-            // 하지만 여기선 구조상 이벤트로 처리하거나 엔진 메서드 필요
-            ctx.log(`⚡ 감전 발동! ${damage.toFixed(1)} 데미지`);
+            ctx.log(`[Rune] ⚡ 감전 발동!`);
+            ctx.engine.applyDamage(owner, event.target, damage, 'Magical'); // 적응형이라 보통 마법/물리
             
-            // 쿨다운 적용 (20초)
+            // 쿨다운 및 리셋
             self.duration = 20; 
             self.stacks = 0;
           }
@@ -109,7 +106,7 @@ export class RuneFactory {
     return {
       id: 'LethalTempo',
       name: '치명적 속도',
-      duration: 0,
+      duration: 6, 
       stacks: 0,
       maxStacks: 6,
       
@@ -121,10 +118,65 @@ export class RuneFactory {
           const self = owner.buffs.find(b => b.id === 'LethalTempo');
           if (self) {
             self.stacks = Math.min(self.maxStacks, self.stacks + 1);
-            // 공속 증가 로직 (스택당 10% 가정)
-            // owner.stats.attackSpeed += ... (동적 스탯 재계산 필요)
-            ctx.log(`치속 스택: ${self.stacks} (공속 증가)`);
+            self.duration = 6;
+            // 공속 증가는 ChampionModel의 getStats() 같은 곳에서 처리해야 함
+            // 여기선 로그만
           }
+        }
+      }
+    };
+  }
+
+  // 4. 집중 공격 (Press the Attack)
+  static PressTheAttack(): Buff {
+    // 3타 적중 시 추가 데미지 + 약점 노출(디버프)
+    return {
+      id: 'PressTheAttack',
+      name: '집중 공격',
+      duration: 0, // 쿨다운 X (대상별 쿨다운이지만 1:1 가정)
+      stacks: 0,
+      maxStacks: 3,
+      
+      onEvent: (event, ctx) => {
+        const owner = event.source;
+        if (!owner) return;
+        const self = owner.buffs.find(b => b.id === 'PressTheAttack');
+        if (!self) return;
+
+        // 평타 적중 시
+        if (event.type === 'OnHit' && event.source === owner && event.target && event.data?.isAutoAttack !== false) {
+           // 같은 대상 계속 공격 가정
+           self.stacks++;
+
+           if (self.stacks === 3) {
+             // 1. 추가 데미지 (40~180)
+             const dmg = 180; 
+             ctx.log(`[Rune] 🎯 집공 터짐! 추가 데미지 ${dmg}`);
+             ctx.engine.applyDamage(owner, event.target, dmg, 'True'); // 적응형
+
+             // 2. 약점 노출 디버프 적용
+             const exposedBuff: Buff = {
+               id: 'PTA_Exposed',
+               name: '약점 노출',
+               duration: 6,
+               stacks: 1,
+               maxStacks: 1,
+               onEvent: (e, c) => {
+                 // 데미지 받을 때 증폭
+                 if (e.type === 'OnPreTakeDamage' && e.target === event.target) {
+                   // e.damage를 수정해야 하는데, event 객체는 참조이므로 수정 가능?
+                   // GameEvent는 readonly가 아니므로 가능할 듯
+                   if (e.damage) {
+                     e.damage *= 1.08; // 8% 증가
+                     // c.log(`[Rune] 약점 노출로 데미지 증가`);
+                   }
+                 }
+               }
+             };
+             event.target.addBuff(exposedBuff);
+
+             self.stacks = 0; // 초기화 (대상 변경 로직 없으므로 계속 터지는거 방지용)
+           }
         }
       }
     };

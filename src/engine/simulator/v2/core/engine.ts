@@ -53,7 +53,8 @@ export class SimulationEngine {
     const context: SimulationContext = {
       time: this.time,
       events: [],
-      log: (msg) => this.eventLog.push(`[${this.time.toFixed(1)}] ${msg}`)
+      log: (msg) => this.eventLog.push(`[${this.time.toFixed(1)}] ${msg}`),
+      engine: this
     };
 
     // 1. 소스(가해자)의 아이템/버프 효과 발동

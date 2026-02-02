@@ -14,11 +14,13 @@ export class GenericChampionModel {
   private schema: ChampionSchema;
   private items: ItemScript[];
   private level: number;
+  private stacks: number;
 
-  constructor(schema: ChampionSchema, items: ItemScript[], level: number = 18) {
+  constructor(schema: ChampionSchema, items: ItemScript[], level: number = 18, stacks: number = 0) {
     this.schema = schema;
     this.items = items;
     this.level = level;
+    this.stacks = stacks;
     this.stats = this.calculateStats(schema.baseStats, items, level);
   }
 
@@ -43,6 +45,19 @@ export class GenericChampionModel {
       lifesteal: 0,
       moveSpeed: 0
     };
+
+    // 스택 보정 (패시브)
+    if (this.schema.id === 'Veigar') {
+      bonusStats.ap += this.stacks;
+    } else if (this.schema.id === 'Senna') {
+      bonusStats.ad += this.stacks * 0.75;
+      bonusStats.range += Math.floor(this.stacks / 20) * 20;
+      bonusStats.critChance += Math.floor(this.stacks / 20) * 0.10;
+    } else if (this.schema.id === 'Kindred') {
+      if (this.stacks >= 4) {
+        bonusStats.range += 75 + Math.floor((this.stacks - 4) / 3) * 25;
+      }
+    }
 
     // 아이템 스탯 합산
     items.forEach(item => {
@@ -164,8 +179,13 @@ export class GenericChampionModel {
 
     spell.effects.forEach(effect => {
       if (effect.type === 'damage' && effect.logic) {
-        const rawDmg = this.calculateSpellDamage(effect.logic, target, skillLevel);
+        let rawDmg = this.calculateSpellDamage(effect.logic, target, skillLevel);
         
+        // 나서스 Q 스택 데미지 추가
+        if (this.schema.id === 'Nasus' && spellKey === 'Q') {
+            rawDmg += this.stacks;
+        }
+
         // 도트 데미지 처리
         const ticks = effect.logic.ticks || 1;
         const dmgPerTick = rawDmg / ticks;

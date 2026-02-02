@@ -12,6 +12,7 @@ export default function CalculatorPage() {
   const [champion, setChampion] = useState<any>(null);
   const [items, setItems] = useState<any[]>([]);
   const [level, setLevel] = useState(6);
+  const [stacks, setStacks] = useState(0); // 스택 (나서스 Q 등)
   const [selectedItems, setSelectedItems] = useState<any[]>(Array(6).fill(null));
   const [showItemModal, setShowItemModal] = useState<{show: boolean, slot: number | null}>({show: false, slot: null});
   const [skillLevels, setSkillLevels] = useState<number[]>([1, 1, 1, 1]); // Q, W, E, R
@@ -70,6 +71,7 @@ export default function CalculatorPage() {
           body: JSON.stringify({
             championId: champion.id, // e.g. "Ahri"
             level,
+            stacks, // 스택 정보 추가
             items: itemIds,
             skillLevels,
             combo
@@ -243,6 +245,23 @@ export default function CalculatorPage() {
                     <button onClick={() => setLevel(Math.min(18, level + 1))} className="w-8 h-8 bg-gray-800 rounded-lg text-gray-400 hover:text-white">+</button>
                 </div>
             </div>
+
+            {/* Stacking UI */}
+            {['Nasus', 'Veigar', 'Kindred', 'Senna'].includes(champion.id) && (
+              <div className="bg-gray-900/80 backdrop-blur-md p-4 rounded-2xl border border-gray-800 flex flex-col items-center gap-2">
+                  <span className="text-xs font-bold text-gray-500 uppercase tracking-widest">Stacks</span>
+                  <div className="flex items-center gap-4">
+                      <button onClick={() => setStacks(Math.max(0, stacks - 10))} className="w-8 h-8 bg-gray-800 rounded-lg text-gray-400 hover:text-white">-</button>
+                      <input 
+                        type="number" 
+                        value={stacks} 
+                        onChange={(e) => setStacks(Math.max(0, parseInt(e.target.value) || 0))}
+                        className="text-2xl font-black text-purple-500 w-16 text-center bg-transparent focus:outline-none"
+                      />
+                      <button onClick={() => setStacks(stacks + 10)} className="w-8 h-8 bg-gray-800 rounded-lg text-gray-400 hover:text-white">+</button>
+                  </div>
+              </div>
+            )}
         </div>
       </div>
 

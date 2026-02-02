@@ -36,7 +36,7 @@ async function getItemData(itemIds: number[]): Promise<ItemScript[]> {
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { championId, level, items, skillLevels, combo } = body; // items: number[]
+    const { championId, level, stacks, items, skillLevels, combo } = body; // items: number[]
 
     // 1. 챔피언 데이터 로드
     // 대소문자 무시하고 파일 찾기 위해 디렉토리 스캔
@@ -53,8 +53,8 @@ export async function POST(request: Request) {
     // 2. 아이템 데이터 로드 및 변환
     const itemScripts = await getItemData(items.filter((id: any) => id !== null));
 
-    // 3. 모델 초기화
-    const championModel = new GenericChampionModel(championJson, itemScripts, level);
+    // 3. 모델 초기화 (스택 전달)
+    const championModel = new GenericChampionModel(championJson, itemScripts, level, stacks || 0);
 
     // 4. 타겟 더미 설정 (기본값)
     const targetDummy: CombatStats = {
