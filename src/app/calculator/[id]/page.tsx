@@ -5,6 +5,7 @@ import { useParams } from 'next/navigation';
 import { getLatestVersion, getChampionDetail, getItems } from '@/lib/dataDragon';
 import Link from 'next/link';
 import SimulationReport from '@/components/calculator/SimulationReport';
+import SimulationSettings from '@/components/calculator/SimulationSettings';
 
 export default function CalculatorPage() {
   const { id } = useParams();
@@ -12,7 +13,9 @@ export default function CalculatorPage() {
   const [champion, setChampion] = useState<any>(null);
   const [items, setItems] = useState<any[]>([]);
   const [level, setLevel] = useState(6);
-  const [stacks, setStacks] = useState(0); // 스택 (나서스 Q 등)
+  const [stacks, setStacks] = useState(0); 
+  const [targetStats, setTargetStats] = useState({ armor: 100, mr: 100, hp: 2000 });
+  const [runeIds, setRuneIds] = useState<string[]>([]); // 룬 ID 목록
   const [selectedItems, setSelectedItems] = useState<any[]>(Array(6).fill(null));
   const [showItemModal, setShowItemModal] = useState<{show: boolean, slot: number | null}>({show: false, slot: null});
   const [skillLevels, setSkillLevels] = useState<number[]>([1, 1, 1, 1]); // Q, W, E, R
@@ -72,6 +75,8 @@ export default function CalculatorPage() {
             championId: champion.id, // e.g. "Ahri"
             level,
             stacks, // 스택 정보 추가
+            targetStats, // 샌드백 정보 추가
+            runeIds, // 룬 정보 추가
             items: itemIds,
             skillLevels,
             combo
@@ -93,7 +98,7 @@ export default function CalculatorPage() {
 
     const timer = setTimeout(runSimulation, 500); // Debounce
     return () => clearTimeout(timer);
-  }, [combo, level, selectedItems, skillLevels, champion]);
+  }, [combo, level, selectedItems, skillLevels, champion, stacks, targetStats, runeIds]);
 
   if (loading) return <div className="min-h-screen bg-[#0a0a0c] flex items-center justify-center"><div className="w-16 h-16 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div></div>;
 
@@ -236,32 +241,6 @@ export default function CalculatorPage() {
                 <h1 className="text-5xl font-black italic tracking-tighter uppercase mb-2">{champion.name}</h1>
                 <p className="text-gray-400 font-medium">{champion.title}</p>
             </div>
-            
-            <div className="bg-gray-900/80 backdrop-blur-md p-4 rounded-2xl border border-gray-800 flex flex-col items-center gap-2">
-                <span className="text-xs font-bold text-gray-500 uppercase tracking-widest">Champion Level</span>
-                <div className="flex items-center gap-4">
-                    <button onClick={() => setLevel(Math.max(1, level - 1))} className="w-8 h-8 bg-gray-800 rounded-lg text-gray-400 hover:text-white">-</button>
-                    <span className="text-2xl font-black text-blue-500 w-8 text-center">{level}</span>
-                    <button onClick={() => setLevel(Math.min(18, level + 1))} className="w-8 h-8 bg-gray-800 rounded-lg text-gray-400 hover:text-white">+</button>
-                </div>
-            </div>
-
-            {/* Stacking UI */}
-            {['Nasus', 'Veigar', 'Kindred', 'Senna'].includes(champion.id) && (
-              <div className="bg-gray-900/80 backdrop-blur-md p-4 rounded-2xl border border-gray-800 flex flex-col items-center gap-2">
-                  <span className="text-xs font-bold text-gray-500 uppercase tracking-widest">Stacks</span>
-                  <div className="flex items-center gap-4">
-                      <button onClick={() => setStacks(Math.max(0, stacks - 10))} className="w-8 h-8 bg-gray-800 rounded-lg text-gray-400 hover:text-white">-</button>
-                      <input 
-                        type="number" 
-                        value={stacks} 
-                        onChange={(e) => setStacks(Math.max(0, parseInt(e.target.value) || 0))}
-                        className="text-2xl font-black text-purple-500 w-16 text-center bg-transparent focus:outline-none"
-                      />
-                      <button onClick={() => setStacks(stacks + 10)} className="w-8 h-8 bg-gray-800 rounded-lg text-gray-400 hover:text-white">+</button>
-                  </div>
-              </div>
-            )}
         </div>
       </div>
 
@@ -269,6 +248,20 @@ export default function CalculatorPage() {
         
         {/* Left Sidebar */}
         <div className="lg:col-span-4 space-y-6">
+            
+            {/* Simulation Settings */}
+            <SimulationSettings 
+              level={level}
+              setLevel={setLevel}
+              stacks={stacks}
+              setStacks={setStacks}
+              championId={champion.id}
+              targetStats={targetStats}
+              setTargetStats={setTargetStats}
+              runeIds={runeIds}
+              setRuneIds={setRuneIds}
+            />
+
             <section className="bg-gray-900 rounded-3xl p-6 border border-gray-800">
                 <h2 className="text-sm font-bold text-gray-500 uppercase tracking-widest mb-6">전투 능력치</h2>
                 <div className="space-y-4">
@@ -407,7 +400,7 @@ export default function CalculatorPage() {
                             </div>
                         </div>
                         <div className="text-right text-gray-500 text-xs space-y-1">
-                            <p>적 방어력 100 / 마저 100 기준</p>
+                            <p>적 방어력 {targetStats.armor} / 마저 {targetStats.mr} 기준</p>
                             <p>실제 데미지 시뮬레이션 결과</p>
                         </div>
                     </div>
