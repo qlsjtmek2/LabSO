@@ -46,6 +46,7 @@
         20,
         20
       ],
+      "costType": "Mana",
       "range": [
         0,
         0,
@@ -58,23 +59,31 @@
           "type": "damage",
           "logic": {
             "damageType": "Physical",
+            "levelScaling": true,
             "base": [
-              30,
-              50,
-              70,
-              90,
-              110
+              2,
+              7,
+              12,
+              17,
+              22,
+              27,
+              32,
+              37,
+              42,
+              47,
+              52,
+              57,
+              62,
+              67,
+              72,
+              77,
+              82,
+              87
             ],
             "scalings": [
               {
-                "stat": "bonusAd",
-                "ratio": [
-                  0.5,
-                  0.5,
-                  0.5,
-                  0.5,
-                  0.5
-                ]
+                "stat": "ad",
+                "ratio": 0.25
               }
             ]
           }
@@ -98,6 +107,7 @@
         70,
         70
       ],
+      "costType": "Mana",
       "range": [
         600,
         600,
@@ -110,14 +120,17 @@
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [
-              0,
-              0,
-              0,
-              0,
-              0
-            ],
-            "scalings": []
+            "base": [],
+            "scalings": [
+              {
+                "stat": "bonusHp",
+                "ratio": 0
+              },
+              {
+                "stat": "bonusHp",
+                "ratio": 2
+              }
+            ]
           }
         }
       ]
@@ -139,6 +152,7 @@
         65,
         70
       ],
+      "costType": "Mana",
       "range": [
         700,
         700,
@@ -175,6 +189,7 @@
         100,
         100
       ],
+      "costType": "Mana",
       "range": [
         600,
         600,

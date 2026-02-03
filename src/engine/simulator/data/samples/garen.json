@@ -46,6 +46,7 @@
         0,
         0
       ],
+      "costType": "None",
       "range": [
         300,
         300,
@@ -98,6 +99,7 @@
         0,
         0
       ],
+      "costType": "None",
       "range": [
         0,
         0,
@@ -150,6 +152,7 @@
         0,
         0
       ],
+      "costType": "None",
       "range": [
         325,
         325,
@@ -198,6 +201,7 @@
         0,
         0
       ],
+      "costType": "None",
       "range": [
         400,
         400,
@@ -208,11 +212,7 @@
           "type": "damage",
           "logic": {
             "damageType": "True",
-            "base": [
-              0,
-              0,
-              0
-            ],
+            "base": [],
             "scalings": []
           }
         }

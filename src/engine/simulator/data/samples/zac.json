@@ -46,6 +46,14 @@
         0,
         0
       ],
+      "costType": "CurrentHealth",
+      "costRatio": [
+        0.08,
+        0.08,
+        0.08,
+        0.08,
+        0.08
+      ],
       "range": [
         800,
         800,
@@ -86,6 +94,14 @@
         0,
         0,
         0
+      ],
+      "costType": "CurrentHealth",
+      "costRatio": [
+        0.04,
+        0.04,
+        0.04,
+        0.04,
+        0.04
       ],
       "range": [
         350,
@@ -128,6 +144,14 @@
         0,
         0
       ],
+      "costType": "CurrentHealth",
+      "costRatio": [
+        0.04,
+        0.04,
+        0.04,
+        0.04,
+        0.04
+      ],
       "range": [
         300,
         300,
@@ -165,6 +189,7 @@
         0,
         0
       ],
+      "costType": "None",
       "range": [
         300,
         300,

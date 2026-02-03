@@ -192,6 +192,21 @@ export class GenericChampionModel {
     const spell = (this.schema.spells as any)[actualKey];
     if (!spell) return []; // 스킬 데이터 없음
 
+    // 리소스 소모 (체력/마나 등)
+    const lvIdx = Math.min(skillLevel - 1, spell.cost.length - 1);
+    const flatCost = spell.cost[lvIdx] || 0;
+    const ratio = spell.costRatio ? (spell.costRatio[lvIdx] || 0) : 0;
+
+    if (spell.costType === 'CurrentHealth') {
+        this.stats.hp -= this.stats.hp * (ratio || 0.2); // 0.2 fallback for Vlad W
+    } else if (spell.costType === 'MaxHealth') {
+        this.stats.hp -= this.stats.maxHp * ratio;
+    } else if (spell.costType === 'Health') {
+        this.stats.hp -= flatCost;
+    } else if (spell.costType === 'Mana' || spell.costType === 'Energy') {
+        this.stats.mana -= flatCost;
+    }
+
     const events: DamageEvent[] = [];
 
     spell.effects.forEach((effect: any) => {

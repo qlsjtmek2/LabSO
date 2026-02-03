@@ -46,6 +46,7 @@
         0,
         0
       ],
+      "costType": "Mana",
       "range": [
         800,
         800,
@@ -92,6 +93,7 @@
         0,
         0
       ],
+      "costType": "Mana",
       "range": [
         0,
         0,
@@ -142,6 +144,7 @@
         0,
         0
       ],
+      "costType": "Mana",
       "range": [
         550,
         550,
@@ -184,6 +187,7 @@
         0,
         0
       ],
+      "costType": "Mana",
       "range": [
         3500,
         4000,

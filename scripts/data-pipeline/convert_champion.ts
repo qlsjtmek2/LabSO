@@ -42,6 +42,81 @@ const TRANSFORMATION_MAP: Record<string, Record<string, string[]>> = {
   }
 };
 
+const PET_OVERRIDES: any = {
+  'Heimerdinger': {
+    'Q': {
+      effects: [
+        {
+          type: 'damage',
+          logic: {
+            damageType: 'Magical',
+            base: [6, 9, 12, 15, 18],
+            scalings: [{ stat: 'ap', ratio: 0.35 }],
+            onHitEffectiveness: 1 // Attacks count as hits? No, pet attacks usually don't apply on-hit unless specified
+          }
+        },
+        {
+          type: 'damage',
+          logic: {
+            damageType: 'Magical',
+            base: [40, 60, 80, 100, 120],
+            scalings: [{ stat: 'ap', ratio: 0.55 }]
+          }
+        }
+      ]
+    }
+  },
+  'Zyra': {
+    'W': {
+        effects: [
+            {
+                type: 'damage',
+                logic: {
+                    damageType: 'Magical',
+                    levelScaling: true,
+                    // Lv 1-18: 20~100 (Approx linear)
+                    base: Array.from({length: 18}, (_, i) => 20 + i * 4.7), 
+                    scalings: [{ stat: 'ap', ratio: 0.15 }]
+                }
+            }
+        ]
+    }
+  },
+  'Yorick': {
+      'Q': {
+          effects: [
+              {
+                  type: 'damage',
+                  logic: {
+                      damageType: 'Physical',
+                      levelScaling: true,
+                      base: Array.from({length: 18}, (_, i) => 2 + i * 5), // 2-88 approx
+                      scalings: [{ stat: 'ad', ratio: 0.25 }]
+                  }
+              }
+          ]
+      }
+  },
+  'Malzahar': {
+      'W': {
+          effects: [
+              {
+                  type: 'damage',
+                  logic: {
+                      damageType: 'Magical', // Changed to Magical (Voidlings deal magic?) Wait, usually Physical?
+                      // Wiki: Magic Damage.
+                      base: [12, 14, 16, 18, 20],
+                      scalings: [
+                          { stat: 'bonusAd', ratio: 0.40 },
+                          { stat: 'ap', ratio: 0.20 }
+                      ]
+                  }
+              }
+          ]
+      }
+  }
+};
+
 async function convertChampions() {
   try {
     const ddragonPath = path.join(RAW_DIR, 'ddragon_championFull.json');
@@ -125,6 +200,32 @@ async function convertChampions() {
             });
         }
 
+        // Cost and CostType Inference
+        let costType: any = 'Mana';
+        let costRatio: number[] = [];
+        
+        const partype = champ.partype.toLowerCase();
+        if (partype.includes('energy')) costType = 'Energy';
+        else if (partype.includes('none') || partype.includes('crimson') || partype.includes('health')) {
+            // Check spell resource string for Health costs
+            const resource = spell.resource.toLowerCase();
+            if (resource.includes('current health')) costType = 'CurrentHealth';
+            else if (resource.includes('max health')) costType = 'MaxHealth';
+            else if (resource.includes('health')) costType = 'Health';
+            else if (resource.includes('no cost')) costType = 'None';
+            else costType = 'None';
+        }
+
+        // Try to find cost ratios in effect (Legacy DDragon parsing)
+        if (costType === 'CurrentHealth' || costType === 'MaxHealth') {
+            const eMatch = spell.resource.match(/{{ e(\d+) }}/);
+            if (eMatch) {
+                const eIdx = parseInt(eMatch[1]);
+                const vals = spell.effect[eIdx];
+                if (vals) costRatio = vals.map((v: number) => v / 100);
+            }
+        }
+
         // Fallback to Bin Data if DDragon is insufficient
         // Condition: No scalings AND (No base damage OR base damage is all 0)
         const isDDragonMissing = scalings.length === 0 && (!baseDamage || baseDamage.length === 0 || baseDamage.every((v:any) => v === 0));
@@ -135,11 +236,11 @@ async function convertChampions() {
             scalings: scalings
         };
 
-        if (isDDragonMissing && targetBinFile) {
+        if (targetBinFile) {
             let binAlias = alias;
             if (alias === 'Wukong') binAlias = 'MonkeyKing'; 
             
-            // Try keys
+            // Try keys for main spell and alt forms
             const patterns = [
                 `Characters/${binAlias}/Spells/${binAlias}${spellKey}Ability/${binAlias}${spellKey}`,
                 `Characters/${binAlias}/Spells/${binAlias}${spellKey}`, 
@@ -155,12 +256,41 @@ async function convertChampions() {
             }
 
             if (binSpell && binSpell.mSpell) {
-                const binLogic = parseDamageLogic(binSpell.mSpell);
-                if (binLogic) {
-                    // Merge: Use Bin logic but keep DDragon damageType if reliable
+                let binLogic = parseDamageLogic(binSpell.mSpell);
+                if (!binLogic) binLogic = parseLegacyDamageLogic(binSpell.mSpell);
+                
+                if (binLogic && isDDragonMissing) {
                     logic = binLogic;
                     logic.damageType = damageType;
                 }
+
+                // Extract Health Cost from Bin if DDragon failed
+                if (costRatio.length === 0 && binSpell.mSpell.DataValues) {
+                    const hCost = binSpell.mSpell.DataValues.find((dv: any) => 
+                        dv.mName.toLowerCase().includes('healthcost') || 
+                        dv.mName.toLowerCase() === 'cost'
+                    );
+                    if (hCost) {
+                        costRatio = hCost.mValues.slice(1, 6);
+                        // If values are large (e.g. 20, 30), they are percentages. If small (0.2), already ratios.
+                        if (costRatio.some(v => v > 1)) costRatio = costRatio.map(v => v / 100);
+                    }
+                }
+            }
+        }
+
+        let effects = [
+            {
+                type: 'damage',
+                logic: logic
+            }
+        ];
+
+        // Apply Pet Overrides
+        if (PET_OVERRIDES[alias] && PET_OVERRIDES[alias][spellKey]) {
+            const override = PET_OVERRIDES[alias][spellKey];
+            if (override.effects) {
+                effects = override.effects;
             }
         }
 
@@ -169,13 +299,10 @@ async function convertChampions() {
             name: spell.name,
             cooldown: spell.cooldown,
             cost: spell.cost,
+            costType: costType,
+            costRatio: costRatio.length > 0 ? costRatio : undefined,
             range: spell.range,
-            effects: [
-                {
-                    type: 'damage',
-                    logic: logic
-                }
-            ]
+            effects: effects
         };
       });
 

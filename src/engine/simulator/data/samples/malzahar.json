@@ -46,6 +46,7 @@
         75,
         80
       ],
+      "costType": "Mana",
       "range": [
         900,
         900,
@@ -87,6 +88,7 @@
         55,
         60
       ],
+      "costType": "Mana",
       "range": [
         150,
         150,
@@ -99,8 +101,23 @@
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [],
-            "scalings": []
+            "base": [
+              12,
+              14,
+              16,
+              18,
+              20
+            ],
+            "scalings": [
+              {
+                "stat": "bonusAd",
+                "ratio": 0.4
+              },
+              {
+                "stat": "ap",
+                "ratio": 0.2
+              }
+            ]
           }
         }
       ]
@@ -122,6 +139,7 @@
         90,
         100
       ],
+      "costType": "Mana",
       "range": [
         650,
         650,
@@ -164,6 +182,7 @@
         100,
         100
       ],
+      "costType": "Mana",
       "range": [
         700,
         700,

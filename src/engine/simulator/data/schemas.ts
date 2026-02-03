@@ -32,6 +32,9 @@ export interface DamageLogic {
   // 기본 데미지 (스킬 레벨별)
   base: number[]; 
   
+  // 챔피언 레벨 기반 여부 (true면 base가 1~18레벨 대응)
+  levelScaling?: boolean; 
+
   // 계수 목록
   scalings: Scaling[];
 
@@ -64,6 +67,8 @@ export interface SpellSchema {
   name: string;
   cooldown: number[];
   cost: number[];
+  costType?: 'Mana' | 'Health' | 'CurrentHealth' | 'MaxHealth' | 'Energy' | 'None';
+  costRatio?: number[]; // For % costs (e.g. 0.2 for 20%)
   range?: number[];
   effects: Effect[];
 }

@@ -46,6 +46,7 @@
         45,
         40
       ],
+      "costType": "Energy",
       "range": [
         950,
         950,
@@ -87,6 +88,7 @@
         40,
         40
       ],
+      "costType": "Energy",
       "range": [
         725,
         725,
@@ -128,6 +130,7 @@
         80,
         80
       ],
+      "costType": "Energy",
       "range": [
         170,
         170,
@@ -165,6 +168,7 @@
         0,
         0
       ],
+      "costType": "Energy",
       "range": [
         550,
         550,

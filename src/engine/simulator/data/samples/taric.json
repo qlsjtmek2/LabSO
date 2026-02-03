@@ -46,6 +46,7 @@
         60,
         60
       ],
+      "costType": "Mana",
       "range": [
         325,
         325,
@@ -87,6 +88,7 @@
         60,
         60
       ],
+      "costType": "Mana",
       "range": [
         800,
         800,
@@ -133,6 +135,7 @@
         40,
         40
       ],
+      "costType": "Mana",
       "range": [
         610,
         610,
@@ -170,6 +173,7 @@
         100,
         100
       ],
+      "costType": "Mana",
       "range": [
         400,
         400,
@@ -180,12 +184,13 @@
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [
-              0,
-              0,
-              0
-            ],
-            "scalings": []
+            "base": [],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.5
+              }
+            ]
           }
         }
       ]

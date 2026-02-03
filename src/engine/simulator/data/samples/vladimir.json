@@ -46,6 +46,7 @@
         0,
         0
       ],
+      "costType": "None",
       "range": [
         600,
         600,
@@ -87,6 +88,7 @@
         0,
         0
       ],
+      "costType": "CurrentHealth",
       "range": [
         350,
         350,
@@ -128,6 +130,14 @@
         0,
         0
       ],
+      "costType": "MaxHealth",
+      "costRatio": [
+        0.08,
+        0.08,
+        0.08,
+        0.08,
+        0.08
+      ],
       "range": [
         600,
         600,
@@ -168,6 +178,7 @@
         0,
         0
       ],
+      "costType": "None",
       "range": [
         625,
         625,
