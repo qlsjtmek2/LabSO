@@ -55,9 +55,14 @@ Access the application at `http://localhost:3000` (or the port you specified).
 *   `src/app/`: Next.js App Router structure.
     *   `api/simulate/`: Server-side simulation endpoints.
     *   `calculator/[id]/`: Champion combo damage calculator page.
+    *   `build-advisor/`: Team comp and matchup based build recommender.
+*   `src/components/`: React components.
+    *   `calculator/SimulationSettings.tsx`: Control panel for level, stacks, runes, and dummy stats.
+    *   `build-advisor/AnalysisResult.tsx`: Visualizer for power curves and build recommendations.
 *   `src/engine/`: Core simulation engine.
-    *   `simulator/models/GenericChampion.ts`: Universal champion model handling V2 schema.
+    *   `simulator/models/GenericChampion.ts`: Universal champion model handling V2 schema (supports Forms, Pets, Resources).
     *   `simulator/core/damageEngine.ts`: Precise damage calculation logic (Lethality, Penetration).
+    *   `simulator/v2/runes/RuneFactory.ts`: Rune logic implementation (Conqueror, Electrocute, PTA).
     *   `simulator/data/samples/`: Generated champion data JSONs (172+ champions).
     *   `simulator/items/itemFactory.ts`: Item effect implementation (BoRK, Kraken, etc.).
 *   `scripts/data-pipeline/`: Automated data fetching and conversion scripts.
@@ -73,12 +78,19 @@ Access the application at `http://localhost:3000` (or the port you specified).
 2.  **Advanced Champion Simulator:**
     *   **Precision Engine:** Calculates damage using official LoL formulas (Lethality scaling, Armor/MR penetration order).
     *   **Universal Support:** Supports all 172+ champions via automated data pipeline.
-    *   **Item Effects:** Simulates complex item passives like Blade of the Ruined King, Kraken Slayer, and Wit's End.
-    *   **Visualization:** Provides detailed damage reports (Physical/Magical/True split, skill contribution, combat log).
+    *   **Specialized Mechanics:**
+        *   **Transformations:** Nidalee (Human/Cougar), Jayce (Cannon/Hammer), Elise (Human/Spider).
+        *   **Stacking:** Nasus (Q), Veigar (AP), Senna (Range/Crit), Kindred (Range).
+        *   **Health Costs:** Vladimir (Blood), Zac (Health Blobs).
+        *   **Summoned Units:** Heimerdinger Turrets, Zyra Plants, Yorick Ghouls, Malzahar Voidlings.
+    *   **Rune System:** Implemented Conqueror, Electrocute, Press the Attack, Lethal Tempo.
+    *   **Simulation Settings:** Customize Champion Level, Skill Points, Stacks, Runes, and Target Dummy stats (Armor/MR/HP).
+    *   **Visualization:** Power Curve graphs (Lv 6/11/16/18) showing Damage vs Survivability (EHP).
 
-3.  **Expert Strategy Analysis:**
-    *   Analyze specific matches from the history.
-    *   **Item Build Timeline:** Visual timeline of item purchases.
+3.  **Build Advisor:**
+    *   Analyze team compositions and matchups.
+    *   Recommend optimal builds using Genetic Algorithms (`simulatePowerCurve`).
+    *   Provide strategy guides based on enemy composition (e.g. Anti-Tank, Anti-Assassin).
 
 ## Development Conventions
 
