@@ -17,56 +17,50 @@
     "range": 550,
     "moveSpeed": 340
   },
+  "mechanics": ["Mage", "Burn", "AoE"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Blaze",
-      "cooldown": [
-        0
-      ],
-      "cost": [
-        0
-      ],
-      "effects": []
-    },
-    "Q": {
-      "id": "Q",
-      "name": "Sear",
-      "cooldown": [
-        8,
-        7.5,
-        7,
-        6.5,
-        6
-      ],
-      "cost": [
-        70,
-        70,
-        70,
-        70,
-        70
-      ],
-      "costType": "Mana",
-      "range": [
-        1050,
-        1050,
-        1050,
-        1050,
-        1050
-      ],
+      "cooldown": [0],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              70,
-              100,
-              130,
-              160,
-              190
+            "base": [0],
+            "scalings": [
+                { "stat": "maxHp", "target": "enemy", "ratio": 0.03 },
+                { "stat": "ap", "ratio": 0.015 }
             ],
-            "scalings": []
+            "multiHit": 4,
+            "multiHitInterval": 1.0
+          }
+        },
+        {
+            "type": "cc",
+            "duration": 4.0,
+            "stack": { "name": "ablaze", "max": 1 }
+        }
+      ]
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Sear",
+      "cooldown": [8, 7.5, 7, 6.5, 6],
+      "cost": [50, 50, 50, 50, 50],
+      "costType": "Mana",
+      "range": [1050, 1050, 1050, 1050, 1050],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [70, 100, 130, 160, 190],
+            "scalings": [
+                { "stat": "ap", "ratio": 0.55 }
+            ],
+            "projectileSpeed": 1600
           }
         }
       ]
@@ -74,51 +68,24 @@
     "W": {
       "id": "W",
       "name": "Pillar of Flame",
-      "cooldown": [
-        10,
-        9.5,
-        9,
-        8.5,
-        8
-      ],
-      "cost": [
-        60,
-        70,
-        80,
-        90,
-        100
-      ],
+      "cooldown": [10, 9.5, 9, 8.5, 8],
+      "cost": [60, 70, 80, 90, 100],
       "costType": "Mana",
-      "range": [
-        900,
-        900,
-        900,
-        900,
-        900
-      ],
+      "range": [900, 900, 900, 900, 900],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              75,
-              120,
-              165,
-              210,
-              255
-            ],
+            "base": [75, 120, 165, 210, 255],
             "scalings": [
-              {
-                "stat": "ap",
-                "ratio": [
-                  0.699999988079071,
-                  0.699999988079071,
-                  0.699999988079071,
-                  0.699999988079071,
-                  0.699999988079071
-                ]
-              }
+                { "stat": "ap", "ratio": 0.6 }
+            ],
+            "modifiers": [
+                {
+                    "condition": { "type": "cc", "target": "enemy", "buffName": "ablaze" },
+                    "multiplier": 1.25
+                }
             ]
           }
         }
@@ -127,51 +94,18 @@
     "E": {
       "id": "E",
       "name": "Conflagration",
-      "cooldown": [
-        13,
-        12,
-        11,
-        10,
-        9
-      ],
-      "cost": [
-        70,
-        75,
-        80,
-        85,
-        90
-      ],
+      "cooldown": [12, 11, 10, 9, 8],
+      "cost": [70, 75, 80, 85, 90],
       "costType": "Mana",
-      "range": [
-        625,
-        625,
-        625,
-        625,
-        625
-      ],
+      "range": [625, 625, 625, 625, 625],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              55,
-              80,
-              105,
-              130,
-              155
-            ],
+            "base": [60, 90, 120, 150, 180],
             "scalings": [
-              {
-                "stat": "ap",
-                "ratio": [
-                  0.6000000238418579,
-                  0.6000000238418579,
-                  0.6000000238418579,
-                  0.6000000238418579,
-                  0.6000000238418579
-                ]
-              }
+                { "stat": "ap", "ratio": 0.6 }
             ]
           }
         }
@@ -180,46 +114,21 @@
     "R": {
       "id": "R",
       "name": "Pyroclasm",
-      "cooldown": [
-        100,
-        90,
-        80
-      ],
-      "cost": [
-        100,
-        100,
-        100
-      ],
+      "cooldown": [100, 90, 80],
+      "cost": [100, 100, 100],
       "costType": "Mana",
-      "range": [
-        750,
-        750,
-        750
-      ],
+      "range": [750, 750, 750],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              100,
-              175,
-              250,
-              325,
-              400
-            ],
+            "base": [100, 200, 300],
             "scalings": [
-              {
-                "stat": "ap",
-                "ratio": [
-                  0.30000001192092896,
-                  0.30000001192092896,
-                  0.30000001192092896,
-                  0.30000001192092896,
-                  0.30000001192092896
-                ]
-              }
-            ]
+                { "stat": "ap", "ratio": 0.25 }
+            ],
+            "multiHit": 3,
+            "multiHitInterval": 0.5
           }
         }
       ]

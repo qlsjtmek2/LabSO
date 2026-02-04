@@ -17,107 +17,59 @@
     "range": 500,
     "moveSpeed": 335
   },
+  "mechanics": ["Mage", "Control", "Pet", "DoT", "Suppress"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Void Shift",
-      "cooldown": [
-        0
-      ],
-      "cost": [
-        0
-      ],
+      "cooldown": [30, 24, 18, 12],
+      "levelScaling": true,
       "effects": []
     },
     "Q": {
       "id": "Q",
       "name": "Call of the Void",
-      "cooldown": [
-        6,
-        6,
-        6,
-        6,
-        6
-      ],
-      "cost": [
-        60,
-        65,
-        70,
-        75,
-        80
-      ],
+      "cooldown": [6],
+      "cost": [60, 65, 70, 75, 80],
       "costType": "Mana",
-      "range": [
-        900,
-        900,
-        900,
-        900,
-        900
-      ],
+      "range": [900],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              70,
-              105,
-              140,
-              175,
-              210
+            "base": [70, 105, 140, 175, 210],
+            "scalings": [
+                { "stat": "ap", "ratio": 0.55 }
             ],
-            "scalings": []
+            "projectileSpeed": 1200
           }
+        },
+        {
+            "type": "cc",
+            "duration": 1.0,
+            "stack": { "name": "silenced", "max": 1 }
         }
       ]
     },
     "W": {
       "id": "W",
       "name": "Void Swarm",
-      "cooldown": [
-        8,
-        8,
-        8,
-        8,
-        8
-      ],
-      "cost": [
-        40,
-        45,
-        50,
-        55,
-        60
-      ],
+      "cooldown": [8],
+      "cost": [40, 45, 50, 55, 60],
       "costType": "Mana",
-      "range": [
-        150,
-        150,
-        150,
-        150,
-        150
-      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              12,
-              14,
-              16,
-              18,
-              20
-            ],
+            "base": [12, 14, 16, 18, 20],
             "scalings": [
-              {
-                "stat": "bonusAd",
-                "ratio": 0.4
-              },
-              {
-                "stat": "ap",
-                "ratio": 0.2
-              }
-            ]
+                { "stat": "bonusAd", "ratio": 0.4 },
+                { "stat": "ap", "ratio": 0.2 }
+            ],
+            "multiHit": 5,
+            "multiHitInterval": 1.0
           }
         }
       ]
@@ -125,46 +77,21 @@
     "E": {
       "id": "E",
       "name": "Malefic Visions",
-      "cooldown": [
-        11,
-        10,
-        9,
-        8,
-        7
-      ],
-      "cost": [
-        60,
-        70,
-        80,
-        90,
-        100
-      ],
+      "cooldown": [11, 10, 9, 8, 7],
+      "cost": [60, 70, 80, 90, 100],
       "costType": "Mana",
-      "range": [
-        650,
-        650,
-        650,
-        650,
-        650
-      ],
+      "range": [650],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              80,
-              115,
-              150,
-              185,
-              220
-            ],
+            "base": [80, 115, 150, 185, 220],
             "scalings": [
-              {
-                "stat": "ap",
-                "ratio": 0.800000011920929
-              }
-            ]
+                { "stat": "ap", "ratio": 0.8 }
+            ],
+            "multiHit": 4,
+            "multiHitInterval": 1.0
           }
         }
       ]
@@ -172,47 +99,27 @@
     "R": {
       "id": "R",
       "name": "Nether Grasp",
-      "cooldown": [
-        140,
-        110,
-        80
-      ],
-      "cost": [
-        100,
-        100,
-        100
-      ],
+      "cooldown": [140, 110, 80],
+      "cost": [100],
       "costType": "Mana",
-      "range": [
-        700,
-        700,
-        700
-      ],
+      "range": [700],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              2,
-              3,
-              4,
-              5,
-              6
-            ],
+            "base": [125, 200, 275],
             "scalings": [
-              {
-                "stat": "hp",
-                "ratio": [
-                  0.004999999888241291,
-                  0.004999999888241291,
-                  0.004999999888241291,
-                  0.004999999888241291,
-                  0.004999999888241291
-                ]
-              }
-            ]
+                { "stat": "ap", "ratio": 0.8 }
+            ],
+            "multiHit": 5,
+            "multiHitInterval": 0.5
           }
+        },
+        {
+            "type": "cc",
+            "duration": 2.5,
+            "stack": { "name": "suppressed", "max": 1 }
         }
       ]
     }

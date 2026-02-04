@@ -17,98 +17,68 @@
     "range": 125,
     "moveSpeed": 345
   },
+  "mechanics": ["Bruiser", "Diver", "Jungler", "Energy", "Mobile"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Flurry",
-      "cooldown": [
-        0
-      ],
-      "cost": [
-        0
-      ],
-      "effects": []
+      "cooldown": [0],
+      "effects": [
+        {
+            "type": "buff",
+            "stack": { "name": "attackSpeed", "max": 1 },
+            "logic": { "base": [0.4] }
+        }
+      ]
     },
     "Q": {
       "id": "Q",
       "name": "Sonic Wave / Resonating Strike",
-      "cooldown": [
-        10,
-        9,
-        8,
-        7,
-        6
-      ],
-      "cost": [
-        50,
-        50,
-        50,
-        50,
-        50
-      ],
+      "cooldown": [10, 9, 8, 7, 6],
+      "cost": [50],
       "costType": "Energy",
-      "range": [
-        1100,
-        1100,
-        1100,
-        1100,
-        1100
-      ],
+      "range": [1100],
       "effects": [
         {
+          "id": "SonicWave",
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [
-              0,
-              0,
-              0,
-              0,
-              0
+            "base": [55, 80, 105, 130, 155],
+            "scalings": [
+                { "stat": "bonusAd", "ratio": 1.15 }
             ],
-            "scalings": []
+            "projectileSpeed": 1800
           }
+        },
+        {
+            "id": "ResonatingStrike",
+            "type": "damage",
+            "logic": {
+                "damageType": "Physical",
+                "base": [55, 80, 105, 130, 155],
+                "scalings": [
+                    { "stat": "bonusAd", "ratio": 1.15 },
+                    { "stat": "missingHp", "target": "enemy", "ratio": [0.08, 0.08, 0.08, 0.08, 0.08] }
+                ],
+                "delay": 0.5
+            }
         }
       ]
     },
     "W": {
       "id": "W",
       "name": "Safeguard / Iron Will",
-      "cooldown": [
-        12,
-        12,
-        12,
-        12,
-        12
-      ],
-      "cost": [
-        50,
-        50,
-        50,
-        50,
-        50
-      ],
-      "costType": "Energy",
-      "range": [
-        700,
-        700,
-        700,
-        700,
-        700
-      ],
+      "cooldown": [12],
+      "cost": [50],
       "effects": [
         {
-          "type": "damage",
+          "type": "shield",
           "logic": {
-            "damageType": "Physical",
-            "base": [
-              0,
-              0,
-              0,
-              0,
-              0
-            ],
-            "scalings": []
+              "base": [40, 85, 130, 175, 220],
+              "scalings": [
+                  { "stat": "ap", "ratio": 0.8 }
+              ]
           }
         }
       ]
@@ -116,81 +86,39 @@
     "E": {
       "id": "E",
       "name": "Tempest / Cripple",
-      "cooldown": [
-        8,
-        8,
-        8,
-        8,
-        8
-      ],
-      "cost": [
-        50,
-        50,
-        50,
-        50,
-        50
-      ],
-      "costType": "Energy",
-      "range": [
-        450,
-        450,
-        450,
-        450,
-        450
-      ],
+      "cooldown": [8],
+      "cost": [50],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              0,
-              0,
-              0,
-              0,
-              0
-            ],
-            "scalings": []
+            "base": [35, 65, 95, 125, 155],
+            "scalings": [
+                { "stat": "bonusAd", "ratio": 1.0 }
+            ]
           }
+        },
+        {
+            "type": "cc",
+            "duration": 2.0,
+            "stack": { "name": "slowed", "max": 1 }
         }
       ]
     },
     "R": {
       "id": "R",
       "name": "Dragon's Rage",
-      "cooldown": [
-        110,
-        85,
-        60
-      ],
-      "cost": [
-        0,
-        0,
-        0
-      ],
-      "costType": "Energy",
-      "range": [
-        375,
-        375,
-        375
-      ],
+      "cooldown": [110, 85, 60],
+      "cost": [0],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [
-              175,
-              400,
-              625,
-              850,
-              1075
-            ],
+            "base": [175, 425, 675],
             "scalings": [
-              {
-                "stat": "ap",
-                "ratio": 2
-              }
+                { "stat": "bonusAd", "ratio": 2.0 }
             ]
           }
         }

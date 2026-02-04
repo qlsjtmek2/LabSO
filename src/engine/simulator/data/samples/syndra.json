@@ -17,60 +17,35 @@
     "range": 550,
     "moveSpeed": 330
   },
+  "mechanics": ["Mage", "Burst", "Control", "Evolution", "CC"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Transcendent",
-      "cooldown": [
-        0
-      ],
-      "cost": [
-        0
-      ],
-      "effects": []
+      "cooldown": [0],
+      "effects": [
+        {
+            "type": "buff",
+            "stack": { "name": "splinters", "max": 120 },
+            "logic": { "base": [0] }
+        }
+      ]
     },
     "Q": {
       "id": "Q",
       "name": "Dark Sphere",
-      "cooldown": [
-        7,
-        7,
-        7,
-        7,
-        7
-      ],
-      "cost": [
-        40,
-        45,
-        50,
-        55,
-        60
-      ],
+      "cooldown": [7],
+      "cost": [40, 45, 50, 55, 60],
       "costType": "Mana",
-      "range": [
-        800,
-        800,
-        800,
-        800,
-        800
-      ],
+      "range": [800],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              80,
-              115,
-              150,
-              185,
-              220
-            ],
+            "base": [70, 105, 140, 175, 210],
             "scalings": [
-              {
-                "stat": "ap",
-                "ratio": 0.6499999761581421
-              }
+                { "stat": "ap", "ratio": 0.7 }
             ]
           }
         }
@@ -79,46 +54,20 @@
     "W": {
       "id": "W",
       "name": "Force of Will",
-      "cooldown": [
-        12,
-        11,
-        10,
-        9,
-        8
-      ],
-      "cost": [
-        60,
-        70,
-        80,
-        90,
-        100
-      ],
+      "cooldown": [12, 11, 10, 9, 8],
+      "cost": [60, 70, 80, 90, 100],
       "costType": "Mana",
-      "range": [
-        925,
-        925,
-        925,
-        925,
-        925
-      ],
+      "range": [925],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              70,
-              105,
-              140,
-              175,
-              210
-            ],
+            "base": [70, 110, 150, 190, 230],
             "scalings": [
-              {
-                "stat": "ap",
-                "ratio": 0.6499999761581421
-              }
-            ]
+                { "stat": "ap", "ratio": 0.7 }
+            ],
+            "projectileSpeed": 1450
           }
         }
       ]
@@ -126,99 +75,46 @@
     "E": {
       "id": "E",
       "name": "Scatter the Weak",
-      "cooldown": [
-        15,
-        15,
-        15,
-        15,
-        15
-      ],
-      "cost": [
-        50,
-        50,
-        50,
-        50,
-        50
-      ],
-      "costType": "Mana",
-      "range": [
-        650,
-        650,
-        650,
-        650,
-        650
-      ],
+      "cooldown": [15],
+      "cost": [50],
+      "range": [650],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              60,
-              95,
-              130,
-              165,
-              200
-            ],
+            "base": [70, 110, 150, 190, 230],
             "scalings": [
-              {
-                "stat": "ap",
-                "ratio": [
-                  0.6000000238418579,
-                  0.6000000238418579,
-                  0.6000000238418579,
-                  0.6000000238418579,
-                  0.6000000238418579
-                ]
-              }
-            ]
+                { "stat": "ap", "ratio": 0.45 }
+            ],
+            "projectileSpeed": 2500
           }
+        },
+        {
+            "type": "cc",
+            "duration": 1.25,
+            "stack": { "name": "stunned", "max": 1 }
         }
       ]
     },
     "R": {
       "id": "R",
       "name": "Unleashed Power",
-      "cooldown": [
-        120,
-        100,
-        80
-      ],
-      "cost": [
-        100,
-        100,
-        100
-      ],
+      "cooldown": [120, 100, 80],
+      "cost": [100],
       "costType": "Mana",
-      "range": [
-        675,
-        675,
-        675
-      ],
+      "range": [675],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              90,
-              130,
-              170,
-              210,
-              250
-            ],
+            "base": [90, 130, 170],
             "scalings": [
-              {
-                "stat": "ap",
-                "ratio": [
-                  0.20000000298023224,
-                  0.20000000298023224,
-                  0.20000000298023224,
-                  0.20000000298023224,
-                  0.20000000298023224
-                ]
-              }
-            ]
+                { "stat": "ap", "ratio": 0.17 }
+            ],
+            "multiHit": 5,
+            "multiHitInterval": 0.25
           }
         }
       ]

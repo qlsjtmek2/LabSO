@@ -17,190 +17,118 @@
     "range": 150,
     "moveSpeed": 340
   },
+  "mechanics": ["Tank", "CC", "AP-Bruiser", "Anti-Mage"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Colossal Smash",
-      "cooldown": [
-        0
-      ],
-      "cost": [
-        0
-      ],
-      "effects": []
-    },
-    "Q": {
-      "id": "Q",
-      "name": "Winds of War",
-      "cooldown": [
-        11,
-        10,
-        9,
-        8,
-        7
-      ],
-      "cost": [
-        70,
-        75,
-        80,
-        85,
-        90
-      ],
-      "costType": "Mana",
-      "range": [
-        825,
-        825,
-        825,
-        825,
-        825
-      ],
+      "cooldown": [5],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              70,
-              105,
-              140,
-              175,
-              210
-            ],
+            "base": [15, 20, 25, 30, 35, 40, 45, 50, 55, 65, 75, 85, 95, 115, 135, 155, 175, 200],
+            "levelScaling": true,
             "scalings": [
-              {
-                "stat": "ap",
-                "ratio": 0.699999988079071
-              }
+                { "stat": "ad", "ratio": 1.0 },
+                { "stat": "ap", "ratio": 0.5 },
+                { "stat": "mr", "ratio": 0.6 }
             ]
           }
+        }
+      ]
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Winds of War",
+      "cooldown": [11, 10, 9, 8, 7],
+      "cost": [70, 75, 80, 85, 90],
+      "costType": "Mana",
+      "range": [825],
+      "effects": [
+        {
+          "id": "Initial",
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [70, 105, 140, 175, 210],
+            "scalings": [
+                { "stat": "ap", "ratio": 0.75 }
+            ]
+          }
+        },
+        {
+            "id": "Tornado",
+            "type": "damage",
+            "logic": {
+                "damageType": "Magical",
+                "base": [0],
+                "scalings": [
+                    { "stat": "maxHp", "target": "enemy", "ratio": [0.04, 0.04, 0.04, 0.04, 0.04] },
+                    { "stat": "ap", "ratio": 0.02 }
+                ],
+                "multiHit": 3,
+                "multiHitInterval": 0.5,
+                "delay": 0.5
+            }
         }
       ]
     },
     "W": {
       "id": "W",
       "name": "Shield of Durand",
-      "cooldown": [
-        18,
-        17,
-        16,
-        15,
-        14
-      ],
-      "cost": [
-        50,
-        50,
-        50,
-        50,
-        50
-      ],
+      "cooldown": [18, 17, 16, 15, 14],
+      "cost": [50],
       "costType": "Mana",
-      "range": [
-        275,
-        275,
-        275,
-        275,
-        275
-      ],
       "effects": [
         {
-          "type": "damage",
-          "logic": {
-            "damageType": "Magical",
-            "base": [
-              25,
-              30,
-              35,
-              40,
-              45
-            ],
-            "scalings": []
-          }
+            "type": "buff",
+            "stack": { "name": "damage_reduction", "max": 1 },
+            "logic": { "base": [0.25, 0.3, 0.35, 0.4, 0.45] }
         }
       ]
     },
     "E": {
       "id": "E",
       "name": "Justice Punch",
-      "cooldown": [
-        11,
-        10,
-        9,
-        8,
-        7
-      ],
-      "cost": [
-        50,
-        50,
-        50,
-        50,
-        50
-      ],
+      "cooldown": [11, 10, 9, 8, 7],
+      "cost": [50],
       "costType": "Mana",
-      "range": [
-        650,
-        650,
-        650,
-        650,
-        650
-      ],
+      "range": [650],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              90,
-              130,
-              170,
-              210,
-              250
-            ],
+            "base": [90, 130, 170, 210, 250],
             "scalings": [
-              {
-                "stat": "ap",
-                "ratio": 0.8999999761581421
-              }
+                { "stat": "ap", "ratio": 0.9 }
             ]
           }
+        },
+        {
+            "type": "cc",
+            "duration": 0.75,
+            "stack": { "name": "airborne", "max": 1 }
         }
       ]
     },
     "R": {
       "id": "R",
       "name": "Hero's Entrance",
-      "cooldown": [
-        180,
-        160,
-        140
-      ],
-      "cost": [
-        100,
-        100,
-        100
-      ],
+      "cooldown": [180, 160, 140],
+      "cost": [100],
       "costType": "Mana",
-      "range": [
-        4000,
-        4750,
-        5500
-      ],
+      "range": [4000],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              150,
-              250,
-              350,
-              450,
-              550
-            ],
+            "base": [150, 250, 350],
             "scalings": [
-              {
-                "stat": "ap",
-                "ratio": 0.699999988079071
-              }
+                { "stat": "ap", "ratio": 0.7 }
             ]
           }
         }

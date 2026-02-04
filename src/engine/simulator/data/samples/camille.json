@@ -17,50 +17,52 @@
     "range": 125,
     "moveSpeed": 340
   },
+  "mechanics": ["Diver", "Precision", "TrueDamage"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Adaptive Defenses",
-      "cooldown": [
-        0
-      ],
-      "cost": [
-        0
-      ],
-      "effects": []
+      "cooldown": [20, 15, 10],
+      "effects": [
+        {
+          "type": "shield",
+          "logic": {
+              "base": [0.2],
+              "scalings": [
+                  { "stat": "maxHp", "target": "self", "ratio": 0.2 }
+              ]
+          }
+        }
+      ]
     },
     "Q": {
       "id": "Q",
       "name": "Precision Protocol",
-      "cooldown": [
-        9,
-        8,
-        7,
-        6,
-        5
-      ],
-      "cost": [
-        25,
-        25,
-        25,
-        25,
-        25
-      ],
+      "cooldown": [9, 8, 7, 6, 5],
+      "cost": [25],
       "costType": "Mana",
-      "range": [
-        325,
-        325,
-        325,
-        325,
-        325
-      ],
       "effects": [
         {
+          "id": "Q1",
+          "type": "damage",
+          "logic": {
+            "damageType": "Physical",
+            "base": [0],
+            "scalings": [
+                { "stat": "ad", "ratio": 0.2 }
+            ]
+          }
+        },
+        {
+          "id": "Q2",
           "type": "damage",
           "logic": {
             "damageType": "True",
-            "base": [],
-            "scalings": []
+            "base": [0],
+            "scalings": [
+                { "stat": "ad", "ratio": [0.4, 0.5, 0.6, 0.7, 0.8] }
+            ],
+            "delay": 1.5
           }
         }
       ]
@@ -68,51 +70,19 @@
     "W": {
       "id": "W",
       "name": "Tactical Sweep",
-      "cooldown": [
-        15,
-        14,
-        13,
-        12,
-        11
-      ],
-      "cost": [
-        50,
-        55,
-        60,
-        65,
-        70
-      ],
+      "cooldown": [15, 14, 13, 12, 11],
+      "cost": [50, 55, 60, 65, 70],
       "costType": "Mana",
-      "range": [
-        610,
-        610,
-        610,
-        610,
-        610
-      ],
+      "range": [610],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [
-              60,
-              85,
-              110,
-              135,
-              160
-            ],
+            "base": [70, 100, 130, 160, 190],
             "scalings": [
-              {
-                "stat": "ad",
-                "ratio": [
-                  0.6000000238418579,
-                  0.6000000238418579,
-                  0.6000000238418579,
-                  0.6000000238418579,
-                  0.6000000238418579
-                ]
-              }
+                { "stat": "bonusAd", "ratio": 0.6 },
+                { "stat": "maxHp", "target": "enemy", "ratio": [0.05, 0.055, 0.06, 0.065, 0.07] }
             ]
           }
         }
@@ -121,87 +91,46 @@
     "E": {
       "id": "E",
       "name": "Hookshot",
-      "cooldown": [
-        16,
-        15,
-        14,
-        13,
-        12
-      ],
-      "cost": [
-        70,
-        70,
-        70,
-        70,
-        70
-      ],
+      "cooldown": [16, 15, 14, 13, 12],
+      "cost": [70],
       "costType": "Mana",
-      "range": [
-        800,
-        800,
-        800,
-        800,
-        800
-      ],
+      "range": [800],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [
-              60,
-              90,
-              120,
-              150,
-              180
-            ],
+            "base": [60, 90, 120, 150, 180],
             "scalings": [
-              {
-                "stat": "ad",
-                "ratio": [
-                  0.75,
-                  0.75,
-                  0.75,
-                  0.75,
-                  0.75
-                ]
-              }
+                { "stat": "bonusAd", "ratio": 0.75 }
             ]
           }
+        },
+        {
+            "type": "cc",
+            "duration": 0.75,
+            "stack": { "name": "stunned", "max": 1 }
         }
       ]
     },
     "R": {
       "id": "R",
       "name": "The Hextech Ultimatum",
-      "cooldown": [
-        140,
-        115,
-        90
-      ],
-      "cost": [
-        100,
-        100,
-        100
-      ],
+      "cooldown": [140, 115, 90],
+      "cost": [100],
       "costType": "Mana",
-      "range": [
-        475,
-        475,
-        475
-      ],
+      "range": [475],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [],
+            "base": [5, 10, 15],
             "scalings": [
-              {
-                "stat": "bonusHp",
-                "ratio": 4
-              }
-            ]
+                { "stat": "currentHp", "target": "enemy", "ratio": [0.04, 0.06, 0.08] }
+            ],
+            "multiHit": 3,
+            "multiHitInterval": 1.0
           }
         }
       ]

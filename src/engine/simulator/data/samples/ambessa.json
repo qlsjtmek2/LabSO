@@ -17,61 +17,49 @@
     "range": 125,
     "moveSpeed": 335
   },
+  "mechanics": ["Bruiser", "Energy", "Mobile"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Drakehound's Step",
-      "cooldown": [
-        0
-      ],
-      "cost": [
-        0
-      ],
-      "effects": []
+      "cooldown": [0],
+      "effects": [
+        {
+          "type": "buff",
+          "stack": { "name": "empowered_auto", "max": 1 },
+          "logic": { "base": [0] }
+        }
+      ]
     },
     "Q": {
       "id": "Q",
       "name": "Cunning Sweep / Sundering Slam",
-      "cooldown": [
-        14,
-        13,
-        12,
-        11,
-        10
-      ],
-      "cost": [
-        70,
-        70,
-        70,
-        70,
-        70
-      ],
+      "cooldown": [14, 13, 12, 11, 10],
+      "cost": [70, 70, 70, 70, 70],
       "costType": "Energy",
-      "range": [
-        650,
-        650,
-        650,
-        650,
-        650
-      ],
+      "range": [650, 650, 650, 650, 650],
       "effects": [
         {
+          "id": "Q1",
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [
-              40,
-              60,
-              80,
-              100,
-              120
-            ],
+            "base": [40, 60, 80, 100, 120],
             "scalings": [
-              {
-                "stat": "ap",
-                "ratio": 0.6000000238418579
-              }
+              { "stat": "ad", "ratio": 0.6 }
             ]
+          }
+        },
+        {
+          "id": "Q2",
+          "type": "damage",
+          "logic": {
+            "damageType": "Physical",
+            "base": [60, 90, 120, 150, 180],
+            "scalings": [
+              { "stat": "ad", "ratio": 0.9 }
+            ],
+            "delay": 1.0
           }
         }
       ]
@@ -79,52 +67,27 @@
     "W": {
       "id": "W",
       "name": "Repudiation",
-      "cooldown": [
-        18,
-        17,
-        16,
-        15,
-        14
-      ],
-      "cost": [
-        70,
-        70,
-        70,
-        70,
-        70
-      ],
+      "cooldown": [18, 17, 16, 15, 14],
+      "cost": [70, 70, 70, 70, 70],
       "costType": "Energy",
-      "range": [
-        325,
-        325,
-        325,
-        325,
-        325
-      ],
+      "range": [325, 325, 325, 325, 325],
       "effects": [
+        {
+          "type": "shield",
+          "logic": {
+              "base": [85, 110, 135, 160, 185, 210, 235, 260, 285, 310, 335, 360, 385, 410, 435, 460, 485, 510],
+              "levelScaling": true
+          }
+        },
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [
-              50,
-              75,
-              100,
-              125,
-              150
-            ],
+            "base": [50, 80, 110, 140, 170],
             "scalings": [
-              {
-                "stat": "ad",
-                "ratio": [
-                  0.5,
-                  0.5,
-                  0.5,
-                  0.5,
-                  0.5
-                ]
-              }
-            ]
+              { "stat": "ad", "ratio": 0.8 }
+            ],
+            "delay": 0.5
           }
         }
       ]
@@ -132,51 +95,18 @@
     "E": {
       "id": "E",
       "name": "Lacerate",
-      "cooldown": [
-        13,
-        12,
-        11,
-        10,
-        9
-      ],
-      "cost": [
-        70,
-        70,
-        70,
-        70,
-        70
-      ],
+      "cooldown": [13, 12, 11, 10, 9],
+      "cost": [70, 70, 70, 70, 70],
       "costType": "Energy",
-      "range": [
-        325,
-        325,
-        325,
-        325,
-        325
-      ],
+      "range": [325, 325, 325, 325, 325],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [
-              40,
-              60,
-              80,
-              100,
-              120
-            ],
+            "base": [40, 65, 90, 115, 140],
             "scalings": [
-              {
-                "stat": "ad",
-                "ratio": [
-                  0.5,
-                  0.5,
-                  0.5,
-                  0.5,
-                  0.5
-                ]
-              }
+              { "stat": "ad", "ratio": 0.5 }
             ]
           }
         }
@@ -185,46 +115,25 @@
     "R": {
       "id": "R",
       "name": "Public Execution",
-      "cooldown": [
-        130,
-        115,
-        100
-      ],
-      "cost": [
-        0,
-        0,
-        0
-      ],
+      "cooldown": [130, 115, 100],
+      "cost": [0],
       "costType": "Energy",
-      "range": [
-        1250,
-        1250,
-        1250
-      ],
+      "range": [1250, 1250, 1250],
       "effects": [
+        {
+          "type": "cc",
+          "duration": 0.75,
+          "stack": { "name": "suppressed", "max": 1 }
+        },
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [
-              150,
-              250,
-              350,
-              450,
-              550
-            ],
+            "base": [150, 275, 400],
             "scalings": [
-              {
-                "stat": "ad",
-                "ratio": [
-                  0.800000011920929,
-                  0.800000011920929,
-                  0.800000011920929,
-                  0.800000011920929,
-                  0.800000011920929
-                ]
-              }
-            ]
+              { "stat": "ad", "ratio": 1.0 }
+            ],
+            "delay": 0.75
           }
         }
       ]

@@ -17,140 +17,73 @@
     "range": 600,
     "moveSpeed": 325
   },
+  "mechanics": ["Mage", "Control", "Artillery"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Rebirth",
-      "cooldown": [
-        0
-      ],
-      "cost": [
-        0
-      ],
+      "cooldown": [240],
       "effects": []
     },
     "Q": {
       "id": "Q",
       "name": "Flash Frost",
-      "cooldown": [
-        11,
-        10,
-        9,
-        8,
-        7
-      ],
-      "cost": [
-        80,
-        85,
-        90,
-        95,
-        100
-      ],
+      "cooldown": [11, 10, 9, 8, 7],
+      "cost": [80, 85, 90, 95, 100],
       "costType": "Mana",
-      "range": [
-        1075,
-        1075,
-        1075,
-        1075,
-        1075
-      ],
+      "range": [1075, 1075, 1075, 1075, 1075],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              0,
-              0,
-              0,
-              0,
-              0
+            "base": [60, 85, 110, 135, 160],
+            "scalings": [
+                { "stat": "ap", "ratio": 0.5 }
             ],
-            "scalings": []
+            "multiHit": 2,
+            "multiHitInterval": 0.2,
+            "projectileSpeed": 950
           }
+        },
+        {
+            "type": "cc",
+            "duration": 1.5,
+            "stack": { "name": "chilled", "max": 1 }
         }
       ]
     },
     "W": {
       "id": "W",
       "name": "Crystallize",
-      "cooldown": [
-        17,
-        17,
-        17,
-        17,
-        17
-      ],
-      "cost": [
-        70,
-        70,
-        70,
-        70,
-        70
-      ],
+      "cooldown": [17, 17, 17, 17, 17],
+      "cost": [70, 70, 70, 70, 70],
       "costType": "Mana",
-      "range": [
-        1000,
-        1000,
-        1000,
-        1000,
-        1000
-      ],
-      "effects": [
-        {
-          "type": "damage",
-          "logic": {
-            "damageType": "Physical",
-            "base": [
-              5,
-              5,
-              5,
-              5,
-              5
-            ],
-            "scalings": []
-          }
-        }
-      ]
+      "range": [1000, 1000, 1000, 1000, 1000],
+      "effects": []
     },
     "E": {
       "id": "E",
       "name": "Frostbite",
-      "cooldown": [
-        4,
-        4,
-        4,
-        4,
-        4
-      ],
-      "cost": [
-        50,
-        50,
-        50,
-        50,
-        50
-      ],
+      "cooldown": [4, 4, 4, 4, 4],
+      "cost": [50, 50, 50, 50, 50],
       "costType": "Mana",
-      "range": [
-        650,
-        650,
-        650,
-        650,
-        650
-      ],
+      "range": [650, 650, 650, 650, 650],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              0,
-              0,
-              0,
-              0,
-              0
+            "base": [50, 75, 100, 125, 150],
+            "scalings": [
+                { "stat": "ap", "ratio": 0.6 }
             ],
-            "scalings": []
+            "modifiers": [
+                {
+                    "condition": { "type": "cc", "target": "enemy", "buffName": "chilled" },
+                    "multiplier": 2.0
+                }
+            ]
           }
         }
       ]
@@ -158,34 +91,27 @@
     "R": {
       "id": "R",
       "name": "Glacial Storm",
-      "cooldown": [
-        4,
-        3,
-        2
-      ],
-      "cost": [
-        60,
-        60,
-        60
-      ],
+      "cooldown": [4, 3, 2],
+      "cost": [60, 60, 60],
       "costType": "Mana",
-      "range": [
-        750,
-        750,
-        750
-      ],
+      "range": [750, 750, 750],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              0,
-              0,
-              0
+            "base": [30, 45, 60],
+            "scalings": [
+                { "stat": "ap", "ratio": 0.125 }
             ],
-            "scalings": []
+            "multiHit": 8,
+            "multiHitInterval": 1.0
           }
+        },
+        {
+            "type": "cc",
+            "duration": 1.0,
+            "stack": { "name": "chilled", "max": 1 }
         }
       ]
     }

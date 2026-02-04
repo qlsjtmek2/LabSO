@@ -17,98 +17,63 @@
     "range": 425,
     "moveSpeed": 340
   },
+  "mechanics": ["Marksman", "Shotgun", "Jungler", "Burst"],
   "spells": {
     "P": {
       "id": "P",
       "name": "New Destiny",
-      "cooldown": [
-        0
-      ],
-      "cost": [
-        0
-      ],
+      "cooldown": [0],
       "effects": []
     },
     "Q": {
       "id": "Q",
       "name": "End of the Line",
-      "cooldown": [
-        13,
-        11.25,
-        9.5,
-        7.75,
-        6
-      ],
-      "cost": [
-        80,
-        80,
-        80,
-        80,
-        80
-      ],
+      "cooldown": [13, 11.25, 9.5, 7.75, 6],
+      "cost": [80],
       "costType": "Mana",
-      "range": [
-        925,
-        925,
-        925,
-        925,
-        925
-      ],
+      "range": [925],
       "effects": [
         {
+          "id": "Initial",
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [
-              0,
-              0,
-              0,
-              0,
-              0
-            ],
-            "scalings": []
+            "base": [45, 60, 75, 90, 105],
+            "scalings": [
+                { "stat": "bonusAd", "ratio": 0.8 }
+            ]
           }
+        },
+        {
+            "id": "Return",
+            "type": "damage",
+            "logic": {
+                "damageType": "Physical",
+                "base": [85, 130, 175, 220, 265],
+                "scalings": [
+                    { "stat": "bonusAd", "ratio": [0.6, 0.75, 0.9, 1.05, 1.2] }
+                ],
+                "delay": 1.0
+            }
         }
       ]
     },
     "W": {
       "id": "W",
       "name": "Smoke Screen",
-      "cooldown": [
-        26,
-        24,
-        22,
-        20,
-        18
-      ],
-      "cost": [
-        70,
-        75,
-        80,
-        85,
-        90
-      ],
+      "cooldown": [26, 24, 22, 20, 18],
+      "cost": [70, 75, 80, 85, 90],
       "costType": "Mana",
-      "range": [
-        950,
-        950,
-        950,
-        950,
-        950
-      ],
+      "range": [950],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              60,
-              110,
-              160,
-              210,
-              260
-            ],
-            "scalings": []
+            "base": [60, 110, 160, 210, 260],
+            "scalings": [
+                { "stat": "ap", "ratio": 0.6 }
+            ]
           }
         }
       ]
@@ -116,75 +81,33 @@
     "E": {
       "id": "E",
       "name": "Quickdraw",
-      "cooldown": [
-        16,
-        15,
-        14,
-        13,
-        12
-      ],
-      "cost": [
-        40,
-        40,
-        40,
-        40,
-        40
-      ],
+      "cooldown": [16, 15, 14, 13, 12],
+      "cost": [40],
       "costType": "Mana",
-      "range": [
-        425,
-        425,
-        425,
-        425,
-        425
-      ],
       "effects": [
         {
-          "type": "damage",
-          "logic": {
-            "damageType": "Physical",
-            "base": [
-              30,
-              40,
-              50,
-              60,
-              70
-            ],
-            "scalings": []
-          }
+            "type": "buff",
+            "stack": { "name": "armor_bonus", "max": 8 },
+            "logic": { "base": [4, 7, 10, 13, 16] }
         }
       ]
     },
     "R": {
       "id": "R",
       "name": "Collateral Damage",
-      "cooldown": [
-        100,
-        80,
-        60
-      ],
-      "cost": [
-        100,
-        100,
-        100
-      ],
+      "cooldown": [100, 80, 60],
+      "cost": [100],
       "costType": "Mana",
-      "range": [
-        1000,
-        1000,
-        1000
-      ],
+      "range": [1000],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [
-              0,
-              0,
-              0
-            ],
-            "scalings": []
+            "base": [250, 400, 550],
+            "scalings": [
+                { "stat": "bonusAd", "ratio": 1.5 }
+            ]
           }
         }
       ]

@@ -17,60 +17,36 @@
     "range": 125,
     "moveSpeed": 350
   },
+  "mechanics": ["Skirmisher", "Diver", "CounterStrike", "Hybrid"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Relentless Assault",
-      "cooldown": [
-        0
-      ],
-      "cost": [
-        0
-      ],
-      "effects": []
+      "cooldown": [0],
+      "effects": [
+        {
+          "type": "buff",
+          "stack": { "name": "attackSpeed", "max": 8 },
+          "logic": { "base": [0.035, 0.05, 0.065, 0.08, 0.095, 0.11] }
+        }
+      ]
     },
     "Q": {
       "id": "Q",
       "name": "Leap Strike",
-      "cooldown": [
-        8,
-        7.5,
-        7,
-        6.5,
-        6
-      ],
-      "cost": [
-        65,
-        65,
-        65,
-        65,
-        65
-      ],
+      "cooldown": [8, 7.5, 7, 6.5, 6],
+      "cost": [65],
       "costType": "Mana",
-      "range": [
-        700,
-        700,
-        700,
-        700,
-        700
-      ],
+      "range": [700],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [
-              65,
-              105,
-              145,
-              185,
-              225
-            ],
+            "base": [65, 105, 145, 185, 225],
             "scalings": [
-              {
-                "stat": "ap",
-                "ratio": 1
-              }
+                { "stat": "bonusAd", "ratio": 1.0 },
+                { "stat": "ap", "ratio": 0.6 }
             ]
           }
         }
@@ -79,45 +55,17 @@
     "W": {
       "id": "W",
       "name": "Empower",
-      "cooldown": [
-        7,
-        6,
-        5,
-        4,
-        3
-      ],
-      "cost": [
-        30,
-        30,
-        30,
-        30,
-        30
-      ],
+      "cooldown": [7, 6, 5, 4, 3],
+      "cost": [30],
       "costType": "Mana",
-      "range": [
-        300,
-        300,
-        300,
-        300,
-        300
-      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              50,
-              85,
-              120,
-              155,
-              190
-            ],
+            "base": [50, 85, 120, 155, 190],
             "scalings": [
-              {
-                "stat": "ap",
-                "ratio": 0.6000000238418579
-              }
+                { "stat": "ap", "ratio": 0.6 }
             ]
           }
         }
@@ -126,94 +74,52 @@
     "E": {
       "id": "E",
       "name": "Counter Strike",
-      "cooldown": [
-        17,
-        15,
-        13,
-        11,
-        9
-      ],
-      "cost": [
-        50,
-        60,
-        70,
-        80,
-        90
-      ],
+      "cooldown": [17, 15, 13, 11, 9],
+      "cost": [50, 60, 70, 80, 90],
       "costType": "Mana",
-      "range": [
-        300,
-        300,
-        300,
-        300,
-        300
-      ],
+      "range": [300],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              40,
-              70,
-              100,
-              130,
-              160
-            ],
+            "base": [55, 85, 115, 145, 175],
             "scalings": [
-              {
-                "stat": "ap",
-                "ratio": [
-                  0.699999988079071,
-                  0.699999988079071,
-                  0.699999988079071,
-                  0.699999988079071,
-                  0.699999988079071
-                ]
-              }
+                { "stat": "ap", "ratio": 0.7 },
+                { "stat": "maxHp", "target": "enemy", "ratio": 0.04 }
             ]
           }
+        },
+        {
+            "type": "cc",
+            "duration": 1.0,
+            "stack": { "name": "stunned", "max": 1 }
         }
       ]
     },
     "R": {
       "id": "R",
       "name": "Grandmaster-at-Arms",
-      "cooldown": [
-        110,
-        100,
-        90
-      ],
-      "cost": [
-        100,
-        100,
-        100
-      ],
+      "cooldown": [110, 100, 90],
+      "cost": [100],
       "costType": "Mana",
-      "range": [
-        260,
-        260,
-        260
-      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              75,
-              130,
-              185,
-              240,
-              295
-            ],
+            "base": [60, 110, 160],
             "scalings": [
-              {
-                "stat": "ap",
-                "ratio": 0.6000000238418579
-              }
-            ]
+                { "stat": "ap", "ratio": 0.6 }
+            ],
+            "multiHit": 2,
+            "multiHitInterval": 1.5
           }
+        },
+        {
+            "type": "buff",
+            "stack": { "name": "armor_bonus", "max": 1 },
+            "logic": { "base": [30, 50, 70] }
         }
       ]
     }

@@ -17,61 +17,31 @@
     "range": 175,
     "moveSpeed": 340
   },
+  "mechanics": ["Bruiser", "Diver", "Jungler", "Transformer", "Execute"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Fury of the Xer'Sai",
-      "cooldown": [
-        0
-      ],
-      "cost": [
-        0
-      ],
+      "cooldown": [0],
       "effects": []
     },
     "Q": {
       "id": "Q",
       "name": "Queen's Wrath / Prey Seeker",
-      "cooldown": [
-        4,
-        3.5,
-        3,
-        2.5,
-        2
-      ],
-      "cost": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "costType": "Mana",
-      "range": [
-        325,
-        325,
-        325,
-        325,
-        325
-      ],
+      "cooldown": [4],
+      "cost": [0],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [],
+            "base": [30, 35, 40, 45, 50],
             "scalings": [
-              {
-                "stat": "ad",
-                "ratio": [
-                  0.30000001192092896,
-                  0.3499999940395355,
-                  0.4000000059604645,
-                  0.44999998807907104,
-                  0.5
-                ]
-              }
-            ]
+                { "stat": "bonusAd", "ratio": 0.5 }
+            ],
+            "multiHit": 3,
+            "multiHitInterval": 0.3,
+            "onHitEffectiveness": 1.0
           }
         }
       ]
@@ -79,77 +49,41 @@
     "W": {
       "id": "W",
       "name": "Burrow / Un-burrow",
-      "cooldown": [
-        4,
-        4,
-        4,
-        4,
-        4
-      ],
-      "cost": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "costType": "Mana",
-      "range": [
-        1650,
-        1650,
-        1650,
-        1650,
-        1650
-      ],
+      "cooldown": [4],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [
-              1500,
-              1500,
-              1500,
-              1500,
-              1500
-            ],
-            "scalings": []
+            "base": [50, 75, 100, 125, 150],
+            "scalings": [
+                { "stat": "bonusAd", "ratio": 0.8 }
+            ]
           }
+        },
+        {
+            "type": "cc",
+            "duration": 1.0,
+            "stack": { "name": "airborne", "max": 1 }
         }
       ]
     },
     "E": {
       "id": "E",
       "name": "Furious Bite / Tunnel",
-      "cooldown": [
-        6,
-        6,
-        6,
-        6,
-        6
-      ],
-      "cost": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "costType": "Mana",
-      "range": [
-        250,
-        250,
-        250,
-        250,
-        250
-      ],
+      "cooldown": [10],
+      "range": [250],
       "effects": [
         {
           "type": "damage",
           "logic": {
-            "damageType": "True",
-            "base": [],
-            "scalings": []
+            "damageType": "Physical",
+            "base": [50, 60, 70, 80, 90],
+            "scalings": [
+                { "stat": "bonusAd", "ratio": 0.75 }
+            ],
+            "multiHit": 2,
+            "multiHitInterval": 1.0
           }
         }
       ]
@@ -157,45 +91,17 @@
     "R": {
       "id": "R",
       "name": "Void Rush",
-      "cooldown": [
-        120,
-        100,
-        80
-      ],
-      "cost": [
-        0,
-        0,
-        0
-      ],
-      "costType": "Mana",
-      "range": [
-        1500,
-        1500,
-        1500
-      ],
+      "cooldown": [100, 90, 80],
+      "range": [1500],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [
-              150,
-              250,
-              350,
-              450,
-              550
-            ],
+            "base": [100, 200, 300],
             "scalings": [
-              {
-                "stat": "ad",
-                "ratio": [
-                  1,
-                  1,
-                  1,
-                  1,
-                  1
-                ]
-              }
+                { "stat": "bonusAd", "ratio": 1.75 },
+                { "stat": "missingHp", "target": "enemy", "ratio": [0.2, 0.25, 0.3] }
             ]
           }
         }

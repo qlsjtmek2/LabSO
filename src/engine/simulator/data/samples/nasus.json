@@ -17,61 +17,33 @@
     "range": 125,
     "moveSpeed": 350
   },
+  "mechanics": ["Bruiser", "Juggernaut", "Scaling", "Stacker", "LifeSteal"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Soul Eater",
-      "cooldown": [
-        0
-      ],
-      "cost": [
-        0
-      ],
-      "effects": []
+      "cooldown": [0],
+      "effects": [
+        {
+            "type": "buff",
+            "stack": { "name": "lifesteal", "max": 1 },
+            "logic": { "base": [0.12, 0.18, 0.24] }
+        }
+      ]
     },
     "Q": {
       "id": "Q",
       "name": "Siphoning Strike",
-      "cooldown": [
-        7.5,
-        6.5,
-        5.5,
-        4.5,
-        3.5
-      ],
-      "cost": [
-        20,
-        20,
-        20,
-        20,
-        20
-      ],
+      "cooldown": [7.5, 6.5, 5.5, 4.5, 3.5],
+      "cost": [20],
       "costType": "Mana",
-      "range": [
-        255,
-        255,
-        255,
-        255,
-        255
-      ],
+      "range": [255],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [
-              40,
-              60,
-              80,
-              100,
-              120
-            ],
-            "scalings": [
-              {
-                "stat": "ap",
-                "ratio": 1
-              }
-            ]
+            "base": [40, 60, 80, 100, 120]
           }
         }
       ]
@@ -79,118 +51,65 @@
     "W": {
       "id": "W",
       "name": "Wither",
-      "cooldown": [
-        15,
-        14,
-        13,
-        12,
-        11
-      ],
-      "cost": [
-        80,
-        80,
-        80,
-        80,
-        80
-      ],
+      "cooldown": [15, 14, 13, 12, 11],
+      "cost": [80],
       "costType": "Mana",
-      "range": [
-        700,
-        700,
-        700,
-        700,
-        700
-      ],
       "effects": [
         {
-          "type": "damage",
-          "logic": {
-            "damageType": "Physical",
-            "base": [],
-            "scalings": [
-              {
-                "stat": "ap",
-                "ratio": 1
-              }
-            ]
-          }
+            "type": "cc",
+            "duration": 5.0,
+            "stack": { "name": "slowed", "max": 1 }
         }
       ]
     },
     "E": {
       "id": "E",
       "name": "Spirit Fire",
-      "cooldown": [
-        12,
-        12,
-        12,
-        12,
-        12
-      ],
-      "cost": [
-        60,
-        70,
-        80,
-        90,
-        100
-      ],
+      "cooldown": [12],
+      "cost": [60, 70, 80, 90, 100],
       "costType": "Mana",
-      "range": [
-        650,
-        650,
-        650,
-        650,
-        650
-      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              10,
-              16,
-              22,
-              28,
-              34
-            ],
-            "scalings": []
+            "base": [55, 95, 135, 175, 215],
+            "scalings": [
+                { "stat": "ap", "ratio": 0.6 }
+            ]
           }
+        },
+        {
+            "type": "buff",
+            "stack": { "name": "armor_shred", "max": 1 },
+            "logic": { "base": [0.25, 0.3, 0.35, 0.4, 0.45] }
         }
       ]
     },
     "R": {
       "id": "R",
       "name": "Fury of the Sands",
-      "cooldown": [
-        120,
-        100,
-        80
-      ],
-      "cost": [
-        100,
-        100,
-        100
-      ],
+      "cooldown": [120, 100, 80],
+      "cost": [100],
       "costType": "Mana",
-      "range": [
-        400,
-        400,
-        400
-      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [],
+            "base": [0],
             "scalings": [
-              {
-                "stat": "ap",
-                "ratio": 0.00009999999747378752
-              }
-            ]
+                { "stat": "maxHp", "target": "enemy", "ratio": [0.03, 0.04, 0.05] },
+                { "stat": "ap", "ratio": 0.01 }
+            ],
+            "multiHit": 15,
+            "multiHitInterval": 1.0
           }
+        },
+        {
+            "type": "buff",
+            "stack": { "name": "bonus_hp", "max": 1 },
+            "logic": { "base": [300, 450, 600] }
         }
       ]
     }

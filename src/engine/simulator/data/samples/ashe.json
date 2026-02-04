@@ -17,56 +17,38 @@
     "range": 600,
     "moveSpeed": 325
   },
+  "mechanics": ["Marksman", "CC", "Utility"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Frost Shot",
-      "cooldown": [
-        0
-      ],
-      "cost": [
-        0
-      ],
-      "effects": []
+      "cooldown": [0],
+      "effects": [
+        {
+          "type": "cc",
+          "stack": { "name": "slowed", "max": 1 },
+          "duration": 2.0
+        }
+      ]
     },
     "Q": {
       "id": "Q",
       "name": "Ranger's Focus",
-      "cooldown": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "cost": [
-        30,
-        30,
-        30,
-        30,
-        30
-      ],
+      "cooldown": [0],
+      "cost": [50],
       "costType": "Mana",
-      "range": [
-        400,
-        400,
-        400,
-        400,
-        400
-      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [
-              4,
-              4,
-              4,
-              4,
-              4
+            "base": [0],
+            "scalings": [
+                { "stat": "ad", "ratio": [1.05, 1.1, 1.15, 1.2, 1.25] }
             ],
-            "scalings": []
+            "multiHit": 5,
+            "multiHitInterval": 0.05,
+            "onHitEffectiveness": 1.0
           }
         }
       ]
@@ -74,118 +56,58 @@
     "W": {
       "id": "W",
       "name": "Volley",
-      "cooldown": [
-        18,
-        14.5,
-        11,
-        7.5,
-        4
-      ],
-      "cost": [
-        75,
-        70,
-        65,
-        60,
-        55
-      ],
+      "cooldown": [18, 14.5, 11, 7.5, 4],
+      "cost": [75, 70, 65, 60, 55],
       "costType": "Mana",
-      "range": [
-        1200,
-        1200,
-        1200,
-        1200,
-        1200
-      ],
+      "range": [1200, 1200, 1200, 1200, 1200],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [
-              5,
-              7,
-              9,
-              11,
-              13
-            ],
-            "scalings": []
+            "base": [20, 35, 50, 65, 80],
+            "scalings": [
+                { "stat": "ad", "ratio": 1.0 }
+            ]
           }
+        },
+        {
+            "type": "cc",
+            "duration": 2.0,
+            "stack": { "name": "slowed", "max": 1 }
         }
       ]
     },
     "E": {
       "id": "E",
       "name": "Hawkshot",
-      "cooldown": [
-        5,
-        5,
-        5,
-        5,
-        5
-      ],
-      "cost": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "costType": "Mana",
-      "range": [
-        25000,
-        25000,
-        25000,
-        25000,
-        25000
-      ],
-      "effects": [
-        {
-          "type": "damage",
-          "logic": {
-            "damageType": "Physical",
-            "base": [
-              3,
-              3,
-              3,
-              3,
-              3
-            ],
-            "scalings": []
-          }
-        }
-      ]
+      "cooldown": [90, 80, 70, 60, 50],
+      "cost": [0],
+      "effects": []
     },
     "R": {
       "id": "R",
       "name": "Enchanted Crystal Arrow",
-      "cooldown": [
-        100,
-        80,
-        60
-      ],
-      "cost": [
-        100,
-        100,
-        100
-      ],
+      "cooldown": [100, 80, 60],
+      "cost": [100, 100, 100],
       "costType": "Mana",
-      "range": [
-        25000,
-        25000,
-        25000
-      ],
+      "range": [25000],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              0,
-              0,
-              0
+            "base": [200, 400, 600],
+            "scalings": [
+                { "stat": "ap", "ratio": 1.0 }
             ],
-            "scalings": []
+            "projectileSpeed": 1600
           }
+        },
+        {
+            "type": "cc",
+            "duration": 1.5,
+            "stack": { "name": "stunned", "max": 1 }
         }
       ]
     }

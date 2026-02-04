@@ -17,98 +17,68 @@
     "range": 550,
     "moveSpeed": 330
   },
+  "mechanics": ["Mage", "Artillery", "Control", "Burst", "Shield"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Illumination",
-      "cooldown": [
-        0
-      ],
-      "cost": [
-        0
-      ],
-      "effects": []
-    },
-    "Q": {
-      "id": "Q",
-      "name": "Light Binding",
-      "cooldown": [
-        11,
-        10.5,
-        10,
-        9.5,
-        9
-      ],
-      "cost": [
-        50,
-        50,
-        50,
-        50,
-        50
-      ],
-      "costType": "Mana",
-      "range": [
-        1175,
-        1175,
-        1175,
-        1175,
-        1175
-      ],
+      "cooldown": [0],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              80,
-              120,
-              160,
-              200,
-              240
-            ],
-            "scalings": []
+            "base": [30, 32, 34, 36, 38, 40, 45, 50, 55, 60, 70, 80, 90, 105, 120, 140, 160, 190],
+            "levelScaling": true,
+            "scalings": [
+                { "stat": "ap", "ratio": 0.25 }
+            ]
           }
+        }
+      ]
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Light Binding",
+      "cooldown": [11, 10.5, 10, 9.5, 9],
+      "cost": [50],
+      "costType": "Mana",
+      "range": [1175],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [80, 120, 160, 200, 240],
+            "scalings": [
+                { "stat": "ap", "ratio": 0.6 }
+            ],
+            "projectileSpeed": 1200
+          }
+        },
+        {
+            "type": "cc",
+            "duration": 2.0,
+            "stack": { "name": "rooted", "max": 1 }
         }
       ]
     },
     "W": {
       "id": "W",
       "name": "Prismatic Barrier",
-      "cooldown": [
-        14,
-        13,
-        12,
-        11,
-        10
-      ],
-      "cost": [
-        60,
-        65,
-        70,
-        75,
-        80
-      ],
+      "cooldown": [14, 13, 12, 11, 10],
+      "cost": [60],
       "costType": "Mana",
-      "range": [
-        1150,
-        1150,
-        1150,
-        1150,
-        1150
-      ],
       "effects": [
         {
-          "type": "damage",
+          "type": "shield",
           "logic": {
-            "damageType": "Physical",
-            "base": [
-              2,
-              4,
-              6,
-              8,
-              10
-            ],
-            "scalings": []
+              "base": [40, 55, 70, 85, 100],
+              "scalings": [
+                  { "stat": "ap", "ratio": 0.35 }
+              ],
+              "multiHit": 2,
+              "multiHitInterval": 1.0
           }
         }
       ]
@@ -116,81 +86,44 @@
     "E": {
       "id": "E",
       "name": "Lucent Singularity",
-      "cooldown": [
-        10,
-        9.5,
-        9,
-        8.5,
-        8
-      ],
-      "cost": [
-        70,
-        80,
-        90,
-        100,
-        110
-      ],
+      "cooldown": [10, 9.5, 9, 8.5, 8],
+      "cost": [70, 80, 90, 100, 110],
       "costType": "Mana",
-      "range": [
-        1100,
-        1100,
-        1100,
-        1100,
-        1100
-      ],
+      "range": [1100],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              25,
-              30,
-              35,
-              40,
-              45
+            "base": [70, 120, 170, 220, 270],
+            "scalings": [
+                { "stat": "ap", "ratio": 0.8 }
             ],
-            "scalings": []
+            "projectileSpeed": 1200
           }
+        },
+        {
+            "type": "cc",
+            "duration": 1.0,
+            "stack": { "name": "slowed", "max": 1 }
         }
       ]
     },
     "R": {
       "id": "R",
       "name": "Final Spark",
-      "cooldown": [
-        60,
-        50,
-        40
-      ],
-      "cost": [
-        100,
-        100,
-        100
-      ],
+      "cooldown": [60, 50, 40],
+      "cost": [100],
       "costType": "Mana",
-      "range": [
-        3340,
-        3340,
-        3340
-      ],
+      "range": [3340],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              300,
-              400,
-              500,
-              600,
-              700
-            ],
+            "base": [300, 400, 500],
             "scalings": [
-              {
-                "stat": "ap",
-                "ratio": 1.2000000476837158
-              }
+                { "stat": "ap", "ratio": 1.2 }
             ]
           }
         }

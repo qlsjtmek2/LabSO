@@ -16,6 +16,7 @@ export class GenericChampionModel {
   private level: number;
   private stacks: number;
   private form: number = 0; // 0: Base, 1: Alt
+  private activeBuffs: Map<string, any> = new Map();
 
   constructor(schema: ChampionSchema, items: ItemScript[], level: number = 18, stacks: number = 0) {
     this.schema = schema;
@@ -110,7 +111,24 @@ export class GenericChampionModel {
     return stats;
   }
 
-  // 스탯 값 추출 헬퍼
+  // 버프 효과 적용
+  private applyBuff(effect: any, skillLevel: number) {
+    if (!effect.stack) return;
+    const name = effect.stack.name;
+    const lvIdx = Math.min(skillLevel - 1, effect.logic?.base?.length - 1 || 0);
+    const value = effect.logic?.base?.[lvIdx] || 0;
+    
+    this.activeBuffs.set(name, { value, duration: effect.duration || 10 });
+    
+    // 즉각적인 스탯 반영이 필요한 경우
+    if (name === 'ad_amp') {
+        this.stats.ad *= (1 + value);
+    } else if (name === 'omnivamp') {
+        this.stats.omnivamp += value;
+    }
+  }
+
+  // 스탯 값 추출 헬퍼 (최신화)
   private getStatValue(statType: string, target?: CombatStats): number {
     const s = this.stats;
     const base = this.schema.baseStats;
@@ -166,11 +184,36 @@ export class GenericChampionModel {
     // 3. 조건부 증폭 (Modifiers)
     if (logic.modifiers) {
       logic.modifiers.forEach(mod => {
-        // 조건 확인 로직 (현재는 단순화하여 무조건 true로 가정하거나 추후 구현)
-        // 실제로는 mod.condition을 파싱해야 함.
-        // 여기서는 예시로 '항상 적용'으로 가정
-        if (mod.multiplier) totalDamage *= mod.multiplier;
-        if (mod.flat) totalDamage += mod.flat;
+        let conditionMet = false;
+        
+        if (mod.condition.type === 'cc') {
+            const targetStats = mod.condition.target === 'enemy' ? target : this.stats;
+            if (targetStats.ccStatus) {
+                // 특정 CC가 필요한 경우 (예: charmed)
+                if (mod.condition.buffName) {
+                    conditionMet = !!(targetStats.ccStatus as any)[mod.condition.buffName];
+                } else {
+                    // 아무 CC나 걸려있으면 인정
+                    conditionMet = Object.values(targetStats.ccStatus).some(v => v === true);
+                }
+            }
+        } else if (mod.condition.type === 'stat') {
+            const targetStats = mod.condition.target === 'enemy' ? target : this.stats;
+            const statValue = this.getStatValue(mod.condition.stat!, targetStats);
+            const compareValue = mod.condition.value || 0;
+            
+            // 비교 로직 (단순화)
+            if (mod.condition.operator === '<') conditionMet = statValue < compareValue;
+            else if (mod.condition.operator === '>') conditionMet = statValue > compareValue;
+            else if (mod.condition.operator === '<=') conditionMet = statValue <= compareValue;
+            else if (mod.condition.operator === '>=') conditionMet = statValue >= compareValue;
+            else if (mod.condition.operator === '==') conditionMet = statValue === compareValue;
+        }
+
+        if (conditionMet) {
+          if (mod.multiplier) totalDamage *= mod.multiplier;
+          if (mod.flat) totalDamage += mod.flat;
+        }
       });
     }
 
@@ -210,37 +253,69 @@ export class GenericChampionModel {
     const events: DamageEvent[] = [];
 
     spell.effects.forEach((effect: any) => {
+      if (effect.type === 'buff') {
+        this.applyBuff(effect, skillLevel);
+      }
+      
       if (effect.type === 'damage' && effect.logic) {
-        let rawDmg = this.calculateSpellDamage(effect.logic, target, skillLevel);
+        const logic = effect.logic as DamageLogic;
+        let rawDmg = this.calculateSpellDamage(logic, target, skillLevel);
         
         // 나서스 Q 스택 데미지 추가
         if (this.schema.id === 'Nasus' && spellKey === 'Q') {
             rawDmg += this.stacks;
         }
 
-        // 도트 데미지 처리
-        const ticks = effect.logic.ticks || 1;
-        const dmgPerTick = rawDmg / ticks;
+        // 도트/연타 데미지 처리
+        const hits = logic.multiHit || logic.ticks || 1;
+        const interval = logic.multiHitInterval || 0.5; // 기본 0.5초
+        const dmgPerHit = rawDmg / (logic.ticks || 1); // ticks가 있으면 분할, multiHit은 각 타격이 rawDmg일 수도 있으나 일단 분할로 가정 (스키마 정의에 따라 다름)
+        // 실제 롤 데이터상 multiHit은 전체 데미지를 나누는 경우가 많음. 
+        // 하지만 여기서는 명시적으로 multiHit이 있으면 그만큼 반복하는 것으로 처리.
+        
+        // 투사체 속도에 따른 지연 시간 계산 (거리는 기본 500 가정)
+        const travelTime = logic.projectileSpeed ? (500 / logic.projectileSpeed) : 0;
+        const baseDelay = logic.delay || 0;
 
-        for (let i = 0; i < ticks; i++) {
+        for (let i = 0; i < hits; i++) {
+          const hitTime = time + travelTime + baseDelay + (i * interval);
           const mitigated = DamageEngine.calculateDamage(
-            dmgPerTick, 
-            effect.logic.damageType, 
+            dmgPerHit, 
+            logic.damageType, 
             this.stats, 
             target
           );
 
           events.push({
             source: `${spell.name} (${actualKey})`,
-            type: effect.logic.damageType,
-            rawDamage: dmgPerTick,
+            type: logic.damageType,
+            rawDamage: dmgPerHit,
             mitigatedDamage: mitigated,
-            timestamp: time + (i * 0.5), // 0.5초 간격 가정
+            timestamp: hitTime,
             isCrit: false
           });
 
+          // 돌아오는 데미지 처리 (예: 아리 Q)
+          if (logic.returnDamage && i === 0) {
+            // 돌아오는 데미지는 보통 0.5초~1초 뒤에 발생
+            const returnMitigated = DamageEngine.calculateDamage(
+                dmgPerHit,
+                'True', // 아리 Q 등 돌아올 때 고정뎀인 경우가 많음 (스키마에서 damageType을 True로 주거나 여기서 강제 가능)
+                this.stats,
+                target
+            );
+            events.push({
+                source: `${spell.name} (Return)`,
+                type: 'True',
+                rawDamage: dmgPerHit,
+                mitigatedDamage: returnMitigated,
+                timestamp: hitTime + 0.8, // 왕복 시간 가정
+                isCrit: false
+            });
+          }
+
           // 온힛 적용 (효율 적용)
-          if (effect.logic.onHitEffectiveness) {
+          if (logic.onHitEffectiveness) {
             this.items.forEach(item => {
               if (item.onHit) {
                 const onHitDmg = item.onHit(target, this.stats);
@@ -248,14 +323,14 @@ export class GenericChampionModel {
                   events.push({
                     source: `${item.name} (On-hit)`,
                     type: onHitDmg.type,
-                    rawDamage: onHitDmg.damage * effect.logic!.onHitEffectiveness!,
+                    rawDamage: onHitDmg.damage * logic.onHitEffectiveness!,
                     mitigatedDamage: DamageEngine.calculateDamage(
-                      onHitDmg.damage * effect.logic!.onHitEffectiveness!,
+                      onHitDmg.damage * logic.onHitEffectiveness!,
                       onHitDmg.type,
                       this.stats,
                       target
                     ),
-                    timestamp: time + (i * 0.5),
+                    timestamp: hitTime,
                     isCrit: false
                   });
                 }

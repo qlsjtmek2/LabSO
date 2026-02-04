@@ -17,56 +17,37 @@
     "range": 525,
     "moveSpeed": 335
   },
+  "mechanics": ["Transformer", "Assassin", "Mage", "Jungler", "Execute"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Prowl",
-      "cooldown": [
-        0
-      ],
-      "cost": [
-        0
-      ],
+      "cooldown": [0],
       "effects": []
     },
     "Q": {
       "id": "Q",
-      "name": "Javelin Toss / Takedown",
-      "cooldown": [
-        6,
-        6,
-        6,
-        6,
-        6
-      ],
-      "cost": [
-        50,
-        55,
-        60,
-        65,
-        70
-      ],
+      "name": "Javelin Toss (Human)",
+      "cooldown": [6],
+      "cost": [50, 55, 60, 65, 70],
       "costType": "Mana",
-      "range": [
-        1500,
-        1500,
-        1500,
-        1500,
-        1500
-      ],
+      "range": [1500],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              70,
-              90,
-              110,
-              130,
-              150
+            "base": [70, 90, 110, 130, 150],
+            "scalings": [
+                { "stat": "ap", "ratio": 0.5 }
             ],
-            "scalings": []
+            "modifiers": [
+                {
+                    "condition": { "type": "position", "target": "enemy" },
+                    "multiplier": 3.0
+                }
+            ],
+            "projectileSpeed": 1300
           }
         }
       ]
@@ -74,192 +55,58 @@
     "W": {
       "id": "W",
       "name": "Bushwhack / Pounce",
-      "cooldown": [
-        13,
-        12,
-        11,
-        10,
-        9
-      ],
-      "cost": [
-        30,
-        35,
-        40,
-        45,
-        50
-      ],
-      "costType": "Mana",
-      "range": [
-        900,
-        900,
-        900,
-        900,
-        900
-      ],
-      "effects": [
-        {
-          "type": "damage",
-          "logic": {
-            "damageType": "Magical",
-            "base": [
-              0,
-              0,
-              0,
-              0,
-              0
-            ],
-            "scalings": []
-          }
-        }
-      ]
+      "cooldown": [13],
+      "cost": [40],
+      "effects": []
     },
     "E": {
       "id": "E",
-      "name": "Primal Surge / Swipe",
-      "cooldown": [
-        12,
-        12,
-        12,
-        12,
-        12
-      ],
-      "cost": [
-        50,
-        55,
-        60,
-        65,
-        70
-      ],
+      "name": "Primal Surge (Human)",
+      "cooldown": [12],
+      "cost": [50, 60, 70, 80, 90],
       "costType": "Mana",
-      "range": [
-        900,
-        900,
-        900,
-        900,
-        900
-      ],
       "effects": [
         {
-          "type": "damage",
+          "type": "heal",
           "logic": {
-            "damageType": "Physical",
-            "base": [
-              0,
-              0,
-              0,
-              0,
-              0
-            ],
-            "scalings": []
+            "base": [35, 50, 65, 80, 95],
+            "scalings": [
+                { "stat": "ap", "ratio": 0.275 }
+            ]
           }
+        },
+        {
+            "type": "buff",
+            "stack": { "name": "attackSpeed", "max": 1 },
+            "logic": { "base": [0.2, 0.3, 0.4, 0.5, 0.6] }
         }
       ]
     },
     "R": {
       "id": "R",
       "name": "Aspect Of The Cougar",
-      "cooldown": [
-        3,
-        3,
-        3,
-        3
-      ],
-      "cost": [
-        0,
-        0,
-        0,
-        0
-      ],
-      "costType": "Mana",
-      "range": [
-        20,
-        20,
-        20,
-        20
-      ],
-      "effects": [
-        {
-          "type": "damage",
-          "logic": {
-            "damageType": "Physical",
-            "base": [
-              0,
-              0,
-              0,
-              0
-            ],
-            "scalings": []
-          }
-        }
-      ]
+      "cooldown": [3],
+      "effects": []
     },
     "Q_Form2": {
       "id": "Q_Form2",
-      "name": "Q_Form2 (Form 2)",
-      "cooldown": [
-        0
-      ],
-      "cost": [
-        0
-      ],
-      "range": [
-        0
-      ],
+      "name": "Takedown (Cougar)",
+      "cooldown": [6],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [
-              5,
-              30,
-              55,
-              80,
-              80
-            ],
+            "base": [5, 30, 55, 80],
             "scalings": [
-              {
-                "stat": "ad",
-                "ratio": 0.75
-              },
-              {
-                "stat": "ap",
-                "ratio": 0.4000000059604645
-              }
-            ]
-          }
-        }
-      ]
-    },
-    "W_Form2": {
-      "id": "W_Form2",
-      "name": "W_Form2 (Form 2)",
-      "cooldown": [
-        0
-      ],
-      "cost": [
-        0
-      ],
-      "range": [
-        0
-      ],
-      "effects": [
-        {
-          "type": "damage",
-          "logic": {
-            "damageType": "Physical",
-            "base": [
-              750,
-              750,
-              750,
-              750,
-              750
+                { "stat": "ad", "ratio": 0.75 },
+                { "stat": "ap", "ratio": 0.4 }
             ],
-            "scalings": [
-              {
-                "stat": "ap",
-                "ratio": 0.20000000298023224
-              }
+            "modifiers": [
+                {
+                    "condition": { "type": "stat", "target": "enemy", "stat": "missingHp", "operator": ">", "value": 0 },
+                    "multiplier": 2.0
+                }
             ]
           }
         }
@@ -267,33 +114,16 @@
     },
     "E_Form2": {
       "id": "E_Form2",
-      "name": "E_Form2 (Form 2)",
-      "cooldown": [
-        0
-      ],
-      "cost": [
-        0
-      ],
-      "range": [
-        0
-      ],
+      "name": "Swipe (Cougar)",
+      "cooldown": [6],
       "effects": [
         {
           "type": "damage",
           "logic": {
-            "damageType": "Physical",
-            "base": [
-              1,
-              1,
-              1,
-              1,
-              1
-            ],
+            "damageType": "Magical",
+            "base": [60, 110, 160, 210],
             "scalings": [
-              {
-                "stat": "ap",
-                "ratio": 0.44999998807907104
-              }
+                { "stat": "ap", "ratio": 0.45 }
             ]
           }
         }

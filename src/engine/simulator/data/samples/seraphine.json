@@ -17,66 +17,49 @@
     "range": 525,
     "moveSpeed": 330
   },
+  "mechanics": ["Mage", "Support", "Control", "AoE", "Execute"],
   "spells": {
     "P": {
       "id": "P",
-      "name": "Stage Presence",
-      "cooldown": [
-        0
-      ],
-      "cost": [
-        0
-      ],
-      "effects": []
-    },
-    "Q": {
-      "id": "Q",
-      "name": "High Note",
-      "cooldown": [
-        8,
-        7.5,
-        7,
-        6.5,
-        6
-      ],
-      "cost": [
-        60,
-        70,
-        80,
-        90,
-        100
-      ],
-      "costType": "Mana",
-      "range": [
-        900,
-        900,
-        900,
-        900,
-        900
-      ],
+      "name": "Stage Presence (Notes)",
+      "cooldown": [0],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              60,
-              85,
-              110,
-              135,
-              160
-            ],
+            "base": [4, 8, 14, 24],
+            "levelScaling": true,
             "scalings": [
-              {
-                "stat": "ap",
-                "ratio": [
-                  0.5,
-                  0.5,
-                  0.5,
-                  0.5,
-                  0.5
-                ]
-              }
+                { "stat": "ap", "ratio": 0.07 }
+            ],
+            "multiHit": 4,
+            "multiHitInterval": 0.1
+          }
+        }
+      ]
+    },
+    "Q": {
+      "id": "Q",
+      "name": "High Note",
+      "cooldown": [8, 7.5, 7, 6.5, 6],
+      "cost": [60, 70, 80, 90, 100],
+      "costType": "Mana",
+      "range": [900],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [60, 85, 110, 135, 160],
+            "scalings": [
+                { "stat": "ap", "ratio": 0.6 }
+            ],
+            "modifiers": [
+                {
+                    "condition": { "type": "stat", "target": "enemy", "stat": "hp", "operator": "<", "value": 0.25 },
+                    "multiplier": 1.5
+                }
             ]
           }
         }
@@ -85,104 +68,43 @@
     "W": {
       "id": "W",
       "name": "Surround Sound",
-      "cooldown": [
-        22,
-        22,
-        22,
-        22,
-        22
-      ],
-      "cost": [
-        70,
-        75,
-        80,
-        85,
-        90
-      ],
-      "costType": "Mana",
-      "range": [
-        800,
-        800,
-        800,
-        800,
-        800
-      ],
+      "cooldown": [22],
+      "cost": [70],
       "effects": [
         {
-          "type": "damage",
+          "type": "shield",
           "logic": {
-            "damageType": "Physical",
-            "base": [
-              60,
-              80,
-              100,
-              120,
-              140
-            ],
-            "scalings": [
-              {
-                "stat": "ap",
-                "ratio": [
-                  0.20000000298023224,
-                  0.20000000298023224,
-                  0.20000000298023224,
-                  0.20000000298023224,
-                  0.20000000298023224
-                ]
-              }
-            ]
+              "base": [60, 80, 100, 120, 140],
+              "scalings": [
+                  { "stat": "ap", "ratio": 0.25 }
+              ]
           }
+        },
+        {
+            "type": "heal",
+            "logic": {
+                "base": [0],
+                "scalings": [
+                    { "stat": "missingHp", "target": "self", "ratio": 0.05 }
+                ]
+            }
         }
       ]
     },
     "E": {
       "id": "E",
       "name": "Beat Drop",
-      "cooldown": [
-        11,
-        10.5,
-        10,
-        9.5,
-        9
-      ],
-      "cost": [
-        60,
-        60,
-        60,
-        60,
-        60
-      ],
-      "costType": "Mana",
-      "range": [
-        1300,
-        1300,
-        1300,
-        1300,
-        1300
-      ],
+      "cooldown": [11, 10.5, 10, 9.5, 9],
+      "cost": [60],
+      "range": [1300],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              70,
-              100,
-              130,
-              160,
-              190
-            ],
+            "base": [70, 100, 130, 160, 190],
             "scalings": [
-              {
-                "stat": "ap",
-                "ratio": [
-                  0.5,
-                  0.5,
-                  0.5,
-                  0.5,
-                  0.5
-                ]
-              }
+                { "stat": "ap", "ratio": 0.5 }
             ]
           }
         }
@@ -191,47 +113,23 @@
     "R": {
       "id": "R",
       "name": "Encore",
-      "cooldown": [
-        160,
-        140,
-        120
-      ],
-      "cost": [
-        100,
-        100,
-        100
-      ],
-      "costType": "Mana",
-      "range": [
-        25000,
-        25000,
-        25000
-      ],
+      "cooldown": [160, 140, 120],
+      "cost": [100],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              150,
-              200,
-              250,
-              300,
-              350
-            ],
+            "base": [150, 250, 350],
             "scalings": [
-              {
-                "stat": "ap",
-                "ratio": [
-                  0.4000000059604645,
-                  0.4000000059604645,
-                  0.4000000059604645,
-                  0.4000000059604645,
-                  0.4000000059604645
-                ]
-              }
+                { "stat": "ap", "ratio": 0.6 }
             ]
           }
+        },
+        {
+            "type": "cc",
+            "duration": 1.5,
+            "stack": { "name": "charmed", "max": 1 }
         }
       ]
     }

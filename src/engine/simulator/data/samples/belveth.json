@@ -4,7 +4,7 @@
   "baseStats": {
     "hp": 610,
     "hpPerLevel": 99,
-    "mp": 60,
+    "mp": 0,
     "mpPerLevel": 0,
     "ad": 60,
     "adPerLevel": 1.5,
@@ -17,67 +17,38 @@
     "range": 150,
     "moveSpeed": 340
   },
+  "mechanics": ["Skirmisher", "Hypercarry", "InfiniteScaling"],
   "spells": {
     "P": {
       "id": "P",
-      "name": "Death in Lavender ",
-      "cooldown": [
-        0
-      ],
-      "cost": [
-        0
-      ],
-      "effects": []
+      "name": "Death in Lavender",
+      "cooldown": [0],
+      "effects": [
+        {
+          "type": "buff",
+          "stack": { "name": "lavender", "max": 999 },
+          "logic": { "base": [0] }
+        }
+      ]
     },
     "Q": {
       "id": "Q",
       "name": "Void Surge",
-      "cooldown": [
-        1,
-        1,
-        1,
-        1,
-        1
-      ],
-      "cost": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "costType": "Mana",
-      "range": [
-        450,
-        450,
-        450,
-        450,
-        450
-      ],
+      "cooldown": [1, 1, 1, 1, 1],
+      "cost": [0],
+      "costType": "None",
+      "range": [450, 450, 450, 450, 450],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [
-              0,
-              5,
-              10,
-              15,
-              20
-            ],
+            "base": [10, 15, 20, 25, 30],
             "scalings": [
-              {
-                "stat": "ad",
-                "ratio": [
-                  1,
-                  1,
-                  1,
-                  1,
-                  1
-                ]
-              }
-            ]
+                { "stat": "ad", "ratio": 1.1 }
+            ],
+            "multiHit": 2,
+            "multiHitInterval": 0.5
           }
         }
       ]
@@ -85,137 +56,71 @@
     "W": {
       "id": "W",
       "name": "Above and Below",
-      "cooldown": [
-        12,
-        11,
-        10,
-        9,
-        8
-      ],
-      "cost": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "costType": "Mana",
-      "range": [
-        715,
-        715,
-        715,
-        715,
-        715
-      ],
+      "cooldown": [12, 11, 10, 9, 8],
+      "cost": [0],
+      "costType": "None",
+      "range": [715, 715, 715, 715, 715],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              70,
-              110,
-              150,
-              190,
-              230
-            ],
+            "base": [70, 110, 150, 190, 230],
             "scalings": [
-              {
-                "stat": "ap",
-                "ratio": 1.25
-              },
-              {
-                "stat": "ap",
-                "ratio": 1
-              }
+                { "stat": "ap", "ratio": 1.0 },
+                { "stat": "bonusAd", "ratio": 1.0 }
             ]
           }
+        },
+        {
+            "type": "cc",
+            "duration": 0.75,
+            "stack": { "name": "airborne", "max": 1 }
         }
       ]
     },
     "E": {
       "id": "E",
       "name": "Royal Maelstrom",
-      "cooldown": [
-        20,
-        19,
-        18,
-        17,
-        16
-      ],
-      "cost": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "costType": "Mana",
-      "range": [
-        500,
-        500,
-        500,
-        500,
-        500
-      ],
+      "cooldown": [20, 19, 18, 17, 16],
+      "cost": [0],
+      "costType": "None",
+      "range": [500, 500, 500, 500, 500],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [
-              6,
-              7,
-              8,
-              9,
-              10
-            ],
+            "base": [6, 7, 8, 9, 10],
             "scalings": [
-              {
-                "stat": "ap",
-                "ratio": 0.07999999821186066
-              }
-            ]
+                { "stat": "ad", "ratio": 0.08 }
+            ],
+            "multiHit": 10,
+            "multiHitInterval": 0.15,
+            "onHitEffectiveness": 0.06
           }
+        },
+        {
+            "type": "buff",
+            "stack": { "name": "damage_reduction", "max": 1 },
+            "logic": { "base": [0.7] }
         }
       ]
     },
     "R": {
       "id": "R",
       "name": "Endless Banquet",
-      "cooldown": [
-        1,
-        1,
-        1
-      ],
-      "cost": [
-        0,
-        0,
-        0
-      ],
-      "costType": "Mana",
-      "range": [
-        450,
-        450,
-        450
-      ],
+      "cooldown": [1, 1, 1],
+      "cost": [0],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "True",
-            "base": [
-              6,
-              8,
-              10,
-              12,
-              14
-            ],
+            "base": [150, 200, 250],
             "scalings": [
-              {
-                "stat": "ap",
-                "ratio": 0.11999999731779099
-              }
+                { "stat": "ap", "ratio": 1.0 },
+                { "stat": "bonusAd", "ratio": 1.0 }
             ]
           }
         }

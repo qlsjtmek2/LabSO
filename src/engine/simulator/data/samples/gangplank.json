@@ -17,56 +17,45 @@
     "range": 125,
     "moveSpeed": 345
   },
+  "mechanics": ["Skirmisher", "CriticalStrike", "TrueDamage", "Global"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Trial by Fire",
-      "cooldown": [
-        0
-      ],
-      "cost": [
-        0
-      ],
-      "effects": []
+      "cooldown": [15],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "True",
+            "base": [55, 60, 65, 70, 75, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 200, 225],
+            "levelScaling": true,
+            "scalings": [
+                { "stat": "bonusAd", "ratio": 1.0 }
+            ],
+            "multiHit": 5,
+            "multiHitInterval": 0.5
+          }
+        }
+      ]
     },
     "Q": {
       "id": "Q",
       "name": "Parrrley",
-      "cooldown": [
-        4.5,
-        4.5,
-        4.5,
-        4.5,
-        4.5
-      ],
-      "cost": [
-        50,
-        45,
-        40,
-        35,
-        30
-      ],
+      "cooldown": [4.5],
+      "cost": [60, 55, 50, 45, 40],
       "costType": "Mana",
-      "range": [
-        625,
-        625,
-        625,
-        625,
-        625
-      ],
+      "range": [625],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [
-              10,
-              40,
-              70,
-              100,
-              130
+            "base": [10, 40, 70, 100, 130],
+            "scalings": [
+                { "stat": "ad", "ratio": 1.0 }
             ],
-            "scalings": []
+            "onHitEffectiveness": 1.0
           }
         }
       ]
@@ -74,41 +63,18 @@
     "W": {
       "id": "W",
       "name": "Remove Scurvy",
-      "cooldown": [
-        22,
-        20,
-        18,
-        16,
-        14
-      ],
-      "cost": [
-        60,
-        70,
-        80,
-        90,
-        100
-      ],
+      "cooldown": [22, 20, 18, 16, 14],
+      "cost": [60, 70, 80, 90, 100],
       "costType": "Mana",
-      "range": [
-        400,
-        400,
-        400,
-        400,
-        400
-      ],
       "effects": [
         {
-          "type": "damage",
+          "type": "heal",
           "logic": {
-            "damageType": "Physical",
-            "base": [
-              45,
-              70,
-              95,
-              120,
-              145
-            ],
-            "scalings": []
+            "base": [45, 70, 95, 120, 145],
+            "scalings": [
+                { "stat": "ap", "ratio": 0.9 },
+                { "stat": "missingHp", "target": "self", "ratio": 0.13 }
+            ]
           }
         }
       ]
@@ -116,41 +82,23 @@
     "E": {
       "id": "E",
       "name": "Powder Keg",
-      "cooldown": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "cost": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "costType": "Mana",
-      "range": [
-        1000,
-        1000,
-        1000,
-        1000,
-        1000
-      ],
+      "cooldown": [18, 17, 16, 15, 14],
+      "cost": [0],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [
-              3,
-              3,
-              4,
-              4,
-              5
+            "base": [80, 105, 130, 155, 180],
+            "scalings": [
+                { "stat": "bonusAd", "ratio": 1.0 }
             ],
-            "scalings": []
+            "modifiers": [
+                {
+                    "condition": { "type": "stat", "target": "self", "stat": "critChance", "operator": ">", "value": 0 },
+                    "multiplier": 1.25
+                }
+            ]
           }
         }
       ]
@@ -158,40 +106,20 @@
     "R": {
       "id": "R",
       "name": "Cannon Barrage",
-      "cooldown": [
-        160,
-        140,
-        120
-      ],
-      "cost": [
-        100,
-        100,
-        100
-      ],
+      "cooldown": [160, 140, 120],
+      "cost": [100],
       "costType": "Mana",
-      "range": [
-        30000,
-        30000,
-        30000
-      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              40,
-              70,
-              100,
-              130,
-              160
-            ],
+            "base": [40, 70, 100],
             "scalings": [
-              {
-                "stat": "ap",
-                "ratio": 0.10000000149011612
-              }
-            ]
+                { "stat": "ap", "ratio": 0.1 }
+            ],
+            "multiHit": 12,
+            "multiHitInterval": 0.6
           }
         }
       ]

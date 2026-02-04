@@ -17,66 +17,43 @@
     "range": 125,
     "moveSpeed": 335
   },
+  "mechanics": ["Assassin", "Mobile", "Reset", "OnHit"],
   "spells": {
     "P": {
       "id": "P",
-      "name": "Voracity",
-      "cooldown": [
-        0
-      ],
-      "cost": [
-        0
-      ],
-      "effects": []
-    },
-    "Q": {
-      "id": "Q",
-      "name": "Bouncing Blade",
-      "cooldown": [
-        11,
-        10,
-        9,
-        8,
-        7
-      ],
-      "cost": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "costType": "None",
-      "range": [
-        625,
-        625,
-        625,
-        625,
-        625
-      ],
+      "name": "Voracity (Dagger)",
+      "cooldown": [0],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              80,
-              115,
-              150,
-              185,
-              220
-            ],
+            "base": [68, 72, 77, 82, 89, 96, 103, 112, 121, 131, 142, 154, 166, 180, 194, 208, 224, 240],
+            "levelScaling": true,
             "scalings": [
-              {
-                "stat": "ap",
-                "ratio": [
-                  0.4000000059604645,
-                  0.4000000059604645,
-                  0.4000000059604645,
-                  0.4000000059604645,
-                  0.4000000059604645
-                ]
-              }
+                { "stat": "bonusAd", "ratio": 0.6 },
+                { "stat": "ap", "ratio": [0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 1.0] }
+            ],
+            "onHitEffectiveness": 1.0
+          }
+        }
+      ]
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Bouncing Blade",
+      "cooldown": [11, 10, 9, 8, 7],
+      "cost": [0],
+      "costType": "None",
+      "range": [625],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [80, 115, 150, 185, 220],
+            "scalings": [
+                { "stat": "ap", "ratio": 0.35 }
             ]
           }
         }
@@ -85,83 +62,33 @@
     "W": {
       "id": "W",
       "name": "Preparation",
-      "cooldown": [
-        15,
-        14,
-        13,
-        12,
-        11
-      ],
-      "cost": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "costType": "None",
-      "range": [
-        25000,
-        25000,
-        25000,
-        25000,
-        25000
-      ],
+      "cooldown": [15, 14, 13, 12, 11],
       "effects": [
         {
-          "type": "damage",
-          "logic": {
-            "damageType": "Physical",
-            "base": [
-              1.25,
-              1.25,
-              1.25,
-              1.25,
-              1.25
-            ],
-            "scalings": []
-          }
+            "type": "buff",
+            "stack": { "name": "moveSpeed", "max": 1 },
+            "logic": { "base": [0.5, 0.6, 0.7, 0.8, 0.9] }
         }
       ]
     },
     "E": {
       "id": "E",
       "name": "Shunpo",
-      "cooldown": [
-        12,
-        11,
-        10,
-        9,
-        8
-      ],
-      "cost": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
+      "cooldown": [12, 11, 10, 9, 8],
+      "cost": [0],
       "costType": "None",
-      "range": [
-        725,
-        725,
-        725,
-        725,
-        725
-      ],
+      "range": [725],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              0,
-              0,
-              0,
-              0,
-              0
+            "base": [20, 35, 50, 65, 80],
+            "scalings": [
+                { "stat": "ad", "ratio": 0.4 },
+                { "stat": "ap", "ratio": 0.25 }
             ],
-            "scalings": []
+            "onHitEffectiveness": 1.0
           }
         }
       ]
@@ -169,46 +96,23 @@
     "R": {
       "id": "R",
       "name": "Death Lotus",
-      "cooldown": [
-        75,
-        60,
-        45
-      ],
-      "cost": [
-        0,
-        0,
-        0
-      ],
+      "cooldown": [75, 60, 45],
+      "cost": [0],
       "costType": "None",
-      "range": [
-        550,
-        550,
-        550
-      ],
+      "range": [550],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              25,
-              37.5,
-              50,
-              62.5,
-              75
-            ],
+            "base": [25, 37.5, 50],
             "scalings": [
-              {
-                "stat": "ap",
-                "ratio": [
-                  0.1899999976158142,
-                  0.1899999976158142,
-                  0.1899999976158142,
-                  0.1899999976158142,
-                  0.1899999976158142
-                ]
-              }
-            ]
+                { "stat": "bonusAd", "ratio": 0.16 },
+                { "stat": "ap", "ratio": 0.19 }
+            ],
+            "multiHit": 15,
+            "multiHitInterval": 0.166,
+            "onHitEffectiveness": 0.3
           }
         }
       ]

@@ -17,56 +17,42 @@
     "range": 125,
     "moveSpeed": 340
   },
+  "mechanics": ["Tank", "Warden", "CC", "Shield", "Global", "Energy"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Ki Barrier",
-      "cooldown": [
-        0
-      ],
-      "cost": [
-        0
-      ],
-      "effects": []
+      "cooldown": [10],
+      "effects": [
+        {
+          "type": "shield",
+          "logic": {
+              "base": [50, 53, 56, 60, 64, 68, 72, 76, 80, 84, 88, 92, 96, 101, 106, 111, 116, 121],
+              "levelScaling": true,
+              "scalings": [{ "stat": "bonusHp", "target": "self", "ratio": 0.12 }]
+          }
+        }
+      ]
     },
     "Q": {
       "id": "Q",
       "name": "Twilight Assault",
-      "cooldown": [
-        8,
-        7.25,
-        6.5,
-        5.75,
-        5
-      ],
-      "cost": [
-        140,
-        130,
-        120,
-        110,
-        100
-      ],
+      "cooldown": [8, 7.25, 6.5, 5.75, 5],
+      "cost": [140, 130, 120, 110, 100],
       "costType": "Energy",
-      "range": [
-        400,
-        400,
-        400,
-        400,
-        400
-      ],
+      "range": [400],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              1,
-              1,
-              1,
-              1,
-              1
+            "base": [10, 16, 22, 28, 34, 40],
+            "scalings": [
+                { "stat": "maxHp", "target": "enemy", "ratio": [0.04, 0.045, 0.05, 0.055, 0.06] }
             ],
-            "scalings": []
+            "multiHit": 3,
+            "multiHitInterval": 1.0,
+            "onHitEffectiveness": 1.0
           }
         }
       ]
@@ -74,144 +60,46 @@
     "W": {
       "id": "W",
       "name": "Spirit's Refuge",
-      "cooldown": [
-        16,
-        14.5,
-        13,
-        11.5,
-        10
-      ],
-      "cost": [
-        40,
-        40,
-        40,
-        40,
-        40
-      ],
-      "costType": "Energy",
-      "range": [
-        400,
-        400,
-        400,
-        400,
-        400
-      ],
-      "effects": [
-        {
-          "type": "damage",
-          "logic": {
-            "damageType": "Physical",
-            "base": [
-              1.75,
-              1.75,
-              1.75,
-              1.75,
-              1.75
-            ],
-            "scalings": []
-          }
-        }
-      ]
+      "cooldown": [18, 16.5, 15, 13.5, 12],
+      "effects": []
     },
     "E": {
       "id": "E",
       "name": "Shadow Dash",
-      "cooldown": [
-        18,
-        16,
-        14,
-        12,
-        10
-      ],
-      "cost": [
-        150,
-        150,
-        150,
-        150,
-        150
-      ],
+      "cooldown": [18, 16, 14, 12, 10],
+      "cost": [150],
       "costType": "Energy",
-      "range": [
-        600,
-        600,
-        600,
-        600,
-        600
-      ],
+      "range": [600],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [
-              60,
-              85,
-              110,
-              135,
-              160
-            ],
+            "base": [60, 85, 110, 135, 160],
             "scalings": [
-              {
-                "stat": "bonusHp",
-                "ratio": [
-                  0.10999999940395355,
-                  0.10999999940395355,
-                  0.10999999940395355,
-                  0.10999999940395355,
-                  0.10999999940395355
-                ]
-              }
+                { "stat": "bonusHp", "ratio": 0.15 }
             ]
           }
+        },
+        {
+            "type": "cc",
+            "duration": 1.5,
+            "stack": { "name": "suppressed", "max": 1 }
         }
       ]
     },
     "R": {
       "id": "R",
       "name": "Stand United",
-      "cooldown": [
-        200,
-        180,
-        160
-      ],
-      "cost": [
-        0,
-        0,
-        0
-      ],
-      "costType": "Energy",
-      "range": [
-        35000,
-        35000,
-        35000
-      ],
+      "cooldown": [200, 180, 160],
       "effects": [
         {
-          "type": "damage",
+          "type": "shield",
           "logic": {
-            "damageType": "Physical",
-            "base": [
-              120,
-              220,
-              320,
-              420,
-              520
-            ],
+            "base": [130, 315, 500, 685, 870, 1055],
             "scalings": [
-              {
-                "stat": "ap",
-                "ratio": 0.15000000596046448
-              },
-              {
-                "stat": "ap",
-                "ratio": [
-                  1.350000023841858,
-                  1.350000023841858,
-                  1.350000023841858,
-                  1.350000023841858,
-                  1.350000023841858
-                ]
-              }
+                { "stat": "ap", "ratio": 1.35 },
+                { "stat": "bonusHp", "ratio": 0.15 }
             ]
           }
         }

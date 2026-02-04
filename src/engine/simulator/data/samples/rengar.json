@@ -17,67 +17,35 @@
     "range": 125,
     "moveSpeed": 345
   },
+  "mechanics": ["Assassin", "Diver", "Leap", "Ferocity", "OnHit"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Unseen Predator",
-      "cooldown": [
-        0
-      ],
-      "cost": [
-        0
-      ],
-      "effects": []
+      "cooldown": [0],
+      "effects": [
+        {
+            "type": "buff",
+            "stack": { "name": "ad_bonus", "max": 1 },
+            "logic": { "base": [0.25] }
+        }
+      ]
     },
     "Q": {
       "id": "Q",
       "name": "Savagery",
-      "cooldown": [
-        0.25,
-        0.25,
-        0.25,
-        0.25,
-        0.25
-      ],
-      "cost": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "costType": "Mana",
-      "range": [
-        450,
-        450,
-        450,
-        450,
-        450
-      ],
+      "cooldown": [6, 5.5, 5, 4.5, 4],
+      "cost": [0],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [
-              30,
-              60,
-              90,
-              120,
-              150
-            ],
+            "base": [30, 60, 90, 120, 150],
             "scalings": [
-              {
-                "stat": "ad",
-                "ratio": [
-                  0,
-                  0.03750000149011612,
-                  0.07500000298023224,
-                  0.11249999701976776,
-                  0.15000000596046448
-                ]
-              }
-            ]
+                { "stat": "ad", "ratio": [1.0, 1.05, 1.1, 1.15, 1.2] }
+            ],
+            "onHitEffectiveness": 1.0
           }
         }
       ]
@@ -85,88 +53,46 @@
     "W": {
       "id": "W",
       "name": "Battle Roar",
-      "cooldown": [
-        0.25,
-        0.25,
-        0.25,
-        0.25,
-        0.25
-      ],
-      "cost": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "costType": "Mana",
-      "range": [
-        450,
-        450,
-        450,
-        450,
-        450
-      ],
+      "cooldown": [16, 14.5, 13, 11.5, 10],
+      "cost": [0],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [],
-            "scalings": []
+            "base": [50, 80, 110, 140, 170],
+            "scalings": [
+                { "stat": "ap", "ratio": 0.8 }
+            ]
           }
+        },
+        {
+            "type": "heal",
+            "logic": {
+                "base": [0],
+                "scalings": [
+                    { "stat": "missingHp", "target": "self", "ratio": 0.5 }
+                ]
+            }
         }
       ]
     },
     "E": {
       "id": "E",
       "name": "Bola Strike",
-      "cooldown": [
-        0.25,
-        0.25,
-        0.25,
-        0.25,
-        0.25
-      ],
-      "cost": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "costType": "Mana",
-      "range": [
-        1000,
-        1000,
-        1000,
-        1000,
-        1000
-      ],
+      "cooldown": [10],
+      "cost": [0],
+      "range": [1000],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [
-              55,
-              100,
-              145,
-              190,
-              235
-            ],
+            "base": [55, 100, 145, 190, 235],
             "scalings": [
-              {
-                "stat": "bonusAd",
-                "ratio": [
-                  0.800000011920929,
-                  0.800000011920929,
-                  0.800000011920929,
-                  0.800000011920929,
-                  0.800000011920929
-                ]
-              }
-            ]
+                { "stat": "bonusAd", "ratio": 0.8 }
+            ],
+            "projectileSpeed": 1500
           }
         }
       ]
@@ -174,33 +100,17 @@
     "R": {
       "id": "R",
       "name": "Thrill of the Hunt",
-      "cooldown": [
-        100,
-        90,
-        80
-      ],
-      "cost": [
-        0,
-        0,
-        0
-      ],
-      "costType": "Mana",
-      "range": [
-        2500,
-        3000,
-        3500
-      ],
+      "cooldown": [110, 90, 70],
+      "cost": [0],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [],
+            "base": [0],
             "scalings": [
-              {
-                "stat": "ap",
-                "ratio": 1
-              }
+                { "stat": "ad", "ratio": 0.5 },
+                { "stat": "bonusAd", "ratio": 1.0 }
             ]
           }
         }

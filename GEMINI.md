@@ -4,6 +4,16 @@
 
 LabSO is a web application designed to help League of Legends players optimize their builds and analyze strategies. It leverages the Riot Games API and CommunityDragon to provide data-driven insights, such as adaptive item recommendations, combo damage calculations, and analysis of expert players' match timelines.
 
+## Project Status
+
+- **Phase 1: Core Engine & Pilot (Done)**
+- **Phase 1.5: Data Pipeline (Done)**
+- **Phase 1.6: Champion Data Precision (Done)**
+    - All 172 champions implemented with high-precision skill data (multi-hit, return damage, scaling).
+- **Phase 2: Live Data Integration (Next)**
+    - Dynamic item data integration.
+    - Real-time build rule engine.
+
 ## Tech Stack
 
 *   **Framework:** [Next.js](https://nextjs.org/) (App Router)

@@ -17,56 +17,32 @@
     "range": 550,
     "moveSpeed": 325
   },
+  "mechanics": ["Marksman", "Mage", "Hybrid"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Hextech Munitions",
-      "cooldown": [
-        0
-      ],
-      "cost": [
-        0
-      ],
+      "cooldown": [0],
       "effects": []
     },
     "Q": {
       "id": "Q",
       "name": "Phosphorus Bomb",
-      "cooldown": [
-        9,
-        8.5,
-        8,
-        7.5,
-        7
-      ],
-      "cost": [
-        60,
-        65,
-        70,
-        75,
-        80
-      ],
+      "cooldown": [9, 8.5, 8, 7.5, 7],
+      "cost": [60, 65, 70, 75, 80],
       "costType": "Mana",
-      "range": [
-        825,
-        825,
-        825,
-        825,
-        825
-      ],
+      "range": [825],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              0,
-              0,
-              0,
-              0,
-              0
+            "base": [75, 120, 165, 210, 255],
+            "scalings": [
+                { "stat": "bonusAd", "ratio": 0.7 },
+                { "stat": "ap", "ratio": 0.5 }
             ],
-            "scalings": []
+            "projectileSpeed": 1000
           }
         }
       ]
@@ -74,41 +50,20 @@
     "W": {
       "id": "W",
       "name": "Valkyrie",
-      "cooldown": [
-        20,
-        18,
-        16,
-        14,
-        12
-      ],
-      "cost": [
-        80,
-        85,
-        90,
-        95,
-        100
-      ],
+      "cooldown": [20, 18, 16, 14, 12],
+      "cost": [80],
       "costType": "Mana",
-      "range": [
-        600,
-        600,
-        600,
-        600,
-        600
-      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              0,
-              0,
-              0,
-              0,
-              0
+            "base": [150, 225, 300, 375, 450],
+            "scalings": [
+                { "stat": "ap", "ratio": 1.5 }
             ],
-            "scalings": []
+            "multiHit": 5,
+            "multiHitInterval": 0.5
           }
         }
       ]
@@ -116,41 +71,21 @@
     "E": {
       "id": "E",
       "name": "Gatling Gun",
-      "cooldown": [
-        12,
-        12,
-        12,
-        12,
-        12
-      ],
-      "cost": [
-        50,
-        55,
-        60,
-        65,
-        70
-      ],
+      "cooldown": [12],
+      "cost": [50],
       "costType": "Mana",
-      "range": [
-        600,
-        600,
-        600,
-        600,
-        600
-      ],
+      "range": [600],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [
-              0,
-              0,
-              0,
-              0,
-              0
+            "base": [20, 32, 44, 56, 68],
+            "scalings": [
+                { "stat": "bonusAd", "ratio": 0.15 }
             ],
-            "scalings": []
+            "multiHit": 8,
+            "multiHitInterval": 0.5
           }
         }
       ]
@@ -158,33 +93,21 @@
     "R": {
       "id": "R",
       "name": "Missile Barrage",
-      "cooldown": [
-        2,
-        2,
-        2
-      ],
-      "cost": [
-        35,
-        35,
-        35
-      ],
+      "cooldown": [2],
+      "cost": [20],
       "costType": "Mana",
-      "range": [
-        1225,
-        1225,
-        1225
-      ],
+      "range": [1225],
       "effects": [
         {
           "type": "damage",
           "logic": {
-            "damageType": "Physical",
-            "base": [
-              0,
-              0,
-              0
+            "damageType": "Magical",
+            "base": [80, 115, 150],
+            "scalings": [
+                { "stat": "ad", "ratio": [0.15, 0.45, 0.75] },
+                { "stat": "ap", "ratio": 0.12 }
             ],
-            "scalings": []
+            "projectileSpeed": 2000
           }
         }
       ]

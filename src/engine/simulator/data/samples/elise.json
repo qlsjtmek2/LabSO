@@ -17,56 +17,43 @@
     "range": 550,
     "moveSpeed": 330
   },
+  "mechanics": ["Transformer", "Jungler", "Assassin", "AP"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Spider Queen",
-      "cooldown": [
-        0
-      ],
-      "cost": [
-        0
-      ],
+      "cooldown": [0],
       "effects": []
     },
     "Q": {
       "id": "Q",
       "name": "Neurotoxin / Venomous Bite",
-      "cooldown": [
-        6,
-        6,
-        6,
-        6,
-        6
-      ],
-      "cost": [
-        80,
-        85,
-        90,
-        95,
-        100
-      ],
+      "cooldown": [6],
+      "cost": [80, 85, 90, 95, 100],
       "costType": "Mana",
-      "range": [
-        615,
-        615,
-        615,
-        615,
-        615
-      ],
+      "range": [615],
       "effects": [
         {
+          "id": "Human_Q",
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              0,
-              0,
-              0,
-              0,
-              0
+            "base": [40, 75, 110, 145, 180],
+            "scalings": [
+                { "stat": "currentHp", "target": "enemy", "ratio": 0.04 }
+            ]
+          }
+        },
+        {
+          "id": "Spider_Q",
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [60, 90, 120, 150, 180],
+            "scalings": [
+                { "stat": "missingHp", "target": "enemy", "ratio": 0.08 }
             ],
-            "scalings": []
+            "delay": 1.0
           }
         }
       ]
@@ -74,41 +61,20 @@
     "W": {
       "id": "W",
       "name": "Volatile Spiderling / Skittering Frenzy",
-      "cooldown": [
-        12,
-        12,
-        12,
-        12,
-        12
-      ],
-      "cost": [
-        60,
-        70,
-        80,
-        90,
-        100
-      ],
+      "cooldown": [12],
+      "cost": [60, 70, 80, 90, 100],
       "costType": "Mana",
-      "range": [
-        950,
-        950,
-        950,
-        950,
-        950
-      ],
+      "range": [950],
       "effects": [
         {
+          "id": "Human_W",
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              4,
-              4,
-              4,
-              4,
-              4
-            ],
-            "scalings": []
+            "base": [60, 105, 150, 195, 240],
+            "scalings": [
+                { "stat": "ap", "ratio": 0.95 }
+            ]
           }
         }
       ]
@@ -116,86 +82,28 @@
     "E": {
       "id": "E",
       "name": "Cocoon / Rappel",
-      "cooldown": [
-        12,
-        11.5,
-        11,
-        10.5,
-        10
-      ],
-      "cost": [
-        50,
-        50,
-        50,
-        50,
-        50
-      ],
+      "cooldown": [12, 11.5, 11, 10.5, 10],
+      "cost": [50],
       "costType": "Mana",
-      "range": [
-        1075,
-        1075,
-        1075,
-        1075,
-        1075
-      ],
+      "range": [1075],
       "effects": [
         {
-          "type": "damage",
-          "logic": {
-            "damageType": "Physical",
-            "base": [
-              12,
-              11.5,
-              11,
-              10.5,
-              10
-            ],
-            "scalings": []
-          }
+            "type": "cc",
+            "duration": 1.6,
+            "stack": { "name": "stunned", "max": 1 }
         }
       ]
     },
     "R": {
       "id": "R",
       "name": "Spider Form",
-      "cooldown": [
-        3,
-        3,
-        3,
-        3
-      ],
-      "cost": [
-        0,
-        0,
-        0,
-        0
-      ],
-      "costType": "Mana",
-      "range": [
-        20,
-        20,
-        20,
-        20
-      ],
+      "cooldown": [4],
+      "cost": [0],
       "effects": [
         {
-          "type": "damage",
-          "logic": {
-            "damageType": "Physical",
-            "base": [
-              12,
-              22,
-              32,
-              42,
-              52
-            ],
-            "scalings": [
-              {
-                "stat": "ap",
-                "ratio": 0.15000000596046448
-              }
-            ]
-          }
+            "type": "buff",
+            "stack": { "name": "onhit_magic_damage", "max": 1 },
+            "logic": { "base": [12, 22, 32, 42, 52] }
         }
       ]
     }

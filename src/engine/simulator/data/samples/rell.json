@@ -17,61 +17,37 @@
     "range": 175,
     "moveSpeed": 315
   },
+  "mechanics": ["Tank", "Vanguard", "CC", "Transformer", "ArmorShred"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Break the Mold",
-      "cooldown": [
-        0
-      ],
-      "cost": [
-        0
-      ],
-      "effects": []
+      "cooldown": [0],
+      "effects": [
+        {
+            "type": "buff",
+            "stack": { "name": "shred", "max": 1 },
+            "logic": { "base": [0.1] }
+        }
+      ]
     },
     "Q": {
       "id": "Q",
       "name": "Shattering Strike",
-      "cooldown": [
-        11,
-        10.5,
-        10,
-        9.5,
-        9
-      ],
-      "cost": [
-        50,
-        50,
-        50,
-        50,
-        50
-      ],
+      "cooldown": [11, 10.5, 10, 9.5, 9],
+      "cost": [50],
       "costType": "Mana",
-      "range": [
-        600,
-        600,
-        600,
-        600,
-        600
-      ],
+      "range": [600],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              60,
-              100,
-              140,
-              180,
-              220
-            ],
+            "base": [60, 100, 140, 180, 220],
             "scalings": [
-              {
-                "stat": "ap",
-                "ratio": 0.6000000238418579
-              }
-            ]
+                { "stat": "ap", "ratio": 0.6 }
+            ],
+            "projectileSpeed": 1500
           }
         }
       ]
@@ -79,129 +55,77 @@
     "W": {
       "id": "W",
       "name": "Ferromancy: Crash Down",
-      "cooldown": [
-        10,
-        10,
-        10,
-        10,
-        10
-      ],
-      "cost": [
-        40,
-        40,
-        40,
-        40,
-        40
-      ],
-      "costType": "Mana",
-      "range": [
-        450,
-        450,
-        450,
-        450,
-        450
-      ],
+      "cooldown": [11],
+      "cost": [40],
+      "range": [450],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              0,
-              0,
-              0,
-              0,
-              0
-            ],
-            "scalings": []
+            "base": [60, 100, 140, 180, 220],
+            "scalings": [
+                { "stat": "ap", "ratio": 0.6 }
+            ]
           }
+        },
+        {
+            "type": "shield",
+            "logic": {
+                "base": [35, 60, 85, 110, 135],
+                "scalings": [
+                    { "stat": "maxHp", "target": "self", "ratio": 0.12 }
+                ]
+            }
+        },
+        {
+            "type": "cc",
+            "duration": 1.0,
+            "stack": { "name": "airborne", "max": 1 }
         }
       ]
     },
     "E": {
       "id": "E",
       "name": "Full Tilt",
-      "cooldown": [
-        14,
-        13,
-        12,
-        11,
-        10
-      ],
-      "cost": [
-        40,
-        40,
-        40,
-        40,
-        40
-      ],
-      "costType": "Mana",
-      "range": [
-        1200,
-        1200,
-        1200,
-        1200,
-        1200
-      ],
+      "cooldown": [15],
+      "cost": [40],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              0.05000000074505806,
-              0.054999999701976776,
-              0.05999999865889549,
-              0.06499999761581421,
-              0.07000000029802322
-            ],
+            "base": [25, 35, 45, 55, 65],
             "scalings": [
-              {
-                "stat": "ap",
-                "ratio": 0.0003000000142492354
-              }
+                { "stat": "ap", "ratio": 0.3 },
+                { "stat": "maxHp", "target": "enemy", "ratio": 0.03 }
             ]
           }
+        },
+        {
+            "type": "buff",
+            "stack": { "name": "moveSpeed", "max": 1 },
+            "logic": { "base": [0.12, 0.13, 0.14, 0.15, 0.16] }
         }
       ]
     },
     "R": {
       "id": "R",
       "name": "Magnet Storm",
-      "cooldown": [
-        120,
-        100,
-        80
-      ],
-      "cost": [
-        100,
-        100,
-        100
-      ],
-      "costType": "Mana",
-      "range": [
-        200,
-        200,
-        200
-      ],
+      "cooldown": [120, 100, 80],
+      "cost": [100],
+      "range": [200],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              60,
-              100,
-              140,
-              180,
-              220
-            ],
+            "base": [120, 200, 280],
             "scalings": [
-              {
-                "stat": "ap",
-                "ratio": 0.550000011920929
-              }
-            ]
+                { "stat": "ap", "ratio": 1.1 }
+            ],
+            "multiHit": 2,
+            "multiHitInterval": 1.0
           }
         }
       ]

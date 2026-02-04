@@ -17,109 +17,55 @@
     "range": 500,
     "moveSpeed": 330
   },
+  "mechanics": ["Marksman", "Artillery", "AP-Kog", "OnHit"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Icathian Surprise",
-      "cooldown": [
-        0
-      ],
-      "cost": [
-        0
-      ],
+      "cooldown": [0],
       "effects": []
     },
     "Q": {
       "id": "Q",
       "name": "Caustic Spittle",
-      "cooldown": [
-        7,
-        7,
-        7,
-        7,
-        7
-      ],
-      "cost": [
-        40,
-        40,
-        40,
-        40,
-        40
-      ],
+      "cooldown": [7],
+      "cost": [40],
       "costType": "Mana",
-      "range": [
-        1175,
-        1175,
-        1175,
-        1175,
-        1175
-      ],
+      "range": [1175],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              80,
-              125,
-              170,
-              215,
-              260
-            ],
+            "base": [80, 125, 170, 215, 260],
             "scalings": [
-              {
-                "stat": "ap",
-                "ratio": [
-                  0.8999999761581421,
-                  0.8999999761581421,
-                  0.8999999761581421,
-                  0.8999999761581421,
-                  0.8999999761581421
-                ]
-              }
-            ]
+                { "stat": "ap", "ratio": 0.9 }
+            ],
+            "projectileSpeed": 1650
           }
+        },
+        {
+            "type": "buff",
+            "stack": { "name": "shred", "max": 1 },
+            "logic": { "base": [0.2, 0.23, 0.26, 0.29, 0.32] }
         }
       ]
     },
     "W": {
       "id": "W",
       "name": "Bio-Arcane Barrage",
-      "cooldown": [
-        17,
-        17,
-        17,
-        17,
-        17
-      ],
-      "cost": [
-        40,
-        40,
-        40,
-        40,
-        40
-      ],
-      "costType": "Mana",
-      "range": [
-        530,
-        530,
-        530,
-        530,
-        530
-      ],
+      "cooldown": [17],
+      "cost": [40],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              0,
-              0,
-              0,
-              0,
-              0
-            ],
-            "scalings": []
+            "base": [0],
+            "scalings": [
+                { "stat": "maxHp", "target": "enemy", "ratio": [0.03, 0.0375, 0.045, 0.0525, 0.06] },
+                { "stat": "ap", "ratio": 0.01 }
+            ]
           }
         }
       ]
@@ -127,41 +73,20 @@
     "E": {
       "id": "E",
       "name": "Void Ooze",
-      "cooldown": [
-        12,
-        12,
-        12,
-        12,
-        12
-      ],
-      "cost": [
-        40,
-        55,
-        70,
-        85,
-        100
-      ],
+      "cooldown": [12],
+      "cost": [40, 55, 70, 85, 100],
       "costType": "Mana",
-      "range": [
-        1200,
-        1200,
-        1200,
-        1200,
-        1200
-      ],
+      "range": [1200],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              0,
-              0,
-              0,
-              0,
-              0
+            "base": [75, 120, 165, 210, 255],
+            "scalings": [
+                { "stat": "ap", "ratio": 0.7 }
             ],
-            "scalings": []
+            "projectileSpeed": 1400
           }
         }
       ]
@@ -169,33 +94,27 @@
     "R": {
       "id": "R",
       "name": "Living Artillery",
-      "cooldown": [
-        2,
-        1.5,
-        1
-      ],
-      "cost": [
-        40,
-        40,
-        40
-      ],
+      "cooldown": [2, 1.5, 1],
+      "cost": [40],
       "costType": "Mana",
-      "range": [
-        1300,
-        1550,
-        1800
-      ],
+      "range": [1300, 1550, 1800],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              0,
-              0,
-              0
+            "base": [100, 140, 180],
+            "scalings": [
+                { "stat": "bonusAd", "ratio": 0.65 },
+                { "stat": "ap", "ratio": 0.35 }
             ],
-            "scalings": []
+            "modifiers": [
+                {
+                    "condition": { "type": "stat", "target": "enemy", "stat": "hp", "operator": "<", "value": 0.4 },
+                    "multiplier": 2.0
+                }
+            ],
+            "delay": 0.6
           }
         }
       ]

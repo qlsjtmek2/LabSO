@@ -17,71 +17,33 @@
     "range": 500,
     "moveSpeed": 335
   },
+  "mechanics": ["Marksman", "AoE", "Waveclear", "Mobile"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Fleet of Foot",
-      "cooldown": [
-        0
-      ],
-      "cost": [
-        0
-      ],
+      "cooldown": [0],
       "effects": []
     },
     "Q": {
       "id": "Q",
       "name": "Boomerang Blade",
-      "cooldown": [
-        10,
-        9.5,
-        9,
-        8.5,
-        8
-      ],
-      "cost": [
-        55,
-        60,
-        65,
-        70,
-        75
-      ],
+      "cooldown": [10, 9.5, 9, 8.5, 8],
+      "cost": [55, 60, 65, 70, 75],
       "costType": "Mana",
-      "range": [
-        1200,
-        1200,
-        1200,
-        1200,
-        1200
-      ],
+      "range": [1200],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [
-              60,
-              85,
-              110,
-              135,
-              160
-            ],
+            "base": [60, 85, 110, 135, 160],
             "scalings": [
-              {
-                "stat": "ad",
-                "ratio": [
-                  0.699999988079071,
-                  0.699999988079071,
-                  0.699999988079071,
-                  0.699999988079071,
-                  0.699999988079071
-                ]
-              },
-              {
-                "stat": "ap",
-                "ratio": 0.6000000238418579
-              }
-            ]
+                { "stat": "ad", "ratio": 1.0 },
+                { "stat": "ap", "ratio": 0.6 }
+            ],
+            "returnDamage": true,
+            "projectileSpeed": 1450
           }
         }
       ]
@@ -89,46 +51,19 @@
     "W": {
       "id": "W",
       "name": "Ricochet",
-      "cooldown": [
-        12,
-        12,
-        12,
-        12,
-        12
-      ],
-      "cost": [
-        60,
-        60,
-        60,
-        60,
-        60
-      ],
-      "costType": "Mana",
-      "range": [
-        20,
-        20,
-        20,
-        20,
-        20
-      ],
+      "cooldown": [12],
+      "cost": [60],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [],
+            "base": [0],
             "scalings": [
-              {
-                "stat": "ad",
-                "ratio": [
-                  0.4000000059604645,
-                  0.42500001192092896,
-                  0.44999998807907104,
-                  0.4749999940395355,
-                  0.5
-                ]
-              }
-            ]
+                { "stat": "ad", "ratio": [0.3, 0.35, 0.4, 0.45, 0.5] }
+            ],
+            "multiHit": 3,
+            "multiHitInterval": 0.2
           }
         }
       ]
@@ -136,72 +71,31 @@
     "E": {
       "id": "E",
       "name": "Spell Shield",
-      "cooldown": [
-        24,
-        22.5,
-        21,
-        19.5,
-        18
-      ],
-      "cost": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "costType": "Mana",
-      "range": [
-        20,
-        20,
-        20,
-        20,
-        20
-      ],
+      "cooldown": [24, 22.5, 21, 19.5, 18],
+      "cost": [0],
       "effects": [
         {
-          "type": "damage",
-          "logic": {
-            "damageType": "Physical",
-            "base": [
-              1.5,
-              1.5,
-              1.5,
-              1.5,
-              1.5
-            ],
-            "scalings": []
-          }
+            "type": "heal",
+            "logic": {
+                "base": [60, 85, 110, 135, 160],
+                "scalings": [
+                    { "stat": "ap", "ratio": 0.45 }
+                ]
+            }
         }
       ]
     },
     "R": {
       "id": "R",
       "name": "On The Hunt",
-      "cooldown": [
-        120,
-        100,
-        80
-      ],
-      "cost": [
-        100,
-        100,
-        100
-      ],
+      "cooldown": [120, 100, 80],
+      "cost": [100],
       "costType": "Mana",
-      "range": [
-        1000,
-        1000,
-        1000
-      ],
       "effects": [
         {
-          "type": "damage",
-          "logic": {
-            "damageType": "Physical",
-            "base": [],
-            "scalings": []
-          }
+            "type": "buff",
+            "stack": { "name": "attackSpeed", "max": 1 },
+            "logic": { "base": [0.2, 0.25, 0.3] }
         }
       ]
     }

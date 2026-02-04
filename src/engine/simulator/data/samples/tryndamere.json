@@ -4,7 +4,7 @@
   "baseStats": {
     "hp": 696,
     "hpPerLevel": 108,
-    "mp": 100,
+    "mp": 0,
     "mpPerLevel": 0,
     "ad": 66,
     "adPerLevel": 4,
@@ -17,165 +17,65 @@
     "range": 175,
     "moveSpeed": 345
   },
+  "mechanics": ["Skirmisher", "CriticalStrike", "Mobile", "Heal", "Undying"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Battle Fury",
-      "cooldown": [
-        0
-      ],
-      "cost": [
-        0
-      ],
-      "effects": []
+      "cooldown": [0],
+      "effects": [
+        {
+            "type": "buff",
+            "stack": { "name": "crit_chance", "max": 1 },
+            "logic": { "base": [0.4] }
+        }
+      ]
     },
     "Q": {
       "id": "Q",
       "name": "Bloodlust",
-      "cooldown": [
-        12,
-        12,
-        12,
-        12,
-        12
-      ],
-      "cost": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "costType": "Mana",
-      "range": [
-        400,
-        400,
-        400,
-        400,
-        400
-      ],
+      "cooldown": [12],
       "effects": [
         {
-          "type": "damage",
-          "logic": {
-            "damageType": "Physical",
-            "base": [
-              30,
-              40,
-              50,
-              60,
-              70
-            ],
-            "scalings": [
-              {
-                "stat": "ap",
-                "ratio": [
-                  0.30000001192092896,
-                  0.30000001192092896,
-                  0.30000001192092896,
-                  0.30000001192092896,
-                  0.30000001192092896
-                ]
-              }
-            ]
-          }
+            "type": "buff",
+            "stack": { "name": "ad_bonus", "max": 1 },
+            "logic": { "base": [10, 15, 20, 25, 30] }
+        },
+        {
+            "type": "heal",
+            "logic": {
+                "base": [30, 40, 50, 60, 70],
+                "scalings": [{ "stat": "ap", "ratio": 0.3 }]
+            }
         }
       ]
     },
     "W": {
       "id": "W",
       "name": "Mocking Shout",
-      "cooldown": [
-        14,
-        14,
-        14,
-        14,
-        14
-      ],
-      "cost": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "costType": "Mana",
-      "range": [
-        850,
-        850,
-        850,
-        850,
-        850
-      ],
+      "cooldown": [14],
       "effects": [
         {
-          "type": "damage",
-          "logic": {
-            "damageType": "Physical",
-            "base": [],
-            "scalings": []
-          }
+            "type": "cc",
+            "duration": 4.0,
+            "stack": { "name": "slowed", "max": 1 }
         }
       ]
     },
     "E": {
       "id": "E",
       "name": "Spinning Slash",
-      "cooldown": [
-        12,
-        11,
-        10,
-        9,
-        8
-      ],
-      "cost": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "costType": "Mana",
-      "range": [
-        650,
-        650,
-        650,
-        650,
-        650
-      ],
+      "cooldown": [12, 11, 10, 9, 8],
+      "range": [650],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [
-              80,
-              120,
-              160,
-              200,
-              240
-            ],
+            "base": [80, 120, 160, 200, 240],
             "scalings": [
-              {
-                "stat": "ad",
-                "ratio": [
-                  1,
-                  1,
-                  1,
-                  1,
-                  1
-                ]
-              },
-              {
-                "stat": "ap",
-                "ratio": [
-                  0.800000011920929,
-                  0.800000011920929,
-                  0.800000011920929,
-                  0.800000011920929,
-                  0.800000011920929
-                ]
-              }
+                { "stat": "bonusAd", "ratio": 1.3 },
+                { "stat": "ap", "ratio": 0.8 }
             ]
           }
         }
@@ -184,34 +84,12 @@
     "R": {
       "id": "R",
       "name": "Undying Rage",
-      "cooldown": [
-        120,
-        100,
-        80
-      ],
-      "cost": [
-        0,
-        0,
-        0
-      ],
-      "costType": "Mana",
-      "range": [
-        400,
-        400,
-        400
-      ],
+      "cooldown": [120, 100, 80],
       "effects": [
         {
-          "type": "damage",
-          "logic": {
-            "damageType": "Physical",
-            "base": [
-              50,
-              75,
-              100
-            ],
-            "scalings": []
-          }
+            "type": "buff",
+            "stack": { "name": "undying", "max": 1 },
+            "duration": 5.0
         }
       ]
     }

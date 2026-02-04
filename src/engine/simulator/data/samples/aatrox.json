@@ -17,67 +17,47 @@
     "range": 175,
     "moveSpeed": 345
   },
+  "mechanics": ["Bruiser", "Drain", "Transform"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Deathbringer Stance",
-      "cooldown": [
-        0
-      ],
-      "cost": [
-        0
-      ],
-      "effects": []
-    },
-    "Q": {
-      "id": "Q",
-      "name": "The Darkin Blade",
-      "cooldown": [
-        14,
-        12,
-        10,
-        8,
-        6
-      ],
-      "cost": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "costType": "Mana",
-      "range": [
-        25000,
-        25000,
-        25000,
-        25000,
-        25000
-      ],
+      "cooldown": [22],
+      "cost": [0],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [
-              10,
-              25,
-              40,
-              55,
-              70
-            ],
+            "base": [0],
+            "scalings": [
+                { "stat": "maxHp", "target": "enemy", "ratio": [0.04, 0.04, 0.04, 0.04, 0.04, 0.05, 0.05, 0.05, 0.05, 0.05, 0.06, 0.06, 0.06, 0.06, 0.06, 0.07, 0.07, 0.08] }
+            ]
+          }
+        }
+      ]
+    },
+    "Q": {
+      "id": "Q",
+      "name": "The Darkin Blade",
+      "cooldown": [14, 12, 10, 8, 6],
+      "cost": [0],
+      "costType": "None",
+      "range": [625, 625, 625, 625, 625],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Physical",
+            "base": [10, 25, 40, 55, 70],
             "scalings": [
               {
                 "stat": "ad",
-                "ratio": [
-                  0.6000000238418579,
-                  0.675000011920929,
-                  0.75,
-                  0.824999988079071,
-                  0.8999999761581421
-                ]
+                "ratio": [0.6, 0.675, 0.75, 0.825, 0.9]
               }
-            ]
+            ],
+            "multiHit": 3,
+            "multiHitInterval": 1.0
           }
         }
       ]
@@ -85,50 +65,20 @@
     "W": {
       "id": "W",
       "name": "Infernal Chains",
-      "cooldown": [
-        20,
-        18,
-        16,
-        14,
-        12
-      ],
-      "cost": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "costType": "Mana",
-      "range": [
-        825,
-        825,
-        825,
-        825,
-        825
-      ],
+      "cooldown": [20, 18, 16, 14, 12],
+      "cost": [0],
+      "costType": "None",
+      "range": [825, 825, 825, 825, 825],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [
-              30,
-              40,
-              50,
-              60,
-              70
-            ],
+            "base": [30, 40, 50, 60, 70],
             "scalings": [
               {
                 "stat": "ad",
-                "ratio": [
-                  0.4000000059604645,
-                  0.4000000059604645,
-                  0.4000000059604645,
-                  0.4000000059604645,
-                  0.4000000059604645
-                ]
+                "ratio": 0.4
               }
             ]
           }
@@ -138,52 +88,16 @@
     "E": {
       "id": "E",
       "name": "Umbral Dash",
-      "cooldown": [
-        9,
-        8,
-        7,
-        6,
-        5
-      ],
-      "cost": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "costType": "Mana",
-      "range": [
-        25000,
-        25000,
-        25000,
-        25000,
-        25000
-      ],
+      "cooldown": [9, 8, 7, 6, 5],
+      "cost": [0],
+      "costType": "None",
+      "range": [300, 300, 300, 300, 300],
       "effects": [
         {
-          "type": "damage",
+          "type": "buff",
+          "stack": { "name": "omnivamp", "max": 1 },
           "logic": {
-            "damageType": "Physical",
-            "base": [
-              16,
-              16,
-              16,
-              16,
-              16
-            ],
-            "scalings": [
-              {
-                "stat": "hp",
-                "ratio": [
-                  0.010999999940395355,
-                  0.010999999940395355,
-                  0.010999999940395355,
-                  0.010999999940395355,
-                  0.010999999940395355
-                ]
-              }
-            ]
+              "base": [18, 21, 24, 27, 30]
           }
         }
       ]
@@ -191,38 +105,15 @@
     "R": {
       "id": "R",
       "name": "World Ender",
-      "cooldown": [
-        120,
-        100,
-        80
-      ],
-      "cost": [
-        0,
-        0,
-        0
-      ],
-      "costType": "Mana",
-      "range": [
-        25000,
-        25000,
-        25000
-      ],
+      "cooldown": [120, 100, 80],
+      "cost": [0],
+      "costType": "None",
       "effects": [
         {
-          "type": "damage",
+          "type": "buff",
+          "stack": { "name": "ad_amp", "max": 1 },
           "logic": {
-            "damageType": "Physical",
-            "base": [],
-            "scalings": [
-              {
-                "stat": "ad",
-                "ratio": 0.20000000298023224
-              },
-              {
-                "stat": "bonusAd",
-                "ratio": 75
-              }
-            ]
+              "base": [0.2, 0.325, 0.45]
           }
         }
       ]

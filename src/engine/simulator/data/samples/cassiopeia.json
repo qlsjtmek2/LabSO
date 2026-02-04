@@ -17,150 +17,96 @@
     "range": 550,
     "moveSpeed": 335
   },
+  "mechanics": ["Mage", "Control", "NoBoots", "Poison"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Serpentine Grace",
-      "cooldown": [
-        0
-      ],
-      "cost": [
-        0
-      ],
-      "effects": []
+      "cooldown": [0],
+      "effects": [
+        {
+          "type": "buff",
+          "stack": { "name": "moveSpeed", "max": 1 },
+          "logic": { "base": [4, 8, 12, 16, 20, 24, 28, 32, 36, 40, 44, 48, 52, 56, 60, 64, 68, 72], "levelScaling": true }
+        }
+      ]
     },
     "Q": {
       "id": "Q",
       "name": "Noxious Blast",
-      "cooldown": [
-        3.5,
-        3.5,
-        3.5,
-        3.5,
-        3.5
-      ],
-      "cost": [
-        50,
-        55,
-        60,
-        65,
-        70
-      ],
+      "cooldown": [3.5],
+      "cost": [50, 55, 60, 65, 70],
       "costType": "Mana",
-      "range": [
-        850,
-        850,
-        850,
-        850,
-        850
-      ],
+      "range": [850],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              75,
-              110,
-              145,
-              180,
-              215
+            "base": [75, 110, 145, 180, 215],
+            "scalings": [
+                { "stat": "ap", "ratio": 0.9 }
             ],
-            "scalings": []
+            "multiHit": 3,
+            "multiHitInterval": 1.0
           }
+        },
+        {
+            "type": "cc",
+            "duration": 3.0,
+            "stack": { "name": "poisoned", "max": 1 }
         }
       ]
     },
     "W": {
       "id": "W",
       "name": "Miasma",
-      "cooldown": [
-        24,
-        22,
-        20,
-        18,
-        16
-      ],
-      "cost": [
-        70,
-        75,
-        80,
-        85,
-        90
-      ],
+      "cooldown": [24, 22, 20, 18, 16],
+      "cost": [70, 75, 80, 85, 90],
       "costType": "Mana",
-      "range": [
-        700,
-        700,
-        700,
-        700,
-        700
-      ],
+      "range": [700],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              20,
-              25,
-              30,
-              35,
-              40
+            "base": [20, 25, 30, 35, 40],
+            "scalings": [
+                { "stat": "ap", "ratio": 0.15 }
             ],
-            "scalings": []
+            "multiHit": 5,
+            "multiHitInterval": 1.0
           }
+        },
+        {
+            "type": "cc",
+            "duration": 1.0,
+            "stack": { "name": "poisoned", "max": 1 }
         }
       ]
     },
     "E": {
       "id": "E",
       "name": "Twin Fang",
-      "cooldown": [
-        0.75,
-        0.75,
-        0.75,
-        0.75,
-        0.75
-      ],
-      "cost": [
-        40,
-        40,
-        40,
-        40,
-        40
-      ],
+      "cooldown": [0.75],
+      "cost": [40, 40, 40, 40, 40],
       "costType": "Mana",
-      "range": [
-        700,
-        700,
-        700,
-        700,
-        700
-      ],
+      "range": [700],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              20,
-              43,
-              66,
-              89,
-              112
-            ],
+            "base": [20, 40, 60, 80, 100],
             "scalings": [
-              {
-                "stat": "ap",
-                "ratio": [
-                  0.550000011920929,
-                  0.550000011920929,
-                  0.550000011920929,
-                  0.550000011920929,
-                  0.550000011920929
-                ]
-              }
+                { "stat": "ap", "ratio": 0.1 }
+            ],
+            "modifiers": [
+                {
+                    "condition": { "type": "cc", "target": "enemy", "buffName": "poisoned" },
+                    "multiplier": 3.5,
+                    "flat": 60
+                }
             ]
           }
         }
@@ -169,47 +115,25 @@
     "R": {
       "id": "R",
       "name": "Petrifying Gaze",
-      "cooldown": [
-        120,
-        100,
-        80
-      ],
-      "cost": [
-        100,
-        100,
-        100
-      ],
+      "cooldown": [120, 100, 80],
+      "cost": [100, 100, 100],
       "costType": "Mana",
-      "range": [
-        825,
-        825,
-        825
-      ],
+      "range": [825],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              150,
-              250,
-              350,
-              450,
-              550
-            ],
+            "base": [150, 250, 350],
             "scalings": [
-              {
-                "stat": "ap",
-                "ratio": [
-                  0.5,
-                  0.5,
-                  0.5,
-                  0.5,
-                  0.5
-                ]
-              }
+                { "stat": "ap", "ratio": 0.5 }
             ]
           }
+        },
+        {
+            "type": "cc",
+            "duration": 2.0,
+            "stack": { "name": "stunned", "max": 1 }
         }
       ]
     }

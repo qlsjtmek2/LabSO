@@ -17,61 +17,32 @@
     "range": 550,
     "moveSpeed": 340
   },
+  "mechanics": ["Mage", "Control", "AoE", "Clone", "CC"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Inherent Glamour",
-      "cooldown": [
-        0
-      ],
-      "cost": [
-        0
-      ],
+      "cooldown": [6],
       "effects": []
     },
     "Q": {
       "id": "Q",
       "name": "Blooming Burst",
-      "cooldown": [
-        9,
-        8.5,
-        8,
-        7.5,
-        7
-      ],
-      "cost": [
-        50,
-        60,
-        70,
-        80,
-        90
-      ],
+      "cooldown": [9, 8.5, 8, 7.5, 7],
+      "cost": [50, 60, 70, 80, 90],
       "costType": "Mana",
-      "range": [
-        800,
-        800,
-        800,
-        800,
-        800
-      ],
+      "range": [800],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              60,
-              110,
-              160,
-              210,
-              260
-            ],
+            "base": [80, 125, 170, 215, 260],
             "scalings": [
-              {
-                "stat": "ap",
-                "ratio": 0.6000000238418579
-              }
-            ]
+                { "stat": "ap", "ratio": 0.6 }
+            ],
+            "multiHit": 3,
+            "multiHitInterval": 0.5
           }
         }
       ]
@@ -79,141 +50,73 @@
     "W": {
       "id": "W",
       "name": "Shapesplitter",
-      "cooldown": [
-        16,
-        15,
-        14,
-        13,
-        12
-      ],
-      "cost": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "costType": "Mana",
-      "range": [
-        900,
-        900,
-        900,
-        900,
-        900
-      ],
+      "cooldown": [16, 15, 14, 13, 12],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              30,
-              65,
-              100,
-              135,
-              170
-            ],
+            "base": [50, 80, 110, 140, 170],
             "scalings": [
-              {
-                "stat": "ap",
-                "ratio": [
-                  0.6000000238418579,
-                  0.6000000238418579,
-                  0.6000000238418579,
-                  0.6000000238418579,
-                  0.6000000238418579
-                ]
-              }
+                { "stat": "ap", "ratio": 0.6 }
             ]
           }
+        },
+        {
+            "type": "buff",
+            "stack": { "name": "moveSpeed", "max": 1 },
+            "logic": { "base": [0.1, 0.15, 0.2, 0.25, 0.3] }
         }
       ]
     },
     "E": {
       "id": "E",
       "name": "Tangle-Barbs",
-      "cooldown": [
-        12,
-        11.5,
-        11,
-        10.5,
-        10
-      ],
-      "cost": [
-        60,
-        65,
-        70,
-        75,
-        80
-      ],
+      "cooldown": [12, 11.5, 11, 10.5, 10],
+      "cost": [60],
       "costType": "Mana",
-      "range": [
-        1000,
-        1000,
-        1000,
-        1000,
-        1000
-      ],
+      "range": [1000],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              70,
-              105,
-              140,
-              175,
-              210
-            ],
+            "base": [70, 105, 140, 175, 210],
             "scalings": [
-              {
-                "stat": "ap",
-                "ratio": 0.6499999761581421
-              }
-            ]
+                { "stat": "ap", "ratio": 0.65 }
+            ],
+            "projectileSpeed": 1300
           }
+        },
+        {
+            "type": "cc",
+            "duration": 1.5,
+            "stack": { "name": "rooted", "max": 1 }
         }
       ]
     },
     "R": {
       "id": "R",
       "name": "Pop Blossom",
-      "cooldown": [
-        120,
-        105,
-        90
-      ],
-      "cost": [
-        100,
-        100,
-        100
-      ],
+      "cooldown": [120, 105, 90],
+      "cost": [100],
       "costType": "Mana",
-      "range": [
-        600,
-        600,
-        600
-      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              150,
-              350,
-              550,
-              750,
-              950
-            ],
+            "base": [150, 300, 450],
             "scalings": [
-              {
-                "stat": "ap",
-                "ratio": 1.2000000476837158
-              }
-            ]
+                { "stat": "ap", "ratio": 1.2 }
+            ],
+            "delay": 1.25
           }
+        },
+        {
+            "type": "cc",
+            "duration": 1.25,
+            "stack": { "name": "airborne", "max": 1 }
         }
       ]
     }

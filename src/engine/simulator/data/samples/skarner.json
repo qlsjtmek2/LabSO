@@ -17,77 +17,46 @@
     "range": 150,
     "moveSpeed": 335
   },
+  "mechanics": ["Tank", "Vanguard", "CC", "Suppress", "%MaxHP"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Threads of Vibration",
-      "cooldown": [
-        0
-      ],
-      "cost": [
-        0
-      ],
-      "effects": []
+      "cooldown": [0],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [0],
+            "scalings": [
+                { "stat": "maxHp", "target": "enemy", "ratio": [0.07, 0.08, 0.09, 0.1, 0.11, 0.12] }
+            ],
+            "multiHit": 4,
+            "multiHitInterval": 1.0
+          }
+        }
+      ]
     },
     "Q": {
       "id": "Q",
-      "name": "Shattered Earth / Upheaval",
-      "cooldown": [
-        8,
-        6.75,
-        5.5,
-        4.25,
-        3
-      ],
-      "cost": [
-        45,
-        45,
-        45,
-        45,
-        45
-      ],
+      "name": "Shattered Earth",
+      "cooldown": [10, 9, 8, 7, 6],
+      "cost": [45],
       "costType": "Mana",
-      "range": [
-        400,
-        400,
-        400,
-        400,
-        400
-      ],
+      "range": [400],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [
-              10,
-              20,
-              30,
-              40,
-              50
-            ],
+            "base": [10, 20, 30, 40, 50],
             "scalings": [
-              {
-                "stat": "ad",
-                "ratio": [
-                  0.8999999761581421,
-                  0.8999999761581421,
-                  0.8999999761581421,
-                  0.8999999761581421,
-                  0.8999999761581421
-                ]
-              },
-              {
-                "stat": "bonusHp",
-                "ratio": [
-                  0.029999999329447746,
-                  0.029999999329447746,
-                  0.029999999329447746,
-                  0.029999999329447746,
-                  0.029999999329447746
-                ]
-              }
-            ]
+                { "stat": "ad", "ratio": 0.6 },
+                { "stat": "bonusHp", "ratio": 0.06 }
+            ],
+            "multiHit": 3,
+            "multiHitInterval": 0.5
           }
         }
       ]
@@ -95,157 +64,74 @@
     "W": {
       "id": "W",
       "name": "Seismic Bastion",
-      "cooldown": [
-        10,
-        9,
-        8,
-        7,
-        6
-      ],
-      "cost": [
-        60,
-        65,
-        70,
-        75,
-        80
-      ],
+      "cooldown": [10, 9, 8, 7, 6],
+      "cost": [60, 65, 70, 75, 80],
       "costType": "Mana",
-      "range": [
-        700,
-        700,
-        700,
-        700,
-        700
-      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              50,
-              70,
-              90,
-              110,
-              130
-            ],
+            "base": [50, 70, 90, 110, 130],
             "scalings": [
-              {
-                "stat": "ap",
-                "ratio": [
-                  0.800000011920929,
-                  0.800000011920929,
-                  0.800000011920929,
-                  0.800000011920929,
-                  0.800000011920929
-                ]
-              }
+                { "stat": "ap", "ratio": 0.8 }
             ]
           }
+        },
+        {
+            "type": "shield",
+            "logic": {
+                "base": [0],
+                "scalings": [
+                    { "stat": "maxHp", "target": "self", "ratio": 0.08 }
+                ]
+            }
         }
       ]
     },
     "E": {
       "id": "E",
       "name": "Ixtal's Impact",
-      "cooldown": [
-        22,
-        21,
-        20,
-        19,
-        18
-      ],
-      "cost": [
-        50,
-        55,
-        60,
-        65,
-        70
-      ],
-      "costType": "Mana",
-      "range": [
-        1700,
-        1700,
-        1700,
-        1700,
-        1700
-      ],
+      "cooldown": [22, 21, 20, 19, 18],
+      "cost": [50],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [
-              30,
-              60,
-              90,
-              120,
-              150
-            ],
+            "base": [30, 60, 90, 120, 150],
             "scalings": [
-              {
-                "stat": "ad",
-                "ratio": [
-                  1.2000000476837158,
-                  1.2000000476837158,
-                  1.2000000476837158,
-                  1.2000000476837158,
-                  1.2000000476837158
-                ]
-              },
-              {
-                "stat": "ap",
-                "ratio": [
-                  0.05999999865889549,
-                  0.05999999865889549,
-                  0.05999999865889549,
-                  0.05999999865889549,
-                  0.05999999865889549
-                ]
-              }
+                { "stat": "bonusHp", "ratio": 0.1 }
             ]
           }
+        },
+        {
+            "type": "cc",
+            "duration": 1.25,
+            "stack": { "name": "stunned", "max": 1 }
         }
       ]
     },
     "R": {
       "id": "R",
       "name": "Impale",
-      "cooldown": [
-        120,
-        105,
-        90
-      ],
-      "cost": [
-        100,
-        100,
-        100
-      ],
-      "costType": "Mana",
-      "range": [
-        625,
-        625,
-        625
-      ],
+      "cooldown": [120, 105, 90],
+      "cost": [100],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              150,
-              250,
-              350,
-              450,
-              550
-            ],
+            "base": [150, 250, 350],
             "scalings": [
-              {
-                "stat": "ap",
-                "ratio": 1
-              }
+                { "stat": "ap", "ratio": 0.6 }
             ]
           }
+        },
+        {
+            "type": "cc",
+            "duration": 1.5,
+            "stack": { "name": "suppressed", "max": 1 }
         }
       ]
     }

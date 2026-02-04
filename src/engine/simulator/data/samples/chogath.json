@@ -17,98 +17,63 @@
     "range": 125,
     "moveSpeed": 345
   },
+  "mechanics": ["Tank", "CC", "Scaling", "TrueDamage"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Carnivore",
-      "cooldown": [
-        0
-      ],
-      "cost": [
-        0
-      ],
-      "effects": []
+      "cooldown": [0],
+      "effects": [
+        {
+          "type": "heal",
+          "logic": {
+              "base": [20, 24, 28, 32, 36, 40, 44, 48, 52, 56, 60, 66, 72, 78, 84, 95, 110, 130],
+              "levelScaling": true
+          }
+        }
+      ]
     },
     "Q": {
       "id": "Q",
       "name": "Rupture",
-      "cooldown": [
-        6,
-        6,
-        6,
-        6,
-        6
-      ],
-      "cost": [
-        50,
-        50,
-        50,
-        50,
-        50
-      ],
+      "cooldown": [6],
+      "cost": [50],
       "costType": "Mana",
-      "range": [
-        950,
-        950,
-        950,
-        950,
-        950
-      ],
+      "range": [950],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              0,
-              0,
-              0,
-              0,
-              0
-            ],
-            "scalings": []
+            "base": [80, 140, 200, 260, 320],
+            "scalings": [
+                { "stat": "ap", "ratio": 1.0 }
+            ]
           }
+        },
+        {
+            "type": "cc",
+            "duration": 1.0,
+            "stack": { "name": "airborne", "max": 1 }
         }
       ]
     },
     "W": {
       "id": "W",
       "name": "Feral Scream",
-      "cooldown": [
-        11,
-        10.5,
-        10,
-        9.5,
-        9
-      ],
-      "cost": [
-        70,
-        75,
-        80,
-        85,
-        90
-      ],
+      "cooldown": [11, 10.5, 10, 9.5, 9],
+      "cost": [70, 75, 80, 85, 90],
       "costType": "Mana",
-      "range": [
-        300,
-        300,
-        300,
-        300,
-        300
-      ],
+      "range": [300],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              80,
-              130,
-              180,
-              230,
-              280
-            ],
-            "scalings": []
+            "base": [80, 130, 180, 230, 280],
+            "scalings": [
+                { "stat": "ap", "ratio": 0.7 }
+            ]
           }
         }
       ]
@@ -116,41 +81,21 @@
     "E": {
       "id": "E",
       "name": "Vorpal Spikes",
-      "cooldown": [
-        8,
-        7,
-        6,
-        5,
-        4
-      ],
-      "cost": [
-        30,
-        30,
-        30,
-        30,
-        30
-      ],
+      "cooldown": [8, 7, 6, 5, 4],
+      "cost": [30],
       "costType": "Mana",
-      "range": [
-        40,
-        40,
-        40,
-        40,
-        40
-      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              0,
-              0,
-              0,
-              0,
-              0
+            "base": [22, 37, 52, 67, 82],
+            "scalings": [
+                { "stat": "ap", "ratio": 0.3 },
+                { "stat": "maxHp", "target": "enemy", "ratio": [0.03, 0.03, 0.03, 0.03, 0.03] }
             ],
-            "scalings": []
+            "multiHit": 3,
+            "multiHitInterval": 1.0
           }
         }
       ]
@@ -158,33 +103,20 @@
     "R": {
       "id": "R",
       "name": "Feast",
-      "cooldown": [
-        80,
-        70,
-        60
-      ],
-      "cost": [
-        100,
-        100,
-        100
-      ],
+      "cooldown": [80, 70, 60],
+      "cost": [100],
       "costType": "Mana",
-      "range": [
-        175,
-        175,
-        175
-      ],
+      "range": [175],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "True",
-            "base": [
-              0,
-              0,
-              0
-            ],
-            "scalings": []
+            "base": [300, 475, 650],
+            "scalings": [
+                { "stat": "ap", "ratio": 0.5 },
+                { "stat": "bonusHp", "target": "self", "ratio": 0.1 }
+            ]
           }
         }
       ]

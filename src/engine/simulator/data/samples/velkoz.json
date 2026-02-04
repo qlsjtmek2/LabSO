@@ -17,61 +17,43 @@
     "range": 525,
     "moveSpeed": 340
   },
+  "mechanics": ["Mage", "Artillery", "TrueDamage", "Research", "CC"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Organic Deconstruction",
-      "cooldown": [
-        0
-      ],
-      "cost": [
-        0
-      ],
-      "effects": []
+      "cooldown": [0],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "True",
+            "base": [33, 35, 38, 42, 47, 53, 60, 68, 77, 87, 98, 110, 123, 127, 131, 145, 157, 169],
+            "levelScaling": true,
+            "scalings": [
+                { "stat": "ap", "ratio": 0.5 }
+            ]
+          }
+        }
+      ]
     },
     "Q": {
       "id": "Q",
       "name": "Plasma Fission",
-      "cooldown": [
-        7,
-        7,
-        7,
-        7,
-        7
-      ],
-      "cost": [
-        40,
-        45,
-        50,
-        55,
-        60
-      ],
+      "cooldown": [7],
+      "cost": [40, 45, 50, 55, 60],
       "costType": "Mana",
-      "range": [
-        1050,
-        1050,
-        1050,
-        1050,
-        1050
-      ],
+      "range": [1050],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              80,
-              120,
-              160,
-              200,
-              240
-            ],
+            "base": [80, 120, 160, 200, 240],
             "scalings": [
-              {
-                "stat": "ap",
-                "ratio": 0.8999999761581421
-              }
-            ]
+                { "stat": "ap", "ratio": 0.9 }
+            ],
+            "projectileSpeed": 1300
           }
         }
       ]
@@ -79,128 +61,81 @@
     "W": {
       "id": "W",
       "name": "Void Rift",
-      "cooldown": [
-        1.5,
-        1.5,
-        1.5,
-        1.5,
-        1.5
-      ],
-      "cost": [
-        50,
-        55,
-        60,
-        65,
-        70
-      ],
+      "cooldown": [1.5],
+      "cost": [50, 55, 60, 65, 70],
       "costType": "Mana",
-      "range": [
-        1050,
-        1050,
-        1050,
-        1050,
-        1050
-      ],
       "effects": [
         {
+          "id": "W1",
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              30,
-              50,
-              70,
-              90,
-              110
-            ],
-            "scalings": []
+            "base": [30, 50, 70, 90, 110],
+            "scalings": [
+                { "stat": "ap", "ratio": 0.2 }
+            ]
           }
+        },
+        {
+            "id": "W2",
+            "type": "damage",
+            "logic": {
+                "damageType": "Magical",
+                "base": [45, 75, 105, 135, 165],
+                "scalings": [
+                    { "stat": "ap", "ratio": 0.25 }
+                ],
+                "delay": 0.75
+            }
         }
       ]
     },
     "E": {
       "id": "E",
       "name": "Tectonic Disruption",
-      "cooldown": [
-        12,
-        11.5,
-        11,
-        10.5,
-        10
-      ],
-      "cost": [
-        50,
-        55,
-        60,
-        65,
-        70
-      ],
-      "costType": "Mana",
-      "range": [
-        810,
-        810,
-        810,
-        810,
-        810
-      ],
+      "cooldown": [12, 11.5, 11, 10.5, 10],
+      "cost": [50],
+      "range": [810],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              70,
-              100,
-              130,
-              160,
-              190
-            ],
+            "base": [70, 100, 130, 160, 190],
             "scalings": [
-              {
-                "stat": "ap",
-                "ratio": [
-                  0.30000001192092896,
-                  0.30000001192092896,
-                  0.30000001192092896,
-                  0.30000001192092896,
-                  0.30000001192092896
-                ]
-              }
+                { "stat": "ap", "ratio": 0.3 }
             ]
           }
+        },
+        {
+            "type": "cc",
+            "duration": 0.75,
+            "stack": { "name": "airborne", "max": 1 }
         }
       ]
     },
     "R": {
       "id": "R",
       "name": "Life Form Disintegration Ray",
-      "cooldown": [
-        100,
-        90,
-        80
-      ],
-      "cost": [
-        100,
-        100,
-        100
-      ],
-      "costType": "Mana",
-      "range": [
-        1575,
-        1575,
-        1575
-      ],
+      "cooldown": [100, 90, 80],
+      "cost": [100],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              450,
-              700,
-              925
+            "base": [450, 625, 800],
+            "scalings": [
+                { "stat": "ap", "ratio": 1.25 }
             ],
-            "scalings": []
+            "multiHit": 5,
+            "multiHitInterval": 0.5,
+            "modifiers": [
+                {
+                    "condition": { "type": "cc", "target": "enemy", "buffName": "researched" },
+                    "multiplier": 1.0
+                }
+            ]
           }
         }
       ]

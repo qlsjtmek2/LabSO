@@ -17,174 +17,114 @@
     "range": 125,
     "moveSpeed": 345
   },
+  "mechanics": ["Assassin", "Diver", "Jungler", "Global"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Umbra Blades",
-      "cooldown": [
-        0
-      ],
-      "cost": [
-        0
-      ],
-      "effects": []
-    },
-    "Q": {
-      "id": "Q",
-      "name": "Duskbringer",
-      "cooldown": [
-        8,
-        8,
-        8,
-        8,
-        8
-      ],
-      "cost": [
-        60,
-        65,
-        70,
-        75,
-        80
-      ],
-      "costType": "Mana",
-      "range": [
-        1125,
-        1125,
-        1125,
-        1125,
-        1125
-      ],
+      "cooldown": [14],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [
-              15,
-              20,
-              25,
-              30,
-              35
-            ],
-            "scalings": []
+            "base": [0],
+            "scalings": [
+                { "stat": "ad", "ratio": 1.2 }
+            ]
           }
+        },
+        {
+            "type": "heal",
+            "logic": {
+                "base": [15, 20, 25, 30, 35, 40, 45, 50, 55, 65, 75, 85, 95, 110, 125, 140, 155, 170],
+                "levelScaling": true,
+                "scalings": [
+                    { "stat": "ap", "ratio": 0.15 }
+                ]
+            }
+        }
+      ]
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Duskbringer",
+      "cooldown": [8],
+      "cost": [60, 65, 70, 75, 80],
+      "costType": "Mana",
+      "range": [1125],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Physical",
+            "base": [60, 110, 160, 210, 260],
+            "scalings": [
+                { "stat": "bonusAd", "ratio": 0.85 }
+            ],
+            "projectileSpeed": 1600
+          }
+        },
+        {
+            "type": "buff",
+            "stack": { "name": "ad_bonus", "max": 1 },
+            "logic": { "base": [20, 30, 40, 50, 60] }
         }
       ]
     },
     "W": {
       "id": "W",
       "name": "Shroud of Darkness",
-      "cooldown": [
-        20,
-        18,
-        16,
-        14,
-        12
-      ],
-      "cost": [
-        50,
-        50,
-        50,
-        50,
-        50
-      ],
-      "costType": "Mana",
-      "range": [
-        20,
-        20,
-        20,
-        20,
-        20
-      ],
+      "cooldown": [20, 18, 16, 14, 12],
+      "cost": [50],
       "effects": [
         {
-          "type": "damage",
-          "logic": {
-            "damageType": "Physical",
-            "base": [
-              60,
-              70,
-              80,
-              90,
-              100
-            ],
-            "scalings": []
-          }
+          "type": "buff",
+          "stack": { "name": "attackSpeed", "max": 1 },
+          "logic": { "base": [0.3, 0.35, 0.4, 0.45, 0.5] }
         }
       ]
     },
     "E": {
       "id": "E",
       "name": "Unspeakable Horror",
-      "cooldown": [
-        15,
-        14,
-        13,
-        12,
-        11
-      ],
-      "cost": [
-        60,
-        65,
-        70,
-        75,
-        80
-      ],
-      "costType": "Mana",
-      "range": [
-        425,
-        425,
-        425,
-        425,
-        425
-      ],
+      "cooldown": [15, 14, 13, 12, 11],
+      "cost": [60],
+      "range": [425],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              80,
-              125,
-              170,
-              215,
-              260
-            ],
-            "scalings": []
+            "base": [80, 125, 170, 215, 260],
+            "scalings": [
+                { "stat": "ap", "ratio": 1.0 }
+            ]
           }
+        },
+        {
+            "type": "cc",
+            "duration": 1.25,
+            "stack": { "name": "fear", "max": 1 },
+            "delay": 2.0
         }
       ]
     },
     "R": {
       "id": "R",
       "name": "Paranoia",
-      "cooldown": [
-        140,
-        115,
-        90
-      ],
-      "cost": [
-        100,
-        100,
-        100
-      ],
-      "costType": "Mana",
-      "range": [
-        2500,
-        3250,
-        4000
-      ],
+      "cooldown": [140, 115, 90],
+      "cost": [100],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [
-              0,
-              0,
-              0
+            "base": [150, 275, 400],
+            "scalings": [
+                { "stat": "bonusAd", "ratio": 1.2 }
             ],
-            "scalings": []
+            "projectileSpeed": 2500
           }
         }
       ]

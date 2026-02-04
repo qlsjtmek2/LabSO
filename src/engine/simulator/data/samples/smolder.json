@@ -17,67 +17,38 @@
     "range": 550,
     "moveSpeed": 330
   },
+  "mechanics": ["Marksman", "Scaling", "Stacker", "Execute"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Dragon Practice",
-      "cooldown": [
-        0
-      ],
-      "cost": [
-        0
-      ],
-      "effects": []
+      "cooldown": [0],
+      "effects": [
+        {
+            "type": "buff",
+            "stack": { "name": "dragon_stacks", "max": 999 },
+            "logic": { "base": [0] }
+        }
+      ]
     },
     "Q": {
       "id": "Q",
       "name": "Super Scorcher Breath",
-      "cooldown": [
-        5.5,
-        5,
-        4.5,
-        4,
-        3.5
-      ],
-      "cost": [
-        25,
-        25,
-        25,
-        25,
-        25
-      ],
+      "cooldown": [5.5, 5, 4.5, 4, 3.5],
+      "cost": [25],
       "costType": "Mana",
-      "range": [
-        550,
-        550,
-        550,
-        550,
-        550
-      ],
+      "range": [550],
       "effects": [
         {
           "type": "damage",
           "logic": {
-            "damageType": "Magical",
-            "base": [
-              65,
-              80,
-              95,
-              110,
-              125
-            ],
+            "damageType": "Physical",
+            "base": [15, 25, 35, 45, 55],
             "scalings": [
-              {
-                "stat": "ad",
-                "ratio": [
-                  1.2999999523162842,
-                  1.2999999523162842,
-                  1.2999999523162842,
-                  1.2999999523162842,
-                  1.2999999523162842
-                ]
-              }
-            ]
+                { "stat": "ad", "ratio": 1.0 },
+                { "stat": "ap", "ratio": 0.15 }
+            ],
+            "onHitEffectiveness": 1.0
           }
         }
       ]
@@ -85,51 +56,19 @@
     "W": {
       "id": "W",
       "name": "Achooo!",
-      "cooldown": [
-        14,
-        13,
-        12,
-        11,
-        10
-      ],
-      "cost": [
-        50,
-        55,
-        60,
-        65,
-        70
-      ],
+      "cooldown": [14, 13, 12, 11, 10],
+      "cost": [60],
       "costType": "Mana",
-      "range": [
-        1500,
-        1500,
-        1500,
-        1500,
-        1500
-      ],
+      "range": [1500],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              60,
-              70,
-              80,
-              90,
-              100
-            ],
+            "base": [45, 75, 105, 135, 165],
             "scalings": [
-              {
-                "stat": "ad",
-                "ratio": [
-                  0.6000000238418579,
-                  0.6000000238418579,
-                  0.6000000238418579,
-                  0.6000000238418579,
-                  0.6000000238418579
-                ]
-              }
+                { "stat": "bonusAd", "ratio": 0.25 },
+                { "stat": "ap", "ratio": 0.6 }
             ]
           }
         }
@@ -138,52 +77,19 @@
     "E": {
       "id": "E",
       "name": "Flap, Flap, Flap",
-      "cooldown": [
-        24,
-        22,
-        20,
-        18,
-        16
-      ],
-      "cost": [
-        65,
-        65,
-        65,
-        65,
-        65
-      ],
-      "costType": "Mana",
-      "range": [
-        700,
-        700,
-        700,
-        700,
-        700
-      ],
+      "cooldown": [24, 22, 20, 18, 16],
+      "cost": [65],
       "effects": [
         {
           "type": "damage",
           "logic": {
-            "damageType": "Magical",
-            "base": [
-              10,
-              15,
-              20,
-              25,
-              30
-            ],
+            "damageType": "Physical",
+            "base": [15, 20, 25, 30, 35],
             "scalings": [
-              {
-                "stat": "ad",
-                "ratio": [
-                  0.30000001192092896,
-                  0.30000001192092896,
-                  0.30000001192092896,
-                  0.30000001192092896,
-                  0.30000001192092896
-                ]
-              }
-            ]
+                { "stat": "ap", "ratio": 0.1 }
+            ],
+            "multiHit": 5,
+            "multiHitInterval": 0.25
           }
         }
       ]
@@ -191,51 +97,28 @@
     "R": {
       "id": "R",
       "name": "MMOOOMMMM!",
-      "cooldown": [
-        120,
-        110,
-        100
-      ],
-      "cost": [
-        100,
-        100,
-        100
-      ],
-      "costType": "Mana",
-      "range": [
-        4200,
-        4200,
-        4200
-      ],
+      "cooldown": [120, 110, 100],
+      "cost": [100],
       "effects": [
         {
           "type": "damage",
           "logic": {
-            "damageType": "Physical",
-            "base": [
-              200,
-              300,
-              400,
-              500,
-              600
-            ],
+            "damageType": "Magical",
+            "base": [200, 300, 400],
             "scalings": [
-              {
-                "stat": "ad",
-                "ratio": [
-                  1.100000023841858,
-                  1.100000023841858,
-                  1.100000023841858,
-                  1.100000023841858,
-                  1.100000023841858
-                ]
-              },
-              {
-                "stat": "ap",
-                "ratio": 1
-              }
+                { "stat": "bonusAd", "ratio": 1.1 },
+                { "stat": "ap", "ratio": 0.75 }
             ]
           }
+        },
+        {
+            "type": "heal",
+            "logic": {
+                "base": [40, 60, 80],
+                "scalings": [
+                    { "stat": "ap", "ratio": 0.5 }
+                ]
+            }
         }
       ]
     }

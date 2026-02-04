@@ -17,56 +17,45 @@
     "range": 525,
     "moveSpeed": 330
   },
+  "mechanics": ["Marksman", "Feather", "Recall", "Untargetable", "CritScaling"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Clean Cuts",
-      "cooldown": [
-        0
-      ],
-      "cost": [
-        0
-      ],
-      "effects": []
-    },
-    "Q": {
-      "id": "Q",
-      "name": "Double Daggers",
-      "cooldown": [
-        10,
-        9.5,
-        9,
-        8.5,
-        8
-      ],
-      "cost": [
-        50,
-        50,
-        50,
-        50,
-        50
-      ],
-      "costType": "Mana",
-      "range": [
-        400,
-        400,
-        400,
-        400,
-        400
-      ],
+      "cooldown": [0],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [
-              45,
-              60,
-              75,
-              90,
-              105
+            "base": [0],
+            "scalings": [
+                { "stat": "ad", "ratio": 1.0 }
             ],
-            "scalings": []
+            "onHitEffectiveness": 1.0
+          }
+        }
+      ]
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Double Daggers",
+      "cooldown": [10, 9.5, 9, 8.5, 8],
+      "cost": [50],
+      "costType": "Mana",
+      "range": [400],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Physical",
+            "base": [45, 60, 75, 90, 105],
+            "scalings": [
+                { "stat": "bonusAd", "ratio": 0.5 }
+            ],
+            "multiHit": 2,
+            "multiHitInterval": 0.1,
+            "projectileSpeed": 1200
           }
         }
       ]
@@ -74,89 +63,49 @@
     "W": {
       "id": "W",
       "name": "Deadly Plumage",
-      "cooldown": [
-        20,
-        19,
-        18,
-        17,
-        16
-      ],
-      "cost": [
-        60,
-        55,
-        50,
-        45,
-        40
-      ],
+      "cooldown": [20, 19, 18, 17, 16],
+      "cost": [60, 55, 50, 45, 40],
       "costType": "Mana",
-      "range": [
-        1000,
-        1000,
-        1000,
-        1000,
-        1000
-      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [
-              35,
-              40,
-              45,
-              50,
-              55
+            "base": [0],
+            "scalings": [
+                { "stat": "ad", "ratio": 0.2 }
             ],
-            "scalings": []
+            "onHitEffectiveness": 1.0
           }
+        },
+        {
+            "type": "buff",
+            "stack": { "name": "attackSpeed", "max": 1 },
+            "logic": { "base": [0.35, 0.4, 0.45, 0.5, 0.55] }
         }
       ]
     },
     "E": {
       "id": "E",
       "name": "Bladecaller",
-      "cooldown": [
-        12,
-        11,
-        10,
-        9,
-        8
-      ],
-      "cost": [
-        30,
-        30,
-        30,
-        30,
-        30
-      ],
-      "costType": "Mana",
-      "range": [
-        2000,
-        2000,
-        2000,
-        2000,
-        2000
-      ],
+      "cooldown": [12, 11, 10, 9, 8],
+      "cost": [30],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [
-              50,
-              65,
-              80,
-              95,
-              110
-            ],
+            "base": [50, 60, 70, 80, 90],
             "scalings": [
-              {
-                "stat": "ad",
-                "ratio": [
-                  0
-                ]
-              }
+                { "stat": "bonusAd", "ratio": 0.6 }
+            ],
+            "multiHit": 5,
+            "multiHitInterval": 0.05,
+            "modifiers": [
+                {
+                    "condition": { "stat": "critChance", "target": "self", "operator": ">", "value": 0 },
+                    "multiplier": 1.5
+                }
             ]
           }
         }
@@ -165,39 +114,16 @@
     "R": {
       "id": "R",
       "name": "Featherstorm",
-      "cooldown": [
-        140,
-        120,
-        100
-      ],
-      "cost": [
-        100,
-        100,
-        100
-      ],
-      "costType": "Mana",
-      "range": [
-        450,
-        450,
-        450
-      ],
+      "cooldown": [140, 120, 100],
+      "cost": [100],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [
-              200,
-              300,
-              400,
-              500,
-              600
-            ],
+            "base": [200, 300, 400],
             "scalings": [
-              {
-                "stat": "ap",
-                "ratio": 1
-              }
+                { "stat": "bonusAd", "ratio": 1.0 }
             ]
           }
         }

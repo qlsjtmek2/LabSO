@@ -17,56 +17,43 @@
     "range": 525,
     "moveSpeed": 325
   },
+  "mechanics": ["Mage", "Control", "Ball", "AoE"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Clockwork Windup",
-      "cooldown": [
-        0
-      ],
-      "cost": [
-        0
-      ],
-      "effects": []
-    },
-    "Q": {
-      "id": "Q",
-      "name": "Command: Attack",
-      "cooldown": [
-        6,
-        5.25,
-        4.5,
-        3.75,
-        3
-      ],
-      "cost": [
-        35,
-        35,
-        35,
-        35,
-        35
-      ],
-      "costType": "Mana",
-      "range": [
-        815,
-        815,
-        815,
-        815,
-        815
-      ],
+      "cooldown": [0],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              60,
-              90,
-              120,
-              150,
-              180
+            "base": [10, 14, 18, 22, 26, 30, 34, 38, 42, 46, 50, 50, 50, 50, 50, 50, 50, 50],
+            "levelScaling": true,
+            "scalings": [
+                { "stat": "ap", "ratio": 0.15 }
+            ]
+          }
+        }
+      ]
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Command: Attack",
+      "cooldown": [6, 5.25, 4.5, 3.75, 3],
+      "cost": [30, 35, 40, 45, 50],
+      "costType": "Mana",
+      "range": [815],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [60, 90, 120, 150, 180],
+            "scalings": [
+                { "stat": "ap", "ratio": 0.5 }
             ],
-            "scalings": []
+            "projectileSpeed": 1400
           }
         }
       ]
@@ -74,41 +61,18 @@
     "W": {
       "id": "W",
       "name": "Command: Dissonance",
-      "cooldown": [
-        7,
-        7,
-        7,
-        7,
-        7
-      ],
-      "cost": [
-        60,
-        65,
-        70,
-        75,
-        80
-      ],
+      "cooldown": [7],
+      "cost": [70, 80, 90, 100, 110],
       "costType": "Mana",
-      "range": [
-        225,
-        225,
-        225,
-        225,
-        225
-      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              0,
-              0,
-              0,
-              0,
-              0
-            ],
-            "scalings": []
+            "base": [70, 120, 170, 220, 270],
+            "scalings": [
+                { "stat": "ap", "ratio": 0.7 }
+            ]
           }
         }
       ]
@@ -116,41 +80,17 @@
     "E": {
       "id": "E",
       "name": "Command: Protect",
-      "cooldown": [
-        9,
-        9,
-        9,
-        9,
-        9
-      ],
-      "cost": [
-        60,
-        60,
-        60,
-        60,
-        60
-      ],
+      "cooldown": [9],
+      "cost": [60],
       "costType": "Mana",
-      "range": [
-        1095,
-        1095,
-        1095,
-        1095,
-        1095
-      ],
       "effects": [
         {
-          "type": "damage",
+          "type": "shield",
           "logic": {
-            "damageType": "Magical",
-            "base": [
-              55,
-              90,
-              125,
-              160,
-              195
-            ],
-            "scalings": []
+              "base": [55, 90, 125, 160, 195],
+              "scalings": [
+                  { "stat": "ap", "ratio": 0.45 }
+              ]
           }
         }
       ]
@@ -158,34 +98,25 @@
     "R": {
       "id": "R",
       "name": "Command: Shockwave",
-      "cooldown": [
-        110,
-        95,
-        80
-      ],
-      "cost": [
-        100,
-        100,
-        100
-      ],
+      "cooldown": [110, 95, 80],
+      "cost": [100],
       "costType": "Mana",
-      "range": [
-        410,
-        410,
-        410
-      ],
+      "range": [410],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              0,
-              0,
-              0
-            ],
-            "scalings": []
+            "base": [250, 400, 550],
+            "scalings": [
+                { "stat": "ap", "ratio": 0.95 }
+            ]
           }
+        },
+        {
+            "type": "cc",
+            "duration": 1.25,
+            "stack": { "name": "airborne", "max": 1 }
         }
       ]
     }

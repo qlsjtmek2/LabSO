@@ -17,140 +17,92 @@
     "range": 125,
     "moveSpeed": 335
   },
+  "mechanics": ["Tank", "Vanguard", "ArmorScaling", "CC"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Granite Shield",
-      "cooldown": [
-        0
-      ],
-      "cost": [
-        0
-      ],
-      "effects": []
+      "cooldown": [8],
+      "effects": [
+        {
+          "type": "shield",
+          "logic": {
+              "base": [0],
+              "scalings": [
+                  { "stat": "maxHp", "target": "self", "ratio": 0.1 }
+              ]
+          }
+        }
+      ]
     },
     "Q": {
       "id": "Q",
       "name": "Seismic Shard",
-      "cooldown": [
-        8,
-        8,
-        8,
-        8,
-        8
-      ],
-      "cost": [
-        70,
-        75,
-        80,
-        85,
-        90
-      ],
+      "cooldown": [8],
+      "cost": [70, 75, 80, 85, 90],
       "costType": "Mana",
-      "range": [
-        625,
-        625,
-        625,
-        625,
-        625
-      ],
+      "range": [625],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              70,
-              120,
-              170,
-              220,
-              270
+            "base": [70, 120, 170, 220, 270],
+            "scalings": [
+                { "stat": "ap", "ratio": 0.6 }
             ],
-            "scalings": []
+            "projectileSpeed": 1200
           }
+        },
+        {
+            "type": "cc",
+            "duration": 3.0,
+            "stack": { "name": "slowed", "max": 1 }
         }
       ]
     },
     "W": {
       "id": "W",
       "name": "Thunderclap",
-      "cooldown": [
-        10,
-        9.5,
-        9,
-        8.5,
-        8
-      ],
-      "cost": [
-        30,
-        35,
-        40,
-        45,
-        50
-      ],
+      "cooldown": [10, 9.5, 9, 8.5, 8],
+      "cost": [30, 35, 40, 45, 50],
       "costType": "Mana",
-      "range": [
-        400,
-        400,
-        400,
-        400,
-        400
-      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [
-              0,
-              0,
-              0,
-              0,
-              0
-            ],
-            "scalings": []
+            "base": [30, 45, 60, 75, 90],
+            "scalings": [
+                { "stat": "ad", "ratio": 0.2 },
+                { "stat": "armor", "ratio": 0.15 }
+            ]
           }
+        },
+        {
+            "type": "buff",
+            "stack": { "name": "armor_bonus", "max": 1 },
+            "logic": { "base": [0.1, 0.15, 0.2, 0.25, 0.3] }
         }
       ]
     },
     "E": {
       "id": "E",
       "name": "Ground Slam",
-      "cooldown": [
-        7,
-        7,
-        7,
-        7,
-        7
-      ],
-      "cost": [
-        50,
-        55,
-        60,
-        65,
-        70
-      ],
+      "cooldown": [7],
+      "cost": [50, 55, 60, 65, 70],
       "costType": "Mana",
-      "range": [
-        400,
-        400,
-        400,
-        400,
-        400
-      ],
+      "range": [400],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              0,
-              0,
-              0,
-              0,
-              0
-            ],
-            "scalings": []
+            "base": [60, 95, 130, 165, 200],
+            "scalings": [
+                { "stat": "ap", "ratio": 0.6 },
+                { "stat": "armor", "ratio": 0.4 }
+            ]
           }
         }
       ]
@@ -158,34 +110,25 @@
     "R": {
       "id": "R",
       "name": "Unstoppable Force",
-      "cooldown": [
-        130,
-        115,
-        100
-      ],
-      "cost": [
-        100,
-        100,
-        100
-      ],
+      "cooldown": [130, 115, 100],
+      "cost": [100],
       "costType": "Mana",
-      "range": [
-        1000,
-        1000,
-        1000
-      ],
+      "range": [1000],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              1.5,
-              1.75,
-              2
-            ],
-            "scalings": []
+            "base": [200, 300, 400],
+            "scalings": [
+                { "stat": "ap", "ratio": 0.9 }
+            ]
           }
+        },
+        {
+            "type": "cc",
+            "duration": 1.5,
+            "stack": { "name": "airborne", "max": 1 }
         }
       ]
     }

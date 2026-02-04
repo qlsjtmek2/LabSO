@@ -17,56 +17,37 @@
     "range": 125,
     "moveSpeed": 350
   },
+  "mechanics": ["Bruiser", "Diver", "Transformer", "Jungler", "OnHit", "Hybrid"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Fury of the Dragonborn",
-      "cooldown": [
-        0
-      ],
-      "cost": [
-        0
-      ],
-      "effects": []
+      "cooldown": [0],
+      "effects": [
+        {
+            "type": "buff",
+            "stack": { "name": "armor_bonus", "max": 1 },
+            "logic": { "base": [5] }
+        }
+      ]
     },
     "Q": {
       "id": "Q",
       "name": "Twin Bite",
-      "cooldown": [
-        8,
-        7.5,
-        7,
-        6.5,
-        6
-      ],
-      "cost": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "costType": "Mana",
-      "range": [
-        650,
-        650,
-        650,
-        650,
-        650
-      ],
+      "cooldown": [8, 7.5, 7, 6.5, 6],
       "effects": [
         {
           "type": "damage",
           "logic": {
-            "damageType": "Physical",
-            "base": [
-              0,
-              0,
-              0,
-              0,
-              0
+            "damageType": "Magical",
+            "base": [0],
+            "scalings": [
+                { "stat": "ad", "ratio": 1.0 },
+                { "stat": "ap", "ratio": 0.35 }
             ],
-            "scalings": []
+            "multiHit": 2,
+            "multiHitInterval": 0.1,
+            "onHitEffectiveness": 1.0
           }
         }
       ]
@@ -74,41 +55,18 @@
     "W": {
       "id": "W",
       "name": "Burnout",
-      "cooldown": [
-        12,
-        12,
-        12,
-        12,
-        12
-      ],
-      "cost": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "costType": "Mana",
-      "range": [
-        325,
-        325,
-        325,
-        325,
-        325
-      ],
+      "cooldown": [12],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              0,
-              0,
-              0,
-              0,
-              0
+            "base": [20, 32.5, 45, 57.5, 70],
+            "scalings": [
+                { "stat": "bonusAd", "ratio": 0.3 }
             ],
-            "scalings": []
+            "multiHit": 5,
+            "multiHitInterval": 1.0
           }
         }
       ]
@@ -116,76 +74,54 @@
     "E": {
       "id": "E",
       "name": "Flame Breath",
-      "cooldown": [
-        12,
-        11,
-        10,
-        9,
-        8
-      ],
-      "cost": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "costType": "Mana",
-      "range": [
-        925,
-        925,
-        925,
-        925,
-        925
-      ],
+      "cooldown": [12, 11, 10, 9, 8],
+      "range": [925],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              0,
-              0,
-              0,
-              0,
-              0
+            "base": [60, 100, 140, 180, 220],
+            "scalings": [
+                { "stat": "bonusAd", "ratio": 0.4 },
+                { "stat": "ap", "ratio": 0.9 }
             ],
-            "scalings": []
+            "projectileSpeed": 1600
           }
+        },
+        {
+            "id": "OnHit_Mark",
+            "type": "damage",
+            "logic": {
+                "damageType": "Magical",
+                "base": [0],
+                "scalings": [
+                    { "stat": "maxHp", "target": "enemy", "ratio": 0.03 }
+                ],
+                "onHitEffectiveness": 1.0
+            }
         }
       ]
     },
     "R": {
       "id": "R",
       "name": "Dragon's Descent",
-      "cooldown": [
-        0,
-        0,
-        0
-      ],
-      "cost": [
-        0,
-        0,
-        0
-      ],
-      "costType": "Mana",
-      "range": [
-        850,
-        850,
-        850
-      ],
+      "cooldown": [0],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              0,
-              0,
-              0
-            ],
-            "scalings": []
+            "base": [150, 250, 350],
+            "scalings": [
+                { "stat": "ap", "ratio": 1.0 }
+            ]
           }
+        },
+        {
+            "type": "buff",
+            "stack": { "name": "bonus_hp", "max": 1 },
+            "logic": { "base": [150, 250, 350] }
         }
       ]
     }

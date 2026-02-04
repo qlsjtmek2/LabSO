@@ -17,55 +17,31 @@
     "range": 550,
     "moveSpeed": 325
   },
+  "mechanics": ["Mage", "Control", "CC", "AoE"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Iceborn Subjugation",
-      "cooldown": [
-        0
-      ],
-      "cost": [
-        0
-      ],
+      "cooldown": [0],
       "effects": []
     },
     "Q": {
       "id": "Q",
       "name": "Ice Shard",
-      "cooldown": [
-        8,
-        7,
-        6,
-        5,
-        4
-      ],
-      "cost": [
-        55,
-        60,
-        65,
-        70,
-        75
-      ],
+      "cooldown": [8, 7, 6, 5, 4],
+      "cost": [55, 60, 65, 70, 75],
       "costType": "Mana",
-      "range": [
-        725,
-        725,
-        725,
-        725,
-        725
-      ],
+      "range": [725],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [],
+            "base": [80, 110, 140, 170, 200],
             "scalings": [
-              {
-                "stat": "ap",
-                "ratio": 0.75
-              }
-            ]
+                { "stat": "ap", "ratio": 0.85 }
+            ],
+            "projectileSpeed": 2200
           }
         }
       ]
@@ -73,83 +49,45 @@
     "W": {
       "id": "W",
       "name": "Ring of Frost",
-      "cooldown": [
-        10,
-        9.5,
-        9,
-        8.5,
-        8
-      ],
-      "cost": [
-        40,
-        40,
-        40,
-        40,
-        40
-      ],
+      "cooldown": [10, 9.5, 9, 8.5, 8],
+      "cost": [40],
       "costType": "Mana",
-      "range": [
-        450,
-        450,
-        450,
-        450,
-        450
-      ],
+      "range": [450],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              70,
-              105,
-              140,
-              175,
-              210
-            ],
-            "scalings": []
+            "base": [70, 105, 140, 175, 210],
+            "scalings": [
+                { "stat": "ap", "ratio": 0.7 }
+            ]
           }
+        },
+        {
+            "type": "cc",
+            "duration": 1.5,
+            "stack": { "name": "rooted", "max": 1 }
         }
       ]
     },
     "E": {
       "id": "E",
       "name": "Glacial Path",
-      "cooldown": [
-        24,
-        21,
-        18,
-        15,
-        12
-      ],
-      "cost": [
-        80,
-        85,
-        90,
-        95,
-        100
-      ],
+      "cooldown": [24, 21, 18, 15, 12],
+      "cost": [80, 85, 90, 95, 100],
       "costType": "Mana",
-      "range": [
-        1050,
-        1050,
-        1050,
-        1050,
-        1050
-      ],
+      "range": [1050],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              70,
-              105,
-              140,
-              175,
-              210
+            "base": [70, 105, 140, 175, 210],
+            "scalings": [
+                { "stat": "ap", "ratio": 0.6 }
             ],
-            "scalings": []
+            "projectileSpeed": 1200
           }
         }
       ]
@@ -157,47 +95,25 @@
     "R": {
       "id": "R",
       "name": "Frozen Tomb",
-      "cooldown": [
-        120,
-        100,
-        80
-      ],
-      "cost": [
-        100,
-        100,
-        100
-      ],
+      "cooldown": [120, 100, 80],
+      "cost": [100],
       "costType": "Mana",
-      "range": [
-        550,
-        550,
-        550
-      ],
+      "range": [550],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              150,
-              250,
-              350,
-              450,
-              550
-            ],
+            "base": [150, 300, 450],
             "scalings": [
-              {
-                "stat": "ap",
-                "ratio": [
-                  0.75,
-                  0.75,
-                  0.75,
-                  0.75,
-                  0.75
-                ]
-              }
+                { "stat": "ap", "ratio": 0.75 }
             ]
           }
+        },
+        {
+            "type": "cc",
+            "duration": 1.5,
+            "stack": { "name": "stunned", "max": 1 }
         }
       ]
     }

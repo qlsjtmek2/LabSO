@@ -17,174 +17,101 @@
     "range": 125,
     "moveSpeed": 335
   },
+  "mechanics": ["Tank", "Vanguard", "ArmorScaling", "CC", "Anti-AD"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Spiked Shell",
-      "cooldown": [
-        0
-      ],
-      "cost": [
-        0
-      ],
-      "effects": []
-    },
-    "Q": {
-      "id": "Q",
-      "name": "Powerball",
-      "cooldown": [
-        12,
-        10.5,
-        9,
-        7.5,
-        6
-      ],
-      "cost": [
-        60,
-        60,
-        60,
-        60,
-        60
-      ],
-      "costType": "Mana",
-      "range": [
-        300,
-        300,
-        300,
-        300,
-        300
-      ],
+      "cooldown": [0],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              0,
-              0,
-              0,
-              0,
-              0
+            "base": [10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 45, 50],
+            "levelScaling": true,
+            "scalings": [
+                { "stat": "armor", "ratio": 0.1 }
             ],
-            "scalings": []
+            "onHitEffectiveness": 1.0
           }
+        }
+      ]
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Powerball",
+      "cooldown": [12, 10.5, 9, 7.5, 6],
+      "cost": [60],
+      "costType": "Mana",
+      "range": [300],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [100, 130, 160, 190, 220],
+            "scalings": [
+                { "stat": "ap", "ratio": 1.0 }
+            ],
+            "projectileSpeed": 1500
+          }
+        },
+        {
+            "type": "cc",
+            "duration": 0.75,
+            "stack": { "name": "airborne", "max": 1 }
         }
       ]
     },
     "W": {
       "id": "W",
       "name": "Defensive Ball Curl",
-      "cooldown": [
-        7,
-        7,
-        7,
-        7,
-        7
-      ],
-      "cost": [
-        40,
-        40,
-        40,
-        40,
-        40
-      ],
-      "costType": "Mana",
-      "range": [
-        300,
-        300,
-        300,
-        300,
-        300
-      ],
+      "cooldown": [7],
+      "cost": [40],
       "effects": [
         {
-          "type": "damage",
-          "logic": {
-            "damageType": "Magical",
-            "base": [
-              0,
-              0,
-              0,
-              0,
-              0
-            ],
-            "scalings": []
-          }
+            "type": "buff",
+            "stack": { "name": "armor_bonus", "max": 1 },
+            "logic": { "base": [0.4, 0.5, 0.6, 0.7, 0.8] }
         }
       ]
     },
     "E": {
       "id": "E",
       "name": "Frenzying Taunt",
-      "cooldown": [
-        12,
-        12,
-        12,
-        12,
-        12
-      ],
-      "cost": [
-        50,
-        50,
-        50,
-        50,
-        50
-      ],
-      "costType": "Mana",
-      "range": [
-        325,
-        325,
-        325,
-        325,
-        325
-      ],
+      "cooldown": [12],
+      "cost": [50],
       "effects": [
         {
-          "type": "damage",
-          "logic": {
-            "damageType": "Magical",
-            "base": [
-              0,
-              0,
-              0,
-              0,
-              0
-            ],
-            "scalings": []
-          }
+            "type": "cc",
+            "duration": 1.25,
+            "stack": { "name": "suppressed", "max": 1 }
+        },
+        {
+            "type": "buff",
+            "stack": { "name": "attackSpeed", "max": 1 },
+            "logic": { "base": [0.2, 0.25, 0.3, 0.35, 0.4] }
         }
       ]
     },
     "R": {
       "id": "R",
       "name": "Soaring Slam",
-      "cooldown": [
-        120,
-        105,
-        90
-      ],
-      "cost": [
-        100,
-        100,
-        100
-      ],
+      "cooldown": [120, 105, 90],
+      "cost": [100],
       "costType": "Mana",
-      "range": [
-        25000,
-        25000,
-        25000
-      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              0,
-              0,
-              0
+            "base": [100, 150, 200],
+            "scalings": [
+                { "stat": "ap", "ratio": 0.6 }
             ],
-            "scalings": []
+            "multiHit": 4,
+            "multiHitInterval": 1.0
           }
         }
       ]

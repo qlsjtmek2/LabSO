@@ -17,67 +17,45 @@
     "range": 125,
     "moveSpeed": 335
   },
+  "mechanics": ["Assassin", "Bleed", "Mobile", "Burst"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Blade's End",
-      "cooldown": [
-        0
-      ],
-      "cost": [
-        0
-      ],
-      "effects": []
-    },
-    "Q": {
-      "id": "Q",
-      "name": "Noxian Diplomacy",
-      "cooldown": [
-        8,
-        7.5,
-        7,
-        6.5,
-        6
-      ],
-      "cost": [
-        40,
-        40,
-        40,
-        40,
-        40
-      ],
-      "costType": "Mana",
-      "range": [
-        575,
-        575,
-        575,
-        575,
-        575
-      ],
+      "cooldown": [0],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [
-              65,
-              85,
-              105,
-              125,
-              145
-            ],
+            "base": [80, 85, 90, 95, 100, 110, 120, 130, 140, 155, 170, 185, 200, 220, 240, 260, 280],
+            "levelScaling": true,
             "scalings": [
-              {
-                "stat": "bonusAd",
-                "ratio": [
-                  1,
-                  1,
-                  1,
-                  1,
-                  1
-                ]
-              }
-            ]
+                { "stat": "bonusAd", "ratio": 2.1 }
+            ],
+            "multiHit": 5,
+            "multiHitInterval": 0.4
+          }
+        }
+      ]
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Noxian Diplomacy",
+      "cooldown": [8, 7.5, 7, 6.5, 6],
+      "cost": [40],
+      "costType": "Mana",
+      "range": [575],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Physical",
+            "base": [65, 90, 115, 140, 165],
+            "scalings": [
+                { "stat": "bonusAd", "ratio": [1.0, 1.05, 1.1, 1.15, 1.2] }
+            ],
+            "onHitEffectiveness": 1.0
           }
         }
       ]
@@ -85,48 +63,21 @@
     "W": {
       "id": "W",
       "name": "Rake",
-      "cooldown": [
-        9,
-        8.5,
-        8,
-        7.5,
-        7
-      ],
-      "cost": [
-        50,
-        55,
-        60,
-        65,
-        70
-      ],
+      "cooldown": [9, 8.5, 8, 7.5, 7],
+      "cost": [50, 55, 60, 65, 70],
       "costType": "Mana",
-      "range": [
-        650,
-        650,
-        650,
-        650,
-        650
-      ],
+      "range": [650],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [
-              50,
-              60,
-              70,
-              80,
-              90
-            ],
+            "base": [50, 60, 70, 80, 90],
             "scalings": [
-              {
-                "stat": "ap",
-                "ratio": [
-                  0
-                ]
-              }
-            ]
+                { "stat": "bonusAd", "ratio": 0.4 }
+            ],
+            "returnDamage": true,
+            "projectileSpeed": 1500
           }
         }
       ]
@@ -134,87 +85,25 @@
     "E": {
       "id": "E",
       "name": "Assassin's Path",
-      "cooldown": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "cost": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "costType": "Mana",
-      "range": [
-        725,
-        725,
-        725,
-        725,
-        725
-      ],
-      "effects": [
-        {
-          "type": "damage",
-          "logic": {
-            "damageType": "Physical",
-            "base": [
-              625,
-              625,
-              625,
-              625,
-              625
-            ],
-            "scalings": [
-              {
-                "stat": "ap",
-                "ratio": 0.4000000059604645
-              }
-            ]
-          }
-        }
-      ]
+      "cooldown": [0],
+      "effects": []
     },
     "R": {
       "id": "R",
       "name": "Shadow Assault",
-      "cooldown": [
-        100,
-        80,
-        60
-      ],
-      "cost": [
-        100,
-        100,
-        100
-      ],
-      "costType": "Mana",
-      "range": [
-        550,
-        550,
-        550
-      ],
+      "cooldown": [100, 80, 60],
+      "cost": [100],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [
-              90,
-              135,
-              180,
-              225,
-              270
-            ],
+            "base": [90, 135, 180],
             "scalings": [
-              {
-                "stat": "ap",
-                "ratio": 1
-              }
-            ]
+                { "stat": "bonusAd", "ratio": 1.0 }
+            ],
+            "multiHit": 2,
+            "multiHitInterval": 1.5
           }
         }
       ]

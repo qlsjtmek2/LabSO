@@ -17,201 +17,109 @@
     "range": 600,
     "moveSpeed": 330
   },
+  "mechanics": ["Marksman", "Support", "Scaling", "Stacker", "InfiniteScaling", "Global"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Absolution",
-      "cooldown": [
-        0
-      ],
-      "cost": [
-        0
-      ],
-      "effects": []
+      "cooldown": [0],
+      "effects": [
+        {
+            "type": "buff",
+            "stack": { "name": "soul_stacks", "max": 999 },
+            "logic": { "base": [0] }
+        }
+      ]
     },
     "Q": {
       "id": "Q",
       "name": "Piercing Darkness",
-      "cooldown": [
-        15,
-        15,
-        15,
-        15,
-        15
-      ],
-      "cost": [
-        70,
-        80,
-        90,
-        100,
-        110
-      ],
+      "cooldown": [15],
+      "cost": [70, 80, 90, 100, 110],
       "costType": "Mana",
-      "range": [
-        600,
-        600,
-        600,
-        600,
-        600
-      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [
-              30,
-              60,
-              90,
-              120,
-              150
-            ],
+            "base": [30, 65, 100, 135, 170],
             "scalings": [
-              {
-                "stat": "ap",
-                "ratio": 0.4000000059604645
-              }
-            ]
+                { "stat": "bonusAd", "ratio": 0.5 }
+            ],
+            "onHitEffectiveness": 1.0
           }
+        },
+        {
+            "type": "heal",
+            "logic": {
+                "base": [40, 55, 70, 85, 100],
+                "scalings": [
+                    { "stat": "bonusAd", "ratio": 0.4 },
+                    { "stat": "ap", "ratio": 0.6 }
+                ]
+            }
         }
       ]
     },
     "W": {
       "id": "W",
       "name": "Last Embrace",
-      "cooldown": [
-        11,
-        11,
-        11,
-        11,
-        11
-      ],
-      "cost": [
-        50,
-        55,
-        60,
-        65,
-        70
-      ],
+      "cooldown": [11],
+      "cost": [50, 55, 60, 65, 70],
       "costType": "Mana",
-      "range": [
-        1250,
-        1250,
-        1250,
-        1250,
-        1250
-      ],
+      "range": [1250],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [
-              70,
-              115,
-              160,
-              205,
-              250
-            ],
+            "base": [70, 115, 160, 205, 250],
             "scalings": [
-              {
-                "stat": "ap",
-                "ratio": 0.699999988079071
-              }
+                { "stat": "bonusAd", "ratio": 0.7 }
             ]
           }
+        },
+        {
+            "type": "cc",
+            "duration": 1.25,
+            "stack": { "name": "rooted", "max": 1 }
         }
       ]
     },
     "E": {
       "id": "E",
       "name": "Curse of the Black Mist",
-      "cooldown": [
-        26,
-        24.5,
-        23,
-        21.5,
-        20
-      ],
-      "cost": [
-        70,
-        70,
-        70,
-        70,
-        70
-      ],
-      "costType": "Mana",
-      "range": [
-        400,
-        400,
-        400,
-        400,
-        400
-      ],
-      "effects": [
-        {
-          "type": "damage",
-          "logic": {
-            "damageType": "Physical",
-            "base": [
-              0.20000000298023224,
-              0.20000000298023224,
-              0.20000000298023224,
-              0.20000000298023224,
-              0.20000000298023224
-            ],
-            "scalings": [
-              {
-                "stat": "ap",
-                "ratio": 0.0005000000237487257
-              }
-            ]
-          }
-        }
-      ]
+      "cooldown": [26, 24.5, 23, 21.5, 20],
+      "effects": []
     },
     "R": {
       "id": "R",
       "name": "Dawning Shadow",
-      "cooldown": [
-        140,
-        120,
-        100
-      ],
-      "cost": [
-        100,
-        100,
-        100
-      ],
+      "cooldown": [140, 120, 100],
+      "cost": [100],
       "costType": "Mana",
-      "range": [
-        25000,
-        25000,
-        25000
-      ],
+      "range": [25000],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [
-              250,
-              400,
-              550,
-              700,
-              850
-            ],
+            "base": [250, 375, 500],
             "scalings": [
-              {
-                "stat": "ap",
-                "ratio": 0.699999988079071
-              },
-              {
-                "stat": "ap",
-                "ratio": 1.149999976158142
-              }
+                { "stat": "bonusAd", "ratio": 1.15 },
+                { "stat": "ap", "ratio": 0.7 }
             ]
           }
+        },
+        {
+            "type": "shield",
+            "logic": {
+                "base": [120, 160, 200],
+                "scalings": [
+                    { "stat": "ap", "ratio": 0.4 },
+                    { "stat": "soul_stacks", "ratio": 1.5 }
+                ]
+            }
         }
       ]
     }

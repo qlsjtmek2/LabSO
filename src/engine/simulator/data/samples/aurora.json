@@ -17,61 +17,45 @@
     "range": 550,
     "moveSpeed": 335
   },
+  "mechanics": ["Mage", "Mobile", "Assassin"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Spirit Abjuration",
-      "cooldown": [
-        0
-      ],
-      "cost": [
-        0
-      ],
-      "effects": []
-    },
-    "Q": {
-      "id": "Q",
-      "name": "Twofold Hex",
-      "cooldown": [
-        9,
-        8.5,
-        8,
-        7.5,
-        7
-      ],
-      "cost": [
-        60,
-        60,
-        60,
-        60,
-        60
-      ],
-      "costType": "Mana",
-      "range": [
-        900,
-        900,
-        900,
-        900,
-        900
-      ],
+      "cooldown": [0],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              45,
-              70,
-              95,
-              120,
-              145
-            ],
+            "base": [0],
             "scalings": [
-              {
-                "stat": "ap",
-                "ratio": 0.4000000059604645
-              }
+                { "stat": "maxHp", "target": "enemy", "ratio": 0.04 },
+                { "stat": "ap", "ratio": 0.015 }
             ]
+          }
+        }
+      ]
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Twofold Hex",
+      "cooldown": [9, 8.5, 8, 7.5, 7],
+      "cost": [60, 60, 60, 60, 60],
+      "costType": "Mana",
+      "range": [900, 900, 900, 900, 900],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [45, 70, 95, 120, 145],
+            "scalings": [
+                { "stat": "ap", "ratio": 0.4 }
+            ],
+            "multiHit": 2,
+            "multiHitInterval": 1.0,
+            "projectileSpeed": 1450
           }
         }
       ]
@@ -79,127 +63,51 @@
     "W": {
       "id": "W",
       "name": "Across the Veil",
-      "cooldown": [
-        22,
-        21,
-        20,
-        19,
-        18
-      ],
-      "cost": [
-        80,
-        80,
-        80,
-        80,
-        80
-      ],
+      "cooldown": [22, 21, 20, 19, 18],
+      "cost": [80, 80, 80, 80, 80],
       "costType": "Mana",
-      "range": [
-        700,
-        700,
-        700,
-        700,
-        700
-      ],
-      "effects": [
-        {
-          "type": "damage",
-          "logic": {
-            "damageType": "Physical",
-            "base": [],
-            "scalings": [
-              {
-                "stat": "ap",
-                "ratio": 0.30000001192092896
-              }
-            ]
-          }
-        }
-      ]
+      "effects": []
     },
     "E": {
       "id": "E",
       "name": "The Weirding",
-      "cooldown": [
-        15,
-        14,
-        13,
-        12,
-        11
-      ],
-      "cost": [
-        80,
-        80,
-        80,
-        80,
-        80
-      ],
+      "cooldown": [15, 14, 13, 12, 11],
+      "cost": [80, 80, 80, 80, 80],
       "costType": "Mana",
-      "range": [
-        825,
-        825,
-        825,
-        825,
-        825
-      ],
+      "range": [825, 825, 825, 825, 825],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              70,
-              110,
-              150,
-              190,
-              230
-            ],
+            "base": [70, 110, 150, 190, 230],
             "scalings": [
-              {
-                "stat": "ap",
-                "ratio": 0.699999988079071
-              }
-            ]
+                { "stat": "ap", "ratio": 0.8 }
+            ],
+            "projectileSpeed": 1100
           }
+        },
+        {
+            "type": "cc",
+            "duration": 2.0,
+            "stack": { "name": "slowed", "max": 1 }
         }
       ]
     },
     "R": {
       "id": "R",
       "name": "Between Worlds",
-      "cooldown": [
-        140,
-        120,
-        100
-      ],
-      "cost": [
-        100,
-        100,
-        100
-      ],
+      "cooldown": [140, 120, 100],
+      "cost": [100, 100, 100],
       "costType": "Mana",
-      "range": [
-        250,
-        250,
-        250
-      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              175,
-              275,
-              375,
-              475,
-              575
-            ],
+            "base": [180, 265, 350],
             "scalings": [
-              {
-                "stat": "ap",
-                "ratio": 0.699999988079071
-              }
+                { "stat": "ap", "ratio": 0.65 }
             ]
           }
         }

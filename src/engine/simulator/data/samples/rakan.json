@@ -17,156 +17,97 @@
     "range": 300,
     "moveSpeed": 335
   },
+  "mechanics": ["Support", "Diver", "CC", "Shield", "Heal", "Mobile"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Fey Feathers",
-      "cooldown": [
-        0
-      ],
-      "cost": [
-        0
-      ],
-      "effects": []
+      "cooldown": [40],
+      "effects": [
+        {
+          "type": "shield",
+          "logic": {
+              "base": [30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 155, 170, 185, 200, 215, 230],
+              "levelScaling": true,
+              "scalings": [
+                  { "stat": "ap", "ratio": 0.9 }
+              ]
+          }
+        }
+      ]
     },
     "Q": {
       "id": "Q",
       "name": "Gleaming Quill",
-      "cooldown": [
-        11,
-        10,
-        9,
-        8,
-        7
-      ],
-      "cost": [
-        45,
-        45,
-        45,
-        45,
-        45
-      ],
+      "cooldown": [11, 10, 9, 8, 7],
+      "cost": [45],
       "costType": "Mana",
-      "range": [
-        850,
-        850,
-        850,
-        850,
-        850
-      ],
+      "range": [850],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              70,
-              115,
-              160,
-              205,
-              250
-            ],
+            "base": [70, 115, 160, 205, 250],
             "scalings": [
-              {
-                "stat": "ap",
-                "ratio": [
-                  0.699999988079071,
-                  0.699999988079071,
-                  0.699999988079071,
-                  0.699999988079071,
-                  0.699999988079071
-                ]
-              }
-            ]
+                { "stat": "ap", "ratio": 0.9 }
+            ],
+            "projectileSpeed": 1850
           }
+        },
+        {
+            "type": "heal",
+            "logic": {
+                "base": [40, 55, 70, 85, 100, 115, 130, 145, 160, 175, 190, 205, 220, 235, 250, 265, 280, 295],
+                "levelScaling": true,
+                "scalings": [
+                    { "stat": "ap", "ratio": 0.7 }
+                ]
+            }
         }
       ]
     },
     "W": {
       "id": "W",
       "name": "Grand Entrance",
-      "cooldown": [
-        14,
-        13,
-        12,
-        11,
-        10
-      ],
-      "cost": [
-        50,
-        60,
-        70,
-        80,
-        90
-      ],
+      "cooldown": [14, 13, 12, 11, 10],
+      "cost": [50, 60, 70, 80, 90],
       "costType": "Mana",
-      "range": [
-        600,
-        600,
-        600,
-        600,
-        600
-      ],
+      "range": [600],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              70,
-              120,
-              170,
-              220,
-              270
-            ],
-            "scalings": []
+            "base": [70, 120, 170, 220, 270],
+            "scalings": [
+                { "stat": "ap", "ratio": 0.8 }
+            ]
           }
+        },
+        {
+            "type": "cc",
+            "duration": 1.0,
+            "stack": { "name": "airborne", "max": 1 }
         }
       ]
     },
     "E": {
       "id": "E",
       "name": "Battle Dance",
-      "cooldown": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "cost": [
-        40,
-        45,
-        50,
-        55,
-        60
-      ],
+      "cooldown": [20, 18, 16, 14, 12],
+      "cost": [40, 45, 50, 55, 60],
       "costType": "Mana",
-      "range": [
-        650,
-        650,
-        650,
-        650,
-        650
-      ],
       "effects": [
         {
-          "type": "damage",
+          "type": "shield",
           "logic": {
-            "damageType": "Physical",
-            "base": [
-              50,
-              75,
-              100,
-              125,
-              150
-            ],
-            "scalings": [
-              {
-                "stat": "ap",
-                "ratio": 0.699999988079071
-              }
-            ]
+              "base": [50, 75, 100, 125, 150],
+              "scalings": [
+                  { "stat": "ap", "ratio": 0.7 }
+              ],
+              "multiHit": 2,
+              "multiHitInterval": 1.0
           }
         }
       ]
@@ -174,34 +115,24 @@
     "R": {
       "id": "R",
       "name": "The Quickness",
-      "cooldown": [
-        130,
-        110,
-        90
-      ],
-      "cost": [
-        100,
-        100,
-        100
-      ],
+      "cooldown": [130, 110, 90],
+      "cost": [100],
       "costType": "Mana",
-      "range": [
-        150,
-        150,
-        150
-      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              100,
-              200,
-              300
-            ],
-            "scalings": []
+            "base": [100, 200, 300],
+            "scalings": [
+                { "stat": "ap", "ratio": 0.5 }
+            ]
           }
+        },
+        {
+            "type": "cc",
+            "duration": 1.5,
+            "stack": { "name": "charmed", "max": 1 }
         }
       ]
     }

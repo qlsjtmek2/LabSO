@@ -17,140 +17,73 @@
     "range": 550,
     "moveSpeed": 330
   },
+  "mechanics": ["Marksman", "Assassin", "DoT", "Stealth", "TrueDamage", "Hybrid"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Deadly Venom",
-      "cooldown": [
-        0
-      ],
-      "cost": [
-        0
-      ],
-      "effects": []
-    },
-    "Q": {
-      "id": "Q",
-      "name": "Ambush",
-      "cooldown": [
-        16,
-        16,
-        16,
-        16,
-        16
-      ],
-      "cost": [
-        40,
-        40,
-        40,
-        40,
-        40
-      ],
-      "costType": "Mana",
-      "range": [
-        20,
-        20,
-        20,
-        20,
-        20
-      ],
+      "cooldown": [0],
       "effects": [
         {
           "type": "damage",
           "logic": {
-            "damageType": "Physical",
-            "base": [
-              0,
-              0,
-              0,
-              0,
-              0
+            "damageType": "True",
+            "base": [1, 2, 3, 4, 5],
+            "levelScaling": true,
+            "scalings": [
+                { "stat": "ap", "ratio": 0.03 }
             ],
-            "scalings": []
+            "multiHit": 6,
+            "multiHitInterval": 1.0
           }
+        }
+      ]
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Ambush",
+      "cooldown": [16],
+      "cost": [40],
+      "effects": [
+        {
+            "type": "buff",
+            "stack": { "name": "attackSpeed", "max": 1 },
+            "logic": { "base": [0.4, 0.45, 0.5, 0.55, 0.6] }
         }
       ]
     },
     "W": {
       "id": "W",
       "name": "Venom Cask",
-      "cooldown": [
-        13,
-        12,
-        11,
-        10,
-        9
-      ],
-      "cost": [
-        70,
-        70,
-        70,
-        70,
-        70
-      ],
-      "costType": "Mana",
-      "range": [
-        950,
-        950,
-        950,
-        950,
-        950
-      ],
+      "cooldown": [13, 12, 11, 10, 9],
+      "cost": [70],
+      "range": [950],
       "effects": [
         {
-          "type": "damage",
-          "logic": {
-            "damageType": "Physical",
-            "base": [
-              0,
-              0,
-              0,
-              0,
-              0
-            ],
-            "scalings": []
-          }
+            "type": "cc",
+            "duration": 3.0,
+            "stack": { "name": "slowed", "max": 1 }
         }
       ]
     },
     "E": {
       "id": "E",
       "name": "Contaminate",
-      "cooldown": [
-        12,
-        11,
-        10,
-        9,
-        8
-      ],
-      "cost": [
-        50,
-        60,
-        70,
-        80,
-        90
-      ],
-      "costType": "Mana",
-      "range": [
-        1200,
-        1200,
-        1200,
-        1200,
-        1200
-      ],
+      "cooldown": [12, 11, 10, 9, 8],
+      "cost": [50, 60, 70, 80, 90],
+      "range": [1200],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [
-              0,
-              0,
-              0,
-              0,
-              0
+            "base": [20, 30, 40, 50, 60],
+            "scalings": [
+                { "stat": "bonusAd", "ratio": 0.35 },
+                { "stat": "ap", "ratio": 0.3 }
             ],
-            "scalings": []
+            "multiHit": 6,
+            "multiHitInterval": 0.05
           }
         }
       ]
@@ -158,34 +91,13 @@
     "R": {
       "id": "R",
       "name": "Spray and Pray",
-      "cooldown": [
-        90,
-        90,
-        90
-      ],
-      "cost": [
-        100,
-        100,
-        100
-      ],
-      "costType": "Mana",
-      "range": [
-        1200,
-        1200,
-        1200
-      ],
+      "cooldown": [90],
+      "cost": [100],
       "effects": [
         {
-          "type": "damage",
-          "logic": {
-            "damageType": "Physical",
-            "base": [
-              0,
-              0,
-              0
-            ],
-            "scalings": []
-          }
+            "type": "buff",
+            "stack": { "name": "ad_bonus", "max": 1 },
+            "logic": { "base": [40, 55, 70] }
         }
       ]
     }

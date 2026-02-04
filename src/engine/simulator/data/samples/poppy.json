@@ -17,56 +17,53 @@
     "range": 125,
     "moveSpeed": 345
   },
+  "mechanics": ["Tank", "Warden", "CC", "%MaxHP"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Iron Ambassador",
-      "cooldown": [
-        0
-      ],
-      "cost": [
-        0
-      ],
-      "effects": []
+      "cooldown": [13, 10, 7],
+      "levelScaling": true,
+      "effects": [
+        {
+          "type": "shield",
+          "logic": {
+              "base": [0],
+              "scalings": [
+                  { "stat": "maxHp", "target": "self", "ratio": [0.15, 0.175, 0.2] }
+              ]
+          }
+        },
+        {
+            "id": "Buckler_Damage",
+            "type": "damage",
+            "logic": {
+                "damageType": "Magical",
+                "base": [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180],
+                "levelScaling": true
+            }
+        }
+      ]
     },
     "Q": {
       "id": "Q",
       "name": "Hammer Shock",
-      "cooldown": [
-        8,
-        7,
-        6,
-        5,
-        4
-      ],
-      "cost": [
-        35,
-        40,
-        45,
-        50,
-        55
-      ],
+      "cooldown": [8, 7, 6, 5, 4],
+      "cost": [35, 40, 45, 50, 55],
       "costType": "Mana",
-      "range": [
-        430,
-        430,
-        430,
-        430,
-        430
-      ],
+      "range": [430],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [
-              30,
-              55,
-              80,
-              105,
-              130
+            "base": [40, 65, 90, 115, 140],
+            "scalings": [
+                { "stat": "bonusAd", "ratio": 0.9 },
+                { "stat": "maxHp", "target": "enemy", "ratio": 0.09 }
             ],
-            "scalings": []
+            "multiHit": 2,
+            "multiHitInterval": 1.0
           }
         }
       ]
@@ -74,123 +71,63 @@
     "W": {
       "id": "W",
       "name": "Steadfast Presence",
-      "cooldown": [
-        20,
-        18,
-        16,
-        14,
-        12
-      ],
-      "cost": [
-        50,
-        50,
-        50,
-        50,
-        50
-      ],
+      "cooldown": [20, 18, 16, 14, 12],
+      "cost": [50],
       "costType": "Mana",
-      "range": [
-        400,
-        400,
-        400,
-        400,
-        400
-      ],
       "effects": [
         {
-          "type": "damage",
-          "logic": {
-            "damageType": "Magical",
-            "base": [
-              2,
-              2,
-              2,
-              2,
-              2
-            ],
-            "scalings": []
-          }
+            "type": "buff",
+            "stack": { "name": "armor_bonus", "max": 1 },
+            "logic": { "base": [0.12] }
         }
       ]
     },
     "E": {
       "id": "E",
       "name": "Heroic Charge",
-      "cooldown": [
-        14,
-        13,
-        12,
-        11,
-        10
-      ],
-      "cost": [
-        70,
-        70,
-        70,
-        70,
-        70
-      ],
+      "cooldown": [14, 13, 12, 11, 10],
+      "cost": [70],
       "costType": "Mana",
-      "range": [
-        475,
-        475,
-        475,
-        475,
-        475
-      ],
+      "range": [475],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [
-              40,
-              60,
-              80,
-              100,
-              120
-            ],
-            "scalings": []
+            "base": [60, 80, 100, 120, 140],
+            "scalings": [
+                { "stat": "bonusAd", "ratio": 0.5 }
+            ]
           }
+        },
+        {
+            "id": "TerrainStun",
+            "type": "damage",
+            "logic": {
+                "damageType": "Physical",
+                "base": [60, 80, 100, 120, 140],
+                "scalings": [
+                    { "stat": "bonusAd", "ratio": 0.5 }
+                ],
+                "delay": 0.5
+            }
         }
       ]
     },
     "R": {
       "id": "R",
       "name": "Keeper's Verdict",
-      "cooldown": [
-        140,
-        120,
-        100
-      ],
-      "cost": [
-        100,
-        100,
-        100
-      ],
+      "cooldown": [140, 120, 100],
+      "cost": [100],
       "costType": "Mana",
-      "range": [
-        500,
-        500,
-        500
-      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [
-              200,
-              300,
-              400,
-              500,
-              600
-            ],
+            "base": [200, 300, 400],
             "scalings": [
-              {
-                "stat": "ap",
-                "ratio": 0.8999999761581421
-              }
+                { "stat": "bonusAd", "ratio": 0.9 }
             ]
           }
         }

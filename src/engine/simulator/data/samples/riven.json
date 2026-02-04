@@ -17,56 +17,41 @@
     "range": 125,
     "moveSpeed": 340
   },
+  "mechanics": ["Skirmisher", "Assassin", "Mobile", "Shield", "Execute"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Runic Blade",
-      "cooldown": [
-        0
-      ],
-      "cost": [
-        0
-      ],
-      "effects": []
-    },
-    "Q": {
-      "id": "Q",
-      "name": "Broken Wings",
-      "cooldown": [
-        13,
-        13,
-        13,
-        13,
-        13
-      ],
-      "cost": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "costType": "None",
-      "range": [
-        275,
-        275,
-        275,
-        275,
-        275
-      ],
+      "cooldown": [0],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [
-              45,
-              75,
-              105,
-              135,
-              165
+            "base": [0],
+            "scalings": [
+                { "stat": "ad", "ratio": [0.3, 0.36, 0.42, 0.48, 0.54, 0.6] }
+            ]
+          }
+        }
+      ]
+    },
+    "Q": {
+      "id": "Q",
+      "name": "Broken Wings",
+      "cooldown": [13],
+      "cost": [0],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Physical",
+            "base": [15, 35, 55, 75, 95],
+            "scalings": [
+                { "stat": "ad", "ratio": [0.45, 0.5, 0.55, 0.6, 0.65] }
             ],
-            "scalings": []
+            "multiHit": 3,
+            "multiHitInterval": 0.5
           }
         }
       ]
@@ -74,83 +59,39 @@
     "W": {
       "id": "W",
       "name": "Ki Burst",
-      "cooldown": [
-        11,
-        10,
-        9,
-        8,
-        7
-      ],
-      "cost": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "costType": "None",
-      "range": [
-        260,
-        260,
-        260,
-        260,
-        260
-      ],
+      "cooldown": [11, 10, 9, 8, 7],
+      "cost": [0],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [
-              65,
-              95,
-              125,
-              155,
-              185
-            ],
-            "scalings": []
+            "base": [65, 95, 125, 155, 185],
+            "scalings": [
+                { "stat": "bonusAd", "ratio": 1.0 }
+            ]
           }
+        },
+        {
+            "type": "cc",
+            "duration": 0.75,
+            "stack": { "name": "stunned", "max": 1 }
         }
       ]
     },
     "E": {
       "id": "E",
       "name": "Valor",
-      "cooldown": [
-        10,
-        9,
-        8,
-        7,
-        6
-      ],
-      "cost": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "costType": "None",
-      "range": [
-        250,
-        250,
-        250,
-        250,
-        250
-      ],
+      "cooldown": [10, 9, 8, 7, 6],
+      "cost": [0],
       "effects": [
         {
-          "type": "damage",
+          "type": "shield",
           "logic": {
-            "damageType": "Physical",
-            "base": [
-              70,
-              95,
-              120,
-              145,
-              170
-            ],
-            "scalings": []
+              "base": [80, 110, 140, 170, 200],
+              "scalings": [
+                  { "stat": "bonusAd", "ratio": 1.0 }
+              ]
           }
         }
       ]
@@ -158,33 +99,30 @@
     "R": {
       "id": "R",
       "name": "Blade of the Exile",
-      "cooldown": [
-        120,
-        90,
-        60
-      ],
-      "cost": [
-        0,
-        0,
-        0
-      ],
-      "costType": "None",
-      "range": [
-        200,
-        200,
-        200
-      ],
+      "cooldown": [120, 90, 60],
       "effects": [
         {
+            "type": "buff",
+            "stack": { "name": "ad_amp", "max": 1 },
+            "logic": { "base": [0.2] }
+        },
+        {
+          "id": "WindSlash",
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [
-              100,
-              150,
-              200
+            "base": [100, 150, 200],
+            "scalings": [
+                { "stat": "bonusAd", "ratio": 0.6 },
+                { "stat": "missingHp", "target": "enemy", "ratio": [0.15, 0.2, 0.25] }
             ],
-            "scalings": []
+            "modifiers": [
+                {
+                    "condition": { "type": "stat", "target": "enemy", "stat": "hp", "operator": "<", "value": 0.25 },
+                    "multiplier": 3.0
+                }
+            ],
+            "delay": 1.5
           }
         }
       ]

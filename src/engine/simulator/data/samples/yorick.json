@@ -17,161 +17,79 @@
     "range": 175,
     "moveSpeed": 340
   },
+  "mechanics": ["Bruiser", "Juggernaut", "Pet", "Heal", "%CurrentHP", "%MaxHP"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Shepherd of Souls",
-      "cooldown": [
-        0
-      ],
-      "cost": [
-        0
-      ],
-      "effects": []
+      "cooldown": [0],
+      "effects": [
+        {
+            "id": "MistWalkers",
+            "type": "damage",
+            "logic": {
+                "damageType": "Physical",
+                "base": [2, 7, 12, 17, 22, 27, 32, 37, 42, 47, 52, 57, 62, 67, 72, 77, 82, 87],
+                "levelScaling": true,
+                "scalings": [{ "stat": "ad", "ratio": 0.25 }],
+                "multiHit": 4,
+                "multiHitInterval": 1.0
+            }
+        }
+      ]
     },
     "Q": {
       "id": "Q",
       "name": "Last Rites",
-      "cooldown": [
-        6,
-        5.5,
-        5,
-        4.5,
-        4
-      ],
-      "cost": [
-        20,
-        20,
-        20,
-        20,
-        20
-      ],
+      "cooldown": [6, 5.5, 5, 4.5, 4],
+      "cost": [20],
       "costType": "Mana",
-      "range": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "levelScaling": true,
-            "base": [
-              2,
-              7,
-              12,
-              17,
-              22,
-              27,
-              32,
-              37,
-              42,
-              47,
-              52,
-              57,
-              62,
-              67,
-              72,
-              77,
-              82,
-              87
-            ],
+            "base": [30, 55, 80, 105, 130],
             "scalings": [
-              {
-                "stat": "ad",
-                "ratio": 0.25
-              }
-            ]
+                { "stat": "ad", "ratio": 0.4 }
+            ],
+            "onHitEffectiveness": 1.0
           }
+        },
+        {
+            "type": "heal",
+            "logic": {
+                "base": [10, 12, 14, 16, 18, 20, 23, 26, 29, 32, 35, 38, 41, 44, 47, 50, 54, 58],
+                "levelScaling": true
+            }
         }
       ]
     },
     "W": {
       "id": "W",
       "name": "Dark Procession",
-      "cooldown": [
-        20,
-        18,
-        16,
-        14,
-        12
-      ],
-      "cost": [
-        70,
-        70,
-        70,
-        70,
-        70
-      ],
-      "costType": "Mana",
-      "range": [
-        600,
-        600,
-        600,
-        600,
-        600
-      ],
-      "effects": [
-        {
-          "type": "damage",
-          "logic": {
-            "damageType": "Physical",
-            "base": [],
-            "scalings": [
-              {
-                "stat": "bonusHp",
-                "ratio": 0
-              },
-              {
-                "stat": "bonusHp",
-                "ratio": 2
-              }
-            ]
-          }
-        }
-      ]
+      "cooldown": [20, 18, 16, 14, 12],
+      "cost": [70],
+      "effects": []
     },
     "E": {
       "id": "E",
       "name": "Mourning Mist",
-      "cooldown": [
-        12,
-        11,
-        10,
-        9,
-        8
-      ],
-      "cost": [
-        50,
-        55,
-        60,
-        65,
-        70
-      ],
+      "cooldown": [12, 11, 10, 9, 8],
+      "cost": [50, 55, 60, 65, 70],
       "costType": "Mana",
-      "range": [
-        700,
-        700,
-        700,
-        700,
-        700
-      ],
+      "range": [700],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [],
+            "base": [70, 105, 140, 175, 210],
             "scalings": [
-              {
-                "stat": "ap",
-                "ratio": 1
-              }
-            ]
+                { "stat": "ap", "ratio": 0.7 },
+                { "stat": "currentHp", "target": "enemy", "ratio": 0.15 }
+            ],
+            "projectileSpeed": 1200
           }
         }
       ]
@@ -179,43 +97,33 @@
     "R": {
       "id": "R",
       "name": "Eulogy of the Isles",
-      "cooldown": [
-        160,
-        130,
-        100
-      ],
-      "cost": [
-        100,
-        100,
-        100
-      ],
-      "costType": "Mana",
-      "range": [
-        600,
-        600,
-        600
-      ],
+      "cooldown": [160, 130, 100],
+      "cost": [100],
       "effects": [
         {
+          "id": "Maiden_Magic_Damage",
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              50,
-              75,
-              100,
-              125,
-              150
-            ],
+            "base": [0, 20, 40],
             "scalings": [
-              {
-                "stat": "ap",
-                "ratio": [
-                  0
-                ]
-              }
-            ]
+                { "stat": "ad", "ratio": 0.5 }
+            ],
+            "multiHit": 5,
+            "multiHitInterval": 1.0
           }
+        },
+        {
+            "id": "Maiden_Proc",
+            "type": "damage",
+            "logic": {
+                "damageType": "Magical",
+                "base": [0],
+                "scalings": [
+                    { "stat": "maxHp", "target": "enemy", "ratio": [0.03, 0.06, 0.09] }
+                ],
+                "onHitEffectiveness": 1.0
+            }
         }
       ]
     }

@@ -17,64 +17,35 @@
     "range": 175,
     "moveSpeed": 345
   },
+  "mechanics": ["Bruiser", "Assassin", "Diver", "ArmorPen", "Execute"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Mortal Will",
-      "cooldown": [
-        0
-      ],
-      "cost": [
-        0
-      ],
+      "cooldown": [0],
       "effects": []
     },
     "Q": {
       "id": "Q",
       "name": "Comet Spear",
-      "cooldown": [
-        11,
-        10.25,
-        9.5,
-        8.75,
-        8
-      ],
-      "cost": [
-        25,
-        25,
-        25,
-        25,
-        25
-      ],
+      "cooldown": [11, 10.25, 9.5, 8.75, 8],
+      "cost": [25],
       "costType": "Mana",
-      "range": [
-        575,
-        575,
-        575,
-        575,
-        575
-      ],
+      "range": [575],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [
-              70,
-              100,
-              130,
-              160,
-              190
-            ],
+            "base": [70, 100, 130, 160, 190],
             "scalings": [
-              {
-                "stat": "ap",
-                "ratio": 1.149999976158142
-              },
-              {
-                "stat": "ap",
-                "ratio": 0.5
-              }
+                { "stat": "bonusAd", "ratio": 1.15 }
+            ],
+            "modifiers": [
+                {
+                    "condition": { "type": "stat", "target": "enemy", "stat": "hp", "operator": "<", "value": 0.2 },
+                    "multiplier": 2.0
+                }
             ]
           }
         }
@@ -83,87 +54,58 @@
     "W": {
       "id": "W",
       "name": "Shield Vault",
-      "cooldown": [
-        13,
-        12,
-        11,
-        10,
-        9
-      ],
-      "cost": [
-        55,
-        55,
-        55,
-        55,
-        55
-      ],
+      "cooldown": [13, 12, 11, 10, 9],
+      "cost": [55],
       "costType": "Mana",
-      "range": [
-        600,
-        600,
-        600,
-        600,
-        600
-      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [
-              0,
-              0,
-              0,
-              0,
-              0
-            ],
+            "base": [60, 100, 140, 180, 220],
             "scalings": [
-              {
-                "stat": "ap",
-                "ratio": 1
-              }
+                { "stat": "ap", "ratio": 1.0 }
             ]
           }
+        },
+        {
+            "id": "Empowered_AA",
+            "type": "damage",
+            "logic": {
+                "damageType": "Physical",
+                "base": [0],
+                "scalings": [
+                    { "stat": "ad", "ratio": 1.5 }
+                ],
+                "multiHit": 3,
+                "multiHitInterval": 0.1,
+                "delay": 0.5
+            }
+        },
+        {
+            "type": "cc",
+            "duration": 1.0,
+            "stack": { "name": "stunned", "max": 1 }
         }
       ]
     },
     "E": {
       "id": "E",
       "name": "Aegis Assault",
-      "cooldown": [
-        22,
-        21,
-        20,
-        19,
-        18
-      ],
-      "cost": [
-        80,
-        80,
-        80,
-        80,
-        80
-      ],
+      "cooldown": [22, 21, 20, 19, 18],
+      "cost": [80],
       "costType": "Mana",
-      "range": [
-        400,
-        400,
-        400,
-        400,
-        400
-      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [],
+            "base": [0],
             "scalings": [
-              {
-                "stat": "ap",
-                "ratio": 1
-              }
-            ]
+                { "stat": "bonusAd", "ratio": 1.5 }
+            ],
+            "multiHit": 5,
+            "multiHitInterval": 0.3
           }
         }
       ]
@@ -171,47 +113,23 @@
     "R": {
       "id": "R",
       "name": "Grand Starfall",
-      "cooldown": [
-        180,
-        165,
-        150
-      ],
-      "cost": [
-        100,
-        100,
-        100
-      ],
-      "costType": "Mana",
-      "range": [
-        5500,
-        5500,
-        5500
-      ],
+      "cooldown": [180, 165, 150],
+      "cost": [100],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              300,
-              500,
-              700,
-              900,
-              1100
-            ],
+            "base": [300, 500, 700],
             "scalings": [
-              {
-                "stat": "ap",
-                "ratio": [
-                  1,
-                  1,
-                  1,
-                  1,
-                  1
-                ]
-              }
+                { "stat": "ap", "ratio": 1.0 }
             ]
           }
+        },
+        {
+            "type": "buff",
+            "stack": { "name": "armor_pen", "max": 1 },
+            "logic": { "base": [0.1, 0.2, 0.3] }
         }
       ]
     }

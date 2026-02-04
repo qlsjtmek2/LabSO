@@ -17,161 +17,92 @@
     "range": 125,
     "moveSpeed": 335
   },
+  "mechanics": ["Tank", "Vanguard", "CC", "Heal", "DoT"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Sap Magic",
-      "cooldown": [
-        0
-      ],
-      "cost": [
-        0
-      ],
-      "effects": []
+      "cooldown": [20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 4],
+      "levelScaling": true,
+      "effects": [
+        {
+          "type": "heal",
+          "logic": {
+              "base": [0],
+              "scalings": [
+                  { "stat": "maxHp", "target": "self", "ratio": [0.04, 0.05, 0.06, 0.07, 0.08, 0.09, 0.1, 0.11, 0.12] }
+              ]
+          }
+        }
+      ]
     },
     "Q": {
       "id": "Q",
       "name": "Bramble Smash",
-      "cooldown": [
-        7,
-        6.5,
-        6,
-        5.5,
-        5
-      ],
-      "cost": [
-        40,
-        40,
-        40,
-        40,
-        40
-      ],
+      "cooldown": [7, 6.5, 6, 5.5, 5],
+      "cost": [40],
       "costType": "Mana",
-      "range": [
-        600,
-        600,
-        600,
-        600,
-        600
-      ],
+      "range": [600],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              65,
-              110,
-              155,
-              200,
-              245
-            ],
+            "base": [65, 110, 155, 200, 245],
             "scalings": [
-              {
-                "stat": "ap",
-                "ratio": [
-                  0.4000000059604645,
-                  0.4000000059604645,
-                  0.4000000059604645,
-                  0.4000000059604645,
-                  0.4000000059604645
-                ]
-              }
+                { "stat": "ap", "ratio": 0.4 },
+                { "stat": "maxHp", "target": "enemy", "ratio": [0.02, 0.0225, 0.025, 0.0275, 0.03] }
             ]
           }
+        },
+        {
+            "type": "cc",
+            "duration": 0.5,
+            "stack": { "name": "airborne", "max": 1 }
         }
       ]
     },
     "W": {
       "id": "W",
       "name": "Twisted Advance",
-      "cooldown": [
-        14,
-        13,
-        12,
-        11,
-        10
-      ],
-      "cost": [
-        60,
-        60,
-        60,
-        60,
-        60
-      ],
+      "cooldown": [14, 13, 12, 11, 10],
+      "cost": [60],
       "costType": "Mana",
-      "range": [
-        525,
-        525,
-        525,
-        525,
-        525
-      ],
+      "range": [525],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              60,
-              85,
-              110,
-              135,
-              160
-            ],
-            "scalings": []
+            "base": [60, 85, 110, 135, 160],
+            "scalings": [
+                { "stat": "ap", "ratio": 0.4 }
+            ]
           }
+        },
+        {
+            "type": "cc",
+            "duration": 1.0,
+            "stack": { "name": "rooted", "max": 1 }
         }
       ]
     },
     "E": {
       "id": "E",
       "name": "Sapling Toss",
-      "cooldown": [
-        18,
-        17,
-        16,
-        15,
-        14
-      ],
-      "cost": [
-        60,
-        65,
-        70,
-        75,
-        80
-      ],
+      "cooldown": [18, 17, 16, 15, 14],
+      "cost": [60, 65, 70, 75, 80],
       "costType": "Mana",
-      "range": [
-        1100,
-        1100,
-        1100,
-        1100,
-        1100
-      ],
+      "range": [1100],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              50,
-              75,
-              100,
-              125,
-              150
-            ],
+            "base": [55, 80, 105, 130, 155],
             "scalings": [
-              {
-                "stat": "ap",
-                "ratio": [
-                  0
-                ]
-              },
-              {
-                "stat": "ap",
-                "ratio": 0.05000000074505806
-              }
+                { "stat": "ap", "ratio": 0.4 },
+                { "stat": "maxHp", "target": "enemy", "ratio": 0.06 }
             ]
           }
         }
@@ -180,39 +111,18 @@
     "R": {
       "id": "R",
       "name": "Nature's Grasp",
-      "cooldown": [
-        130,
-        110,
-        90
-      ],
-      "cost": [
-        100,
-        100,
-        100
-      ],
+      "cooldown": [130, 110, 90],
+      "cost": [100],
       "costType": "Mana",
-      "range": [
-        3000,
-        3000,
-        3000
-      ],
+      "range": [3000],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              150,
-              225,
-              300,
-              375,
-              450
-            ],
+            "base": [150, 225, 300],
             "scalings": [
-              {
-                "stat": "ap",
-                "ratio": 0.75
-              }
+                { "stat": "ap", "ratio": 0.75 }
             ]
           }
         }

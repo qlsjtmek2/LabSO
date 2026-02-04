@@ -17,67 +17,50 @@
     "range": 125,
     "moveSpeed": 345
   },
+  "mechanics": ["Assassin", "Shadow", "Energy", "Burst", "Execute", "%MaxHP"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Contempt for the Weak",
-      "cooldown": [
-        0
-      ],
-      "cost": [
-        0
-      ],
-      "effects": []
+      "cooldown": [10],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [0],
+            "scalings": [
+                { "stat": "maxHp", "target": "enemy", "ratio": [0.06, 0.08, 0.1] }
+            ],
+            "modifiers": [
+                {
+                    "condition": { "type": "stat", "target": "enemy", "stat": "hp", "operator": "<", "value": 0.5 },
+                    "multiplier": 1.0
+                }
+            ]
+          }
+        }
+      ]
     },
     "Q": {
       "id": "Q",
       "name": "Razor Shuriken",
-      "cooldown": [
-        6,
-        6,
-        6,
-        6,
-        6
-      ],
-      "cost": [
-        75,
-        70,
-        65,
-        60,
-        55
-      ],
+      "cooldown": [6],
+      "cost": [75, 70, 65, 60, 55],
       "costType": "Energy",
-      "range": [
-        900,
-        900,
-        900,
-        900,
-        900
-      ],
+      "range": [900],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [
-              80,
-              120,
-              160,
-              200,
-              240
-            ],
+            "base": [80, 115, 150, 185, 220],
             "scalings": [
-              {
-                "stat": "bonusAd",
-                "ratio": [
-                  1,
-                  1,
-                  1,
-                  1,
-                  1
-                ]
-              }
-            ]
+                { "stat": "bonusAd", "ratio": 1.1 }
+            ],
+            "multiHit": 2,
+            "multiHitInterval": 0.1,
+            "projectileSpeed": 1700
           }
         }
       ]
@@ -85,93 +68,32 @@
     "W": {
       "id": "W",
       "name": "Living Shadow",
-      "cooldown": [
-        20,
-        19,
-        18,
-        17,
-        16
-      ],
-      "cost": [
-        40,
-        35,
-        30,
-        25,
-        20
-      ],
+      "cooldown": [20, 19, 18, 17, 16],
+      "cost": [40, 35, 30, 25, 20],
       "costType": "Energy",
-      "range": [
-        650,
-        650,
-        650,
-        650,
-        650
-      ],
       "effects": [
         {
-          "type": "damage",
-          "logic": {
-            "damageType": "Physical",
-            "base": [
-              5.25,
-              5.25,
-              5.25,
-              5.25,
-              5.25
-            ],
-            "scalings": []
-          }
+            "type": "buff",
+            "stack": { "name": "ad_bonus", "max": 1 },
+            "logic": { "base": [0.04, 0.08, 0.12, 0.16, 0.2] }
         }
       ]
     },
     "E": {
       "id": "E",
       "name": "Shadow Slash",
-      "cooldown": [
-        5,
-        4.5,
-        4,
-        3.5,
-        3
-      ],
-      "cost": [
-        40,
-        40,
-        40,
-        40,
-        40
-      ],
+      "cooldown": [5, 4.5, 4, 3.5, 3],
+      "cost": [40],
       "costType": "Energy",
-      "range": [
-        290,
-        290,
-        290,
-        290,
-        290
-      ],
+      "range": [290],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [
-              70,
-              95,
-              120,
-              145,
-              170
-            ],
+            "base": [70, 95, 120, 145, 170],
             "scalings": [
-              {
-                "stat": "ad",
-                "ratio": [
-                  0.800000011920929,
-                  0.800000011920929,
-                  0.800000011920929,
-                  0.800000011920929,
-                  0.800000011920929
-                ]
-              }
+                { "stat": "bonusAd", "ratio": 0.8 }
             ]
           }
         }
@@ -180,34 +102,23 @@
     "R": {
       "id": "R",
       "name": "Death Mark",
-      "cooldown": [
-        120,
-        110,
-        100
-      ],
-      "cost": [
-        0,
-        0,
-        0
-      ],
-      "costType": "Energy",
-      "range": [
-        625,
-        625,
-        625
-      ],
+      "cooldown": [120, 100, 80],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [],
+            "base": [0],
             "scalings": [
-              {
-                "stat": "ap",
-                "ratio": 1
-              }
-            ]
+                { "stat": "ad", "ratio": 1.0 }
+            ],
+            "modifiers": [
+                {
+                    "condition": { "type": "stat", "target": "self", "stat": "level", "operator": ">", "value": 0 },
+                    "multiplier": [0.25, 0.4, 0.55]
+                }
+            ],
+            "delay": 3.0
           }
         }
       ]

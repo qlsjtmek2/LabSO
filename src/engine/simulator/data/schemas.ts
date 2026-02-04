@@ -47,7 +47,14 @@ export interface DamageLogic {
 
   // 특수 로직
   onHitEffectiveness?: number; // 온힛 효율 (0~1)
-  ticks?: number; // 도트 데미지 횟수
+  ticks?: number; // 도트 데미지 횟수 (주로 지속 데미지용)
+  
+  // 고도화 로직 추가
+  multiHit?: number;        // 연타 횟수 (예: 루시안 궁극기)
+  multiHitInterval?: number; // 연타 간격 (초)
+  returnDamage?: boolean;   // 돌아올 때 데미지 여부 (예: 아리 Q)
+  projectileSpeed?: number;  // 투사체 속도 (도착 시간 계산용)
+  delay?: number;           // 시전 후 데미지 발생까지의 추가 지연 시간 (초)
 }
 
 // 스킬 효과 정의
@@ -94,4 +101,5 @@ export interface ChampionSchema {
     E: SpellSchema;
     R: SpellSchema;
   };
+  mechanics?: string[]; // 특수 메커니즘 태그 (예: 'Transformer', 'Stacker', 'FormChange')
 }

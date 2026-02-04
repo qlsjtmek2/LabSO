@@ -17,119 +17,71 @@
     "range": 125,
     "moveSpeed": 350
   },
+  "mechanics": ["Bruiser", "Juggernaut", "Heal", "AoE"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Prophet of an Elder God",
-      "cooldown": [
-        0
-      ],
-      "cost": [
-        0
-      ],
-      "effects": []
+      "cooldown": [20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 7, 7, 7, 7],
+      "levelScaling": true,
+      "effects": [
+        {
+          "id": "Tentacle_Smash",
+          "type": "damage",
+          "logic": {
+            "damageType": "Physical",
+            "base": [10, 30, 50, 70, 90, 110, 130, 150, 170, 190, 210, 230, 250, 270, 290, 310, 330, 350],
+            "levelScaling": true,
+            "scalings": [
+                { "stat": "ad", "ratio": 1.2 }
+            ]
+          }
+        }
+      ]
     },
     "Q": {
       "id": "Q",
       "name": "Tentacle Smash",
-      "cooldown": [
-        10,
-        9,
-        8,
-        7,
-        6
-      ],
-      "cost": [
-        40,
-        45,
-        50,
-        55,
-        60
-      ],
+      "cooldown": [10, 9, 8, 7, 6],
+      "cost": [40],
       "costType": "Mana",
-      "range": [
-        850,
-        850,
-        850,
-        850,
-        850
-      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [],
+            "base": [10, 30, 50, 70, 90],
             "scalings": [
-              {
-                "stat": "ad",
-                "ratio": [
-                  1.100000023841858,
-                  1.100000023841858,
-                  1.100000023841858,
-                  1.100000023841858,
-                  1.100000023841858
-                ]
-              },
-              {
-                "stat": "ap",
-                "ratio": [
-                  0.4000000059604645,
-                  0.4000000059604645,
-                  0.4000000059604645,
-                  0.4000000059604645,
-                  0.4000000059604645
-                ]
-              }
+                { "stat": "ad", "ratio": 1.2 }
             ]
           }
+        },
+        {
+            "type": "heal",
+            "logic": {
+                "base": [0],
+                "scalings": [
+                    { "stat": "missingHp", "target": "self", "ratio": 0.05 }
+                ]
+            }
         }
       ]
     },
     "W": {
       "id": "W",
       "name": "Harsh Lesson",
-      "cooldown": [
-        4,
-        4,
-        4,
-        4,
-        4
-      ],
-      "cost": [
-        30,
-        30,
-        30,
-        30,
-        30
-      ],
+      "cooldown": [4],
+      "cost": [30],
       "costType": "Mana",
-      "range": [
-        400,
-        400,
-        400,
-        400,
-        400
-      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [
-              3,
-              3.5,
-              4,
-              4.5,
-              5
-            ],
+            "base": [0],
             "scalings": [
-              {
-                "stat": "ad",
-                "ratio": [
-                  0
-                ]
-              }
+                { "stat": "ad", "ratio": 1.0 },
+                { "stat": "maxHp", "target": "enemy", "ratio": [0.03, 0.035, 0.04, 0.045, 0.05] }
             ]
           }
         }
@@ -138,35 +90,19 @@
     "E": {
       "id": "E",
       "name": "Test of Spirit",
-      "cooldown": [
-        16,
-        15,
-        14,
-        13,
-        12
-      ],
-      "cost": [
-        35,
-        40,
-        45,
-        50,
-        55
-      ],
+      "cooldown": [16, 15, 14, 13, 12],
+      "cost": [35, 40, 45, 50, 55],
       "costType": "Mana",
-      "range": [
-        900,
-        900,
-        900,
-        900,
-        900
-      ],
+      "range": [900],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [],
-            "scalings": []
+            "base": [0],
+            "scalings": [
+                { "stat": "currentHp", "target": "enemy", "ratio": [0.25, 0.3, 0.35, 0.4, 0.45] }
+            ]
           }
         }
       ]
@@ -174,40 +110,21 @@
     "R": {
       "id": "R",
       "name": "Leap of Faith",
-      "cooldown": [
-        120,
-        95,
-        70
-      ],
-      "cost": [
-        100,
-        100,
-        100
-      ],
+      "cooldown": [120, 95, 70],
+      "cost": [100],
       "costType": "Mana",
-      "range": [
-        450,
-        450,
-        450
-      ],
+      "range": [450],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [
-              150,
-              250,
-              350,
-              450,
-              550
-            ],
+            "base": [150, 250, 350],
             "scalings": [
-              {
-                "stat": "ap",
-                "ratio": 0.5
-              }
-            ]
+                { "stat": "ad", "ratio": 0.5 }
+            ],
+            "multiHit": 3,
+            "multiHitInterval": 1.0
           }
         }
       ]

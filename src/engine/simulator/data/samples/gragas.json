@@ -17,56 +17,46 @@
     "range": 125,
     "moveSpeed": 330
   },
+  "mechanics": ["Vanguard", "Mage", "CC", "Heal"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Happy Hour",
-      "cooldown": [
-        0
-      ],
-      "cost": [
-        0
-      ],
-      "effects": []
+      "cooldown": [8],
+      "effects": [
+        {
+          "type": "heal",
+          "logic": {
+              "base": [0],
+              "scalings": [
+                  { "stat": "maxHp", "target": "self", "ratio": 0.08 }
+              ]
+          }
+        }
+      ]
     },
     "Q": {
       "id": "Q",
       "name": "Barrel Roll",
-      "cooldown": [
-        10,
-        9,
-        8,
-        7,
-        6
-      ],
-      "cost": [
-        80,
-        80,
-        80,
-        80,
-        80
-      ],
+      "cooldown": [10, 9, 8, 7, 6],
+      "cost": [80],
       "costType": "Mana",
-      "range": [
-        850,
-        850,
-        850,
-        850,
-        850
-      ],
+      "range": [850],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              80,
-              120,
-              160,
-              200,
-              240
+            "base": [80, 120, 160, 200, 240],
+            "scalings": [
+                { "stat": "ap", "ratio": 0.8 }
             ],
-            "scalings": []
+            "modifiers": [
+                {
+                    "condition": { "type": "position", "target": "enemy" },
+                    "multiplier": 1.5
+                }
+            ]
           }
         }
       ]
@@ -74,151 +64,68 @@
     "W": {
       "id": "W",
       "name": "Drunken Rage",
-      "cooldown": [
-        5,
-        5,
-        5,
-        5,
-        5
-      ],
-      "cost": [
-        30,
-        30,
-        30,
-        30,
-        30
-      ],
+      "cooldown": [5],
+      "cost": [30],
       "costType": "Mana",
-      "range": [
-        20,
-        20,
-        20,
-        20,
-        20
-      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              10,
-              12,
-              14,
-              16,
-              18
-            ],
+            "base": [20, 50, 80, 110, 140],
             "scalings": [
-              {
-                "stat": "ap",
-                "ratio": [
-                  0.03999999910593033,
-                  0.03999999910593033,
-                  0.03999999910593033,
-                  0.03999999910593033,
-                  0.03999999910593033
-                ]
-              }
+                { "stat": "ap", "ratio": 0.7 },
+                { "stat": "maxHp", "target": "enemy", "ratio": [0.07, 0.07, 0.07, 0.07, 0.07] }
             ]
           }
+        },
+        {
+            "type": "buff",
+            "stack": { "name": "damage_reduction", "max": 1 },
+            "logic": { "base": [0.1, 0.12, 0.14, 0.16, 0.18] }
         }
       ]
     },
     "E": {
       "id": "E",
       "name": "Body Slam",
-      "cooldown": [
-        14,
-        13.5,
-        13,
-        12.5,
-        12
-      ],
-      "cost": [
-        50,
-        50,
-        50,
-        50,
-        50
-      ],
+      "cooldown": [14, 13.5, 13, 12.5, 12],
+      "cost": [50],
       "costType": "Mana",
-      "range": [
-        600,
-        600,
-        600,
-        600,
-        600
-      ],
+      "range": [600],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              80,
-              125,
-              170,
-              215,
-              260
-            ],
+            "base": [80, 125, 170, 215, 260],
             "scalings": [
-              {
-                "stat": "ap",
-                "ratio": [
-                  0.6000000238418579,
-                  0.6000000238418579,
-                  0.6000000238418579,
-                  0.6000000238418579,
-                  0.6000000238418579
-                ]
-              }
+                { "stat": "ap", "ratio": 0.6 }
             ]
           }
+        },
+        {
+            "type": "cc",
+            "duration": 1.0,
+            "stack": { "name": "stunned", "max": 1 }
         }
       ]
     },
     "R": {
       "id": "R",
       "name": "Explosive Cask",
-      "cooldown": [
-        100,
-        85,
-        70
-      ],
-      "cost": [
-        100,
-        100,
-        100
-      ],
+      "cooldown": [100, 85, 70],
+      "cost": [100],
       "costType": "Mana",
-      "range": [
-        1000,
-        1000,
-        1000
-      ],
+      "range": [1000],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              200,
-              300,
-              400,
-              500,
-              600
-            ],
+            "base": [200, 300, 400],
             "scalings": [
-              {
-                "stat": "ap",
-                "ratio": [
-                  0.800000011920929,
-                  0.800000011920929,
-                  0.800000011920929,
-                  0.800000011920929,
-                  0.800000011920929
-                ]
-              }
+                { "stat": "ap", "ratio": 0.8 }
             ]
           }
         }

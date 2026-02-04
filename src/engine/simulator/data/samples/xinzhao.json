@@ -17,189 +17,130 @@
     "range": 175,
     "moveSpeed": 345
   },
+  "mechanics": ["Bruiser", "Diver", "Jungler", "Heal", "CC"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Determination",
-      "cooldown": [
-        0
-      ],
-      "cost": [
-        0
-      ],
-      "effects": []
+      "cooldown": [0],
+      "effects": [
+        {
+            "type": "heal",
+            "logic": {
+                "base": [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 17, 19, 22, 25, 29, 33, 38, 44],
+                "levelScaling": true,
+                "scalings": [{ "stat": "ad", "ratio": 0.1 }, { "stat": "ap", "ratio": 0.65 }]
+            }
+        },
+        {
+            "id": "Passive_Damage",
+            "type": "damage",
+            "logic": {
+                "damageType": "Physical",
+                "base": [0],
+                "scalings": [{ "stat": "ad", "ratio": [0.15, 0.25, 0.35, 0.45] }]
+            }
+        }
+      ]
     },
     "Q": {
       "id": "Q",
       "name": "Three Talon Strike",
-      "cooldown": [
-        7,
-        6.5,
-        6,
-        5.5,
-        5
-      ],
-      "cost": [
-        30,
-        30,
-        30,
-        30,
-        30
-      ],
+      "cooldown": [7, 6.5, 6, 5.5, 5],
+      "cost": [30],
       "costType": "Mana",
-      "range": [
-        375,
-        375,
-        375,
-        375,
-        375
-      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [
-              15,
-              30,
-              45,
-              60,
-              75
+            "base": [16, 25, 34, 43, 52],
+            "scalings": [
+                { "stat": "bonusAd", "ratio": 0.4 }
             ],
-            "scalings": []
+            "multiHit": 3,
+            "multiHitInterval": 0.5,
+            "onHitEffectiveness": 1.0
           }
+        },
+        {
+            "type": "cc",
+            "duration": 0.75,
+            "stack": { "name": "airborne", "max": 1 },
+            "delay": 1.0
         }
       ]
     },
     "W": {
       "id": "W",
       "name": "Wind Becomes Lightning",
-      "cooldown": [
-        12,
-        11,
-        10,
-        9,
-        8
-      ],
-      "cost": [
-        60,
-        55,
-        50,
-        45,
-        40
-      ],
+      "cooldown": [12, 11, 10, 9, 8],
+      "cost": [60, 55, 50, 45, 40],
       "costType": "Mana",
-      "range": [
-        1000,
-        1000,
-        1000,
-        1000,
-        1000
-      ],
+      "range": [1000],
       "effects": [
         {
+          "id": "Slash",
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [
-              30,
-              40,
-              50,
-              60,
-              70
-            ],
+            "base": [30, 40, 50, 60, 70],
             "scalings": [
-              {
-                "stat": "ap",
-                "ratio": 0.30000001192092896
-              }
+                { "stat": "ad", "ratio": 0.3 }
             ]
           }
+        },
+        {
+            "id": "Thrust",
+            "type": "damage",
+            "logic": {
+                "damageType": "Physical",
+                "base": [50, 85, 120, 155, 190],
+                "scalings": [
+                    { "stat": "ad", "ratio": 0.75 }
+                ],
+                "delay": 0.5
+            }
         }
       ]
     },
     "E": {
       "id": "E",
       "name": "Audacious Charge",
-      "cooldown": [
-        11,
-        11,
-        11,
-        11,
-        11
-      ],
-      "cost": [
-        50,
-        50,
-        50,
-        50,
-        50
-      ],
-      "costType": "Mana",
-      "range": [
-        650,
-        650,
-        650,
-        650,
-        650
-      ],
+      "cooldown": [11],
+      "cost": [50],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [
-              50,
-              75,
-              100,
-              125,
-              150
-            ],
-            "scalings": []
+            "base": [50, 75, 100, 125, 150],
+            "scalings": [
+                { "stat": "ap", "ratio": 0.6 }
+            ]
           }
+        },
+        {
+            "type": "buff",
+            "stack": { "name": "attackSpeed", "max": 1 },
+            "logic": { "base": [0.4, 0.475, 0.55, 0.625, 0.7] }
         }
       ]
     },
     "R": {
       "id": "R",
       "name": "Crescent Guard",
-      "cooldown": [
-        120,
-        110,
-        100
-      ],
-      "cost": [
-        100,
-        100,
-        100
-      ],
-      "costType": "Mana",
-      "range": [
-        500,
-        500,
-        500
-      ],
+      "cooldown": [120, 110, 100],
+      "cost": [100],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [
-              75,
-              175,
-              275,
-              375,
-              475
-            ],
+            "base": [75, 175, 275],
             "scalings": [
-              {
-                "stat": "ap",
-                "ratio": 1
-              },
-              {
-                "stat": "ap",
-                "ratio": 1.100000023841858
-              }
+                { "stat": "bonusAd", "ratio": 1.0 },
+                { "stat": "currentHp", "target": "enemy", "ratio": 0.15 }
             ]
           }
         }

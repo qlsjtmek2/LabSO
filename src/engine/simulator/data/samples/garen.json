@@ -17,120 +17,50 @@
     "range": 175,
     "moveSpeed": 340
   },
+  "mechanics": ["Bruiser", "Juggernaut", "TrueDamage", "Silence"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Perseverance",
-      "cooldown": [
-        0
-      ],
-      "cost": [
-        0
-      ],
+      "cooldown": [0],
       "effects": []
     },
     "Q": {
       "id": "Q",
       "name": "Decisive Strike",
-      "cooldown": [
-        8,
-        8,
-        8,
-        8,
-        8
-      ],
-      "cost": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "costType": "None",
-      "range": [
-        300,
-        300,
-        300,
-        300,
-        300
-      ],
+      "cooldown": [8],
+      "cost": [0],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [
-              30,
-              60,
-              90,
-              120,
-              150
-            ],
+            "base": [30, 60, 90, 120, 150],
             "scalings": [
-              {
-                "stat": "ad",
-                "ratio": [
-                  1.5,
-                  1.5,
-                  1.5,
-                  1.5,
-                  1.5
-                ]
-              }
+                { "stat": "ad", "ratio": 0.5 }
             ]
           }
+        },
+        {
+            "type": "cc",
+            "duration": 1.5,
+            "stack": { "name": "silenced", "max": 1 }
         }
       ]
     },
     "W": {
       "id": "W",
       "name": "Courage",
-      "cooldown": [
-        22,
-        19.5,
-        17,
-        14.5,
-        12
-      ],
-      "cost": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "costType": "None",
-      "range": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
+      "cooldown": [23, 21, 19, 17, 15],
+      "cost": [0],
       "effects": [
         {
-          "type": "damage",
+          "type": "shield",
           "logic": {
-            "damageType": "Physical",
-            "base": [
-              65,
-              85,
-              105,
-              125,
-              145
-            ],
-            "scalings": [
-              {
-                "stat": "hp",
-                "ratio": [
-                  0.18000000715255737,
-                  0.18000000715255737,
-                  0.18000000715255737,
-                  0.18000000715255737,
-                  0.18000000715255737
-                ]
-              }
-            ]
+              "base": [65, 85, 105, 125, 145],
+              "scalings": [
+                  { "stat": "bonusHp", "target": "self", "ratio": 0.18 }
+              ]
           }
         }
       ]
@@ -138,52 +68,19 @@
     "E": {
       "id": "E",
       "name": "Judgment",
-      "cooldown": [
-        9,
-        8.25,
-        7.5,
-        6.75,
-        6
-      ],
-      "cost": [
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "costType": "None",
-      "range": [
-        325,
-        325,
-        325,
-        325,
-        325
-      ],
+      "cooldown": [9],
+      "cost": [0],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [
-              4,
-              7,
-              10,
-              13,
-              16
-            ],
+            "base": [4, 8, 12, 16, 20],
             "scalings": [
-              {
-                "stat": "ad",
-                "ratio": [
-                  0.3799999952316284,
-                  0.4099999964237213,
-                  0.4399999976158142,
-                  0.4699999988079071,
-                  0.5
-                ]
-              }
-            ]
+                { "stat": "ad", "ratio": [0.36, 0.38, 0.4, 0.42, 0.44] }
+            ],
+            "multiHit": 10,
+            "multiHitInterval": 0.3
           }
         }
       ]
@@ -191,29 +88,17 @@
     "R": {
       "id": "R",
       "name": "Demacian Justice",
-      "cooldown": [
-        120,
-        100,
-        80
-      ],
-      "cost": [
-        0,
-        0,
-        0
-      ],
-      "costType": "None",
-      "range": [
-        400,
-        400,
-        400
-      ],
+      "cooldown": [120, 100, 80],
+      "cost": [0],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "True",
-            "base": [],
-            "scalings": []
+            "base": [150, 300, 450],
+            "scalings": [
+                { "stat": "missingHp", "target": "enemy", "ratio": [0.25, 0.3, 0.35] }
+            ]
           }
         }
       ]

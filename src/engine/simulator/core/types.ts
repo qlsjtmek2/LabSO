@@ -30,6 +30,16 @@ export interface CombatStats {
   
   omnivamp: number;       // 모든 피해 흡혈
   lifesteal: number;      // 생명력 흡수
+  
+  // 상태 이상 상태 (시뮬레이션용)
+  ccStatus?: {
+    stunned?: boolean;
+    charmed?: boolean;
+    slowed?: boolean;
+    rooted?: boolean;
+    suppressed?: boolean;
+    airborne?: boolean;
+  };
 }
 
 // 데미지 결과
