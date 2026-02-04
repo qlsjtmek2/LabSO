@@ -5,25 +5,37 @@
  * 그 챔피언처럼 행동하는 범용 클래스입니다.
  */
 
-import { CombatStats, DamageEvent, ItemScript } from '../core/types';
+import { CombatStats, DamageEvent, ItemScript, ItemInstance, ItemState } from '../core/types';
 import { DamageEngine } from '../core/damageEngine';
 import { ChampionSchema, SpellSchema, DamageLogic } from '../data/schemas';
 
 export class GenericChampionModel {
   private stats: CombatStats;
   private schema: ChampionSchema;
-  private items: ItemScript[];
+  private items: ItemInstance[];
   private level: number;
   private stacks: number;
   private form: number = 0; // 0: Base, 1: Alt
   private activeBuffs: Map<string, any> = new Map();
 
-  constructor(schema: ChampionSchema, items: ItemScript[], level: number = 18, stacks: number = 0) {
+  constructor(schema: ChampionSchema, itemScripts: ItemScript[], level: number = 18, stacks: number = 0) {
     this.schema = schema;
-    this.items = items;
     this.level = level;
     this.stacks = stacks;
-    this.stats = this.calculateStats(schema.baseStats, items, level);
+    
+    // 아이템 인스턴스 초기화
+    this.items = itemScripts.map(script => ({
+      script,
+      state: {
+        cooldownRemaining: 0,
+        stacks: 0,
+        charges: 0,
+        lastTriggeredTime: 0,
+        customData: {}
+      }
+    }));
+
+    this.stats = this.calculateStats(schema.baseStats, this.items, level);
   }
 
   public toggleForm() {
@@ -31,7 +43,7 @@ export class GenericChampionModel {
   }
 
   // 레벨과 아이템을 반영한 최종 스탯 계산
-  private calculateStats(base: ChampionSchema['baseStats'], items: ItemScript[], level: number): CombatStats {
+  private calculateStats(base: ChampionSchema['baseStats'], items: ItemInstance[], level: number): CombatStats {
     // 성장 스탯 적용 공식
     const growthMod = level - 1; 
 
@@ -49,7 +61,9 @@ export class GenericChampionModel {
       magicPenPercent: 0,
       omnivamp: 0,
       lifesteal: 0,
-      moveSpeed: 0
+      moveSpeed: 0,
+      tenacity: 0,
+      slowResist: 0
     };
 
     // 스택 보정 (패시브)
@@ -67,7 +81,7 @@ export class GenericChampionModel {
 
     // 아이템 스탯 합산
     items.forEach(item => {
-      const s = item.stats;
+      const s = item.script.stats;
       if (s.hp) bonusStats.hp += s.hp;
       if (s.mana) bonusStats.mp += s.mana;
       if (s.ad) bonusStats.ad += s.ad;
@@ -78,19 +92,32 @@ export class GenericChampionModel {
       if (s.abilityHaste) bonusStats.abilityHaste += s.abilityHaste;
       if (s.critChance) bonusStats.critChance += s.critChance;
       if (s.lethality) bonusStats.lethality += s.lethality;
+      if (s.tenacity) bonusStats.tenacity += s.tenacity;
+      if (s.slowResist) bonusStats.slowResist += s.slowResist;
       // ... 기타 스탯
+
+      // 아이템 패시브 스탯 보정 (예: 대천사)
+      if (item.script.passive) {
+          // 여기서 호출하면 아직 기본 스탯만 있는 상태라 정확하지 않을 수 있음
+          // 일단 단순 합산 로직만 처리하고 복잡한 건 finalize에서?
+          // 하지만 passive signature가 (stats, state) -> void 이므로 여기서 stats 객체를 직접 수정하게 할 수도 있음.
+          // 편의상 여기서 호출하지 않고 finalizeStats만 사용하거나, 
+          // 아래의 최종 스탯 계산 후 한 번 더 돌리는게 맞음.
+      }
     });
 
     // 최종 스탯 계산
-    // 공속: Base + (Ratio * Bonus%)
     const finalAs = base.attackSpeed + (base.attackSpeedRatio * bonusStats.attackSpeed);
+
+    const baseAdAtLevel = base.ad + (base.adPerLevel * growthMod);
 
     let stats: CombatStats = {
       level: level,
       hp: base.hp + (base.hpPerLevel * growthMod) + bonusStats.hp,
       maxHp: base.hp + (base.hpPerLevel * growthMod) + bonusStats.hp,
       mana: base.mp + (base.mpPerLevel * growthMod) + bonusStats.mp,
-      ad: base.ad + (base.adPerLevel * growthMod) + bonusStats.ad,
+      ad: baseAdAtLevel + bonusStats.ad,
+      baseAd: baseAdAtLevel,
       ap: bonusStats.ap,
       armor: base.armor + (base.armorPerLevel * growthMod) + bonusStats.armor,
       mr: base.mr + (base.mrPerLevel * growthMod) + bonusStats.mr,
@@ -105,8 +132,17 @@ export class GenericChampionModel {
       magicPenPercent: bonusStats.magicPenPercent,
       omnivamp: bonusStats.omnivamp,
       lifesteal: bonusStats.lifesteal,
-      movementSpeed: (base.moveSpeed || 330) + bonusStats.moveSpeed
+      movementSpeed: (base.moveSpeed || 330) + bonusStats.moveSpeed,
+      tenacity: bonusStats.tenacity,
+      slowResist: bonusStats.slowResist
     };
+
+    // 아이템 최종 스탯 보정 (라바돈 등)
+    items.forEach(item => {
+        if (item.script.finalizeStats) {
+            item.script.finalizeStats(stats, item.state);
+        }
+    });
 
     return stats;
   }
@@ -220,6 +256,91 @@ export class GenericChampionModel {
     return totalDamage;
   }
 
+  // 시간 경과에 따른 처리 (틱)
+  public tick(target: CombatStats, time: number, deltaTime: number): DamageEvent[] {
+      const events: DamageEvent[] = [];
+
+      // 아이템 쿨타임 감소 및 틱 효과
+      this.items.forEach(item => {
+          if (item.state.cooldownRemaining > 0) {
+              item.state.cooldownRemaining = Math.max(0, item.state.cooldownRemaining - deltaTime);
+          }
+
+          if (item.script.onTick) {
+              const res = item.script.onTick(target, this.stats, item.state, time, deltaTime);
+              if (res) {
+                  const mitigated = DamageEngine.calculateDamage(
+                      res.damage,
+                      res.type,
+                      this.stats,
+                      target
+                  );
+                  events.push({
+                      source: `${item.script.name} (Tick)`,
+                      type: res.type,
+                      rawDamage: res.damage,
+                      mitigatedDamage: mitigated,
+                      timestamp: time,
+                      isCrit: false
+                  });
+              }
+          }
+      });
+
+      return events;
+  }
+
+  // 아이템 사용 (액티브)
+  public useItem(itemId: number, target: CombatStats, time: number): DamageEvent[] {
+      const item = this.items.find(i => i.script.id === itemId);
+      if (!item || !item.script.onActivate) return [];
+      
+      // 쿨타임 체크
+      if (item.state.cooldownRemaining > 0) return [];
+
+      const events: DamageEvent[] = [];
+      const res = item.script.onActivate(target, this.stats, item.state);
+      
+                 if (res && typeof res === 'object') { // DamageResult check
+                     const mitigated = DamageEngine.calculateDamage(
+                         res.damage,
+                         res.type,
+                         this.stats,
+                         target
+                     );
+                     events.push({
+                         source: `${item.script.name} (Active)`,
+                         type: res.type,
+                         rawDamage: res.damage,
+                         mitigatedDamage: mitigated,
+                         timestamp: time,
+                         isCrit: false
+                     });
+                     
+                     this.handleDamageDealt(target, res.damage, res.type, `${item.script.name} (Active)`, item.state);
+                }
+            return events;
+  }
+
+  // 데미지 입힌 후 처리
+  private handleDamageDealt(target: CombatStats, damage: number, type: string, sourceName: string, sourceItemState?: ItemState) {
+      // 모든 아이템의 onDamageDealt 트리거
+      this.items.forEach(item => {
+          if (item.script.onDamageDealt) {
+              item.script.onDamageDealt(target, this.stats, item.state, damage, type, sourceName);
+          }
+      });
+  }
+
+  // 처치 시 처리
+  private handleKill(target: CombatStats) {
+    this.items.forEach(item => {
+        if (item.script.onKill) {
+            item.script.onKill(target, this.stats, item.state);
+        }
+    });
+  }
+
   // 스킬 사용 시뮬레이션
   public castSpell(spellKey: 'Q' | 'W' | 'E' | 'R', target: CombatStats, time: number, skillLevel: number = 5): DamageEvent[] {
     let actualKey = spellKey;
@@ -236,8 +357,9 @@ export class GenericChampionModel {
     if (!spell) return []; // 스킬 데이터 없음
 
     // 리소스 소모 (체력/마나 등)
-    const lvIdx = Math.min(skillLevel - 1, spell.cost.length - 1);
-    const flatCost = spell.cost[lvIdx] || 0;
+    const costArray = spell.cost || [];
+    const lvIdx = Math.min(skillLevel - 1, Math.max(0, costArray.length - 1));
+    const flatCost = costArray[lvIdx] || 0;
     const ratio = spell.costRatio ? (spell.costRatio[lvIdx] || 0) : 0;
 
     if (spell.costType === 'CurrentHealth') {
@@ -251,6 +373,13 @@ export class GenericChampionModel {
     }
 
     const events: DamageEvent[] = [];
+
+    // 스킬 시전 이벤트 (주문 검 등)
+    this.items.forEach(item => {
+        if (item.script.onSpellCast) {
+            item.script.onSpellCast(target, this.stats, item.state, actualKey);
+        }
+    });
 
     spell.effects.forEach((effect: any) => {
       if (effect.type === 'buff') {
@@ -295,6 +424,8 @@ export class GenericChampionModel {
             isCrit: false
           });
 
+          this.handleDamageDealt(target, mitigated, logic.damageType, `${spell.name} (${actualKey})`);
+
           // 돌아오는 데미지 처리 (예: 아리 Q)
           if (logic.returnDamage && i === 0) {
             // 돌아오는 데미지는 보통 0.5초~1초 뒤에 발생
@@ -312,16 +443,17 @@ export class GenericChampionModel {
                 timestamp: hitTime + 0.8, // 왕복 시간 가정
                 isCrit: false
             });
+            this.handleDamageDealt(target, returnMitigated, 'True', `${spell.name} (Return)`);
           }
 
           // 온힛 적용 (효율 적용)
           if (logic.onHitEffectiveness) {
             this.items.forEach(item => {
-              if (item.onHit) {
-                const onHitDmg = item.onHit(target, this.stats);
+              if (item.script.onHit) {
+                const onHitDmg = item.script.onHit(target, this.stats, item.state);
                 if (onHitDmg) {
                   events.push({
-                    source: `${item.name} (On-hit)`,
+                    source: `${item.script.name} (On-hit)`,
                     type: onHitDmg.type,
                     rawDamage: onHitDmg.damage * logic.onHitEffectiveness!,
                     mitigatedDamage: DamageEngine.calculateDamage(
@@ -333,9 +465,57 @@ export class GenericChampionModel {
                     timestamp: hitTime,
                     isCrit: false
                   });
+                  this.handleDamageDealt(target, events[events.length-1].mitigatedDamage, onHitDmg.type, `${item.script.name} (On-hit)`, item.state);
                 }
               }
+              // 스펠 히트 적용
+              if (item.script.onSpellHit) {
+                  const spellHitDmg = item.script.onSpellHit(target, this.stats, item.state, spellKey === 'R');
+                  if (spellHitDmg) {
+                      events.push({
+                          source: `${item.script.name} (Spell-hit)`,
+                          type: spellHitDmg.type,
+                          rawDamage: spellHitDmg.damage,
+                          mitigatedDamage: DamageEngine.calculateDamage(
+                              spellHitDmg.damage,
+                              spellHitDmg.type,
+                              this.stats,
+                              target
+                          ),
+                          timestamp: hitTime,
+                          isCrit: false
+                      });
+                      this.handleDamageDealt(target, events[events.length-1].mitigatedDamage, spellHitDmg.type, `${item.script.name} (Spell-hit)`, item.state);
+                  }
+              }
             });
+          } else {
+             // 온힛이 아니더라도 스펠 히트는 적용되어야 함 (일반 스킬)
+             // 여기서 한 번만 적용 (다단히트 시 매번? 보통 매번 적용됨 리안드리 등. 루덴은 쿨타임 있어서 괜찮음)
+             // 단, logic.onHitEffectiveness가 없으면 스펠 히트 로직이 안 도는 구조였는데, 분리해야 함.
+             // 위 블록은 onHitEffectiveness가 있을 때만 돌고 있음.
+             // 스펠 히트는 무조건 돌려야 함.
+             this.items.forEach(item => {
+                if (item.script.onSpellHit) {
+                    const spellHitDmg = item.script.onSpellHit(target, this.stats, item.state, spellKey === 'R');
+                    if (spellHitDmg) {
+                        events.push({
+                            source: `${item.script.name} (Spell-hit)`,
+                            type: spellHitDmg.type,
+                            rawDamage: spellHitDmg.damage,
+                            mitigatedDamage: DamageEngine.calculateDamage(
+                                spellHitDmg.damage,
+                                spellHitDmg.type,
+                                this.stats,
+                                target
+                            ),
+                            timestamp: hitTime,
+                            isCrit: false
+                        });
+                        this.handleDamageDealt(target, events[events.length-1].mitigatedDamage, spellHitDmg.type, `${item.script.name} (Spell-hit)`, item.state);
+                    }
+                }
+             });
           }
         }
       }
@@ -349,7 +529,6 @@ export class GenericChampionModel {
     const events: DamageEvent[] = [];
     
     // 1. 기본 물리 데미지 (치명타 미적용 단순화)
-    // TODO: 치명타 확률(critChance) 반영
     const isCrit = Math.random() < (this.stats.critChance || 0);
     const damageMultiplier = isCrit ? (this.stats.critDamage || 1.75) : 1.0;
     const rawDmg = this.stats.ad * damageMultiplier;
@@ -369,25 +548,34 @@ export class GenericChampionModel {
       timestamp: time,
       isCrit: isCrit
     });
+    
+    this.handleDamageDealt(target, mitigated, 'Physical', 'Auto Attack');
 
-    // 2. 온힛 아이템 효과
+    // 2. 온힛/OnAttack 아이템 효과
     this.items.forEach(item => {
-      if (item.onHit) {
-        const onHitDmg = item.onHit(target, this.stats);
+      // OnAttack (구인수 등)
+      if (item.script.onAttack) {
+          item.script.onAttack(target, this.stats, item.state);
+      }
+
+      if (item.script.onHit) {
+        const onHitDmg = item.script.onHit(target, this.stats, item.state);
         if (onHitDmg) {
-          events.push({
-            source: `${item.name} (On-hit)`,
-            type: onHitDmg.type,
-            rawDamage: onHitDmg.damage,
-            mitigatedDamage: DamageEngine.calculateDamage(
+          const mitigatedOnHit = DamageEngine.calculateDamage(
               onHitDmg.damage,
               onHitDmg.type,
               this.stats,
               target
-            ),
+          );
+          events.push({
+            source: `${item.script.name} (On-hit)`,
+            type: onHitDmg.type,
+            rawDamage: onHitDmg.damage,
+            mitigatedDamage: mitigatedOnHit,
             timestamp: time,
             isCrit: false
           });
+          this.handleDamageDealt(target, mitigatedOnHit, onHitDmg.type, `${item.script.name} (On-hit)`, item.state);
         }
       }
     });
@@ -403,10 +591,14 @@ export class GenericChampionModel {
   ): DamageEvent[] {
     let currentTime = 0;
     const allEvents: DamageEvent[] = [];
+    const step = 0.5; // 액션 간 간격
 
     combo.forEach(action => {
-      // 쿨타임/시전시간 등은 일단 무시하고 0.5초 간격으로 가정
-      currentTime += 0.5;
+      // 틱 처리 (액션 간격만큼)
+      const tickEvents = this.tick(target, currentTime, step);
+      allEvents.push(...tickEvents);
+
+      currentTime += step;
 
       if (action === 'AA') {
         const events = this.performAutoAttack(target, currentTime);
@@ -416,8 +608,6 @@ export class GenericChampionModel {
         // 변신 챔피언 R 사용 시 폼 전환
         if (action === 'R' && ['Nidalee', 'Jayce', 'Elise'].includes(this.schema.id)) {
             this.toggleForm();
-            // R 자체 데미지/효과가 있다면 castSpell 호출 (니달리/엘리스는 0뎀, 제이스는 변신 효과)
-            // 일단 호출해서 이벤트 발생시킴
         }
 
         const events = this.castSpell(
@@ -427,6 +617,11 @@ export class GenericChampionModel {
           skillLevels[action] || 1
         );
         allEvents.push(...events);
+      } else if (action.startsWith('Item:')) {
+          // 아이템 사용 (예: Item:3748)
+          const itemId = parseInt(action.split(':')[1]);
+          const events = this.useItem(itemId, target, currentTime);
+          allEvents.push(...events);
       }
     });
 

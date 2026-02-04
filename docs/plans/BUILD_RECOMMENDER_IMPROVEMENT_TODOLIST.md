@@ -225,13 +225,18 @@
 ## 🎯 Phase 2: 실시간 데이터 및 동적 규칙 (Adaptability)
 **목표**: 하드코딩된 데이터 의존성을 제거하고 라이브 메타 반영
 
-- [ ] **데이터 파이프라인 구축**
-    - [ ] DataDragon API를 통해 최신 아이템/룬 `json`을 가져오는 스크립트 작성 (`scripts/data-pipeline/`)
-    - [ ] 아이템 태그 및 속성 파싱 로직 고도화 (신화급/전설급 구분, 고유 지속 효과 식별)
-- [ ] **동적 빌드 규칙 엔진**
-    - [ ] `buildRules.ts`의 하드코딩된 아이템 ID 제거
-    - [ ] `ItemClass` 매핑 시스템 구현 (예: `MageManaMythic` -> [루덴, 리안드리, 영겁] 동적 반환)
-    - [ ] 메타 데이터 기반 '티어 아이템' 가중치 시스템 추가
+- [x] **데이터 파이프라인 구축**
+    - [x] DataDragon API를 통해 최신 아이템/룬 `json`을 가져오는 스크립트 작성 (`scripts/data-pipeline/`)
+    - [x] 아이템 태그 및 속성 파싱 로직 고도화 (신화급/전설급 구분, 고유 지속 효과 식별)
+- [x] **동적 빌드 규칙 엔진**
+    - [x] `buildRules.ts`의 하드코딩된 아이템 ID 제거
+    - [x] `ItemClass` 매핑 시스템 구현 (예: `MageManaMythic` -> [루덴, 리안드리, 영겁] 동적 반환)
+    - [x] 메타 데이터 기반 '티어 아이템' 가중치 시스템 추가
+- [x] **아이템 및 룬 상세 구현 (Phase 2.5)**
+    - [x] `ItemFactory` 확장: Active, Spellblade, On-Hit, Tick, Kill, DamageDealt 훅 구현
+    - [x] 주요 아이템 구현: 히드라류, 몰왕, 주문검류, 탱커/암살자/마법사/원딜 아이템
+    - [x] `RuneFactory` 신설: 정밀, 지배, 마법, 결의, 영감 핵심 룬 및 보조 룬 구현
+    - [x] 시뮬레이터 연동: `GenericChampionModel`에 룬 및 아이템 로직 통합 (V1 엔진)
 
 ## 🎯 Phase 3: 지능형 최적화 및 시너지 (Intelligence)
 **목표**: 단순 수치 계산을 넘어선 전략적 빌드 추천

@@ -10,11 +10,11 @@ LabSO is a web application designed to help League of Legends players optimize t
 - **Phase 1.5: Data Pipeline (Done)**
 - **Phase 1.6: Champion Data Precision (Done)**
     - All 172 champions implemented with high-precision skill data.
-- **Phase 2: Live Data Integration (In Progress)**
+- **Phase 2: Live Data Integration (Done)**
     - [x] Dynamic item/rune data fetch (DataDragon 16.3.1).
     - [x] Item implementation planning (Todolist created).
-    - [ ] ItemFactory implementation (Complex logic).
-    - [ ] Simulator engine extension (Hooks & State).
+    - [x] ItemFactory implementation (Complex logic: Active, Spellblade, On-Hit, etc.).
+    - [x] Simulator engine extension (Hooks & State: onActivate, onTick, etc.).
 
 ## Tech Stack
 
@@ -74,9 +74,10 @@ Access the application at `http://localhost:3000` (or the port you specified).
 *   `src/engine/`: Core simulation engine.
     *   `simulator/models/GenericChampion.ts`: Universal champion model handling V2 schema (supports Forms, Pets, Resources).
     *   `simulator/core/damageEngine.ts`: Precise damage calculation logic (Lethality, Penetration).
-    *   `simulator/v2/runes/RuneFactory.ts`: Rune logic implementation (Conqueror, Electrocute, PTA).
+    *   `simulator/v2/runes/RuneFactory.ts`: (Legacy) Rune logic implementation.
+    *   `simulator/runes/runeFactory.ts`: **New** V1 Rune implementation (Conqueror, Electrocute, etc.) integrated with GenericChampion.
     *   `simulator/data/samples/`: Generated champion data JSONs (172+ champions).
-    *   `simulator/items/itemFactory.ts`: Item effect implementation (BoRK, Kraken, etc.).
+    *   `simulator/items/itemFactory.ts`: Enhanced item effect implementation (Active, Spellblade, On-Hit, Tick, etc.).
 *   `scripts/data-pipeline/`: Automated data fetching and conversion scripts.
     *   `fetch_raw_champion_data.ts`: Downloads raw data from CDragon/DDragon.
     *   `convert_champion.ts`: Converts raw data to Engine Schema V2 (Hybrid Parsing).
@@ -95,7 +96,14 @@ Access the application at `http://localhost:3000` (or the port you specified).
         *   **Stacking:** Nasus (Q), Veigar (AP), Senna (Range/Crit), Kindred (Range).
         *   **Health Costs:** Vladimir (Blood), Zac (Health Blobs).
         *   **Summoned Units:** Heimerdinger Turrets, Zyra Plants, Yorick Ghouls, Malzahar Voidlings.
-    *   **Rune System:** Implemented Conqueror, Electrocute, Press the Attack, Lethal Tempo.
+    *   **Rune System:**
+        *   **Keystones:** Conqueror, Electrocute, Dark Harvest, Hail of Blades, Lethal Tempo, Press the Attack, Summon Aery, Arcane Comet, Grasp of the Undying, Aftershock, Glacial Augment, First Strike.
+        *   **Secondary Runes:** Sudden Impact, Transcendence, Scorch, Gathering Storm, Triumph, Presence of Mind, Legend: Alacrity, Coup de Grace, etc.
+        *   **Integration:** Runes are simulated as "Items" with special hooks (onHit, onSpellHit, onDamageDealt, etc.).
+    *   **Item System (Enhanced):**
+        *   **Active Items:** Titanic/Ravenous/Profane Hydra, Stridebreaker, Rocketbelt, etc.
+        *   **Spellblade:** Sheen, Trinity Force, Lich Bane, Iceborn, Bloodsong.
+        *   **Passives:** Sunfire (Tick), Black Cleaver (Stacking), Shojin, Liandry (DoT), etc.
     *   **Simulation Settings:** Customize Champion Level, Skill Points, Stacks, Runes, and Target Dummy stats (Armor/MR/HP).
     *   **Visualization:** Power Curve graphs (Lv 6/11/16/18) showing Damage vs Survivability (EHP).
 

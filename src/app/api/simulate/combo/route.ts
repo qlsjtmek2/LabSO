@@ -4,6 +4,7 @@ import fs from 'fs/promises';
 import { GenericChampionModel } from '@/engine/simulator/models/GenericChampion';
 import { ItemScript, CombatStats } from '@/engine/simulator/core/types';
 import { ItemFactory } from '@/engine/simulator/items/itemFactory';
+import { RuneFactory } from '@/engine/simulator/runes/runeFactory';
 
 // 아이템 데이터 로드 (DataDragon JSON)
 async function getItemData(itemIds: number[]): Promise<ItemScript[]> {
@@ -36,7 +37,7 @@ async function getItemData(itemIds: number[]): Promise<ItemScript[]> {
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { championId, level, stacks, targetStats, items, skillLevels, combo } = body; // items: number[]
+    const { championId, level, stacks, targetStats, items, runes, skillLevels, combo } = body; // runes: number[]
 
     // 1. 챔피언 데이터 로드
     // 대소문자 무시하고 파일 찾기 위해 디렉토리 스캔
@@ -51,12 +52,24 @@ export async function POST(request: Request) {
     const championJson = JSON.parse(await fs.readFile(path.join(samplesDir, targetFile), 'utf-8'));
 
     // 2. 아이템 데이터 로드 및 변환
-    const itemScripts = await getItemData(items.filter((id: any) => id !== null));
+    const itemScripts = await getItemData(items ? items.filter((id: any) => id !== null) : []);
 
-    // 3. 모델 초기화 (스택 전달)
-    const championModel = new GenericChampionModel(championJson, itemScripts, level, stacks || 0);
+    // 3. 룬 데이터 변환 (아이템 스크립트로 취급)
+    const runeScripts: ItemScript[] = [];
+    if (runes && Array.isArray(runes)) {
+        runes.forEach((runeId: any) => {
+            if (runeId) {
+                runeScripts.push(RuneFactory.createRune(parseInt(runeId)));
+            }
+        });
+    }
 
-    // 4. 타겟 더미 설정
+    // 4. 모델 초기화 (스택 전달)
+    // 아이템과 룬을 합쳐서 전달
+    const allScripts = [...itemScripts, ...runeScripts];
+    const championModel = new GenericChampionModel(championJson, allScripts, level, stacks || 0);
+
+    // 5. 타겟 더미 설정
     const targetDummy: CombatStats = {
       level: 1, // 더미 레벨
       range: 0, // 더미 사거리

@@ -1,0 +1,772 @@
+# Full Item Implementation Todo List
+
+> Comprehensive list of all purchasable items > 900g on Summoner's Rift.
+
+## Active
+
+- [ ] **수은 장식띠 (3140)**
+    - Cost: 1300
+    - Tags: Active, SpellBlock
+    - Desc: 사용하면 모든 군중 제어 효과가 제거됩니다.
+
+## Armor
+
+- [ ] **죽음의 무도 (6333)**
+    - Cost: 3300
+    - Tags: Armor, Damage, AbilityHaste
+    - Desc: No description
+- [ ] **존야의 모래시계 (3157)**
+    - Cost: 3250
+    - Tags: Armor, SpellDamage, Active
+    - Desc: 사용하면 아무런 행동도 취할 수 없는 대신 공격도 받지 않는 무적 상태가 됩니다.
+- [ ] **수호 천사 (3026)**
+    - Cost: 3200
+    - Tags: Armor, Damage
+    - Desc: 주기적으로 챔피언 사망 시 부활시켜 줍니다.
+- [ ] **얼어붙은 심장 (323110)**
+    - Cost: 2700
+    - Tags: Armor, Mana, Aura, CooldownReduction, AbilityHaste
+    - Desc: No description
+- [ ] **얼어붙은 심장 (3110)**
+    - Cost: 2500
+    - Tags: Armor, Mana, Aura, CooldownReduction, AbilityHaste
+    - Desc: 방어력이 대폭 증가하고, 적의 기본 공격이 느려집니다.
+- [ ] **잔혹 행위 (667109)**
+    - Cost: 2500
+    - Tags: Armor, SpellDamage, MagicResist
+    - Desc: No description
+- [ ] **추적자의 팔목 보호대 (2420)**
+    - Cost: 1600
+    - Tags: Armor, SpellDamage, Active
+    - Desc: 사용하면 아무런 행동도 취할 수 없는 대신 공격도 받지 않는 무적 상태가 됩니다.
+- [ ] **판금 장화 (3047)**
+    - Cost: 1200
+    - Tags: Armor, Boots
+    - Desc: 이동 속도가 증가하고, 적에게 받는 기본 공격의 피해가 줄어듭니다.
+- [ ] **무장 진격 (3174)**
+    - Cost: 1200
+    - Tags: Armor, Boots
+    - Desc: 적에게 피해를 입혀 회복과 보호막을 강화합니다.
+- [ ] **강철 인장 (2019)**
+    - Cost: 1100
+    - Tags: Armor, Damage
+    - Desc: No description
+- [ ] **파수꾼의 갑옷 (3082)**
+    - Cost: 1000
+    - Tags: Armor
+    - Desc: No description
+
+## ArmorPenetration
+
+- [ ] **최후의 속삭임 (3035)**
+    - Cost: 1450
+    - Tags: ArmorPenetration, Damage
+    - Desc: 방어력이 뛰어난 적에게 효과적입니다.
+
+## AttackSpeed
+
+- [ ] **내셔의 이빨 (3115)**
+    - Cost: 2900
+    - Tags: AttackSpeed, SpellDamage, OnHit, AbilityHaste
+    - Desc: 공격 속도, 주문력, 재사용 대기시간 감소율이 증가합니다.
+- [ ] **불타는 향로 (323504)**
+    - Cost: 2600
+    - Tags: AttackSpeed, SpellDamage, ManaRegen, NonbootsMovement
+    - Desc: No description
+- [ ] **서풍 (663172)**
+    - Cost: 2500
+    - Tags: AttackSpeed, CooldownReduction, OnHit, NonbootsMovement, Tenacity
+    - Desc: No description
+- [ ] **불타는 향로 (3504)**
+    - Cost: 2200
+    - Tags: AttackSpeed, SpellDamage, ManaRegen, NonbootsMovement
+    - Desc: 다른 유닛에게 보호막과 치유 효과를 쓰면 잠깐 동안 대상과 자신의 공격 속도가 상승합니다. 또한 이 상태에서 기본 공격이 적중하면 추가 마법 피해를 입힙니다.
+- [ ] **광전사의 군화 (3006)**
+    - Cost: 1100
+    - Tags: AttackSpeed, Boots
+    - Desc: 이동 속도와 공격 속도가 상승합니다.
+- [ ] **건메탈 군화 (3172)**
+    - Cost: 1100
+    - Tags: AttackSpeed, LifeSteal, NonbootsMovement
+    - Desc: 이동 속도가 증가하고 강인함 효과를 받습니다.
+
+## Boots
+
+- [ ] **헤르메스의 발걸음 (3111)**
+    - Cost: 1250
+    - Tags: Boots, SpellBlock, Tenacity
+    - Desc: 이동 속도가 증가하고, 방해 효과의 지속시간이 줄어듭니다.
+- [ ] **마법사의 신발 (3020)**
+    - Cost: 1100
+    - Tags: Boots, MagicPenetration
+    - Desc: 이동 속도와 마법 피해량이 증가합니다.
+- [ ] **주문투척자의 신발 (3175)**
+    - Cost: 1100
+    - Tags: Boots, MagicPenetration
+    - Desc: No description
+- [ ] **신속의 장화 (3009)**
+    - Cost: 1000
+    - Tags: Boots
+    - Desc: 이동 속도가 증가하고, 둔화 효과를 감소시킵니다.
+- [ ] **신속행진 (3170)**
+    - Cost: 1000
+    - Tags: Boots
+    - Desc: 방어력이 증가하고, 방해 효과의 지속시간이 줄어듭니다.
+
+## CriticalStrike
+
+- [ ] **무한의 대검 (3031)**
+    - Cost: 3500
+    - Tags: CriticalStrike, Damage
+    - Desc: 치명타 확률이 대폭 증가합니다.
+- [ ] **악마사냥꾼의 화살 (2512)**
+    - Cost: 2650
+    - Tags: CriticalStrike, AttackSpeed, NonbootsMovement, AbilityHaste
+    - Desc: No description
+- [ ] **유령 무희 (3046)**
+    - Cost: 2650
+    - Tags: CriticalStrike, AttackSpeed, NonbootsMovement
+    - Desc: 적을 공격할 때 더 빠르게 움직이며 체력이 낮으면 보호막이 생성됩니다.
+- [ ] **루난의 허리케인 (3085)**
+    - Cost: 2650
+    - Tags: CriticalStrike, AttackSpeed, OnHit, NonbootsMovement
+    - Desc: 원거리 공격 시 주변의 적들에게 두 발의 탄환을 발사합니다.
+- [ ] **고속 연사포 (3094)**
+    - Cost: 2650
+    - Tags: CriticalStrike, AttackSpeed, NonbootsMovement
+    - Desc: 이동하며 완전히 충전하면 강력한 일격을 발사합니다.
+- [ ] **나보리 명멸검 (6675)**
+    - Cost: 2650
+    - Tags: CriticalStrike, AttackSpeed, NonbootsMovement
+    - Desc: No description
+- [ ] **열정의 검 (3086)**
+    - Cost: 1200
+    - Tags: CriticalStrike, AttackSpeed, NonbootsMovement
+    - Desc: 치명타 확률, 이동 속도와 공격 속도가 약간 상승합니다.
+
+## Damage
+
+- [ ] **피바라기 (3072)**
+    - Cost: 3400
+    - Tags: Damage, LifeSteal
+    - Desc: 공격력 및 생명력 흡수가 증가하며, 생명력 흡수가 최대 체력 이상으로 가능해집니다.
+- [ ] **도미닉 경의 인사 (3036)**
+    - Cost: 3300
+    - Tags: Damage, CriticalStrike, ArmorPenetration
+    - Desc: 체력과 방어력이 뛰어난 적에게 효과적입니다.
+- [ ] **굶주린 히드라 (3074)**
+    - Cost: 3300
+    - Tags: Damage, LifeSteal, CooldownReduction, OnHit, AbilityHaste
+    - Desc: 근접 공격으로 주변의 적에게 피해를 주면 체력이 회복됩니다. 
+- [ ] **요새파괴자 (2520)**
+    - Cost: 3200
+    - Tags: Damage, ArmorPenetration, AbilityHaste
+    - Desc: No description
+- [ ] **폭풍갈퀴 (3097)**
+    - Cost: 3200
+    - Tags: Damage, CriticalStrike, AttackSpeed, NonbootsMovement
+    - Desc: 주기적으로 적 미니언을 처치하여 근처 아군을 치유하고 골드를 부여합니다.
+- [ ] **몰락한 왕의 검 (3153)**
+    - Cost: 3200
+    - Tags: Damage, AttackSpeed, LifeSteal, Slow, OnHit
+    - Desc: 상대의 체력에 비례하여 피해를 입히고, 상대의 이동 속도를 훔칠 수 있습니다.
+- [ ] **끝없는 갈망 (2517)**
+    - Cost: 3100
+    - Tags: Damage, LifeSteal, SpellVamp, Tenacity, AbilityHaste
+    - Desc: No description
+- [ ] **윤 탈 야생화살 (3032)**
+    - Cost: 3100
+    - Tags: Damage, CriticalStrike, AttackSpeed
+    - Desc: No description
+- [ ] **정수 약탈자 (3508)**
+    - Cost: 3050
+    - Tags: Damage, CriticalStrike, ManaRegen, CooldownReduction, OnHit, AbilityHaste
+    - Desc: No description
+- [ ] **필멸자의 운명 (3033)**
+    - Cost: 3000
+    - Tags: Damage, CriticalStrike, ArmorPenetration
+    - Desc: 체력 회복력과 방어력이 뛰어난 적에게 효과적입니다.
+- [ ] **구인수의 격노검 (3124)**
+    - Cost: 3000
+    - Tags: Damage, AttackSpeed, SpellDamage, OnHit
+    - Desc: No description
+- [ ] **마법공학 총검 (3146)**
+    - Cost: 3000
+    - Tags: Damage, LifeSteal, SpellDamage, Active, SpellVamp
+    - Desc: 공격력과 주문력이 증가합니다. 사용하면 대상이 둔화에 걸립니다.
+- [ ] **경계 (3302)**
+    - Cost: 3000
+    - Tags: Damage, AttackSpeed, OnHit, MagicPenetration, ArmorPenetration
+    - Desc: 주기적으로 미니언을 처치하여 근처 아군을 치유하고 골드를 부여합니다.
+- [ ] **크라켄 학살자 (6672)**
+    - Cost: 3000
+    - Tags: Damage, AttackSpeed, OnHit, NonbootsMovement
+    - Desc: No description
+- [ ] **불멸의 철갑궁 (6673)**
+    - Cost: 3000
+    - Tags: Damage, CriticalStrike
+    - Desc: No description
+- [ ] **징수의 총 (6676)**
+    - Cost: 3000
+    - Tags: Damage, CriticalStrike, ArmorPenetration
+    - Desc: No description
+- [ ] **세릴다의 원한 (6694)**
+    - Cost: 3000
+    - Tags: Damage, CooldownReduction, ArmorPenetration, AbilityHaste
+    - Desc: No description
+- [ ] **오만 (6697)**
+    - Cost: 3000
+    - Tags: Damage, Active, CooldownReduction, ArmorPenetration, AbilityHaste
+    - Desc: No description
+- [ ] **벼락폭풍검 (6699)**
+    - Cost: 3000
+    - Tags: Damage, Active, CooldownReduction, ArmorPenetration, AbilityHaste
+    - Desc: No description
+- [ ] **징수의 총 (667666)**
+    - Cost: 3000
+    - Tags: Damage, CriticalStrike, ArmorPenetration
+    - Desc: No description
+- [ ] **마나무네 (3004)**
+    - Cost: 2900
+    - Tags: Damage, Mana, CooldownReduction, OnHit, AbilityHaste
+    - Desc: 최대 마나량에 따라 공격력이 상승합니다.
+- [ ] **월식 (6692)**
+    - Cost: 2900
+    - Tags: Damage, CooldownReduction, AbilityHaste
+    - Desc: No description
+- [ ] **마나무네 (323004)**
+    - Cost: 2900
+    - Tags: Damage, Mana, CooldownReduction, OnHit, AbilityHaste
+    - Desc: No description
+- [ ] **불경한 히드라 (6698)**
+    - Cost: 2850
+    - Tags: Damage, Active, CooldownReduction, ArmorPenetration, AbilityHaste
+    - Desc: No description
+- [ ] **마법광학 장치 C44 (2523)**
+    - Cost: 2800
+    - Tags: Damage, CriticalStrike
+    - Desc: No description
+- [ ] **요우무의 유령검 (3142)**
+    - Cost: 2800
+    - Tags: Damage, Active, NonbootsMovement, ArmorPenetration
+    - Desc: 사용하면 이동 속도가 대폭 상승합니다.
+- [ ] **그림자 검 (3179)**
+    - Cost: 2800
+    - Tags: Damage, Vision, CooldownReduction, ArmorPenetration, AbilityHaste
+    - Desc: 주기적으로 덫 및 와드를 감지할 수 있습니다.
+- [ ] **원칙의 원형낫 (6696)**
+    - Cost: 2750
+    - Tags: Damage, ArmorPenetration, AbilityHaste
+    - Desc: No description
+- [ ] **스태틱의 단검 (3087)**
+    - Cost: 2700
+    - Tags: Damage, AttackSpeed, OnHit, NonbootsMovement
+    - Desc: 이동 시 점차 충전되어, 기본 공격 시 연쇄 번개를 발사합니다.
+- [ ] **기회 (6701)**
+    - Cost: 2700
+    - Tags: Damage, Active, NonbootsMovement, ArmorPenetration
+    - Desc: No description
+- [ ] **독사의 송곳니 (6695)**
+    - Cost: 2500
+    - Tags: Damage, ArmorPenetration
+    - Desc: No description
+- [ ] **신성의 검 (663060)**
+    - Cost: 2500
+    - Tags: Damage, CriticalStrike, SpellDamage
+    - Desc: No description
+- [ ] **마법공학 총검 (663146)**
+    - Cost: 2500
+    - Tags: Damage, LifeSteal, SpellDamage, Active, SpellVamp
+    - Desc: No description
+- [ ] **도박꾼의 칼날 (667101)**
+    - Cost: 2500
+    - Tags: Damage, NonbootsMovement, MagicPenetration, ArmorPenetration, AbilityHaste
+    - Desc: No description
+- [ ] **살점포식자 (667112)**
+    - Cost: 2500
+    - Tags: Damage, SpellDamage, MagicPenetration, ArmorPenetration
+    - Desc: No description
+- [ ] **야수화 (2020)**
+    - Cost: 1337
+    - Tags: Damage, CooldownReduction, ArmorPenetration
+    - Desc: No description
+- [ ] **B.F. 대검 (1038)**
+    - Cost: 1300
+    - Tags: Damage
+    - Desc: 공격력이 대폭 증가합니다.
+- [ ] **주문포식자 (3155)**
+    - Cost: 1300
+    - Tags: Damage, SpellBlock
+    - Desc: 공격력과 마법 저항력이 증가합니다.
+- [ ] **절정의 화살 (6670)**
+    - Cost: 1300
+    - Tags: Damage, CriticalStrike
+    - Desc: No description
+- [ ] **온기가 필요한 자의 도끼 (3051)**
+    - Cost: 1200
+    - Tags: Damage, AttackSpeed
+    - Desc: No description
+- [ ] **티아맷 (3077)**
+    - Cost: 1200
+    - Tags: Damage, OnHit
+    - Desc: 주변 적에게 근접 피해를 입힙니다.
+- [ ] **콜필드의 전투 망치 (3133)**
+    - Cost: 1050
+    - Tags: Damage, CooldownReduction, AbilityHaste
+    - Desc: 공격력과 재사용 대기시간 감소율이 증가합니다.
+- [ ] **톱날 단검 (3134)**
+    - Cost: 1000
+    - Tags: Damage, ArmorPenetration
+    - Desc: 공격력과 물리 관통력이 증가합니다.
+
+## Health
+
+- [ ] **삼위일체 (3078)**
+    - Cost: 3333
+    - Tags: Health, Damage, AttackSpeed, CooldownReduction, OnHit, NonbootsMovement, AbilityHaste
+    - Desc: 취급주의: 이 아이템만 갖추면 '엄청난 피해'를 줄 수 있죠...
+- [ ] **지배자의 피갑옷 (2501)**
+    - Cost: 3300
+    - Tags: Health, Damage
+    - Desc: No description
+- [ ] **거대한 히드라 (3748)**
+    - Cost: 3300
+    - Tags: Health, HealthRegen, Damage, OnHit
+    - Desc: 본인 체력에 비례하여 광역 피해를 입힙니다.
+- [ ] **발걸음 분쇄기 (6631)**
+    - Cost: 3300
+    - Tags: Health, Damage, AttackSpeed, Slow
+    - Desc: No description
+- [ ] **스테락의 도전 (3053)**
+    - Cost: 3200
+    - Tags: Health, Damage, Tenacity
+    - Desc: 대량의 피해를 보호막으로 막아줍니다.
+- [ ] **해신 작쇼 (6665)**
+    - Cost: 3200
+    - Tags: Health, SpellBlock, Armor, MagicResist
+    - Desc: No description
+- [ ] **황혼과 새벽 (2510)**
+    - Cost: 3100
+    - Tags: Health, AttackSpeed, SpellDamage, OnHit, AbilityHaste
+    - Desc: No description
+- [ ] **워모그의 갑옷 (3083)**
+    - Cost: 3100
+    - Tags: Health, HealthRegen
+    - Desc: 체력과 체력 재생량이 대폭 상승합니다.
+- [ ] **쇼진의 창 (3161)**
+    - Cost: 3100
+    - Tags: Health, Damage, AbilityHaste
+    - Desc: 챔피언에게 받는 피해량이 고정된 수치만큼 감소합니다. 근처에 적 챔피언이 많을 때 공격하면 잠시 동안 이 수치가 증가합니다.
+- [ ] **균열 생성기 (4633)**
+    - Cost: 3100
+    - Tags: Health, SpellDamage, CooldownReduction, SpellVamp
+    - Desc: No description
+- [ ] **화공 펑크 사슬검 (6609)**
+    - Cost: 3100
+    - Tags: Health, Damage, CooldownReduction, AbilityHaste
+    - Desc: No description
+- [ ] **갈라진 하늘 (6610)**
+    - Cost: 3100
+    - Tags: Health, Damage, CooldownReduction, AbilityHaste
+    - Desc: No description
+- [ ] **칠흑의 양날 도끼 (3071)**
+    - Cost: 3000
+    - Tags: Health, Damage, CooldownReduction, OnHit, NonbootsMovement, ArmorPenetration, AbilityHaste
+    - Desc: 적 챔피언에게 물리 피해를 입히면 적의 방어력이 감소합니다.
+- [ ] **실험적 마공학판 (3073)**
+    - Cost: 3000
+    - Tags: Health, Damage, AttackSpeed, CooldownReduction, NonbootsMovement, AbilityHaste
+    - Desc: 마나를 소모하면 최대 마나량이 증가합니다.
+- [ ] **강철심장 (3084)**
+    - Cost: 3000
+    - Tags: Health, HealthRegen
+    - Desc: 적을 처치하거나 어시스트를 올리면 체력이 회복됩니다.
+- [ ] **선체파괴자 (3181)**
+    - Cost: 3000
+    - Tags: Health, Damage, NonbootsMovement
+    - Desc: No description
+- [ ] **밤의 끝자락 (3814)**
+    - Cost: 3000
+    - Tags: Health, Damage, ArmorPenetration
+    - Desc: 주기적으로 적 스킬 공격을 막아줍니다.
+- [ ] **우주의 추진력 (4629)**
+    - Cost: 3000
+    - Tags: Health, SpellDamage, NonbootsMovement, AbilityHaste
+    - Desc: 재사용 대기시간이 대폭 감소합니다.
+- [ ] **리안드리의 고통 (6653)**
+    - Cost: 3000
+    - Tags: Health, SpellDamage
+    - Desc: 전투 중 충전하여 큰 지속 피해를 입힙니다. 유지력이 강한 적에게 효과적입니다.
+- [ ] **케이닉 루컨 (2504)**
+    - Cost: 2900
+    - Tags: Health, SpellBlock, HealthRegen
+    - Desc: No description
+- [ ] **망자의 갑옷 (3742)**
+    - Cost: 2900
+    - Tags: Health, Armor, Slow, NonbootsMovement
+    - Desc: 이동 시 추진력이 올라 적들을 강하게 타격합니다.
+- [ ] **얼어붙은 건틀릿 (6662)**
+    - Cost: 2900
+    - Tags: Health, Armor, CooldownReduction, Slow, OnHit, AbilityHaste
+    - Desc: 마법 저항력이 크게 증가하며, 기본 지속 효과로 주변 적들을 둔화시킵니다. 주변에서 스킬이 사용되면 에너지 파동을 발산해 적들에게 피해를 입히고 둔화시킵니다.
+- [ ] **핏빛 저주 (8010)**
+    - Cost: 2900
+    - Tags: Health, SpellDamage, CooldownReduction, MagicPenetration
+    - Desc: No description
+- [ ] **기사의 맹세 (323109)**
+    - Cost: 2900
+    - Tags: Health, HealthRegen, Armor, Aura, Active, CooldownReduction, AbilityHaste
+    - Desc: No description
+- [ ] **월석 재생기 (326617)**
+    - Cost: 2900
+    - Tags: Health, SpellDamage, ManaRegen, CooldownReduction, AbilityHaste
+    - Desc: No description
+- [ ] **모렐로노미콘 (3165)**
+    - Cost: 2850
+    - Tags: Health, SpellDamage, CooldownReduction, AbilityHaste
+    - Desc: 마법 피해량이 증가합니다.
+- [ ] **심연의 가면 (328020)**
+    - Cost: 2850
+    - Tags: Health, SpellBlock, CooldownReduction, MagicResist, AbilityHaste
+    - Desc: No description
+- [ ] **끝없는 절망 (2502)**
+    - Cost: 2800
+    - Tags: Health, Armor, CooldownReduction, AbilityHaste
+    - Desc: No description
+- [ ] **대자연의 힘 (4401)**
+    - Cost: 2800
+    - Tags: Health, SpellBlock, NonbootsMovement
+    - Desc: 이동 속도와 마법 저항력이 증가하고 최대 체력에 비례해 체력을 재생합니다.
+- [ ] **공허한 광휘 (6664)**
+    - Cost: 2800
+    - Tags: Health, SpellBlock, HealthRegen, Aura, MagicResist, AbilityHaste
+    - Desc: 적을 이동 불가 상태로 만들면 보호막을 얻습니다. 사용 시 적에게 접근할 때 이동 속도가 상승합니다.
+- [ ] **미카엘의 축복 (323222)**
+    - Cost: 2800
+    - Tags: Health, ManaRegen, Active, CooldownReduction, Tenacity, AbilityHaste
+    - Desc: No description
+- [ ] **정령의 형상 (3065)**
+    - Cost: 2700
+    - Tags: Health, SpellBlock, HealthRegen, CooldownReduction, AbilityHaste
+    - Desc: 체력이 오르며 치유 효과가 커집니다.
+- [ ] **태양불꽃 방패 (3068)**
+    - Cost: 2700
+    - Tags: Health, Armor, Aura, AbilityHaste
+    - Desc: 방어력이 높고 주변 적에게 지속적으로 피해를 입힙니다. 적을 이동 불가 상태로 만들면 화염을 방출해 피해를 입힙니다.
+- [ ] **란두인의 예언 (3143)**
+    - Cost: 2700
+    - Tags: Health, Armor, Active, Slow
+    - Desc: 방어력이 대폭 강화됩니다. 사용하면 주변 적들이 둔화에 걸립니다.
+- [ ] **마법공학 로켓 벨트 (3152)**
+    - Cost: 2650
+    - Tags: Health, SpellDamage, Active, CooldownReduction, NonbootsMovement, AbilityHaste
+    - Desc: 사용시 앞으로 돌진하며 강력한 폭발을 일으키는 탄환을 발사합니다.
+- [ ] **심연의 가면 (8020)**
+    - Cost: 2650
+    - Tags: Health, SpellBlock, CooldownReduction, MagicResist, AbilityHaste
+    - Desc: No description
+- [ ] **가시 갑옷 (323075)**
+    - Cost: 2650
+    - Tags: Health, Armor
+    - Desc: No description
+- [ ] **라일라이의 수정홀 (3116)**
+    - Cost: 2600
+    - Tags: Health, SpellDamage, Slow
+    - Desc: 스킬 및 마법 피해를 입히면 적이 둔화에 걸립니다.
+- [ ] **영겁의 지팡이 (6657)**
+    - Cost: 2600
+    - Tags: Health, HealthRegen, SpellDamage, Mana, ManaRegen
+    - Desc: No description
+- [ ] **개척자 (323002)**
+    - Cost: 2600
+    - Tags: Health, Armor, NonbootsMovement
+    - Desc: No description
+- [ ] **강철의 솔라리 펜던트 (323190)**
+    - Cost: 2600
+    - Tags: Health, SpellBlock, Armor, Aura, Active, MagicResist, AbilityHaste
+    - Desc: No description
+- [ ] **헬리아의 메아리 (326620)**
+    - Cost: 2600
+    - Tags: Health, SpellDamage, ManaRegen, CooldownReduction, AbilityHaste
+    - Desc: No description
+- [ ] **영겁의 지팡이 (326657)**
+    - Cost: 2600
+    - Tags: Health, HealthRegen, SpellDamage, Mana, ManaRegen
+    - Desc: No description
+- [ ] **원형질 안전벨트 (2525)**
+    - Cost: 2500
+    - Tags: Health, NonbootsMovement, Tenacity, AbilityHaste
+    - Desc: No description
+- [ ] **아트마의 심판 (663039)**
+    - Cost: 2500
+    - Tags: Health, CriticalStrike, Lane
+    - Desc: No description
+- [ ] **불사대마왕의 왕관 (663056)**
+    - Cost: 2500
+    - Tags: Health, Armor, Damage, AttackSpeed, SpellDamage, MagicResist, AbilityHaste
+    - Desc: No description
+- [ ] **용암의 방패 (663058)**
+    - Cost: 2500
+    - Tags: Health, Armor
+    - Desc: No description
+- [ ] **별빛밤 망토 (663059)**
+    - Cost: 2500
+    - Tags: Health, SpellBlock
+    - Desc: No description
+- [ ] **꽃피는 새벽의 검 (664011)**
+    - Cost: 2500
+    - Tags: Health, SpellDamage, CooldownReduction, OnHit, AbilityHaste
+    - Desc: No description
+- [ ] **부서진 여왕의 왕관 (664644)**
+    - Cost: 2500
+    - Tags: Health, SpellDamage, Mana, AbilityHaste
+    - Desc: No description
+- [ ] **가시 갑옷 (3075)**
+    - Cost: 2450
+    - Tags: Health, Armor
+    - Desc: No description
+- [ ] **개척자 (3002)**
+    - Cost: 2400
+    - Tags: Health, Armor, NonbootsMovement
+    - Desc: No description
+- [ ] **혹한의 손길 (3119)**
+    - Cost: 2400
+    - Tags: Health, Mana, AbilityHaste
+    - Desc: No description
+- [ ] **혹한의 손길 (323119)**
+    - Cost: 2400
+    - Tags: Health, Mana, AbilityHaste
+    - Desc: No description
+- [ ] **밴들파이프 (2524)**
+    - Cost: 2300
+    - Tags: Health, SpellBlock, Armor, AttackSpeed, NonbootsMovement, AbilityHaste
+    - Desc: No description
+- [ ] **기사의 맹세 (3109)**
+    - Cost: 2300
+    - Tags: Health, HealthRegen, Armor, Aura, Active, CooldownReduction, AbilityHaste
+    - Desc: 동료를 지정해 서로를 보호합니다.
+- [ ] **미카엘의 축복 (3222)**
+    - Cost: 2300
+    - Tags: Health, ManaRegen, Active, CooldownReduction, Tenacity, AbilityHaste
+    - Desc: 사용하면 아군 챔피언 하나에게 걸린 방해 효과를 모두 제거해 줍니다.
+- [ ] **지크의 융합 (323050)**
+    - Cost: 2300
+    - Tags: Health, SpellBlock, Armor, AbilityHaste
+    - Desc: No description
+- [ ] **속삭이는 머리띠 (2526)**
+    - Cost: 2250
+    - Tags: Health, Mana, ManaRegen
+    - Desc: No description
+- [ ] **속삭이는 머리띠 (322526)**
+    - Cost: 2250
+    - Tags: Health, Mana, ManaRegen
+    - Desc: No description
+- [ ] **지크의 융합 (3050)**
+    - Cost: 2200
+    - Tags: Health, SpellBlock, Armor, AbilityHaste
+    - Desc: 궁극기 사용 시 아군 한 명과 함께 추가 효과를 받습니다.
+- [ ] **강철의 솔라리 펜던트 (3190)**
+    - Cost: 2200
+    - Tags: Health, SpellBlock, Armor, Aura, Active, MagicResist, AbilityHaste
+    - Desc: 사용하면 주변 아군을 적의 공격에서 방어해 줍니다.
+- [ ] **월석 재생기 (6617)**
+    - Cost: 2200
+    - Tags: Health, SpellDamage, ManaRegen, CooldownReduction, AbilityHaste
+    - Desc: 체력 회복 및 보호막 스킬의 재사용 대기시간이 감소하고 체력이 낮은 아군에게 더 큰 효과를 냅니다.
+- [ ] **헬리아의 메아리 (6620)**
+    - Cost: 2200
+    - Tags: Health, SpellDamage, ManaRegen, CooldownReduction, AbilityHaste
+    - Desc: 체력이 낮은 적에게 피해를 입히면 저주를 내려 폭발을 일으킵니다. 폭발에 닿은 주변 적들은 피해를 입고 둔화됩니다.
+- [ ] **메자이의 영혼약탈자 (3041)**
+    - Cost: 1500
+    - Tags: Health, SpellDamage, NonbootsMovement
+    - Desc: 챔피언을 처치하거나 어시스트를 올릴 경우, 주문력이 오릅니다.
+- [ ] **기괴한 가면 (3147)**
+    - Cost: 1300
+    - Tags: Health, SpellDamage
+    - Desc: 적에게 기습 공격 시 추가 물리 피해를 입힙니다.
+- [ ] **억겁의 카탈리스트 (3803)**
+    - Cost: 1300
+    - Tags: Health, HealthRegen, Mana, ManaRegen
+    - Desc: No description
+- [ ] **망령의 두건 (3211)**
+    - Cost: 1250
+    - Tags: Health, HealthRegen, SpellBlock
+    - Desc: 방어력이 증가하고, 피해를 입으면 체력이 재생됩니다.
+- [ ] **땅굴 채굴기 (2021)**
+    - Cost: 1150
+    - Tags: Health, Damage
+    - Desc: No description
+- [ ] **탐식의 망치 (3044)**
+    - Cost: 1100
+    - Tags: Health, Damage, NonbootsMovement
+    - Desc: 적을 공격하거나 처치하면 이동 속도가 잠시 상승합니다.
+- [ ] **수호자의 뿔피리 (2051)**
+    - Cost: 950
+    - Tags: Health, HealthRegen, Lane
+    - Desc: 탱커에게 특화된 시작 아이템입니다.
+- [ ] **수호자의 보주 (3112)**
+    - Cost: 950
+    - Tags: Health, SpellDamage, ManaRegen, Lane
+    - Desc: 마법사에게 특화된 시작 아이템입니다.
+- [ ] **수호자의 검 (3177)**
+    - Cost: 950
+    - Tags: Health, Damage, Lane, AbilityHaste
+    - Desc: 공격에 특화된 시작 아이템입니다.
+- [ ] **수호자의 망치 (3184)**
+    - Cost: 950
+    - Tags: Health, Damage, LifeSteal, Lane
+    - Desc: 공격에 특화된 ���작 아이템입니다.
+
+## MagicPenetration
+
+- [ ] **공허의 지팡이 (3135)**
+    - Cost: 3000
+    - Tags: MagicPenetration, SpellDamage
+    - Desc: 마법 피해량이 증가합니다.
+- [ ] **역병의 보석 (4630)**
+    - Cost: 1100
+    - Tags: MagicPenetration, SpellDamage
+    - Desc: No description
+
+## Other
+
+- [ ] **부서진 팔목 보호대 (2421)**
+    - Cost: 1600
+    - Tags: 
+    - Desc: 초시계로 업그레이드할 수 있습니다.
+
+## SpellBlock
+
+- [ ] **헤르메스의 시미터 (3139)**
+    - Cost: 3200
+    - Tags: SpellBlock, Damage, LifeSteal, Active, NonbootsMovement, Tenacity
+    - Desc: 사용하면 모든 군중 제어 효과가 제거되며, 이동 속도가 대폭 증가합니다.
+- [ ] **맬모셔스의 아귀 (3156)**
+    - Cost: 3100
+    - Tags: SpellBlock, Damage, LifeSteal, SpellVamp, AbilityHaste
+    - Desc: 체력이 낮아지면 추가 공격력이 부여됩니다.
+- [ ] **밴시의 장막 (3102)**
+    - Cost: 3000
+    - Tags: SpellBlock, SpellDamage
+    - Desc: 주기적으로 적 스킬 공격을 막아줍니다.
+- [ ] **마법사의 최후 (3091)**
+    - Cost: 2800
+    - Tags: SpellBlock, AttackSpeed, OnHit, Tenacity
+    - Desc: 마법 피해를 견디고 체력을 회복합니다.
+- [ ] **가고일 돌갑옷 (663193)**
+    - Cost: 2500
+    - Tags: SpellBlock, Armor, Active, CooldownReduction, AbilityHaste
+    - Desc: No description
+- [ ] **신록의 장벽 (4632)**
+    - Cost: 1600
+    - Tags: SpellBlock, SpellDamage
+    - Desc: No description
+- [ ] **사슬끈 분쇄자 (3173)**
+    - Cost: 1250
+    - Tags: SpellBlock, Boots, Tenacity, MagicResist
+    - Desc: 이동 속도와 재사용 대기시간 감소율이 증가합니다.
+
+## SpellDamage
+
+- [ ] **라바돈의 죽음모자 (3089)**
+    - Cost: 3500
+    - Tags: SpellDamage
+    - Desc: 주문력이 대폭 상승합니다.
+- [ ] **그림자불꽃 (4645)**
+    - Cost: 3200
+    - Tags: SpellDamage, MagicPenetration
+    - Desc: No description
+- [ ] **무덤꽃 (3137)**
+    - Cost: 3000
+    - Tags: SpellDamage, MagicPenetration, AbilityHaste
+    - Desc: 사용하면 모든 해로운 효과가 제거되며, 이동 속도가 대폭 증가합니다.
+- [ ] **대천사의 지팡이 (3003)**
+    - Cost: 2900
+    - Tags: SpellDamage, Mana, AbilityHaste
+    - Desc: 최대 마나량에 따라 주문력이 대폭 상승합니다.
+- [ ] **리치베인 (3100)**
+    - Cost: 2900
+    - Tags: SpellDamage, OnHit, NonbootsMovement, AbilityHaste
+    - Desc: 스킬 공격 다음 공격에 추가 피해가 적용됩니다.
+- [ ] **대천사의 지팡이 (323003)**
+    - Cost: 2900
+    - Tags: SpellDamage, Mana, AbilityHaste
+    - Desc: No description
+- [ ] **새벽심장 (326621)**
+    - Cost: 2900
+    - Tags: SpellDamage, ManaRegen
+    - Desc: No description
+- [ ] **어둠불꽃 횃불 (2503)**
+    - Cost: 2800
+    - Tags: SpellDamage, Mana, CooldownReduction, AbilityHaste
+    - Desc: No description
+- [ ] **실체화 장비 (2522)**
+    - Cost: 2800
+    - Tags: SpellDamage, Mana, AbilityHaste
+    - Desc: No description
+- [ ] **폭풍 쇄도 (4646)**
+    - Cost: 2800
+    - Tags: SpellDamage, GoldPer, NonbootsMovement, MagicPenetration
+    - Desc: No description
+- [ ] **구원 (323107)**
+    - Cost: 2800
+    - Tags: SpellDamage, ManaRegen, CooldownReduction, AbilityHaste
+    - Desc: No description
+- [ ] **루덴의 메아리 (6655)**
+    - Cost: 2750
+    - Tags: SpellDamage, Mana, CooldownReduction, AbilityHaste
+    - Desc: 폭발적인 피해를 입힙니다. 유지력이 약한 적에게 효과적입니다.
+- [ ] **제국의 명령 (324005)**
+    - Cost: 2750
+    - Tags: SpellDamage, ManaRegen, CooldownReduction, AbilityHaste
+    - Desc: No description
+- [ ] **악의 (3118)**
+    - Cost: 2700
+    - Tags: SpellDamage, Mana, AbilityHaste
+    - Desc: 동료를 지정해 서로를 보호합니다.
+- [ ] **지평선의 초점 (4628)**
+    - Cost: 2700
+    - Tags: SpellDamage, AbilityHaste
+    - Desc: 챔피언을 이동 불가 상태로 만들면 벼락이 떨어집니다.
+- [ ] **슈렐리아의 군가 (322065)**
+    - Cost: 2600
+    - Tags: SpellDamage, ManaRegen, Active, CooldownReduction, NonbootsMovement, AbilityHaste
+    - Desc: No description
+- [ ] **흐르는 물의 지팡이 (326616)**
+    - Cost: 2600
+    - Tags: SpellDamage, ManaRegen, CooldownReduction, AbilityHaste
+    - Desc: No description
+- [ ] **새벽심장 (6621)**
+    - Cost: 2500
+    - Tags: SpellDamage, ManaRegen
+    - Desc: No description
+- [ ] **구원 (3107)**
+    - Cost: 2300
+    - Tags: SpellDamage, ManaRegen, CooldownReduction, AbilityHaste
+    - Desc: 활성화하면 주변 지역의 아군을 회복시키고 적에게는 피해를 입힙니다.
+- [ ] **제국의 명령 (4005)**
+    - Cost: 2250
+    - Tags: SpellDamage, ManaRegen, CooldownReduction, AbilityHaste
+    - Desc: 피해량의 일부를 나중에 받습니다.
+- [ ] **흐르는 물의 지팡이 (6616)**
+    - Cost: 2250
+    - Tags: SpellDamage, ManaRegen, CooldownReduction, AbilityHaste
+    - Desc: 체력 회복 및 보호막 스킬이 군중 제어 효과의 지속시간을 줄이고 이동 속도를 상승시킵니다.
+- [ ] **슈렐리아의 군가 (2065)**
+    - Cost: 2200
+    - Tags: SpellDamage, ManaRegen, Active, CooldownReduction, NonbootsMovement, AbilityHaste
+    - Desc: 사용하면 주변 아군의 속도가 빨라집니다.
+- [ ] **쓸데없이 큰 지팡이 (1058)**
+    - Cost: 1200
+    - Tags: SpellDamage
+    - Desc: 주문력이 대폭 상승합니다.
+- [ ] **사라진 양피지 (3802)**
+    - Cost: 1200
+    - Tags: SpellDamage, Mana, ManaRegen, CooldownReduction, AbilityHaste
+    - Desc: 레벨이 오를 때마다 마나를 회복합니다.
+- [ ] **마법공학 교류 발전기 (3145)**
+    - Cost: 1100
+    - Tags: SpellDamage
+    - Desc: 주문력이 상승합니다. 공격 시 주기적으로 추가 마법 피해를 입힙니다.
+
