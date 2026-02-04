@@ -1,8 +1,5 @@
 /**
- * 룬 데이터 자동 생성기
- * 
- * 모든 룬(키스톤, 일반 룬) 정보를 가져와서
- * 유전 알고리즘이 사용할 수 있는 JSON으로 저장합니다.
+ * 룬 데이터 자동 생성기 (Korean + Raw Save)
  */
 
 const fs = require('fs');
@@ -10,6 +7,7 @@ const path = require('path');
 const https = require('https');
 
 const OUTPUT_PATH = path.join(__dirname, '../../src/data/json/runes.json');
+const RAW_DIR = path.join(__dirname, '../../src/data/json/raw');
 const DDRAGON_BASE = "https://ddragon.leagueoflegends.com";
 
 function fetchJson(url) {
@@ -27,9 +25,13 @@ async function main() {
     const versions = await fetchJson(`${DDRAGON_BASE}/api/versions.json`);
     const version = versions[0];
     
-    // 룬 정보는 runesReforged.json 에 있음
-    const res = await fetchJson(`${DDRAGON_BASE}/cdn/${version}/data/en_US/runesReforged.json`);
+    // ko_KR 로 변경
+    const res = await fetchJson(`${DDRAGON_BASE}/cdn/${version}/data/ko_KR/runesReforged.json`);
     
+    // 원본 저장
+    fs.writeFileSync(path.join(RAW_DIR, 'runes_ko.json'), JSON.stringify(res, null, 2));
+    console.log('Saved raw rune data to src/data/json/raw/');
+
     const parsedRunes = {
       trees: {},
       allRunes: {}
@@ -50,7 +52,7 @@ async function main() {
             key: rune.key,
             name: rune.name,
             tree: tree.key,
-            slot: slotIdx, // 0: 키스톤, 1-3: 일반
+            slot: slotIdx,
             icon: rune.icon
           };
         });
@@ -58,7 +60,7 @@ async function main() {
     });
 
     fs.writeFileSync(OUTPUT_PATH, JSON.stringify(parsedRunes, null, 2));
-    console.log(`Saved ${Object.keys(parsedRunes.allRunes).length} runes to ${OUTPUT_PATH}`);
+    console.log(`Saved ${Object.keys(parsedRunes.allRunes).length} runes in Korean to ${OUTPUT_PATH}`);
 
   } catch (e) {
     console.error('Error:', e);

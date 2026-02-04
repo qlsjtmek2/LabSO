@@ -2,7 +2,7 @@
   "trees": {
     "Domination": {
       "id": 8100,
-      "name": "Domination",
+      "name": "지배",
       "key": "Domination",
       "slots": [
         [
@@ -29,7 +29,7 @@
     },
     "Inspiration": {
       "id": 8300,
-      "name": "Inspiration",
+      "name": "영감",
       "key": "Inspiration",
       "slots": [
         [
@@ -56,7 +56,7 @@
     },
     "Precision": {
       "id": 8000,
-      "name": "Precision",
+      "name": "정밀",
       "key": "Precision",
       "slots": [
         [
@@ -84,7 +84,7 @@
     },
     "Resolve": {
       "id": 8400,
-      "name": "Resolve",
+      "name": "결의",
       "key": "Resolve",
       "slots": [
         [
@@ -111,7 +111,7 @@
     },
     "Sorcery": {
       "id": 8200,
-      "name": "Sorcery",
+      "name": "마법",
       "key": "Sorcery",
       "slots": [
         [
@@ -141,7 +141,7 @@
     "Electrocute": {
       "id": 8112,
       "key": "Electrocute",
-      "name": "Electrocute",
+      "name": "감전",
       "tree": "Domination",
       "slot": 0,
       "icon": "perk-images/Styles/Domination/Electrocute/Electrocute.png"
@@ -149,7 +149,7 @@
     "DarkHarvest": {
       "id": 8128,
       "key": "DarkHarvest",
-      "name": "Dark Harvest",
+      "name": "어둠의 수확",
       "tree": "Domination",
       "slot": 0,
       "icon": "perk-images/Styles/Domination/DarkHarvest/DarkHarvest.png"
@@ -157,7 +157,7 @@
     "HailOfBlades": {
       "id": 9923,
       "key": "HailOfBlades",
-      "name": "Hail of Blades",
+      "name": "칼날비",
       "tree": "Domination",
       "slot": 0,
       "icon": "perk-images/Styles/Domination/HailOfBlades/HailOfBlades.png"
@@ -165,7 +165,7 @@
     "CheapShot": {
       "id": 8126,
       "key": "CheapShot",
-      "name": "Cheap Shot",
+      "name": "비열한 한 방",
       "tree": "Domination",
       "slot": 1,
       "icon": "perk-images/Styles/Domination/CheapShot/CheapShot.png"
@@ -173,7 +173,7 @@
     "TasteOfBlood": {
       "id": 8139,
       "key": "TasteOfBlood",
-      "name": "Taste of Blood",
+      "name": "피의 맛",
       "tree": "Domination",
       "slot": 1,
       "icon": "perk-images/Styles/Domination/TasteOfBlood/GreenTerror_TasteOfBlood.png"
@@ -181,7 +181,7 @@
     "SuddenImpact": {
       "id": 8143,
       "key": "SuddenImpact",
-      "name": "Sudden Impact",
+      "name": "돌발 일격",
       "tree": "Domination",
       "slot": 1,
       "icon": "perk-images/Styles/Domination/SuddenImpact/SuddenImpact.png"
@@ -189,7 +189,7 @@
     "SixthSense": {
       "id": 8137,
       "key": "SixthSense",
-      "name": "Sixth Sense",
+      "name": "육감",
       "tree": "Domination",
       "slot": 2,
       "icon": "perk-images/Styles/Domination/SixthSense/SixthSense.png"
@@ -197,7 +197,7 @@
     "GrislyMementos": {
       "id": 8140,
       "key": "GrislyMementos",
-      "name": "Grisly Mementos",
+      "name": "섬뜩한 기념품",
       "tree": "Domination",
       "slot": 2,
       "icon": "perk-images/Styles/Domination/GrislyMementos/GrislyMementos.png"
@@ -205,7 +205,7 @@
     "DeepWard": {
       "id": 8141,
       "key": "DeepWard",
-      "name": "Deep Ward",
+      "name": "깊은 와드",
       "tree": "Domination",
       "slot": 2,
       "icon": "perk-images/Styles/Domination/DeepWard/DeepWard.png"
@@ -213,7 +213,7 @@
     "TreasureHunter": {
       "id": 8135,
       "key": "TreasureHunter",
-      "name": "Treasure Hunter",
+      "name": "보물 사냥꾼",
       "tree": "Domination",
       "slot": 3,
       "icon": "perk-images/Styles/Domination/TreasureHunter/TreasureHunter.png"
@@ -221,7 +221,7 @@
     "RelentlessHunter": {
       "id": 8105,
       "key": "RelentlessHunter",
-      "name": "Relentless Hunter",
+      "name": "끈질긴 사냥꾼",
       "tree": "Domination",
       "slot": 3,
       "icon": "perk-images/Styles/Domination/RelentlessHunter/RelentlessHunter.png"
@@ -229,7 +229,7 @@
     "UltimateHunter": {
       "id": 8106,
       "key": "UltimateHunter",
-      "name": "Ultimate Hunter",
+      "name": "궁극의 사냥꾼",
       "tree": "Domination",
       "slot": 3,
       "icon": "perk-images/Styles/Domination/UltimateHunter/UltimateHunter.png"
@@ -237,7 +237,7 @@
     "GlacialAugment": {
       "id": 8351,
       "key": "GlacialAugment",
-      "name": "Glacial Augment",
+      "name": "빙결 강화",
       "tree": "Inspiration",
       "slot": 0,
       "icon": "perk-images/Styles/Inspiration/GlacialAugment/GlacialAugment.png"
@@ -245,7 +245,7 @@
     "UnsealedSpellbook": {
       "id": 8360,
       "key": "UnsealedSpellbook",
-      "name": "Unsealed Spellbook",
+      "name": "봉인 풀린 주문서",
       "tree": "Inspiration",
       "slot": 0,
       "icon": "perk-images/Styles/Inspiration/UnsealedSpellbook/UnsealedSpellbook.png"
@@ -253,7 +253,7 @@
     "FirstStrike": {
       "id": 8369,
       "key": "FirstStrike",
-      "name": "First Strike",
+      "name": "선제공격",
       "tree": "Inspiration",
       "slot": 0,
       "icon": "perk-images/Styles/Inspiration/FirstStrike/FirstStrike.png"
@@ -261,7 +261,7 @@
     "HextechFlashtraption": {
       "id": 8306,
       "key": "HextechFlashtraption",
-      "name": "Hextech Flashtraption",
+      "name": "마법공학 점멸기",
       "tree": "Inspiration",
       "slot": 1,
       "icon": "perk-images/Styles/Inspiration/HextechFlashtraption/HextechFlashtraption.png"
@@ -269,7 +269,7 @@
     "MagicalFootwear": {
       "id": 8304,
       "key": "MagicalFootwear",
-      "name": "Magical Footwear",
+      "name": "마법의 신발",
       "tree": "Inspiration",
       "slot": 1,
       "icon": "perk-images/Styles/Inspiration/MagicalFootwear/MagicalFootwear.png"
@@ -277,7 +277,7 @@
     "CashBack": {
       "id": 8321,
       "key": "CashBack",
-      "name": "Cash Back",
+      "name": "환급",
       "tree": "Inspiration",
       "slot": 1,
       "icon": "perk-images/Styles/Inspiration/CashBack/CashBack2.png"
@@ -285,7 +285,7 @@
     "PerfectTiming": {
       "id": 8313,
       "key": "PerfectTiming",
-      "name": "Triple Tonic",
+      "name": "삼중 물약",
       "tree": "Inspiration",
       "slot": 2,
       "icon": "perk-images/Styles/Inspiration/PerfectTiming/AlchemistCabinet.png"
@@ -293,7 +293,7 @@
     "TimeWarpTonic": {
       "id": 8352,
       "key": "TimeWarpTonic",
-      "name": "Time Warp Tonic",
+      "name": "시간 왜곡 물약",
       "tree": "Inspiration",
       "slot": 2,
       "icon": "perk-images/Styles/Inspiration/TimeWarpTonic/TimeWarpTonic.png"
@@ -301,7 +301,7 @@
     "BiscuitDelivery": {
       "id": 8345,
       "key": "BiscuitDelivery",
-      "name": "Biscuit Delivery",
+      "name": "비스킷 배달",
       "tree": "Inspiration",
       "slot": 2,
       "icon": "perk-images/Styles/Inspiration/BiscuitDelivery/BiscuitDelivery.png"
@@ -309,7 +309,7 @@
     "CosmicInsight": {
       "id": 8347,
       "key": "CosmicInsight",
-      "name": "Cosmic Insight",
+      "name": "우주적 통찰력",
       "tree": "Inspiration",
       "slot": 3,
       "icon": "perk-images/Styles/Inspiration/CosmicInsight/CosmicInsight.png"
@@ -317,7 +317,7 @@
     "ApproachVelocity": {
       "id": 8410,
       "key": "ApproachVelocity",
-      "name": "Approach Velocity",
+      "name": "쾌속 접근",
       "tree": "Inspiration",
       "slot": 3,
       "icon": "perk-images/Styles/Resolve/ApproachVelocity/ApproachVelocity.png"
@@ -325,7 +325,7 @@
     "JackOfAllTrades": {
       "id": 8316,
       "key": "JackOfAllTrades",
-      "name": "Jack Of All Trades",
+      "name": "다재다능",
       "tree": "Inspiration",
       "slot": 3,
       "icon": "perk-images/Styles/Inspiration/JackOfAllTrades/JackofAllTrades2.png"
@@ -333,7 +333,7 @@
     "PressTheAttack": {
       "id": 8005,
       "key": "PressTheAttack",
-      "name": "Press the Attack",
+      "name": "집중 공격",
       "tree": "Precision",
       "slot": 0,
       "icon": "perk-images/Styles/Precision/PressTheAttack/PressTheAttack.png"
@@ -341,7 +341,7 @@
     "LethalTempo": {
       "id": 8008,
       "key": "LethalTempo",
-      "name": "Lethal Tempo",
+      "name": "치명적 속도",
       "tree": "Precision",
       "slot": 0,
       "icon": "perk-images/Styles/Precision/LethalTempo/LethalTempoTemp.png"
@@ -349,7 +349,7 @@
     "FleetFootwork": {
       "id": 8021,
       "key": "FleetFootwork",
-      "name": "Fleet Footwork",
+      "name": "기민한 발놀림",
       "tree": "Precision",
       "slot": 0,
       "icon": "perk-images/Styles/Precision/FleetFootwork/FleetFootwork.png"
@@ -357,7 +357,7 @@
     "Conqueror": {
       "id": 8010,
       "key": "Conqueror",
-      "name": "Conqueror",
+      "name": "정복자",
       "tree": "Precision",
       "slot": 0,
       "icon": "perk-images/Styles/Precision/Conqueror/Conqueror.png"
@@ -365,7 +365,7 @@
     "AbsorbLife": {
       "id": 9101,
       "key": "AbsorbLife",
-      "name": "Absorb Life",
+      "name": "생명 흡수",
       "tree": "Precision",
       "slot": 1,
       "icon": "perk-images/Styles/Precision/AbsorbLife/AbsorbLife.png"
@@ -373,7 +373,7 @@
     "Triumph": {
       "id": 9111,
       "key": "Triumph",
-      "name": "Triumph",
+      "name": "승전보",
       "tree": "Precision",
       "slot": 1,
       "icon": "perk-images/Styles/Precision/Triumph.png"
@@ -381,7 +381,7 @@
     "PresenceOfMind": {
       "id": 8009,
       "key": "PresenceOfMind",
-      "name": "Presence of Mind",
+      "name": "침착",
       "tree": "Precision",
       "slot": 1,
       "icon": "perk-images/Styles/Precision/PresenceOfMind/PresenceOfMind.png"
@@ -389,7 +389,7 @@
     "LegendAlacrity": {
       "id": 9104,
       "key": "LegendAlacrity",
-      "name": "Legend: Alacrity",
+      "name": "전설: 민첩함",
       "tree": "Precision",
       "slot": 2,
       "icon": "perk-images/Styles/Precision/LegendAlacrity/LegendAlacrity.png"
@@ -397,7 +397,7 @@
     "LegendHaste": {
       "id": 9105,
       "key": "LegendHaste",
-      "name": "Legend: Haste",
+      "name": "전설: 가속",
       "tree": "Precision",
       "slot": 2,
       "icon": "perk-images/Styles/Precision/LegendHaste/LegendHaste.png"
@@ -405,7 +405,7 @@
     "LegendBloodline": {
       "id": 9103,
       "key": "LegendBloodline",
-      "name": "Legend: Bloodline",
+      "name": "전설: 핏빛 길",
       "tree": "Precision",
       "slot": 2,
       "icon": "perk-images/Styles/Precision/LegendBloodline/LegendBloodline.png"
@@ -413,7 +413,7 @@
     "CoupDeGrace": {
       "id": 8014,
       "key": "CoupDeGrace",
-      "name": "Coup de Grace",
+      "name": "최후의 일격",
       "tree": "Precision",
       "slot": 3,
       "icon": "perk-images/Styles/Precision/CoupDeGrace/CoupDeGrace.png"
@@ -421,7 +421,7 @@
     "CutDown": {
       "id": 8017,
       "key": "CutDown",
-      "name": "Cut Down",
+      "name": "체력차 극복",
       "tree": "Precision",
       "slot": 3,
       "icon": "perk-images/Styles/Precision/CutDown/CutDown.png"
@@ -429,7 +429,7 @@
     "LastStand": {
       "id": 8299,
       "key": "LastStand",
-      "name": "Last Stand",
+      "name": "최후의 저항",
       "tree": "Precision",
       "slot": 3,
       "icon": "perk-images/Styles/Sorcery/LastStand/LastStand.png"
@@ -437,7 +437,7 @@
     "GraspOfTheUndying": {
       "id": 8437,
       "key": "GraspOfTheUndying",
-      "name": "Grasp of the Undying",
+      "name": "착취의 손아귀",
       "tree": "Resolve",
       "slot": 0,
       "icon": "perk-images/Styles/Resolve/GraspOfTheUndying/GraspOfTheUndying.png"
@@ -445,7 +445,7 @@
     "Aftershock": {
       "id": 8439,
       "key": "Aftershock",
-      "name": "Aftershock",
+      "name": "여진",
       "tree": "Resolve",
       "slot": 0,
       "icon": "perk-images/Styles/Resolve/VeteranAftershock/VeteranAftershock.png"
@@ -453,7 +453,7 @@
     "Guardian": {
       "id": 8465,
       "key": "Guardian",
-      "name": "Guardian",
+      "name": "수호자",
       "tree": "Resolve",
       "slot": 0,
       "icon": "perk-images/Styles/Resolve/Guardian/Guardian.png"
@@ -461,7 +461,7 @@
     "Demolish": {
       "id": 8446,
       "key": "Demolish",
-      "name": "Demolish",
+      "name": "철거",
       "tree": "Resolve",
       "slot": 1,
       "icon": "perk-images/Styles/Resolve/Demolish/Demolish.png"
@@ -469,7 +469,7 @@
     "FontOfLife": {
       "id": 8463,
       "key": "FontOfLife",
-      "name": "Font of Life",
+      "name": "생명의 샘",
       "tree": "Resolve",
       "slot": 1,
       "icon": "perk-images/Styles/Resolve/FontOfLife/FontOfLife.png"
@@ -477,7 +477,7 @@
     "ShieldBash": {
       "id": 8401,
       "key": "ShieldBash",
-      "name": "Shield Bash",
+      "name": "보호막 강타",
       "tree": "Resolve",
       "slot": 1,
       "icon": "perk-images/Styles/Resolve/MirrorShell/MirrorShell.png"
@@ -485,7 +485,7 @@
     "Conditioning": {
       "id": 8429,
       "key": "Conditioning",
-      "name": "Conditioning",
+      "name": "사전 준비",
       "tree": "Resolve",
       "slot": 2,
       "icon": "perk-images/Styles/Resolve/Conditioning/Conditioning.png"
@@ -493,7 +493,7 @@
     "SecondWind": {
       "id": 8444,
       "key": "SecondWind",
-      "name": "Second Wind",
+      "name": "재생의 바람",
       "tree": "Resolve",
       "slot": 2,
       "icon": "perk-images/Styles/Resolve/SecondWind/SecondWind.png"
@@ -501,7 +501,7 @@
     "BonePlating": {
       "id": 8473,
       "key": "BonePlating",
-      "name": "Bone Plating",
+      "name": "뼈 방패",
       "tree": "Resolve",
       "slot": 2,
       "icon": "perk-images/Styles/Resolve/BonePlating/BonePlating.png"
@@ -509,7 +509,7 @@
     "Overgrowth": {
       "id": 8451,
       "key": "Overgrowth",
-      "name": "Overgrowth",
+      "name": "과잉성장",
       "tree": "Resolve",
       "slot": 3,
       "icon": "perk-images/Styles/Resolve/Overgrowth/Overgrowth.png"
@@ -517,7 +517,7 @@
     "Revitalize": {
       "id": 8453,
       "key": "Revitalize",
-      "name": "Revitalize",
+      "name": "소생",
       "tree": "Resolve",
       "slot": 3,
       "icon": "perk-images/Styles/Resolve/Revitalize/Revitalize.png"
@@ -525,7 +525,7 @@
     "Unflinching": {
       "id": 8242,
       "key": "Unflinching",
-      "name": "Unflinching",
+      "name": "불굴의 의지",
       "tree": "Resolve",
       "slot": 3,
       "icon": "perk-images/Styles/Sorcery/Unflinching/Unflinching.png"
@@ -533,7 +533,7 @@
     "SummonAery": {
       "id": 8214,
       "key": "SummonAery",
-      "name": "Summon Aery",
+      "name": "콩콩이 소환",
       "tree": "Sorcery",
       "slot": 0,
       "icon": "perk-images/Styles/Sorcery/SummonAery/SummonAery.png"
@@ -541,7 +541,7 @@
     "ArcaneComet": {
       "id": 8229,
       "key": "ArcaneComet",
-      "name": "Arcane Comet",
+      "name": "신비로운 유성",
       "tree": "Sorcery",
       "slot": 0,
       "icon": "perk-images/Styles/Sorcery/ArcaneComet/ArcaneComet.png"
@@ -549,7 +549,7 @@
     "PhaseRush": {
       "id": 8230,
       "key": "PhaseRush",
-      "name": "Phase Rush",
+      "name": "난입",
       "tree": "Sorcery",
       "slot": 0,
       "icon": "perk-images/Styles/Sorcery/PhaseRush/PhaseRush.png"
@@ -557,7 +557,7 @@
     "NullifyingOrb": {
       "id": 8224,
       "key": "NullifyingOrb",
-      "name": "Axiom Arcanist",
+      "name": "액시옴 비전 마법사",
       "tree": "Sorcery",
       "slot": 1,
       "icon": "perk-images/Styles/Sorcery/NullifyingOrb/Axiom_Arcanist.png"
@@ -565,7 +565,7 @@
     "ManaflowBand": {
       "id": 8226,
       "key": "ManaflowBand",
-      "name": "Manaflow Band",
+      "name": "마나순환 팔찌",
       "tree": "Sorcery",
       "slot": 1,
       "icon": "perk-images/Styles/Sorcery/ManaflowBand/ManaflowBand.png"
@@ -573,7 +573,7 @@
     "NimbusCloak": {
       "id": 8275,
       "key": "NimbusCloak",
-      "name": "Nimbus Cloak",
+      "name": "빛의 망토",
       "tree": "Sorcery",
       "slot": 1,
       "icon": "perk-images/Styles/Sorcery/NimbusCloak/6361.png"
@@ -581,7 +581,7 @@
     "Transcendence": {
       "id": 8210,
       "key": "Transcendence",
-      "name": "Transcendence",
+      "name": "깨달음",
       "tree": "Sorcery",
       "slot": 2,
       "icon": "perk-images/Styles/Sorcery/Transcendence/Transcendence.png"
@@ -589,7 +589,7 @@
     "Celerity": {
       "id": 8234,
       "key": "Celerity",
-      "name": "Celerity",
+      "name": "기민함",
       "tree": "Sorcery",
       "slot": 2,
       "icon": "perk-images/Styles/Sorcery/Celerity/CelerityTemp.png"
@@ -597,7 +597,7 @@
     "AbsoluteFocus": {
       "id": 8233,
       "key": "AbsoluteFocus",
-      "name": "Absolute Focus",
+      "name": "절대 집중",
       "tree": "Sorcery",
       "slot": 2,
       "icon": "perk-images/Styles/Sorcery/AbsoluteFocus/AbsoluteFocus.png"
@@ -605,7 +605,7 @@
     "Scorch": {
       "id": 8237,
       "key": "Scorch",
-      "name": "Scorch",
+      "name": "주문 작열",
       "tree": "Sorcery",
       "slot": 3,
       "icon": "perk-images/Styles/Sorcery/Scorch/Scorch.png"
@@ -613,7 +613,7 @@
     "Waterwalking": {
       "id": 8232,
       "key": "Waterwalking",
-      "name": "Waterwalking",
+      "name": "물 위를 걷는 자",
       "tree": "Sorcery",
       "slot": 3,
       "icon": "perk-images/Styles/Sorcery/Waterwalking/Waterwalking.png"
@@ -621,7 +621,7 @@
     "GatheringStorm": {
       "id": 8236,
       "key": "GatheringStorm",
-      "name": "Gathering Storm",
+      "name": "폭풍의 결집",
       "tree": "Sorcery",
       "slot": 3,
       "icon": "perk-images/Styles/Sorcery/GatheringStorm/GatheringStorm.png"

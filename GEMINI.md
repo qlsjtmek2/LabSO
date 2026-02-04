@@ -9,10 +9,12 @@ LabSO is a web application designed to help League of Legends players optimize t
 - **Phase 1: Core Engine & Pilot (Done)**
 - **Phase 1.5: Data Pipeline (Done)**
 - **Phase 1.6: Champion Data Precision (Done)**
-    - All 172 champions implemented with high-precision skill data (multi-hit, return damage, scaling).
-- **Phase 2: Live Data Integration (Next)**
-    - Dynamic item data integration.
-    - Real-time build rule engine.
+    - All 172 champions implemented with high-precision skill data.
+- **Phase 2: Live Data Integration (In Progress)**
+    - [x] Dynamic item/rune data fetch (DataDragon 16.3.1).
+    - [x] Item implementation planning (Todolist created).
+    - [ ] ItemFactory implementation (Complex logic).
+    - [ ] Simulator engine extension (Hooks & State).
 
 ## Tech Stack
 

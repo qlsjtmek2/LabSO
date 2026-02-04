@@ -74,12 +74,36 @@ export interface ItemScript {
   name: string;
   stats: Partial<CombatStats>;
   
+  // 공격 동작 시 발동 (구인수 스택 등)
+  onAttack?: (target: CombatStats, source: CombatStats, state: ItemState) => void; 
+
   // 공격 적중 시 발동 (온힛)
-  onHit?: (target: CombatStats, source: CombatStats) => DamageResult | null;
+  onHit?: (target: CombatStats, source: CombatStats, state: ItemState) => DamageResult | null;
   
-  // 공격 동작 시 발동 (구인수 등)
-  onAttack?: (target: CombatStats, source: CombatStats) => void; 
-  
-  // 패시브 효과 (스탯 보정 등)
-  passive?: (stats: CombatStats) => void;
+  // 스킬 적중 시 발동 (리안드리, 루덴 등)
+  onSpellHit?: (target: CombatStats, source: CombatStats, state: ItemState, isUltimate: boolean) => DamageResult | null;
+
+  // 피격 시 발동 (가시 갑옷, 판금 장화)
+  onBeingHit?: (attacker: CombatStats, defender: CombatStats, state: ItemState, damageType: string, isAutoAttack: boolean) => { damageRes?: DamageResult, multiplier?: number } | null;
+
+  // 패시브 효과 (스탯 보정 등 - 합산 과정에서 적용)
+  passive?: (stats: CombatStats, state: ItemState) => void;
+
+  // 모든 스탯 합산 후 최종 적용 (라바돈 %증폭 등)
+  finalizeStats?: (stats: CombatStats, state: ItemState) => void;
+}
+
+// 아이템 상태 관리 (쿨타임, 스택 등)
+export interface ItemState {
+  cooldownRemaining: number;
+  stacks: number;
+  charges: number;
+  lastTriggeredTime: number;
+  customData: Record<string, any>;
+}
+
+// 아이템 인스턴스 (스크립트 + 현재 상태)
+export interface ItemInstance {
+  script: ItemScript;
+  state: ItemState;
 }
