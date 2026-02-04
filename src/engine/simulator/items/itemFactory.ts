@@ -1,3 +1,7 @@
+import { CombatStats, ItemScript, ItemState, DamageResult } from '../core/types';
+
+type ItemEffectFactory = (item: any) => Partial<ItemScript>;
+
 // 주문 검 공통 로직
 const spellbladeEffect = (
   id: number,
@@ -59,7 +63,7 @@ const ITEM_EFFECTS: Record<number, ItemEffectFactory> = {
       state.cooldownRemaining = 10;
       return { type: 'Physical', damage: source.ad * 1.0 };
     },
-    onHit: (target: CombatStats, source: CombatStats, state: ItemState): DamageResult => {
+    onHit: (target: CombatStats, source: CombatStats, state: ItemState): DamageResult | null => {
       return null;
     }
   }),
@@ -420,13 +424,6 @@ const ITEM_EFFECTS: Record<number, ItemEffectFactory> = {
 
   // 몰락한 왕의 검 (Blade of the Ruined King)
   3153: (item) => ({
-    onHit: (target: CombatStats, source: CombatStats): DamageResult => {
-      const isMelee = source.range < 350; 
-      const percent = isMelee ? 0.12 : 0.09;
-      let damage = target.hp * percent; // current HP
-      damage = Math.max(damage, 15);
-      return { type: 'Physical', damage };
-    },
     onAttack: (target: CombatStats, source: CombatStats, state: ItemState) => {
         state.stacks = (state.stacks || 0) + 1;
         if (state.stacks >= 3) {
@@ -436,15 +433,15 @@ const ITEM_EFFECTS: Record<number, ItemEffectFactory> = {
         }
     },
     onHit: (target: CombatStats, source: CombatStats, state: ItemState): DamageResult => {
-        const isMelee = source.range < 350; 
+        const isMelee = source.range < 350;
         const percent = isMelee ? 0.12 : 0.09;
         let damage = target.hp * percent;
         damage = Math.max(damage, 15);
-        
+
         if (state.customData.procBork) {
             state.customData.procBork = false;
             // Bonus magic damage (approx 40-103)
-            damage += 40; 
+            damage += 40;
         }
         return { type: 'Physical', damage };
     }

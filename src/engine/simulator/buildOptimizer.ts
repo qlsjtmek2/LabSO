@@ -36,8 +36,10 @@ Object.values(itemsData).forEach((rawItem: any) => {
           if (effect.base) damage += effect.base;
           
           if (effect.ratio) {
-            const statValue = source[effect.ratio.stat as keyof CombatStats] || 0;
-            damage += statValue * effect.ratio.value;
+            const statValue = source[effect.ratio.stat as keyof CombatStats];
+            if (typeof statValue === 'number') {
+              damage += statValue * effect.ratio.value;
+            }
           }
           
           if (effect.targetHpBased) {

@@ -5,7 +5,8 @@ import { useParams } from 'next/navigation';
 import { getLatestVersion, getChampionDetail, getItems } from '@/lib/dataDragon';
 import Link from 'next/link';
 import SimulationReport from '@/components/calculator/SimulationReport';
-import SimulationSettings from '@/components/calculator/SimulationSettings';
+import SimulationSettings, { FullRunePage, DEFAULT_RUNE_PAGE } from '@/components/calculator/SimulationSettings';
+import { RUNE_ID_MAP } from '@/data/runeData';
 
 export default function CalculatorPage() {
   const { id } = useParams();
@@ -15,7 +16,7 @@ export default function CalculatorPage() {
   const [level, setLevel] = useState(6);
   const [stacks, setStacks] = useState(0); 
   const [targetStats, setTargetStats] = useState({ armor: 100, mr: 100, hp: 2000 });
-  const [runeIds, setRuneIds] = useState<string[]>([]); // 룬 ID 목록
+  const [runePage, setRunePage] = useState<FullRunePage>(DEFAULT_RUNE_PAGE);
   const [selectedItems, setSelectedItems] = useState<any[]>(Array(6).fill(null));
   const [showItemModal, setShowItemModal] = useState<{show: boolean, slot: number | null}>({show: false, slot: null});
   const [skillLevels, setSkillLevels] = useState<number[]>([1, 1, 1, 1]); // Q, W, E, R
@@ -67,7 +68,24 @@ export default function CalculatorPage() {
       setIsSimulating(true);
       try {
         const itemIds = selectedItems.map(i => i ? parseInt(i.id) : null).filter(i => i !== null);
-        
+
+        // runePage를 숫자 ID 배열로 변환
+        const runeNumericIds: number[] = [];
+        // 키스톤
+        if (RUNE_ID_MAP[runePage.keystone]) runeNumericIds.push(RUNE_ID_MAP[runePage.keystone]);
+        // 주 트리 일반 룬
+        runePage.primaryRunes.forEach(r => {
+          if (RUNE_ID_MAP[r]) runeNumericIds.push(RUNE_ID_MAP[r]);
+        });
+        // 보조 트리 일반 룬
+        runePage.secondaryRunes.forEach(r => {
+          if (RUNE_ID_MAP[r]) runeNumericIds.push(RUNE_ID_MAP[r]);
+        });
+        // 스탯 룬
+        runePage.statRunes.forEach(r => {
+          if (RUNE_ID_MAP[r]) runeNumericIds.push(RUNE_ID_MAP[r]);
+        });
+
         const res = await fetch('/api/simulate/combo', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -76,7 +94,7 @@ export default function CalculatorPage() {
             level,
             stacks, // 스택 정보 추가
             targetStats, // 샌드백 정보 추가
-            runeIds, // 룬 정보 추가
+            runes: runeNumericIds, // 룬 ID 배열
             items: itemIds,
             skillLevels,
             combo
@@ -98,7 +116,7 @@ export default function CalculatorPage() {
 
     const timer = setTimeout(runSimulation, 500); // Debounce
     return () => clearTimeout(timer);
-  }, [combo, level, selectedItems, skillLevels, champion, stacks, targetStats, runeIds]);
+  }, [combo, level, selectedItems, skillLevels, champion, stacks, targetStats, runePage]);
 
   if (loading) return <div className="min-h-screen bg-[#0a0a0c] flex items-center justify-center"><div className="w-16 h-16 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div></div>;
 
@@ -250,7 +268,7 @@ export default function CalculatorPage() {
         <div className="lg:col-span-4 space-y-6">
             
             {/* Simulation Settings */}
-            <SimulationSettings 
+            <SimulationSettings
               level={level}
               setLevel={setLevel}
               stacks={stacks}
@@ -258,8 +276,8 @@ export default function CalculatorPage() {
               championId={champion.id}
               targetStats={targetStats}
               setTargetStats={setTargetStats}
-              runeIds={runeIds}
-              setRuneIds={setRuneIds}
+              runePage={runePage}
+              setRunePage={setRunePage}
             />
 
             <section className="bg-gray-900 rounded-3xl p-6 border border-gray-800">

@@ -74,7 +74,7 @@ export class BuildRecommender {
       const enemyStats = {
         level: 18,
         range: 125,
-        hp: 2000, maxHp: 2000, mana: 0, ad: 100, ap: 0,
+        hp: 2000, maxHp: 2000, mana: 0, ad: 100, baseAd: 100, ap: 0,
         armor: enemyAnalysis.totalAD * 10 + 50,
         mr: enemyAnalysis.totalAP * 10 + 40,
         attackSpeed: 0.7, abilityHaste: 0, critChance: 0, critDamage: 1.75,

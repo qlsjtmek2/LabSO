@@ -77,7 +77,7 @@ export async function POST(request: Request) {
       maxHp: targetStats?.hp || 2000,
       armor: targetStats?.armor || 100,
       mr: targetStats?.mr || 100,
-      ad: 0, ap: 0, mana: 0, attackSpeed: 0, 
+      ad: 0, baseAd: 0, ap: 0, mana: 0, attackSpeed: 0, 
       abilityHaste: 0, critChance: 0, critDamage: 0, 
       lethality: 0, armorPen: 0, magicPenFlat: 0, magicPenPercent: 0,
       omnivamp: 0, lifesteal: 0, movementSpeed: 0

@@ -128,6 +128,8 @@ interface Individual {
 | `json/items.json` | 모든 아이템 (ID, 가격, 스탯, 태그) |
 | `json/runes.json` | 룬 트리 구조 (trees.slots) |
 | `json/spells.json` | 소환사 주문 |
+| `runeData.ts` | 룬 정의 + `RUNE_ID_MAP` (string→numeric ID 변환) |
+| `dummyPresets.ts` | 샌드백 프리셋 (물몸/브루저/탱커 평균 스탯) |
 | `engine/simulator/data/samples/*.json` | 챔피언별 스키마 (172개) |
 | `rules/*.yaml` | YAML 기반 빌드 규칙 |
 
@@ -145,6 +147,46 @@ interface Individual {
 
 ---
 
+## 콤보 계산기 (`/calculator/[id]`)
+
+챔피언별 콤보 데미지를 시뮬레이션하는 계산기.
+
+### 주요 기능
+- **콤보 시뮬레이션**: Q/W/E/R + AA + 패시브(P) 조합
+- **전체 룬 페이지**: 키스톤 + 일반 룬 5개 + 스탯 룬 3개
+- **샌드백 프리셋**: 물몸/브루저/탱커 (172 챔피언 평균 기반)
+- **레벨/골드 차이**: ±5 레벨, ±3000G 조절
+- **킬 판정**: HP 바 시각화 + KILL 뱃지
+
+### 관련 파일
+| 파일 | 역할 |
+|------|------|
+| `src/app/calculator/[id]/page.tsx` | 메인 UI |
+| `src/components/calculator/SimulationSettings.tsx` | 룬/샌드백 설정 |
+| `src/components/calculator/SimulationReport.tsx` | 데미지 리포트 + HP 바 |
+| `src/app/api/simulate/combo/route.ts` | 시뮬레이션 API |
+| `src/engine/simulator/models/GenericChampion.ts` | 챔피언 모델 (콤보 실행) |
+| `src/engine/simulator/runes/runeFactory.ts` | 70+ 룬 효과 구현 |
+| `src/data/dummyPresets.ts` | 샌드백 스탯 계산 |
+
+### 룬 ID 매핑
+`runeData.ts`의 `RUNE_ID_MAP`으로 문자열 ID → Riot 숫자 ID 변환:
+```typescript
+RUNE_ID_MAP['Conqueror'] // 8010
+RUNE_ID_MAP['AdaptiveForce'] // 5008
+```
+
+### 샌드백 스탯 계산
+```typescript
+import { calculateDummyStats } from '@/data/dummyPresets';
+
+// 레벨 11, 브루저, 레벨차 +2, 골드차 -1000
+const stats = calculateDummyStats('bruiser', 11, 2, -1000);
+// { hp: 2150, armor: 85, mr: 52 }
+```
+
+---
+
 ## API 라우트 (`src/app/api/`)
 
 | 라우트 | 기능 |
@@ -152,6 +194,33 @@ interface Individual {
 | `/api/summoner` | Riot ID → PUUID 조회 |
 | `/api/matches/[puuid]` | 최근 매치 리스트 |
 | `/api/analysis/[matchId]` | 매치 상세 + 타임라인 |
+| `/api/simulate/combo` | 콤보 데미지 시뮬레이션 |
+
+### 콤보 시뮬레이션 API
+```typescript
+// POST /api/simulate/combo
+{
+  championId: "Katarina",
+  level: 11,
+  stacks: 0,
+  targetStats: { hp: 2000, armor: 100, mr: 100 },
+  runes: [8010, 9111, 9104, 8014, 8143, 8135, 5008, 5008, 5002],
+  items: [3115, 3089],
+  skillLevels: [5, 3, 3, 2],
+  combo: [2, -2, 0, -1]  // E, P, Q, AA
+}
+
+// Response
+{
+  totalDamage: 1850,
+  targetMaxHp: 2000,
+  damagePercent: 92.5,
+  canKill: false,
+  overkillDamage: 0,
+  events: [{ source: "Shunpo (E)", type: "Magical", ... }],
+  championStats: { ad: 150, ap: 320, ... }
+}
+```
 
 ### Riot API 지역 설정
 

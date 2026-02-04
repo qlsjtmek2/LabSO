@@ -10,6 +10,7 @@ async function testAhri() {
         maxHp: 1500,
         mana: 500,
         ad: 100,
+        baseAd: 65,
         ap: 0,
         armor: 50,
         mr: 40,

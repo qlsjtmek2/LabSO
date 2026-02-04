@@ -1,4 +1,4 @@
-import { CombatStats, DamageEvent, ItemScript } from '../core/types';
+import { CombatStats, DamageEvent, ItemScript, ItemState } from '../core/types';
 import { DamageEngine } from '../core/damageEngine';
 
 // 카타리나의 스킬 데이터 (API에서 받아와야 하지만 지금은 모의 데이터)
@@ -42,10 +42,18 @@ export class KatarinaModel {
       });
     };
 
+    const defaultState: ItemState = {
+      cooldownRemaining: 0,
+      stacks: 0,
+      charges: 0,
+      lastTriggeredTime: 0,
+      customData: {}
+    };
+
     const applyOnHit = () => {
       this.items.forEach(item => {
         if (item.onHit) {
-          const effect = item.onHit(target, this.stats);
+          const effect = item.onHit(target, this.stats, defaultState);
           if (effect) {
             dealDamage(item.name, effect.damage, effect.type);
           }
@@ -84,7 +92,7 @@ export class KatarinaModel {
       // R은 온힛 효율 25~35% (레벨따라 다름, 여기선 30% 가정)
       this.items.forEach(item => {
         if (item.onHit) {
-          const effect = item.onHit(target, this.stats);
+          const effect = item.onHit(target, this.stats, defaultState);
           if (effect) {
             dealDamage(`${item.name} (R)`, effect.damage * 0.3, effect.type);
           }
