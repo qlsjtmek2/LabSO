@@ -1,6 +1,10 @@
 {
   "id": "Sett",
   "name": "Sett",
+  "roles": [
+    "Fighter",
+    "Tank"
+  ],
   "baseStats": {
     "hp": 670,
     "hpPerLevel": 114,
@@ -17,39 +21,74 @@
     "range": 125,
     "moveSpeed": 340
   },
-  "mechanics": ["Bruiser", "Juggernaut", "TrueDamage", "Heal", "CC"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Pit Grit",
-      "cooldown": [0],
-      "effects": [
-        {
-            "type": "heal",
-            "logic": {
-                "base": [0.25, 0.5, 1.0, 2.0],
-                "levelScaling": true,
-                "scalings": [{ "stat": "missingHp", "target": "self", "ratio": 0.05 }]
-            }
-        }
-      ]
+      "cooldown": [
+        0
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
     },
     "Q": {
       "id": "Q",
       "name": "Knuckle Down",
-      "cooldown": [9, 8, 7, 6, 5],
+      "cooldown": [
+        9,
+        8,
+        7,
+        6,
+        5
+      ],
+      "cost": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "costType": "Mana",
+      "costRatio": [
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612
+      ],
+      "range": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [10, 20, 30, 40, 50],
-            "scalings": [
-                { "stat": "ad", "ratio": 1.0 },
-                { "stat": "maxHp", "target": "enemy", "ratio": [0.01, 0.02, 0.03, 0.04, 0.05] }
+            "base": [
+              0.009999999776482582,
+              0.009999999776482582,
+              0.009999999776482582,
+              0.009999999776482582,
+              0.009999999776482582
             ],
-            "multiHit": 2,
-            "multiHitInterval": 0.3
+            "scalings": [
+              {
+                "stat": "ad",
+                "ratio": [
+                  0.00009999999747378752,
+                  0.0001500000071246177,
+                  0.00019999999494757503,
+                  0.0002500000118743628,
+                  0.0003000000142492354
+                ]
+              }
+            ]
           }
         }
       ]
@@ -57,66 +96,128 @@
     "W": {
       "id": "W",
       "name": "Haymaker",
-      "cooldown": [18, 16.5, 15, 13.5, 12],
+      "cooldown": [
+        18,
+        16.5,
+        15,
+        13.5,
+        12
+      ],
+      "cost": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "costType": "Mana",
+      "range": [
+        25000,
+        25000,
+        25000,
+        25000,
+        25000
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "True",
-            "base": [80, 100, 120, 140, 160],
-            "scalings": [
-                { "stat": "bonusAd", "ratio": 0.2 }
-            ]
+            "base": [
+              80,
+              100,
+              120,
+              140,
+              160
+            ],
+            "scalings": []
           }
-        },
-        {
-            "type": "shield",
-            "logic": {
-                "base": [0],
-                "scalings": [
-                    { "stat": "missingHp", "target": "self", "ratio": 0.5 }
-                ]
-            }
         }
       ]
     },
     "E": {
       "id": "E",
       "name": "Facebreaker",
-      "cooldown": [16, 14.5, 13, 11.5, 10],
-      "range": [490],
+      "cooldown": [
+        16,
+        14.5,
+        13,
+        11.5,
+        10
+      ],
+      "cost": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "costType": "Mana",
+      "range": [
+        490,
+        490,
+        490,
+        490,
+        490
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [50, 70, 90, 110, 130],
+            "base": [
+              50,
+              70,
+              90,
+              110,
+              130
+            ],
             "scalings": [
-                { "stat": "ad", "ratio": 0.6 }
+              {
+                "stat": "ap",
+                "ratio": 0.6000000238418579
+              }
             ]
           }
-        },
-        {
-            "type": "cc",
-            "duration": 0.5,
-            "stack": { "name": "stunned", "max": 1 }
         }
       ]
     },
     "R": {
       "id": "R",
       "name": "The Show Stopper",
-      "cooldown": [120, 100, 80],
-      "range": [400],
+      "cooldown": [
+        120,
+        100,
+        80
+      ],
+      "cost": [
+        0,
+        0,
+        0
+      ],
+      "costType": "Mana",
+      "range": [
+        400,
+        400,
+        400
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [200, 300, 400],
+            "base": [
+              200,
+              300,
+              400,
+              500,
+              600
+            ],
             "scalings": [
-                { "stat": "bonusAd", "ratio": 1.2 },
-                { "stat": "maxHp", "target": "enemy", "ratio": 0.4 }
+              {
+                "stat": "ap",
+                "ratio": 1.2000000476837158
+              }
             ]
           }
         }

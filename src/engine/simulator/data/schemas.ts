@@ -101,5 +101,6 @@ export interface ChampionSchema {
     E: SpellSchema;
     R: SpellSchema;
   };
+  roles: string[]; // Mage, Assassin, etc.
   mechanics?: string[]; // 특수 메커니즘 태그 (예: 'Transformer', 'Stacker', 'FormChange')
 }

@@ -1,6 +1,10 @@
 {
   "id": "Udyr",
   "name": "Udyr",
+  "roles": [
+    "Fighter",
+    "Tank"
+  ],
   "baseStats": {
     "hp": 664,
     "hpPerLevel": 92,
@@ -17,39 +21,64 @@
     "range": 125,
     "moveSpeed": 350
   },
-  "mechanics": ["Bruiser", "Juggernaut", "Stance", "OnHit", "%MaxHP"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Bridge Between",
-      "cooldown": [0],
-      "effects": [
-        {
-            "type": "buff",
-            "stack": { "name": "attackSpeed", "max": 1 },
-            "logic": { "base": [0.3] }
-        }
-      ]
+      "cooldown": [
+        0
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
     },
     "Q": {
       "id": "Q",
       "name": "Wilding Claw",
-      "cooldown": [6],
-      "cost": [20],
+      "cooldown": [
+        6,
+        6,
+        6,
+        6,
+        6,
+        6
+      ],
+      "cost": [
+        20,
+        20,
+        20,
+        20,
+        20,
+        20
+      ],
       "costType": "Mana",
+      "range": [
+        600,
+        600,
+        600,
+        600,
+        600,
+        600
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
-            "damageType": "Physical",
-            "base": [5, 11, 17, 23, 29, 35],
-            "scalings": [
-                { "stat": "bonusAd", "ratio": 0.2 },
-                { "stat": "maxHp", "target": "enemy", "ratio": [0.03, 0.04, 0.05, 0.06, 0.07, 0.08] }
+            "damageType": "Magical",
+            "base": [
+              5,
+              11,
+              17,
+              23,
+              29
             ],
-            "multiHit": 2,
-            "multiHitInterval": 0.3,
-            "onHitEffectiveness": 1.0
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.25
+              }
+            ]
           }
         }
       ]
@@ -57,17 +86,65 @@
     "W": {
       "id": "W",
       "name": "Iron Mantle",
-      "cooldown": [6],
-      "cost": [45],
+      "cooldown": [
+        6,
+        6,
+        6,
+        6,
+        6,
+        6
+      ],
+      "cost": [
+        40,
+        40,
+        40,
+        40,
+        40,
+        40
+      ],
+      "costType": "Mana",
+      "range": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
       "effects": [
         {
-          "type": "shield",
+          "type": "damage",
           "logic": {
-              "base": [45, 60, 75, 90, 105, 120],
-              "scalings": [
-                  { "stat": "ap", "ratio": 0.45 },
-                  { "stat": "maxHp", "target": "self", "ratio": [0.02, 0.026, 0.032, 0.038, 0.044, 0.05] }
-              ]
+            "damageType": "Physical",
+            "base": [
+              45,
+              60,
+              75,
+              90,
+              105
+            ],
+            "scalings": [
+              {
+                "stat": "hp",
+                "ratio": [
+                  0.019999999552965164,
+                  0.023000000044703484,
+                  0.026000000536441803,
+                  0.028999999165534973,
+                  0.03200000151991844
+                ]
+              },
+              {
+                "stat": "ap",
+                "ratio": [
+                  0.4000000059604645,
+                  0.4000000059604645,
+                  0.4000000059604645,
+                  0.4000000059604645,
+                  0.4000000059604645
+                ]
+              }
+            ]
           }
         }
       ]
@@ -75,33 +152,88 @@
     "E": {
       "id": "E",
       "name": "Blazing Stampede",
-      "cooldown": [6],
-      "cost": [40],
+      "cooldown": [
+        6,
+        6,
+        6,
+        6,
+        6,
+        6
+      ],
+      "cost": [
+        40,
+        40,
+        40,
+        40,
+        40,
+        40
+      ],
+      "costType": "Mana",
+      "range": [
+        600,
+        600,
+        600,
+        600,
+        600,
+        600
+      ],
       "effects": [
         {
-            "type": "cc",
-            "duration": 0.75,
-            "stack": { "name": "stunned", "max": 1 }
+          "type": "damage",
+          "logic": {
+            "damageType": "Physical",
+            "base": [],
+            "scalings": []
+          }
         }
       ]
     },
     "R": {
       "id": "R",
       "name": "Wingborne Storm",
-      "cooldown": [6],
-      "cost": [40],
-      "range": [370],
+      "cooldown": [
+        6,
+        6,
+        6,
+        6,
+        6,
+        6
+      ],
+      "cost": [
+        40,
+        40,
+        40,
+        40,
+        40,
+        40
+      ],
+      "costType": "Mana",
+      "range": [
+        370,
+        370,
+        370,
+        370,
+        370,
+        370
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [20, 36, 52, 68, 84, 100],
-            "scalings": [
-                { "stat": "ap", "ratio": 0.175 }
+            "base": [
+              20,
+              36,
+              52,
+              68,
+              84
             ],
-            "multiHit": 4,
-            "multiHitInterval": 1.0
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.3499999940395355
+              }
+            ]
           }
         }
       ]

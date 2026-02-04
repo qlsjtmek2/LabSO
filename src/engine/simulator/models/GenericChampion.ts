@@ -524,6 +524,93 @@ export class GenericChampionModel {
     return events;
   }
 
+  // 패시브 시전 (카타리나 단검 줍기 등 데미지가 있는 패시브)
+  public castPassive(target: CombatStats, time: number): DamageEvent[] {
+    const pSpell = (this.schema.spells as any)['P'];
+    if (!pSpell || !pSpell.effects) return [];
+
+    const events: DamageEvent[] = [];
+
+    pSpell.effects.forEach((effect: any) => {
+      if (effect.type === 'damage' && effect.logic) {
+        const logic = effect.logic as DamageLogic;
+
+        // levelScaling이 true면 챔피언 레벨 기반, 아니면 스킬 레벨 1 사용
+        const effectiveLevel = logic.levelScaling ? this.level : 1;
+        const lvIdx = Math.min(effectiveLevel - 1, logic.base.length - 1);
+
+        // 기본 데미지
+        let rawDmg = logic.base[lvIdx] || 0;
+
+        // 스케일링 데미지
+        if (logic.scalings) {
+          logic.scalings.forEach(scale => {
+            const statValue = this.getStatValue(scale.stat, target);
+
+            // 계수가 배열일 경우 레벨에 따라 달라짐 (카타리나 AP 계수 등)
+            let ratio: number;
+            if (Array.isArray(scale.ratio)) {
+              // 패시브 계수는 보통 특정 레벨(1,6,11,16)에서 증가
+              // 간단히: 레벨 1-5: 인덱스 0, 6-10: 인덱스 1, 11-15: 인덱스 2...
+              const ratioIdx = Math.min(Math.floor((this.level - 1) / 5), scale.ratio.length - 1);
+              ratio = scale.ratio[ratioIdx];
+            } else {
+              ratio = scale.ratio;
+            }
+
+            rawDmg += statValue * ratio;
+          });
+        }
+
+        const mitigated = DamageEngine.calculateDamage(
+          rawDmg,
+          logic.damageType,
+          this.stats,
+          target
+        );
+
+        events.push({
+          source: `${pSpell.name} (P)`,
+          type: logic.damageType,
+          rawDamage: rawDmg,
+          mitigatedDamage: mitigated,
+          timestamp: time,
+          isCrit: false
+        });
+
+        this.handleDamageDealt(target, mitigated, logic.damageType, `${pSpell.name} (P)`);
+
+        // 온힛 효과 적용 (카타리나 패시브는 onHitEffectiveness: 1.0)
+        if (logic.onHitEffectiveness) {
+          this.items.forEach(item => {
+            if (item.script.onHit) {
+              const onHitDmg = item.script.onHit(target, this.stats, item.state);
+              if (onHitDmg) {
+                const onHitMitigated = DamageEngine.calculateDamage(
+                  onHitDmg.damage * logic.onHitEffectiveness!,
+                  onHitDmg.type,
+                  this.stats,
+                  target
+                );
+                events.push({
+                  source: `${item.script.name} (On-hit)`,
+                  type: onHitDmg.type,
+                  rawDamage: onHitDmg.damage * logic.onHitEffectiveness!,
+                  mitigatedDamage: onHitMitigated,
+                  timestamp: time,
+                  isCrit: false
+                });
+                this.handleDamageDealt(target, onHitMitigated, onHitDmg.type, `${item.script.name} (On-hit)`, item.state);
+              }
+            }
+          });
+        }
+      }
+    });
+
+    return events;
+  }
+
   // 평타 수행
   public performAutoAttack(target: CombatStats, time: number): DamageEvent[] {
     const events: DamageEvent[] = [];
@@ -602,6 +689,10 @@ export class GenericChampionModel {
 
       if (action === 'AA') {
         const events = this.performAutoAttack(target, currentTime);
+        allEvents.push(...events);
+      } else if (action === 'P') {
+        // 패시브 시전 (카타리나 단검 줍기 등)
+        const events = this.castPassive(target, currentTime);
         allEvents.push(...events);
       } else if (['Q', 'W', 'E', 'R'].includes(action)) {
         

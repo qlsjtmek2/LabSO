@@ -1,6 +1,10 @@
 {
   "id": "Morgana",
   "name": "Morgana",
+  "roles": [
+    "Support",
+    "Mage"
+  ],
   "baseStats": {
     "hp": 630,
     "hpPerLevel": 104,
@@ -17,73 +21,109 @@
     "range": 450,
     "moveSpeed": 335
   },
-  "mechanics": ["Support", "Mage", "Control", "CC", "DoT"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Soul Siphon",
-      "cooldown": [0],
-      "effects": [
-        {
-          "type": "heal",
-          "logic": {
-              "base": [0.18],
-              "scalings": [
-                  { "stat": "ap", "ratio": 0.05 }
-              ]
-          }
-        }
-      ]
+      "cooldown": [
+        0
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
     },
     "Q": {
       "id": "Q",
       "name": "Dark Binding",
-      "cooldown": [10],
-      "cost": [50, 55, 60, 65, 70],
+      "cooldown": [
+        10,
+        10,
+        10,
+        10,
+        10
+      ],
+      "cost": [
+        50,
+        55,
+        60,
+        65,
+        70
+      ],
       "costType": "Mana",
-      "range": [1250],
+      "range": [
+        1250,
+        1250,
+        1250,
+        1250,
+        1250
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [80, 135, 190, 245, 300],
-            "scalings": [
-                { "stat": "ap", "ratio": 0.9 }
+            "base": [
+              80,
+              135,
+              190,
+              245,
+              300
             ],
-            "projectileSpeed": 1200
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.8999999761581421
+              }
+            ]
           }
-        },
-        {
-            "type": "cc",
-            "duration": 3.0,
-            "stack": { "name": "rooted", "max": 1 }
         }
       ]
     },
     "W": {
       "id": "W",
       "name": "Tormented Shadow",
-      "cooldown": [12],
-      "cost": [70],
+      "cooldown": [
+        12,
+        12,
+        12,
+        12,
+        12
+      ],
+      "cost": [
+        70,
+        80,
+        90,
+        100,
+        110
+      ],
       "costType": "Mana",
-      "range": [900],
+      "range": [
+        900,
+        900,
+        900,
+        900,
+        900
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [12, 22, 32, 42, 52],
-            "scalings": [
-                { "stat": "ap", "ratio": 0.17 }
+            "base": [
+              18,
+              31,
+              44,
+              57,
+              70
             ],
-            "multiHit": 5,
-            "multiHitInterval": 1.0,
-            "modifiers": [
-                {
-                    "condition": { "type": "stat", "target": "enemy", "stat": "missingHp", "operator": ">", "value": 0 },
-                    "multiplier": 1.7
-                }
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": [
+                  0
+                ]
+              }
             ]
           }
         }
@@ -92,17 +132,46 @@
     "E": {
       "id": "E",
       "name": "Black Shield",
-      "cooldown": [26, 23.5, 21, 18.5, 16],
-      "cost": [80],
+      "cooldown": [
+        26,
+        23.5,
+        21,
+        18.5,
+        16
+      ],
+      "cost": [
+        80,
+        80,
+        80,
+        80,
+        80
+      ],
       "costType": "Mana",
+      "range": [
+        800,
+        800,
+        800,
+        800,
+        800
+      ],
       "effects": [
         {
-          "type": "shield",
+          "type": "damage",
           "logic": {
-              "base": [80, 135, 190, 245, 300],
-              "scalings": [
-                  { "stat": "ap", "ratio": 0.7 }
-              ]
+            "damageType": "Physical",
+            "base": [
+              100,
+              155,
+              210,
+              265,
+              320
+            ],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.699999988079071
+              }
+            ]
           }
         }
       ]
@@ -110,28 +179,41 @@
     "R": {
       "id": "R",
       "name": "Soul Shackles",
-      "cooldown": [120, 110, 100],
-      "cost": [100],
+      "cooldown": [
+        120,
+        110,
+        100
+      ],
+      "cost": [
+        100,
+        100,
+        100
+      ],
       "costType": "Mana",
-      "range": [625],
+      "range": [
+        625,
+        625,
+        625
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [150, 225, 300],
-            "scalings": [
-                { "stat": "ap", "ratio": 0.7 }
+            "base": [
+              200,
+              275,
+              350,
+              425,
+              500
             ],
-            "multiHit": 2,
-            "multiHitInterval": 3.0
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.800000011920929
+              }
+            ]
           }
-        },
-        {
-            "type": "cc",
-            "duration": 1.5,
-            "stack": { "name": "stunned", "max": 1 },
-            "delay": 3.0
         }
       ]
     }

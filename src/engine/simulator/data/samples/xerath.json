@@ -1,6 +1,10 @@
 {
   "id": "Xerath",
   "name": "Xerath",
+  "roles": [
+    "Mage",
+    "Support"
+  ],
   "baseStats": {
     "hp": 596,
     "hpPerLevel": 106,
@@ -17,30 +21,56 @@
     "range": 525,
     "moveSpeed": 340
   },
-  "mechanics": ["Mage", "Artillery", "Burst", "CC", "ManaRegen"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Mana Surge",
-      "cooldown": [12],
+      "cooldown": [
+        0
+      ],
+      "cost": [
+        0
+      ],
       "effects": []
     },
     "Q": {
       "id": "Q",
       "name": "Arcanopulse",
-      "cooldown": [9, 8, 7, 6, 5],
-      "cost": [80, 90, 100, 110, 120],
+      "cooldown": [
+        9,
+        8,
+        7,
+        6,
+        5
+      ],
+      "cost": [
+        80,
+        90,
+        100,
+        110,
+        120
+      ],
       "costType": "Mana",
-      "range": [1450],
+      "range": [
+        750,
+        750,
+        750,
+        750,
+        750
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [70, 110, 150, 190, 230],
-            "scalings": [
-                { "stat": "ap", "ratio": 0.85 }
-            ]
+            "base": [
+              75,
+              115,
+              155,
+              195,
+              235
+            ],
+            "scalings": []
           }
         }
       ]
@@ -48,78 +78,117 @@
     "W": {
       "id": "W",
       "name": "Eye of Destruction",
-      "cooldown": [14, 13, 12, 11, 10],
-      "cost": [80, 90, 100, 110, 120],
+      "cooldown": [
+        14,
+        13,
+        12,
+        11,
+        10
+      ],
+      "cost": [
+        80,
+        90,
+        100,
+        110,
+        120
+      ],
       "costType": "Mana",
-      "range": [1000],
+      "range": [
+        1000,
+        1000,
+        1000,
+        1000,
+        1000
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [60, 90, 120, 150, 180],
-            "scalings": [
-                { "stat": "ap", "ratio": 0.6 }
+            "base": [
+              0,
+              0,
+              0,
+              0,
+              0
             ],
-            "modifiers": [
-                {
-                    "condition": { "type": "position", "target": "enemy" },
-                    "multiplier": 1.66
-                }
-            ]
+            "scalings": []
           }
-        },
-        {
-            "type": "cc",
-            "duration": 2.5,
-            "stack": { "name": "slowed", "max": 1 }
         }
       ]
     },
     "E": {
       "id": "E",
       "name": "Shocking Orb",
-      "cooldown": [13, 12.5, 12, 11.5, 11],
-      "cost": [60, 65, 70, 75, 80],
+      "cooldown": [
+        13,
+        12.5,
+        12,
+        11.5,
+        11
+      ],
+      "cost": [
+        60,
+        65,
+        70,
+        75,
+        80
+      ],
       "costType": "Mana",
-      "range": [1050],
+      "range": [
+        1050,
+        1050,
+        1050,
+        1050,
+        1050
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [80, 110, 140, 170, 200],
-            "scalings": [
-                { "stat": "ap", "ratio": 0.45 }
+            "base": [
+              70,
+              100,
+              130,
+              160,
+              190
             ],
-            "projectileSpeed": 1400
+            "scalings": []
           }
-        },
-        {
-            "type": "cc",
-            "duration": 1.25,
-            "stack": { "name": "stunned", "max": 1 }
         }
       ]
     },
     "R": {
       "id": "R",
       "name": "Rite of the Arcane",
-      "cooldown": [130, 115, 100],
-      "cost": [100],
+      "cooldown": [
+        130,
+        115,
+        100
+      ],
+      "cost": [
+        100,
+        100,
+        100
+      ],
       "costType": "Mana",
-      "range": [5000],
+      "range": [
+        5000,
+        5000,
+        5000
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [180, 230, 280],
-            "scalings": [
-                { "stat": "ap", "ratio": 0.4 }
+            "base": [
+              10,
+              10,
+              10
             ],
-            "multiHit": 5,
-            "multiHitInterval": 0.8
+            "scalings": []
           }
         }
       ]

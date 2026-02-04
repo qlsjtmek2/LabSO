@@ -1,6 +1,9 @@
 {
   "id": "Sejuani",
   "name": "Sejuani",
+  "roles": [
+    "Tank"
+  ],
   "baseStats": {
     "hp": 630,
     "hpPerLevel": 114,
@@ -17,67 +20,130 @@
     "range": 150,
     "moveSpeed": 340
   },
-  "mechanics": ["Tank", "Vanguard", "CC", "Scaling", "%MaxHP"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Fury of the North",
-      "cooldown": [12],
-      "effects": [
-        {
-          "type": "damage",
-          "logic": {
-            "damageType": "Magical",
-            "base": [0],
-            "scalings": [
-                { "stat": "maxHp", "target": "enemy", "ratio": 0.1 }
-            ]
-          }
-        }
-      ]
+      "cooldown": [
+        0
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
     },
     "Q": {
       "id": "Q",
       "name": "Arctic Assault",
-      "cooldown": [18, 16.5, 15, 13.5, 12],
-      "cost": [60],
+      "cooldown": [
+        18,
+        16.5,
+        15,
+        13.5,
+        12
+      ],
+      "cost": [
+        60,
+        65,
+        70,
+        75,
+        80
+      ],
       "costType": "Mana",
-      "range": [650],
+      "range": [
+        650,
+        650,
+        650,
+        650,
+        650
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [90, 140, 190, 240, 290],
+            "base": [
+              90,
+              140,
+              190,
+              240,
+              290
+            ],
             "scalings": [
-                { "stat": "ap", "ratio": 0.6 }
+              {
+                "stat": "ap",
+                "ratio": [
+                  0.75,
+                  0.75,
+                  0.75,
+                  0.75,
+                  0.75
+                ]
+              }
             ]
           }
-        },
-        {
-            "type": "cc",
-            "duration": 0.5,
-            "stack": { "name": "airborne", "max": 1 }
         }
       ]
     },
     "W": {
       "id": "W",
       "name": "Winter's Wrath",
-      "cooldown": [9, 8, 7, 6, 5],
-      "cost": [60],
+      "cooldown": [
+        9,
+        8,
+        7,
+        6,
+        5
+      ],
+      "cost": [
+        60,
+        60,
+        60,
+        60,
+        60
+      ],
+      "costType": "Mana",
+      "range": [
+        600,
+        600,
+        600,
+        600,
+        600
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [30, 50, 70, 90, 110],
-            "scalings": [
-                { "stat": "ap", "ratio": 0.2 },
-                { "stat": "hp", "target": "self", "ratio": 0.06 }
+            "base": [
+              5,
+              15,
+              25,
+              35,
+              45
             ],
-            "multiHit": 2,
-            "multiHitInterval": 0.5
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": [
+                  0.30000001192092896,
+                  0.30000001192092896,
+                  0.30000001192092896,
+                  0.30000001192092896,
+                  0.30000001192092896
+                ]
+              },
+              {
+                "stat": "hp",
+                "ratio": [
+                  0.03999999910593033,
+                  0.03999999910593033,
+                  0.03999999910593033,
+                  0.03999999910593033,
+                  0.03999999910593033
+                ]
+              }
+            ]
           }
         }
       ]
@@ -85,46 +151,76 @@
     "E": {
       "id": "E",
       "name": "Permafrost",
-      "cooldown": [1.5],
-      "cost": [20],
+      "cooldown": [
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5
+      ],
+      "cost": [
+        20,
+        20,
+        20,
+        20,
+        20
+      ],
+      "costType": "Mana",
+      "range": [
+        560,
+        560,
+        560,
+        560,
+        560
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [55, 85, 115, 145, 175],
-            "scalings": [
-                { "stat": "ap", "ratio": 0.6 }
-            ]
+            "base": [
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "scalings": []
           }
-        },
-        {
-            "type": "cc",
-            "duration": 1.0,
-            "stack": { "name": "stunned", "max": 1 }
         }
       ]
     },
     "R": {
       "id": "R",
       "name": "Glacial Prison",
-      "cooldown": [120, 105, 90],
-      "cost": [100],
+      "cooldown": [
+        120,
+        105,
+        90
+      ],
+      "cost": [
+        100,
+        100,
+        100
+      ],
+      "costType": "Mana",
+      "range": [
+        1300,
+        1300,
+        1300
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [200, 300, 400],
-            "scalings": [
-                { "stat": "ap", "ratio": 0.8 }
-            ]
+            "base": [
+              125,
+              150,
+              175
+            ],
+            "scalings": []
           }
-        },
-        {
-            "type": "cc",
-            "duration": 1.5,
-            "stack": { "name": "stunned", "max": 1 }
         }
       ]
     }

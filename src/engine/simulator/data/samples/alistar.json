@@ -1,6 +1,10 @@
 {
   "id": "Alistar",
   "name": "Alistar",
+  "roles": [
+    "Tank",
+    "Support"
+  ],
   "baseStats": {
     "hp": 685,
     "hpPerLevel": 120,
@@ -17,63 +21,98 @@
     "range": 125,
     "moveSpeed": 330
   },
-  "mechanics": ["Tank", "CC", "Support"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Triumphant Roar",
-      "cooldown": [3],
-      "effects": [
-        {
-          "type": "heal",
-          "logic": {
-              "base": [20, 25, 30, 35, 40, 45, 50, 55, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150],
-              "levelScaling": true
-          }
-        }
-      ]
+      "cooldown": [
+        0
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
     },
     "Q": {
       "id": "Q",
       "name": "Pulverize",
-      "cooldown": [14, 13, 12, 11, 10],
-      "cost": [50, 55, 60, 65, 70],
+      "cooldown": [
+        14,
+        13,
+        12,
+        11,
+        10
+      ],
+      "cost": [
+        50,
+        55,
+        60,
+        65,
+        70
+      ],
       "costType": "Mana",
-      "range": [365, 365, 365, 365, 365],
+      "range": [
+        365,
+        365,
+        365,
+        365,
+        365
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [60, 105, 150, 195, 240],
-            "scalings": [
-                { "stat": "ap", "ratio": 0.5 }
-            ]
+            "base": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "scalings": []
           }
-        },
-        {
-            "type": "cc",
-            "duration": 1.0,
-            "stack": { "name": "airborne", "max": 1 }
         }
       ]
     },
     "W": {
       "id": "W",
       "name": "Headbutt",
-      "cooldown": [14, 13, 12, 11, 10],
-      "cost": [50, 55, 60, 65, 70],
+      "cooldown": [
+        14,
+        13,
+        12,
+        11,
+        10
+      ],
+      "cost": [
+        50,
+        55,
+        60,
+        65,
+        70
+      ],
       "costType": "Mana",
-      "range": [650, 650, 650, 650, 650],
+      "range": [
+        650,
+        650,
+        650,
+        650,
+        650
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [55, 110, 165, 220, 275],
-            "scalings": [
-                { "stat": "ap", "ratio": 0.7 }
-            ]
+            "base": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "scalings": []
           }
         }
       ]
@@ -81,21 +120,41 @@
     "E": {
       "id": "E",
       "name": "Trample",
-      "cooldown": [12, 11.5, 11, 10.5, 10],
-      "cost": [50, 55, 60, 65, 70],
+      "cooldown": [
+        12,
+        11.5,
+        11,
+        10.5,
+        10
+      ],
+      "cost": [
+        50,
+        55,
+        60,
+        65,
+        70
+      ],
       "costType": "Mana",
-      "range": [350, 350, 350, 350, 350],
+      "range": [
+        350,
+        350,
+        350,
+        350,
+        350
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [80, 110, 140, 170, 200],
-            "scalings": [
-                { "stat": "ap", "ratio": 0.4 }
+            "base": [
+              80,
+              110,
+              140,
+              170,
+              200
             ],
-            "multiHit": 10,
-            "multiHitInterval": 0.5
+            "scalings": []
           }
         }
       ]
@@ -103,15 +162,33 @@
     "R": {
       "id": "R",
       "name": "Unbreakable Will",
-      "cooldown": [120, 100, 80],
-      "cost": [100, 100, 100],
+      "cooldown": [
+        120,
+        100,
+        80
+      ],
+      "cost": [
+        100,
+        100,
+        100
+      ],
       "costType": "Mana",
+      "range": [
+        1,
+        1,
+        1
+      ],
       "effects": [
         {
-          "type": "buff",
-          "stack": { "name": "damage_reduction", "max": 1 },
+          "type": "damage",
           "logic": {
-              "base": [0.55, 0.65, 0.75]
+            "damageType": "Physical",
+            "base": [
+              0,
+              0,
+              0
+            ],
+            "scalings": []
           }
         }
       ]

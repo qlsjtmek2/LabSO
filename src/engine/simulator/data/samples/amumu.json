@@ -1,6 +1,10 @@
 {
   "id": "Amumu",
   "name": "Amumu",
+  "roles": [
+    "Tank",
+    "Support"
+  ],
   "baseStats": {
     "hp": 685,
     "hpPerLevel": 94,
@@ -17,65 +21,98 @@
     "range": 125,
     "moveSpeed": 335
   },
-  "mechanics": ["Tank", "CC", "Jungler"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Cursed Touch",
-      "cooldown": [0],
-      "effects": [
-        {
-          "type": "buff",
-          "stack": { "name": "magic_vulnerability", "max": 1 },
-          "logic": { "base": [0.1] }
-        }
-      ]
+      "cooldown": [
+        0
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
     },
     "Q": {
       "id": "Q",
       "name": "Bandage Toss",
-      "cooldown": [3, 3, 3, 3, 3],
-      "cost": [50, 50, 50, 50, 50],
+      "cooldown": [
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "cost": [
+        50,
+        50,
+        50,
+        50,
+        50
+      ],
       "costType": "Mana",
-      "range": [1100, 1100, 1100, 1100, 1100],
+      "range": [
+        1100,
+        1100,
+        1100,
+        1100,
+        1100
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [70, 95, 120, 145, 170],
-            "scalings": [
-                { "stat": "ap", "ratio": 0.85 }
+            "base": [
+              70,
+              95,
+              120,
+              145,
+              170
             ],
-            "multiHit": 2,
-            "multiHitInterval": 1.0
+            "scalings": []
           }
-        },
-        {
-            "type": "cc",
-            "duration": 1.0,
-            "stack": { "name": "stunned", "max": 1 }
         }
       ]
     },
     "W": {
       "id": "W",
       "name": "Despair",
-      "cooldown": [0],
-      "cost": [8, 8, 8, 8, 8],
+      "cooldown": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "cost": [
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
       "costType": "Mana",
-      "range": [300, 300, 300, 300, 300],
+      "range": [
+        300,
+        300,
+        300,
+        300,
+        300
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [12, 16, 20, 24, 28],
-            "scalings": [
-                { "stat": "maxHp", "target": "enemy", "ratio": [0.01, 0.01125, 0.0125, 0.01375, 0.015] }
+            "base": [
+              0,
+              0,
+              0,
+              0,
+              0
             ],
-            "multiHit": 5,
-            "multiHitInterval": 1.0
+            "scalings": []
           }
         }
       ]
@@ -83,19 +120,41 @@
     "E": {
       "id": "E",
       "name": "Tantrum",
-      "cooldown": [9, 8, 7, 6, 5],
-      "cost": [35, 35, 35, 35, 35],
+      "cooldown": [
+        9,
+        8,
+        7,
+        6,
+        5
+      ],
+      "cost": [
+        35,
+        35,
+        35,
+        35,
+        35
+      ],
       "costType": "Mana",
-      "range": [350, 350, 350, 350, 350],
+      "range": [
+        350,
+        350,
+        350,
+        350,
+        350
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [65, 100, 135, 170, 205],
-            "scalings": [
-                { "stat": "ap", "ratio": 0.5 }
-            ]
+            "base": [
+              5,
+              7,
+              9,
+              11,
+              13
+            ],
+            "scalings": []
           }
         }
       ]
@@ -103,25 +162,34 @@
     "R": {
       "id": "R",
       "name": "Curse of the Sad Mummy",
-      "cooldown": [150, 125, 100],
-      "cost": [100, 150, 200],
+      "cooldown": [
+        150,
+        125,
+        100
+      ],
+      "cost": [
+        100,
+        150,
+        200
+      ],
       "costType": "Mana",
-      "range": [550, 550, 550],
+      "range": [
+        550,
+        550,
+        550
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [200, 300, 400],
-            "scalings": [
-                { "stat": "ap", "ratio": 0.8 }
-            ]
+            "base": [
+              0,
+              0,
+              0
+            ],
+            "scalings": []
           }
-        },
-        {
-            "type": "cc",
-            "duration": 1.5,
-            "stack": { "name": "stunned", "max": 1 }
         }
       ]
     }

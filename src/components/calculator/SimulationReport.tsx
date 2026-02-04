@@ -3,14 +3,28 @@ import { DamageEvent } from '@/engine/simulator/core/types';
 interface SimulationReportProps {
   result: {
     totalDamage: number;
+    targetMaxHp?: number;
+    damagePercent?: number;
+    canKill?: boolean;
+    overkillDamage?: number;
     events: DamageEvent[];
   };
 }
 
 export default function SimulationReport({ result }: SimulationReportProps) {
-  const { totalDamage, events } = result;
+  const { totalDamage, targetMaxHp = 2000, damagePercent = 0, canKill = false, overkillDamage = 0, events } = result;
 
   if (!events || events.length === 0) return null;
+
+  // 데미지 퍼센트에 따른 색상
+  const getDamageColor = (percent: number) => {
+    if (percent >= 100) return 'bg-red-500';
+    if (percent >= 70) return 'bg-orange-500';
+    if (percent >= 30) return 'bg-yellow-500';
+    return 'bg-green-500';
+  };
+
+  const damageBarColor = getDamageColor(damagePercent);
 
   // 1. 데미지 타입별 집계
   const typeStats = events.reduce((acc, e) => {
@@ -31,7 +45,57 @@ export default function SimulationReport({ result }: SimulationReportProps) {
 
   return (
     <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
-      
+
+      {/* HP 바 & 킬 가능 여부 표시 */}
+      <div className={`rounded-2xl p-6 border ${canKill ? 'bg-red-950/50 border-red-500/50' : 'bg-gray-900/50 border-gray-800'} transition-all`}>
+        <div className="flex items-center justify-between mb-4">
+          <h3 className="text-xs font-bold text-gray-500 uppercase tracking-widest">적 체력 피해량</h3>
+          {canKill && (
+            <div className="flex items-center gap-2 animate-pulse">
+              <span className="text-2xl">💀</span>
+              <span className="text-red-500 font-black text-lg uppercase tracking-wider">KILL</span>
+              {overkillDamage > 0 && (
+                <span className="text-red-400 text-xs font-bold">+{overkillDamage.toLocaleString()} OVERKILL</span>
+              )}
+            </div>
+          )}
+        </div>
+
+        {/* HP 바 시각화 */}
+        <div className="relative h-8 bg-gray-800 rounded-full overflow-hidden mb-3">
+          {/* 데미지 영역 (깎인 피) */}
+          <div
+            style={{ width: `${Math.min(100, damagePercent)}%` }}
+            className={`absolute left-0 top-0 h-full ${damageBarColor} transition-all duration-500`}
+          />
+          {/* 잔여 체력 영역 */}
+          {!canKill && (
+            <div
+              style={{ width: `${100 - damagePercent}%`, left: `${damagePercent}%` }}
+              className="absolute top-0 h-full bg-green-600"
+            />
+          )}
+          {/* 중앙 텍스트 */}
+          <div className="absolute inset-0 flex items-center justify-center text-white font-black text-sm drop-shadow-lg">
+            {canKill ? (
+              <span className="text-white">ELIMINATED</span>
+            ) : (
+              <span>{Math.round(targetMaxHp - totalDamage).toLocaleString()} / {targetMaxHp.toLocaleString()} HP</span>
+            )}
+          </div>
+        </div>
+
+        {/* 퍼센트 표시 */}
+        <div className="flex justify-between text-xs font-mono">
+          <span className={`font-bold ${canKill ? 'text-red-400' : 'text-gray-400'}`}>
+            {damagePercent.toFixed(1)}% 체력 피해
+          </span>
+          <span className="text-gray-500">
+            {totalDamage.toLocaleString()} / {targetMaxHp.toLocaleString()} HP
+          </span>
+        </div>
+      </div>
+
       {/* 데미지 타입 바 차트 */}
       <div className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800">
         <h3 className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-4">데미지 구성</h3>

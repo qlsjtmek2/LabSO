@@ -345,6 +345,7 @@ async function convertChampions() {
       const result = {
         id: alias,
         name: champ.name,
+        roles: champ.tags,
         baseStats,
         spells
       };

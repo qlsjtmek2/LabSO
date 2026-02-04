@@ -1,6 +1,9 @@
 {
   "id": "Caitlyn",
   "name": "Caitlyn",
+  "roles": [
+    "Marksman"
+  ],
   "baseStats": {
     "hp": 580,
     "hpPerLevel": 107,
@@ -17,48 +20,56 @@
     "range": 650,
     "moveSpeed": 325
   },
-  "mechanics": ["Marksman", "Sniper", "CriticalStrike"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Headshot",
-      "cooldown": [0],
-      "effects": [
-        {
-          "type": "damage",
-          "logic": {
-            "damageType": "Physical",
-            "base": [0],
-            "scalings": [
-                { "stat": "ad", "ratio": 0.6 }
-            ],
-            "modifiers": [
-                {
-                    "condition": { "type": "stat", "target": "self", "stat": "critChance", "operator": ">", "value": 0 },
-                    "multiplier": 1.25
-                }
-            ]
-          }
-        }
-      ]
+      "cooldown": [
+        0
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
     },
     "Q": {
       "id": "Q",
       "name": "Piltover Peacemaker",
-      "cooldown": [10, 9, 8, 7, 6],
-      "cost": [55, 60, 65, 70, 75],
+      "cooldown": [
+        10,
+        9,
+        8,
+        7,
+        6
+      ],
+      "cost": [
+        55,
+        60,
+        65,
+        70,
+        75
+      ],
       "costType": "Mana",
-      "range": [1250],
+      "range": [
+        1250,
+        1250,
+        1250,
+        1250,
+        1250
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [50, 90, 130, 170, 210],
-            "scalings": [
-                { "stat": "ad", "ratio": [1.25, 1.45, 1.65, 1.85, 2.05] }
+            "base": [
+              50,
+              90,
+              130,
+              170,
+              210
             ],
-            "projectileSpeed": 2200
+            "scalings": []
           }
         }
       ]
@@ -66,19 +77,41 @@
     "W": {
       "id": "W",
       "name": "Yordle Snap Trap",
-      "cooldown": [0.5],
-      "cost": [20],
+      "cooldown": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "cost": [
+        20,
+        20,
+        20,
+        20,
+        20
+      ],
       "costType": "Mana",
-      "range": [800],
+      "range": [
+        800,
+        800,
+        800,
+        800,
+        800
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [40, 85, 130, 175, 220],
-            "scalings": [
-                { "stat": "bonusAd", "ratio": [0.4, 0.5, 0.6, 0.7, 0.8] }
-            ]
+            "base": [
+              2,
+              2,
+              2,
+              2,
+              2
+            ],
+            "scalings": []
           }
         }
       ]
@@ -86,50 +119,87 @@
     "E": {
       "id": "E",
       "name": "90 Caliber Net",
-      "cooldown": [16, 14, 12, 10, 8],
-      "cost": [75],
+      "cooldown": [
+        16,
+        14,
+        12,
+        10,
+        8
+      ],
+      "cost": [
+        75,
+        75,
+        75,
+        75,
+        75
+      ],
       "costType": "Mana",
-      "range": [750],
+      "range": [
+        750,
+        750,
+        750,
+        750,
+        750
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [80, 130, 180, 230, 280],
-            "scalings": [
-                { "stat": "ap", "ratio": 0.8 }
+            "base": [
+              80,
+              130,
+              180,
+              230,
+              280
             ],
-            "projectileSpeed": 1600
+            "scalings": []
           }
-        },
-        {
-            "type": "cc",
-            "duration": 1.0,
-            "stack": { "name": "slowed", "max": 1 }
         }
       ]
     },
     "R": {
       "id": "R",
       "name": "Ace in the Hole",
-      "cooldown": [90],
-      "cost": [100],
+      "cooldown": [
+        90,
+        90,
+        90
+      ],
+      "cost": [
+        100,
+        100,
+        100
+      ],
       "costType": "Mana",
-      "range": [3500],
+      "range": [
+        3500,
+        3500,
+        3500
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [300, 500, 700],
-            "scalings": [
-                { "stat": "bonusAd", "ratio": 1.7 }
+            "base": [
+              300,
+              475,
+              650,
+              825,
+              1000
             ],
-            "modifiers": [
-                {
-                    "condition": { "type": "stat", "target": "self", "stat": "critChance", "operator": ">", "value": 0 },
-                    "multiplier": 1.5
-                }
+            "scalings": [
+              {
+                "stat": "ad",
+                "ratio": [
+                  1,
+                  1,
+                  1,
+                  1,
+                  1
+                ]
+              }
             ]
           }
         }

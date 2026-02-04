@@ -1,6 +1,10 @@
 {
   "id": "Zyra",
   "name": "Zyra",
+  "roles": [
+    "Mage",
+    "Support"
+  ],
   "baseStats": {
     "hp": 574,
     "hpPerLevel": 93,

@@ -1,6 +1,10 @@
 {
   "id": "Singed",
   "name": "Singed",
+  "roles": [
+    "Tank",
+    "Mage"
+  ],
   "baseStats": {
     "hp": 650,
     "hpPerLevel": 96,
@@ -17,37 +21,56 @@
     "range": 125,
     "moveSpeed": 345
   },
-  "mechanics": ["Mage", "Tank", "Specialist", "DoT", "CC"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Noxious Slipstream",
-      "cooldown": [0],
-      "effects": [
-        {
-            "type": "buff",
-            "stack": { "name": "moveSpeed", "max": 1 },
-            "logic": { "base": [0.2] }
-        }
-      ]
+      "cooldown": [
+        0
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
     },
     "Q": {
       "id": "Q",
       "name": "Poison Trail",
-      "cooldown": [0],
-      "cost": [13],
+      "cooldown": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "cost": [
+        13,
+        13,
+        13,
+        13,
+        13
+      ],
       "costType": "Mana",
+      "range": [
+        20,
+        20,
+        20,
+        20,
+        20
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [20, 25, 30, 35, 40],
-            "scalings": [
-                { "stat": "ap", "ratio": 0.45 }
+            "base": [
+              0,
+              0,
+              0,
+              0,
+              0
             ],
-            "multiHit": 10,
-            "multiHitInterval": 1.0
+            "scalings": []
           }
         }
       ]
@@ -55,52 +78,118 @@
     "W": {
       "id": "W",
       "name": "Mega Adhesive",
-      "cooldown": [17, 16, 15, 14, 13],
-      "cost": [60],
+      "cooldown": [
+        17,
+        16,
+        15,
+        14,
+        13
+      ],
+      "cost": [
+        60,
+        70,
+        80,
+        90,
+        100
+      ],
+      "costType": "Mana",
+      "range": [
+        1000,
+        1000,
+        1000,
+        1000,
+        1000
+      ],
       "effects": [
         {
-            "type": "cc",
-            "duration": 3.0,
-            "stack": { "name": "slowed", "max": 1 }
+          "type": "damage",
+          "logic": {
+            "damageType": "Physical",
+            "base": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "scalings": []
+          }
         }
       ]
     },
     "E": {
       "id": "E",
       "name": "Fling",
-      "cooldown": [10, 9.5, 9, 8.5, 8],
-      "cost": [60, 70, 80, 90, 100],
+      "cooldown": [
+        10,
+        9.5,
+        9,
+        8.5,
+        8
+      ],
+      "cost": [
+        60,
+        70,
+        80,
+        90,
+        100
+      ],
       "costType": "Mana",
-      "range": [125],
+      "range": [
+        125,
+        125,
+        125,
+        125,
+        125
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [50, 65, 80, 95, 110],
-            "scalings": [
-                { "stat": "ap", "ratio": 0.6 },
-                { "stat": "maxHp", "target": "enemy", "ratio": [0.06, 0.065, 0.07, 0.075, 0.08] }
-            ]
+            "base": [
+              50,
+              60,
+              70,
+              80,
+              90
+            ],
+            "scalings": []
           }
-        },
-        {
-            "type": "cc",
-            "duration": 1.0,
-            "stack": { "name": "airborne", "max": 1 }
         }
       ]
     },
     "R": {
       "id": "R",
       "name": "Insanity Potion",
-      "cooldown": [100],
-      "cost": [100],
+      "cooldown": [
+        100,
+        100,
+        100
+      ],
+      "cost": [
+        100,
+        100,
+        100
+      ],
+      "costType": "Mana",
+      "range": [
+        20,
+        20,
+        20
+      ],
       "effects": [
         {
-            "type": "buff",
-            "stack": { "name": "stats_bonus", "max": 1 },
-            "logic": { "base": [30, 60, 90] }
+          "type": "damage",
+          "logic": {
+            "damageType": "Physical",
+            "base": [
+              0,
+              0,
+              0
+            ],
+            "scalings": []
+          }
         }
       ]
     }

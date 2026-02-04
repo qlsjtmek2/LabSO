@@ -1,6 +1,10 @@
 {
   "id": "Pyke",
   "name": "Pyke",
+  "roles": [
+    "Support",
+    "Assassin"
+  ],
   "baseStats": {
     "hp": 670,
     "hpPerLevel": 110,
@@ -17,31 +21,67 @@
     "range": 150,
     "moveSpeed": 330
   },
-  "mechanics": ["Assassin", "Support", "Execute", "TrueDamage", "LethalityScaling"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Gift of the Drowned Ones",
-      "cooldown": [0],
+      "cooldown": [
+        0
+      ],
+      "cost": [
+        0
+      ],
       "effects": []
     },
     "Q": {
       "id": "Q",
       "name": "Bone Skewer",
-      "cooldown": [10, 9.5, 9, 8.5, 8],
-      "cost": [70, 75, 80, 85, 90],
+      "cooldown": [
+        10,
+        9.5,
+        9,
+        8.5,
+        8
+      ],
+      "cost": [
+        70,
+        75,
+        80,
+        85,
+        90
+      ],
       "costType": "Mana",
-      "range": [400, 1100],
+      "range": [
+        400,
+        400,
+        400,
+        400,
+        400
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [100, 150, 200, 250, 300],
-            "scalings": [
-                { "stat": "bonusAd", "ratio": 0.6 }
+            "base": [
+              100,
+              150,
+              200,
+              250,
+              300
             ],
-            "projectileSpeed": 2000
+            "scalings": [
+              {
+                "stat": "bonusAd",
+                "ratio": [
+                  0.75,
+                  0.75,
+                  0.75,
+                  0.75,
+                  0.75
+                ]
+              }
+            ]
           }
         }
       ]
@@ -49,59 +89,121 @@
     "W": {
       "id": "W",
       "name": "Ghostwater Dive",
-      "cooldown": [12, 11.5, 11, 10.5, 10],
-      "cost": [65],
+      "cooldown": [
+        14,
+        13,
+        12,
+        11,
+        10
+      ],
+      "cost": [
+        65,
+        65,
+        65,
+        65,
+        65
+      ],
       "costType": "Mana",
+      "range": [
+        600,
+        600,
+        600,
+        600,
+        600
+      ],
       "effects": [
         {
-            "type": "buff",
-            "stack": { "name": "moveSpeed", "max": 1 },
-            "logic": { "base": [0.4], "scalings": [{ "stat": "lethality", "ratio": 0.015 }] }
+          "type": "damage",
+          "logic": {
+            "damageType": "Physical",
+            "base": [
+              45,
+              45,
+              45,
+              45,
+              45
+            ],
+            "scalings": []
+          }
         }
       ]
     },
     "E": {
       "id": "E",
       "name": "Phantom Undertow",
-      "cooldown": [15, 14, 13, 12, 11],
-      "cost": [40],
+      "cooldown": [
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "cost": [
+        40,
+        40,
+        40,
+        40,
+        40
+      ],
       "costType": "Mana",
-      "range": [550],
+      "range": [
+        550,
+        550,
+        550,
+        550,
+        550
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [105, 145, 185, 225, 265],
-            "scalings": [
-                { "stat": "bonusAd", "ratio": 1.0 }
+            "base": [
+              100,
+              150,
+              200,
+              250,
+              300
             ],
-            "delay": 1.0
+            "scalings": []
           }
-        },
-        {
-            "type": "cc",
-            "duration": 1.25,
-            "stack": { "name": "stunned", "max": 1 }
         }
       ]
     },
     "R": {
       "id": "R",
       "name": "Death From Below",
-      "cooldown": [100, 85, 70],
-      "cost": [100],
+      "cooldown": [
+        100,
+        85,
+        70
+      ],
+      "cost": [
+        100,
+        100,
+        100
+      ],
       "costType": "Mana",
-      "range": [750],
+      "range": [
+        750,
+        750,
+        750
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
-            "damageType": "True",
-            "base": [250, 350, 450],
+            "damageType": "Physical",
+            "base": [],
             "scalings": [
-                { "stat": "bonusAd", "ratio": 0.8 },
-                { "stat": "lethality", "ratio": 1.5 }
+              {
+                "stat": "ap",
+                "ratio": 0.800000011920929
+              },
+              {
+                "stat": "ap",
+                "ratio": 1.5
+              }
             ]
           }
         }

@@ -42,7 +42,7 @@ function handleParsedEffect(effect: any, event: GameEvent, owner: Entity, ctx: S
     let damage = 0;
     if (effect.base) damage += effect.base;
     if (effect.ratio) {
-      const statVal = owner.stats[effect.ratio.stat as keyof typeof owner.stats] || 0;
+      const statVal = (owner.stats[effect.ratio.stat as keyof typeof owner.stats] as number) || 0;
       damage += statVal * effect.ratio.value;
     }
     if (effect.targetHpBased) {

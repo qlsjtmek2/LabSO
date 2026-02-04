@@ -1,6 +1,10 @@
 {
   "id": "Lulu",
   "name": "Lulu",
+  "roles": [
+    "Support",
+    "Mage"
+  ],
   "baseStats": {
     "hp": 565,
     "hpPerLevel": 92,
@@ -17,111 +21,191 @@
     "range": 550,
     "moveSpeed": 330
   },
-  "mechanics": ["Support", "Enchanter", "CC", "Utility"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Pix, Faerie Companion",
-      "cooldown": [0],
-      "effects": [
-        {
-          "type": "damage",
-          "logic": {
-            "damageType": "Magical",
-            "base": [15, 23, 31, 39, 47, 55, 63, 71, 79, 87, 95, 103, 111, 119, 127, 135, 143, 151],
-            "levelScaling": true,
-            "scalings": [
-                { "stat": "ap", "ratio": 0.15 }
-            ],
-            "multiHit": 3,
-            "multiHitInterval": 0.05
-          }
-        }
-      ]
+      "cooldown": [
+        0
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
     },
     "Q": {
       "id": "Q",
       "name": "Glitterlance",
-      "cooldown": [7],
-      "cost": [50, 55, 60, 65, 70],
+      "cooldown": [
+        7,
+        7,
+        7,
+        7,
+        7
+      ],
+      "cost": [
+        50,
+        55,
+        60,
+        65,
+        70
+      ],
       "costType": "Mana",
-      "range": [925],
+      "range": [
+        925,
+        925,
+        925,
+        925,
+        925
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [70, 105, 140, 175, 210],
-            "scalings": [
-                { "stat": "ap", "ratio": 0.5 }
+            "base": [
+              60,
+              95,
+              130,
+              165,
+              200
             ],
-            "projectileSpeed": 1450
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": [
+                  0.5,
+                  0.5,
+                  0.5,
+                  0.5,
+                  0.5
+                ]
+              }
+            ]
           }
-        },
-        {
-            "type": "cc",
-            "duration": 2.0,
-            "stack": { "name": "slowed", "max": 1 }
         }
       ]
     },
     "W": {
       "id": "W",
       "name": "Whimsy",
-      "cooldown": [17, 16.5, 16, 15.5, 15],
-      "cost": [65],
+      "cooldown": [
+        18,
+        18,
+        18,
+        18,
+        18
+      ],
+      "cost": [
+        65,
+        65,
+        65,
+        65,
+        65
+      ],
       "costType": "Mana",
+      "range": [
+        650,
+        650,
+        650,
+        650,
+        650
+      ],
       "effects": [
         {
-          "type": "buff",
-          "stack": { "name": "attackSpeed", "max": 1 },
-          "logic": { "base": [0.25, 0.3, 0.35, 0.4, 0.45] }
+          "type": "damage",
+          "logic": {
+            "damageType": "Physical",
+            "base": [
+              0.25,
+              0.25,
+              0.25,
+              0.25,
+              0.25
+            ],
+            "scalings": []
+          }
         }
       ]
     },
     "E": {
       "id": "E",
       "name": "Help, Pix!",
-      "cooldown": [10, 9.5, 9, 8.5, 8],
-      "cost": [60, 65, 70, 75, 80],
+      "cooldown": [
+        10,
+        9.5,
+        9,
+        8.5,
+        8
+      ],
+      "cost": [
+        60,
+        65,
+        70,
+        75,
+        80
+      ],
       "costType": "Mana",
-      "range": [650],
+      "range": [
+        650,
+        650,
+        650,
+        650,
+        650
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [80, 120, 160, 200, 240],
-            "scalings": [
-                { "stat": "ap", "ratio": 0.4 }
-            ]
+            "base": [
+              6,
+              6,
+              6,
+              6,
+              6
+            ],
+            "scalings": []
           }
-        },
-        {
-            "type": "shield",
-            "logic": {
-                "base": [75, 110, 145, 180, 215],
-                "scalings": [
-                    { "stat": "ap", "ratio": 0.55 }
-                ]
-            }
         }
       ]
     },
     "R": {
       "id": "R",
       "name": "Wild Growth",
-      "cooldown": [120, 100, 80],
-      "cost": [100],
+      "cooldown": [
+        120,
+        100,
+        80
+      ],
+      "cost": [
+        100,
+        100,
+        100
+      ],
       "costType": "Mana",
+      "range": [
+        900,
+        900,
+        900
+      ],
       "effects": [
         {
-          "type": "buff",
-          "stack": { "name": "bonus_hp", "max": 1 },
+          "type": "damage",
           "logic": {
-            "base": [275, 425, 575],
+            "damageType": "Physical",
+            "base": [
+              275,
+              425,
+              575,
+              725,
+              875
+            ],
             "scalings": [
-                { "stat": "ap", "ratio": 0.45 }
+              {
+                "stat": "ap",
+                "ratio": 0.550000011920929
+              }
             ]
           }
         }

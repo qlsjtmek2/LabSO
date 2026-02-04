@@ -1,6 +1,10 @@
 {
   "id": "Soraka",
   "name": "Soraka",
+  "roles": [
+    "Support",
+    "Mage"
+  ],
   "baseStats": {
     "hp": 605,
     "hpPerLevel": 88,
@@ -17,57 +21,114 @@
     "range": 550,
     "moveSpeed": 325
   },
-  "mechanics": ["Support", "Enchanter", "Heal", "CC", "Global"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Salvation",
-      "cooldown": [0],
+      "cooldown": [
+        0
+      ],
+      "cost": [
+        0
+      ],
       "effects": []
     },
     "Q": {
       "id": "Q",
       "name": "Starcall",
-      "cooldown": [8, 7, 6, 5, 4],
-      "cost": [45, 50, 55, 60, 65],
+      "cooldown": [
+        8,
+        7,
+        6,
+        5,
+        4
+      ],
+      "cost": [
+        45,
+        50,
+        55,
+        60,
+        65
+      ],
       "costType": "Mana",
-      "range": [810],
+      "range": [
+        810,
+        810,
+        810,
+        810,
+        810
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [85, 120, 155, 190, 225],
-            "scalings": [
-                { "stat": "ap", "ratio": 0.35 }
+            "base": [
+              85,
+              120,
+              155,
+              190,
+              225
             ],
-            "projectileSpeed": 1100
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.3499999940395355
+              }
+            ]
           }
-        },
-        {
-            "type": "heal",
-            "logic": {
-                "base": [50, 60, 70, 80, 90],
-                "scalings": [
-                    { "stat": "ap", "ratio": 0.3 }
-                ]
-            }
         }
       ]
     },
     "W": {
       "id": "W",
       "name": "Astral Infusion",
-      "cooldown": [6, 5, 4, 3, 2],
-      "cost": [0.1],
-      "costType": "MaxHealth",
+      "cooldown": [
+        6,
+        5,
+        4,
+        3,
+        2
+      ],
+      "cost": [
+        40,
+        45,
+        50,
+        55,
+        60
+      ],
+      "costType": "Mana",
+      "costRatio": [
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612
+      ],
+      "range": [
+        550,
+        550,
+        550,
+        550,
+        550
+      ],
       "effects": [
         {
-          "type": "heal",
+          "type": "damage",
           "logic": {
-            "base": [90, 110, 130, 150, 170],
+            "damageType": "Physical",
+            "base": [
+              90,
+              110,
+              130,
+              150,
+              170
+            ],
             "scalings": [
-                { "stat": "ap", "ratio": 0.5 }
+              {
+                "stat": "ap",
+                "ratio": 0.5
+              }
             ]
           }
         }
@@ -76,42 +137,86 @@
     "E": {
       "id": "E",
       "name": "Equinox",
-      "cooldown": [20, 19, 18, 17, 16],
-      "cost": [70],
-      "range": [925],
+      "cooldown": [
+        20,
+        19,
+        18,
+        17,
+        16
+      ],
+      "cost": [
+        70,
+        75,
+        80,
+        85,
+        90
+      ],
+      "costType": "Mana",
+      "range": [
+        925,
+        925,
+        925,
+        925,
+        925
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [70, 95, 120, 145, 170],
-            "scalings": [
-                { "stat": "ap", "ratio": 0.4 }
+            "base": [
+              70,
+              95,
+              120,
+              145,
+              170
             ],
-            "multiHit": 2,
-            "multiHitInterval": 1.5
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.4000000059604645
+              }
+            ]
           }
-        },
-        {
-            "type": "cc",
-            "duration": 1.0,
-            "stack": { "name": "rooted", "max": 1 },
-            "delay": 1.5
         }
       ]
     },
     "R": {
       "id": "R",
       "name": "Wish",
-      "cooldown": [150, 135, 120],
-      "cost": [100],
+      "cooldown": [
+        150,
+        135,
+        120
+      ],
+      "cost": [
+        100,
+        100,
+        100
+      ],
+      "costType": "Mana",
+      "range": [
+        25000,
+        25000,
+        25000
+      ],
       "effects": [
         {
-          "type": "heal",
+          "type": "damage",
           "logic": {
-            "base": [150, 250, 350],
+            "damageType": "Physical",
+            "base": [
+              150,
+              250,
+              350,
+              450,
+              550
+            ],
             "scalings": [
-                { "stat": "ap", "ratio": 0.5 }
+              {
+                "stat": "ap",
+                "ratio": 0.5
+              }
             ]
           }
         }

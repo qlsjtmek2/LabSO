@@ -1,6 +1,10 @@
 {
   "id": "KSante",
   "name": "K'Sante",
+  "roles": [
+    "Tank",
+    "Fighter"
+  ],
   "baseStats": {
     "hp": 625,
     "hpPerLevel": 120,
@@ -17,45 +21,65 @@
     "range": 150,
     "moveSpeed": 330
   },
-  "mechanics": ["Tank", "Transformer", "Warden", "CC"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Dauntless Instinct",
-      "cooldown": [0],
-      "effects": [
-        {
-          "type": "damage",
-          "logic": {
-            "damageType": "Physical",
-            "base": [5, 10, 15, 20],
-            "scalings": [
-                { "stat": "maxHp", "target": "enemy", "ratio": [0.01, 0.0125, 0.015, 0.0175, 0.02] }
-            ]
-          }
-        }
-      ]
+      "cooldown": [
+        0
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
     },
     "Q": {
       "id": "Q",
       "name": "Ntofo Strikes",
-      "cooldown": [3.5, 3.25, 3, 2.75, 2.5, 2.25, 2, 1.75],
-      "levelScaling": true,
-      "cost": [20],
+      "cooldown": [
+        3.5,
+        3.5,
+        3.5,
+        3.5,
+        3.5
+      ],
+      "cost": [
+        20,
+        20,
+        20,
+        20,
+        20
+      ],
       "costType": "Mana",
-      "range": [450],
+      "range": [
+        450,
+        450,
+        450,
+        450,
+        450
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [30, 55, 80, 105, 130],
-            "scalings": [
-                { "stat": "armor", "ratio": 0.3 },
-                { "stat": "mr", "ratio": 0.3 }
+            "base": [
+              70,
+              100,
+              130,
+              160,
+              190
             ],
-            "multiHit": 3,
-            "multiHitInterval": 2.0
+            "scalings": [
+              {
+                "stat": "bonusAd",
+                "ratio": 0.4000000059604645
+              },
+              {
+                "stat": "ap",
+                "ratio": 0.4000000059604645
+              }
+            ]
           }
         }
       ]
@@ -63,43 +87,115 @@
     "W": {
       "id": "W",
       "name": "Path Maker",
-      "cooldown": [14, 13, 12, 11, 10],
-      "cost": [40],
+      "cooldown": [
+        14,
+        13,
+        12,
+        11,
+        10
+      ],
+      "cost": [
+        40,
+        45,
+        50,
+        55,
+        60
+      ],
       "costType": "Mana",
-      "range": [600],
+      "range": [
+        600,
+        600,
+        600,
+        600,
+        600
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
-            "damageType": "Physical",
-            "base": [20, 40, 60, 80, 100],
+            "damageType": "True",
+            "base": [
+              0.07999999821186066,
+              0.07999999821186066,
+              0.07999999821186066,
+              0.07999999821186066,
+              0.07999999821186066
+            ],
             "scalings": [
-                { "stat": "maxHp", "target": "enemy", "ratio": [0.06, 0.07, 0.08, 0.09, 0.1] }
+              {
+                "stat": "hp",
+                "ratio": [
+                  0.00019999999494757503,
+                  0.00019999999494757503,
+                  0.00019999999494757503,
+                  0.00019999999494757503,
+                  0.00019999999494757503
+                ]
+              },
+              {
+                "stat": "hp",
+                "ratio": [
+                  0.00019999999494757503,
+                  0.00019999999494757503,
+                  0.00019999999494757503,
+                  0.00019999999494757503,
+                  0.00019999999494757503
+                ]
+              }
             ]
           }
-        },
-        {
-            "type": "buff",
-            "stack": { "name": "damage_reduction", "max": 1 },
-            "logic": { "base": [0.4, 0.45, 0.5, 0.55, 0.6] }
         }
       ]
     },
     "E": {
       "id": "E",
       "name": "Footwork",
-      "cooldown": [10, 9.5, 9, 8.5, 8],
-      "cost": [45, 50, 55, 60, 65],
+      "cooldown": [
+        10,
+        9.5,
+        9,
+        8.5,
+        8
+      ],
+      "cost": [
+        45,
+        50,
+        55,
+        60,
+        65
+      ],
       "costType": "Mana",
-      "range": [525],
+      "range": [
+        525,
+        525,
+        525,
+        525,
+        525
+      ],
       "effects": [
         {
-          "type": "shield",
+          "type": "damage",
           "logic": {
-              "base": [45, 65, 85, 105, 125],
-              "scalings": [
-                  { "stat": "bonusHp", "target": "self", "ratio": 0.15 }
-              ]
+            "damageType": "Physical",
+            "base": [
+              80,
+              120,
+              160,
+              200,
+              240
+            ],
+            "scalings": [
+              {
+                "stat": "hp",
+                "ratio": [
+                  0.15000000596046448,
+                  0.15000000596046448,
+                  0.15000000596046448,
+                  0.15000000596046448,
+                  0.15000000596046448
+                ]
+              }
+            ]
           }
         }
       ]
@@ -107,24 +203,41 @@
     "R": {
       "id": "R",
       "name": "All Out",
-      "cooldown": [120, 100, 80],
-      "cost": [100],
+      "cooldown": [
+        120,
+        100,
+        80
+      ],
+      "cost": [
+        100,
+        100,
+        100
+      ],
       "costType": "Mana",
+      "range": [
+        250,
+        250,
+        250
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [70, 110, 150],
+            "base": [
+              80,
+              115,
+              150,
+              185,
+              220
+            ],
             "scalings": [
-                { "stat": "ad", "ratio": 0.65 }
+              {
+                "stat": "ap",
+                "ratio": 0.05000000074505806
+              }
             ]
           }
-        },
-        {
-            "type": "buff",
-            "stack": { "name": "ad_amp", "max": 1 },
-            "logic": { "base": [0.25, 0.35, 0.45] }
         }
       ]
     }

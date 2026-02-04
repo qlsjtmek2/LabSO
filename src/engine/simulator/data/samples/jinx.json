@@ -1,6 +1,9 @@
 {
   "id": "Jinx",
   "name": "Jinx",
+  "roles": [
+    "Marksman"
+  ],
   "baseStats": {
     "hp": 630,
     "hpPerLevel": 105,
@@ -17,103 +20,202 @@
     "range": 525,
     "moveSpeed": 325
   },
-  "mechanics": ["Marksman", "Rocket", "Execute", "AS-Scaling"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Get Excited!",
-      "cooldown": [0],
-      "effects": [
-        {
-            "type": "buff",
-            "stack": { "name": "moveSpeed", "max": 1 },
-            "logic": { "base": [1.75] }
-        }
-      ]
+      "cooldown": [
+        0
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
     },
     "Q": {
       "id": "Q",
       "name": "Switcheroo!",
-      "cooldown": [0.9],
-      "cost": [20],
+      "cooldown": [
+        0.9,
+        0.9,
+        0.9,
+        0.9,
+        0.9
+      ],
+      "cost": [
+        20,
+        20,
+        20,
+        20,
+        20
+      ],
       "costType": "Mana",
+      "range": [
+        600,
+        600,
+        600,
+        600,
+        600
+      ],
       "effects": [
         {
-          "type": "buff",
-          "stack": { "name": "attackSpeed", "max": 3 },
-          "logic": { "base": [0.1, 0.15, 0.2, 0.25, 0.3] }
+          "type": "damage",
+          "logic": {
+            "damageType": "Physical",
+            "base": [],
+            "scalings": [
+              {
+                "stat": "ad",
+                "ratio": [
+                  1.100000023841858,
+                  1.100000023841858,
+                  1.100000023841858,
+                  1.100000023841858,
+                  1.100000023841858
+                ]
+              }
+            ]
+          }
         }
       ]
     },
     "W": {
       "id": "W",
       "name": "Zap!",
-      "cooldown": [8, 7, 6, 5, 4],
-      "cost": [40, 45, 50, 55, 60],
+      "cooldown": [
+        8,
+        7,
+        6,
+        5,
+        4
+      ],
+      "cost": [
+        40,
+        45,
+        50,
+        55,
+        60
+      ],
       "costType": "Mana",
-      "range": [1450],
+      "range": [
+        1450,
+        1450,
+        1450,
+        1450,
+        1450
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [10, 60, 110, 160, 210],
-            "scalings": [
-                { "stat": "ad", "ratio": 1.6 }
+            "base": [
+              10,
+              60,
+              110,
+              160,
+              210
             ],
-            "projectileSpeed": 3300
+            "scalings": [
+              {
+                "stat": "ad",
+                "ratio": [
+                  1.399999976158142,
+                  1.399999976158142,
+                  1.399999976158142,
+                  1.399999976158142,
+                  1.399999976158142
+                ]
+              }
+            ]
           }
-        },
-        {
-            "type": "cc",
-            "duration": 2.0,
-            "stack": { "name": "slowed", "max": 1 }
         }
       ]
     },
     "E": {
       "id": "E",
       "name": "Flame Chompers!",
-      "cooldown": [24, 20.5, 17, 13.5, 10],
-      "cost": [90],
+      "cooldown": [
+        24,
+        20.5,
+        17,
+        13.5,
+        10
+      ],
+      "cost": [
+        90,
+        90,
+        90,
+        90,
+        90
+      ],
       "costType": "Mana",
-      "range": [925],
+      "range": [
+        925,
+        925,
+        925,
+        925,
+        925
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [70, 120, 170, 220, 270],
+            "base": [
+              90,
+              140,
+              190,
+              240,
+              290
+            ],
             "scalings": [
-                { "stat": "ap", "ratio": 1.0 }
+              {
+                "stat": "ap",
+                "ratio": 1
+              }
             ]
           }
-        },
-        {
-            "type": "cc",
-            "duration": 1.5,
-            "stack": { "name": "stunned", "max": 1 }
         }
       ]
     },
     "R": {
       "id": "R",
       "name": "Super Mega Death Rocket!",
-      "cooldown": [85, 65, 45],
-      "cost": [100],
+      "cooldown": [
+        85,
+        65,
+        45
+      ],
+      "cost": [
+        100,
+        100,
+        100
+      ],
       "costType": "Mana",
-      "range": [25000],
+      "range": [
+        25000,
+        25000,
+        25000
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [300, 450, 600],
-            "scalings": [
-                { "stat": "bonusAd", "ratio": 1.5 },
-                { "stat": "missingHp", "target": "enemy", "ratio": [0.25, 0.3, 0.35] }
+            "base": [
+              20,
+              35,
+              50,
+              65,
+              80
             ],
-            "projectileSpeed": 2200
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.11999999731779099
+              }
+            ]
           }
         }
       ]

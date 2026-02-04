@@ -1,6 +1,10 @@
 {
   "id": "Renekton",
   "name": "Renekton",
+  "roles": [
+    "Fighter",
+    "Tank"
+  ],
   "baseStats": {
     "hp": 660,
     "hpPerLevel": 111,
@@ -17,83 +21,140 @@
     "range": 125,
     "moveSpeed": 345
   },
-  "mechanics": ["Bruiser", "Diver", "Fury", "Heal", "CC"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Reign of Anger",
-      "cooldown": [0],
+      "cooldown": [
+        0
+      ],
+      "cost": [
+        0
+      ],
       "effects": []
     },
     "Q": {
       "id": "Q",
       "name": "Cull the Meek",
-      "cooldown": [7],
-      "cost": [0],
-      "range": [325],
+      "cooldown": [
+        7,
+        7,
+        7,
+        7,
+        7
+      ],
+      "cost": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "costType": "Mana",
+      "range": [
+        325,
+        325,
+        325,
+        325,
+        325
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [60, 90, 120, 150, 180],
-            "scalings": [
-                { "stat": "bonusAd", "ratio": 1.0 }
-            ]
+            "base": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "scalings": []
           }
-        },
-        {
-            "type": "heal",
-            "logic": {
-                "base": [12, 18, 24, 30, 36],
-                "scalings": [
-                    { "stat": "bonusAd", "ratio": 0.15 }
-                ]
-            }
         }
       ]
     },
     "W": {
       "id": "W",
       "name": "Ruthless Predator",
-      "cooldown": [16, 14, 12, 10, 8],
-      "cost": [0],
+      "cooldown": [
+        16,
+        14,
+        12,
+        10,
+        8
+      ],
+      "cost": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "costType": "Mana",
+      "range": [
+        300,
+        300,
+        300,
+        300,
+        300
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [10, 30, 50, 70, 90],
-            "scalings": [
-                { "stat": "ad", "ratio": 1.5 }
+            "base": [
+              0,
+              0,
+              0,
+              0,
+              0
             ],
-            "multiHit": 2,
-            "multiHitInterval": 0.1,
-            "onHitEffectiveness": 1.0
+            "scalings": []
           }
-        },
-        {
-            "type": "cc",
-            "duration": 0.75,
-            "stack": { "name": "stunned", "max": 1 }
         }
       ]
     },
     "E": {
       "id": "E",
       "name": "Slice and Dice",
-      "cooldown": [16, 14.5, 13, 11.5, 10],
-      "cost": [0],
-      "range": [450],
+      "cooldown": [
+        16,
+        14.5,
+        13,
+        11.5,
+        10
+      ],
+      "cost": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "costType": "Mana",
+      "range": [
+        450,
+        450,
+        450,
+        450,
+        450
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [40, 70, 100, 130, 160],
-            "scalings": [
-                { "stat": "bonusAd", "ratio": 0.9 }
-            ]
+            "base": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "scalings": []
           }
         }
       ]
@@ -101,25 +162,34 @@
     "R": {
       "id": "R",
       "name": "Dominus",
-      "cooldown": [120, 100, 80],
-      "cost": [0],
+      "cooldown": [
+        120,
+        100,
+        80
+      ],
+      "cost": [
+        0,
+        0,
+        0
+      ],
+      "costType": "Mana",
+      "range": [
+        20,
+        20,
+        20
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [60, 120, 180],
-            "scalings": [
-                { "stat": "ap", "ratio": 0.1 }
+            "base": [
+              0,
+              0,
+              0
             ],
-            "multiHit": 5,
-            "multiHitInterval": 1.0
+            "scalings": []
           }
-        },
-        {
-            "type": "buff",
-            "stack": { "name": "bonus_hp", "max": 1 },
-            "logic": { "base": [250, 400, 550] }
         }
       ]
     }

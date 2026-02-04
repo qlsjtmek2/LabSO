@@ -1,6 +1,10 @@
 {
   "id": "Nautilus",
   "name": "Nautilus",
+  "roles": [
+    "Tank",
+    "Support"
+  ],
   "baseStats": {
     "hp": 646,
     "hpPerLevel": 100,
@@ -17,45 +21,56 @@
     "range": 175,
     "moveSpeed": 325
   },
-  "mechanics": ["Tank", "Vanguard", "CC", "Shield", "OnHit"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Staggering Blow",
-      "cooldown": [6],
-      "effects": [
-        {
-          "type": "damage",
-          "logic": {
-            "damageType": "Magical",
-            "base": [8, 14, 20, 26, 32, 38, 44, 50, 56, 62, 68, 74, 80, 86, 92, 98, 104, 110],
-            "levelScaling": true
-          }
-        },
-        {
-            "type": "cc",
-            "duration": 0.75,
-            "stack": { "name": "rooted", "max": 1 }
-        }
-      ]
+      "cooldown": [
+        0
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
     },
     "Q": {
       "id": "Q",
       "name": "Dredge Line",
-      "cooldown": [14, 13, 12, 11, 10],
-      "cost": [60],
+      "cooldown": [
+        14,
+        13,
+        12,
+        11,
+        10
+      ],
+      "cost": [
+        60,
+        60,
+        60,
+        60,
+        60
+      ],
       "costType": "Mana",
-      "range": [1150],
+      "range": [
+        1150,
+        1150,
+        1150,
+        1150,
+        1150
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [70, 115, 160, 205, 250],
-            "scalings": [
-                { "stat": "ap", "ratio": 0.9 }
+            "base": [
+              70,
+              115,
+              160,
+              205,
+              250
             ],
-            "projectileSpeed": 2000
+            "scalings": []
           }
         }
       ]
@@ -63,50 +78,83 @@
     "W": {
       "id": "W",
       "name": "Titan's Wrath",
-      "cooldown": [12],
-      "cost": [60],
+      "cooldown": [
+        12,
+        12,
+        12,
+        12,
+        12
+      ],
+      "cost": [
+        60,
+        60,
+        60,
+        60,
+        60
+      ],
+      "costType": "Mana",
+      "range": [
+        350,
+        350,
+        350,
+        350,
+        350
+      ],
       "effects": [
         {
-          "type": "shield",
+          "type": "damage",
           "logic": {
-              "base": [50, 55, 60, 65, 70],
-              "scalings": [
-                  { "stat": "maxHp", "target": "self", "ratio": [0.08, 0.09, 0.1, 0.11, 0.12] }
-              ]
+            "damageType": "Magical",
+            "base": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "scalings": []
           }
-        },
-        {
-            "id": "OnHit",
-            "type": "damage",
-            "logic": {
-                "damageType": "Magical",
-                "base": [30, 40, 50, 60, 70],
-                "scalings": [
-                    { "stat": "ap", "ratio": 0.4 }
-                ],
-                "onHitEffectiveness": 1.0
-            }
         }
       ]
     },
     "E": {
       "id": "E",
       "name": "Riptide",
-      "cooldown": [7, 6.5, 6, 5.5, 5],
-      "cost": [50, 60, 70, 80, 90],
+      "cooldown": [
+        7,
+        6.5,
+        6,
+        5.5,
+        5
+      ],
+      "cost": [
+        50,
+        60,
+        70,
+        80,
+        90
+      ],
       "costType": "Mana",
-      "range": [600],
+      "range": [
+        600,
+        600,
+        600,
+        600,
+        600
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [55, 85, 115, 145, 175],
-            "scalings": [
-                { "stat": "ap", "ratio": 0.5 }
+            "base": [
+              0,
+              0,
+              0,
+              0,
+              0
             ],
-            "multiHit": 3,
-            "multiHitInterval": 0.5
+            "scalings": []
           }
         }
       ]
@@ -114,25 +162,34 @@
     "R": {
       "id": "R",
       "name": "Depth Charge",
-      "cooldown": [120, 100, 80],
-      "cost": [100],
+      "cooldown": [
+        120,
+        100,
+        80
+      ],
+      "cost": [
+        100,
+        100,
+        100
+      ],
       "costType": "Mana",
-      "range": [825],
+      "range": [
+        825,
+        825,
+        825
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [150, 275, 400],
-            "scalings": [
-                { "stat": "ap", "ratio": 0.8 }
-            ]
+            "base": [
+              0,
+              0,
+              0
+            ],
+            "scalings": []
           }
-        },
-        {
-            "type": "cc",
-            "duration": 1.0,
-            "stack": { "name": "airborne", "max": 1 }
         }
       ]
     }

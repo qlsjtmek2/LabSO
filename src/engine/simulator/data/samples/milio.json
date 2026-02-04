@@ -1,6 +1,10 @@
 {
   "id": "Milio",
   "name": "Milio",
+  "roles": [
+    "Support",
+    "Mage"
+  ],
   "baseStats": {
     "hp": 560,
     "hpPerLevel": 88,
@@ -17,57 +21,103 @@
     "range": 525,
     "moveSpeed": 330
   },
-  "mechanics": ["Support", "Enchanter", "Heal", "Shield", "Utility"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Fired Up!",
-      "cooldown": [0],
+      "cooldown": [
+        0
+      ],
+      "cost": [
+        0
+      ],
       "effects": []
     },
     "Q": {
       "id": "Q",
       "name": "Ultra Mega Fire Kick",
-      "cooldown": [10],
-      "cost": [50, 55, 60, 65, 70],
+      "cooldown": [
+        10,
+        10,
+        10,
+        10,
+        10
+      ],
+      "cost": [
+        50,
+        55,
+        60,
+        65,
+        70
+      ],
       "costType": "Mana",
-      "range": [1200],
+      "range": [
+        1200,
+        1200,
+        1200,
+        1200,
+        1200
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [80, 140, 200, 260, 320],
-            "scalings": [
-                { "stat": "ap", "ratio": 1.2 }
+            "base": [
+              80,
+              140,
+              200,
+              260,
+              320
             ],
-            "projectileSpeed": 1200
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 1.2000000476837158
+              }
+            ]
           }
-        },
-        {
-            "type": "cc",
-            "duration": 1.0,
-            "stack": { "name": "stunned", "max": 1 }
         }
       ]
     },
     "W": {
       "id": "W",
       "name": "Cozy Campfire",
-      "cooldown": [29, 27, 25, 23, 21],
-      "cost": [90, 100, 110, 120, 130],
+      "cooldown": [
+        29,
+        27,
+        25,
+        23,
+        21
+      ],
+      "cost": [
+        90,
+        100,
+        110,
+        120,
+        130
+      ],
       "costType": "Mana",
+      "range": [
+        350,
+        350,
+        350,
+        350,
+        350
+      ],
       "effects": [
         {
-          "type": "heal",
+          "type": "damage",
           "logic": {
-            "base": [0],
-            "scalings": [
-                { "stat": "maxHp", "target": "self", "ratio": [0.07, 0.08, 0.09, 0.1, 0.11] },
-                { "stat": "ap", "ratio": 0.15 }
+            "damageType": "Physical",
+            "base": [
+              0.10000000149011612,
+              0.125,
+              0.15000000596046448,
+              0.17499999701976776,
+              0.20000000298023224
             ],
-            "multiHit": 6,
-            "multiHitInterval": 1.0
+            "scalings": []
           }
         }
       ]
@@ -75,19 +125,46 @@
     "E": {
       "id": "E",
       "name": "Warm Hugs",
-      "cooldown": [0.5],
-      "cost": [50, 60, 70, 80, 90],
+      "cooldown": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "cost": [
+        50,
+        60,
+        70,
+        80,
+        90
+      ],
       "costType": "Mana",
+      "range": [
+        650,
+        650,
+        650,
+        650,
+        650
+      ],
       "effects": [
         {
-          "type": "shield",
+          "type": "damage",
           "logic": {
-              "base": [60, 90, 120, 150, 180],
-              "scalings": [
-                  { "stat": "ap", "ratio": 0.3 }
-              ],
-              "multiHit": 2,
-              "multiHitInterval": 0.5
+            "damageType": "Physical",
+            "base": [
+              45,
+              75,
+              105,
+              135,
+              165
+            ],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.44999998807907104
+              }
+            ]
           }
         }
       ]
@@ -95,17 +172,39 @@
     "R": {
       "id": "R",
       "name": "Breath of Life",
-      "cooldown": [160, 145, 130],
-      "cost": [100],
+      "cooldown": [
+        160,
+        145,
+        130
+      ],
+      "cost": [
+        100,
+        100,
+        100
+      ],
       "costType": "Mana",
-      "range": [700],
+      "range": [
+        700,
+        700,
+        700
+      ],
       "effects": [
         {
-          "type": "heal",
+          "type": "damage",
           "logic": {
-            "base": [150, 250, 350],
+            "damageType": "Physical",
+            "base": [
+              150,
+              250,
+              350,
+              450,
+              550
+            ],
             "scalings": [
-                { "stat": "ap", "ratio": 0.5 }
+              {
+                "stat": "ap",
+                "ratio": 0.5
+              }
             ]
           }
         }

@@ -1,6 +1,10 @@
 {
   "id": "DrMundo",
   "name": "Dr. Mundo",
+  "roles": [
+    "Tank",
+    "Fighter"
+  ],
   "baseStats": {
     "hp": 640,
     "hpPerLevel": 103,
@@ -17,32 +21,57 @@
     "range": 125,
     "moveSpeed": 345
   },
-  "mechanics": ["Tank", "Juggernaut", "Heal"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Goes Where He Pleases",
-      "cooldown": [60, 45, 30, 15],
-      "levelScaling": true,
+      "cooldown": [
+        0
+      ],
+      "cost": [
+        0
+      ],
       "effects": []
     },
     "Q": {
       "id": "Q",
       "name": "Infected Bonesaw",
-      "cooldown": [4],
-      "cost": [50],
+      "cooldown": [
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "cost": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
       "costType": "Health",
-      "range": [975],
+      "costRatio": [
+        0.5,
+        0.6,
+        0.7,
+        0.8,
+        0.9
+      ],
+      "range": [
+        975,
+        975,
+        975,
+        975,
+        975
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [80, 130, 180, 230, 280],
-            "scalings": [
-                { "stat": "currentHp", "target": "enemy", "ratio": [0.2, 0.225, 0.25, 0.275, 0.3] }
-            ],
-            "projectileSpeed": 2000
+            "base": [],
+            "scalings": []
           }
         }
       ]
@@ -50,17 +79,53 @@
     "W": {
       "id": "W",
       "name": "Heart Zapper",
-      "cooldown": [17, 16.5, 16, 15.5, 15],
-      "cost": [0.05],
+      "cooldown": [
+        17,
+        16.5,
+        16,
+        15.5,
+        15
+      ],
+      "cost": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
       "costType": "CurrentHealth",
+      "costRatio": [
+        0.07999999821186066,
+        0.07999999821186066,
+        0.07999999821186066,
+        0.07999999821186066,
+        0.07999999821186066
+      ],
+      "range": [
+        325,
+        325,
+        325,
+        325,
+        325
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [20, 35, 50, 65, 80],
-            "multiHit": 4,
-            "multiHitInterval": 1.0
+            "base": [
+              20,
+              35,
+              50,
+              65,
+              80
+            ],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.07000000029802322
+              }
+            ]
           }
         }
       ]
@@ -68,39 +133,97 @@
     "E": {
       "id": "E",
       "name": "Blunt Force Trauma",
-      "cooldown": [9, 8.25, 7.5, 6.75, 6],
-      "cost": [10, 20, 30, 40, 50],
+      "cooldown": [
+        9,
+        8.25,
+        7.5,
+        6.75,
+        6
+      ],
+      "cost": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
       "costType": "Health",
+      "costRatio": [
+        0.1,
+        0.25,
+        0.4,
+        0.55,
+        0.7
+      ],
+      "range": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [5, 15, 25, 35, 45],
+            "base": [
+              5,
+              15,
+              25,
+              35,
+              45
+            ],
             "scalings": [
-                { "stat": "maxHp", "target": "self", "ratio": 0.04 }
+              {
+                "stat": "bonusHp",
+                "ratio": [
+                  0.05000000074505806,
+                  0.05000000074505806,
+                  0.05000000074505806,
+                  0.05000000074505806,
+                  0.05000000074505806
+                ]
+              }
             ]
           }
-        },
-        {
-            "type": "buff",
-            "stack": { "name": "ad_bonus", "max": 1 },
-            "logic": { "base": [15, 20, 25, 30, 35] }
         }
       ]
     },
     "R": {
       "id": "R",
       "name": "Maximum Dosage",
-      "cooldown": [120],
-      "cost": [0],
+      "cooldown": [
+        120,
+        120,
+        120
+      ],
+      "cost": [
+        0,
+        0,
+        0
+      ],
+      "costType": "None",
+      "range": [
+        20,
+        20,
+        20
+      ],
       "effects": [
         {
-          "type": "heal",
+          "type": "damage",
           "logic": {
-            "base": [0],
+            "damageType": "Physical",
+            "base": [],
             "scalings": [
-                { "stat": "maxHp", "target": "self", "ratio": [0.2, 0.4, 0.6] }
+              {
+                "stat": "bonusHp",
+                "ratio": 0.15000000596046448
+              },
+              {
+                "stat": "bonusHp",
+                "ratio": 0.20000000298023224
+              }
             ]
           }
         }

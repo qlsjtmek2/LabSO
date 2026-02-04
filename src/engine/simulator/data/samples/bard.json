@@ -1,6 +1,10 @@
 {
   "id": "Bard",
   "name": "Bard",
+  "roles": [
+    "Support",
+    "Mage"
+  ],
   "baseStats": {
     "hp": 630,
     "hpPerLevel": 103,
@@ -17,66 +21,115 @@
     "range": 500,
     "moveSpeed": 335
   },
-  "mechanics": ["Support", "CC", "Utility"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Traveler's Call",
-      "cooldown": [0],
-      "effects": [
-        {
-          "type": "damage",
-          "logic": {
-            "damageType": "Magical",
-            "base": [35, 49, 63, 77, 91, 105, 119, 133, 147, 161, 175, 189, 203, 217, 231, 245, 259, 273],
-            "levelScaling": true,
-            "scalings": [
-                { "stat": "ap", "ratio": 0.3 }
-            ]
-          }
-        }
-      ]
+      "cooldown": [
+        0
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
     },
     "Q": {
       "id": "Q",
       "name": "Cosmic Binding",
-      "cooldown": [11, 10, 9, 8, 7],
-      "cost": [60, 60, 60, 60, 60],
+      "cooldown": [
+        11,
+        10,
+        9,
+        8,
+        7
+      ],
+      "cost": [
+        60,
+        60,
+        60,
+        60,
+        60
+      ],
       "costType": "Mana",
-      "range": [950, 950, 950, 950, 950],
+      "range": [
+        25000,
+        25000,
+        25000,
+        25000,
+        25000
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [80, 125, 170, 215, 260],
-            "scalings": [
-                { "stat": "ap", "ratio": 0.65 }
+            "base": [
+              80,
+              120,
+              160,
+              200,
+              240
             ],
-            "projectileSpeed": 1500
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": [
+                  0.800000011920929,
+                  0.800000011920929,
+                  0.800000011920929,
+                  0.800000011920929,
+                  0.800000011920929
+                ]
+              }
+            ]
           }
-        },
-        {
-            "type": "cc",
-            "duration": 1.0,
-            "stack": { "name": "stunned", "max": 1 }
         }
       ]
     },
     "W": {
       "id": "W",
       "name": "Caretaker's Shrine",
-      "cooldown": [0],
-      "cost": [70, 70, 70, 70, 70],
+      "cooldown": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "cost": [
+        70,
+        70,
+        70,
+        70,
+        70
+      ],
       "costType": "Mana",
-      "range": [800, 800, 800, 800, 800],
+      "range": [
+        800,
+        800,
+        800,
+        800,
+        800
+      ],
       "effects": [
         {
-          "type": "heal",
+          "type": "damage",
           "logic": {
-            "base": [55, 95, 135, 175, 215],
+            "damageType": "Physical",
+            "base": [
+              25,
+              50,
+              75,
+              100,
+              125
+            ],
             "scalings": [
-                { "stat": "ap", "ratio": 0.6 }
+              {
+                "stat": "ap",
+                "ratio": [
+                  0
+                ]
+              }
             ]
           }
         }
@@ -85,23 +138,77 @@
     "E": {
       "id": "E",
       "name": "Magical Journey",
-      "cooldown": [22, 20.5, 19, 17.5, 16],
-      "cost": [30, 30, 30, 30, 30],
+      "cooldown": [
+        22,
+        20.5,
+        19,
+        17.5,
+        16
+      ],
+      "cost": [
+        30,
+        30,
+        30,
+        30,
+        30
+      ],
       "costType": "Mana",
-      "effects": []
+      "range": [
+        900,
+        900,
+        900,
+        900,
+        900
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Physical",
+            "base": [
+              10,
+              10,
+              10,
+              10,
+              10
+            ],
+            "scalings": []
+          }
+        }
+      ]
     },
     "R": {
       "id": "R",
       "name": "Tempered Fate",
-      "cooldown": [110, 95, 80],
-      "cost": [100, 100, 100],
+      "cooldown": [
+        110,
+        95,
+        80
+      ],
+      "cost": [
+        100,
+        100,
+        100
+      ],
       "costType": "Mana",
-      "range": [3400, 3400, 3400],
+      "range": [
+        3400,
+        3400,
+        3400
+      ],
       "effects": [
         {
-            "type": "cc",
-            "duration": 2.5,
-            "stack": { "name": "suppressed", "max": 1 }
+          "type": "damage",
+          "logic": {
+            "damageType": "Physical",
+            "base": [],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.5
+              }
+            ]
+          }
         }
       ]
     }

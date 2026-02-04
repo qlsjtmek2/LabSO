@@ -1,6 +1,10 @@
 {
   "id": "Braum",
   "name": "Braum",
+  "roles": [
+    "Tank",
+    "Support"
+  ],
   "baseStats": {
     "hp": 630,
     "hpPerLevel": 112,
@@ -17,105 +21,180 @@
     "range": 125,
     "moveSpeed": 335
   },
-  "mechanics": ["Tank", "CC", "Support"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Concussive Blows",
-      "cooldown": [8],
-      "effects": [
-        {
-          "type": "damage",
-          "logic": {
-            "damageType": "Magical",
-            "base": [26, 33, 40, 47, 54, 61, 68, 75, 82, 89, 96, 103, 110, 124, 138, 152, 176, 196],
-            "levelScaling": true
-          }
-        },
-        {
-            "type": "cc",
-            "duration": 1.25,
-            "stack": { "name": "stunned", "max": 1 }
-        }
-      ]
+      "cooldown": [
+        0
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
     },
     "Q": {
       "id": "Q",
       "name": "Winter's Bite",
-      "cooldown": [8, 7.5, 7, 6.5, 6],
-      "cost": [45, 50, 55, 60, 65],
+      "cooldown": [
+        8,
+        7.5,
+        7,
+        6.5,
+        6
+      ],
+      "cost": [
+        45,
+        50,
+        55,
+        60,
+        65
+      ],
       "costType": "Mana",
-      "range": [1000, 1000, 1000, 1000, 1000],
+      "range": [
+        1000,
+        1000,
+        1000,
+        1000,
+        1000
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [75, 125, 175, 225, 275],
-            "scalings": [
-                { "stat": "hp", "ratio": 0.025 }
+            "base": [
+              75,
+              125,
+              175,
+              225,
+              275
             ],
-            "projectileSpeed": 1700
+            "scalings": []
           }
-        },
-        {
-            "type": "cc",
-            "duration": 2.0,
-            "stack": { "name": "slowed", "max": 1 }
         }
       ]
     },
     "W": {
       "id": "W",
       "name": "Stand Behind Me",
-      "cooldown": [12, 11, 10, 9, 8],
-      "cost": [40, 40, 40, 40, 40],
+      "cooldown": [
+        12,
+        11,
+        10,
+        9,
+        8
+      ],
+      "cost": [
+        40,
+        40,
+        40,
+        40,
+        40
+      ],
       "costType": "Mana",
-      "range": [650, 650, 650, 650, 650],
+      "range": [
+        650,
+        650,
+        650,
+        650,
+        650
+      ],
       "effects": [
         {
-          "type": "buff",
-          "stack": { "name": "armor_bonus", "max": 1 },
-          "logic": { "base": [20, 25, 30, 35, 40] }
+          "type": "damage",
+          "logic": {
+            "damageType": "Physical",
+            "base": [
+              3,
+              3,
+              3,
+              3,
+              3
+            ],
+            "scalings": []
+          }
         }
       ]
     },
     "E": {
       "id": "E",
       "name": "Unbreakable",
-      "cooldown": [16, 14, 12, 10, 8],
-      "cost": [30, 35, 40, 45, 50],
+      "cooldown": [
+        16,
+        14,
+        12,
+        10,
+        8
+      ],
+      "cost": [
+        30,
+        35,
+        40,
+        45,
+        50
+      ],
       "costType": "Mana",
+      "range": [
+        25000,
+        25000,
+        25000,
+        25000,
+        25000
+      ],
       "effects": [
         {
-            "type": "buff",
-            "stack": { "name": "damage_reduction", "max": 1 },
-            "logic": { "base": [0.3, 0.325, 0.35, 0.375, 0.4] }
+          "type": "damage",
+          "logic": {
+            "damageType": "Physical",
+            "base": [
+              35,
+              40,
+              45,
+              50,
+              55
+            ],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.30000001192092896
+              }
+            ]
+          }
         }
       ]
     },
     "R": {
       "id": "R",
       "name": "Glacial Fissure",
-      "cooldown": [120, 100, 80],
-      "cost": [100, 100, 100],
+      "cooldown": [
+        120,
+        100,
+        80
+      ],
+      "cost": [
+        100,
+        100,
+        100
+      ],
       "costType": "Mana",
-      "range": [1250, 1250, 1250],
+      "range": [
+        1250,
+        1250,
+        1250
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [150, 300, 450],
-            "scalings": [
-                { "stat": "ap", "ratio": 0.6 }
-            ]
+            "base": [
+              0,
+              0,
+              0
+            ],
+            "scalings": []
           }
-        },
-        {
-            "type": "cc",
-            "duration": 1.0,
-            "stack": { "name": "knockup", "max": 1 }
         }
       ]
     }

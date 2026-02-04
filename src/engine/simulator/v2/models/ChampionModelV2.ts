@@ -63,6 +63,7 @@ export class ChampionModelV2 implements Entity {
       maxHp: base.hp + base.hpPerLevel * growth,
       mana: base.mp + base.mpPerLevel * growth,
       ad: base.ad + base.adPerLevel * growth,
+      baseAd: base.ad + base.adPerLevel * growth,
       ap: 0,
       armor: base.armor + base.armorPerLevel * growth,
       mr: base.mr + base.mrPerLevel * growth,

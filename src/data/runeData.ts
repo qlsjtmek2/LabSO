@@ -679,6 +679,113 @@ export const STAT_RUNES: Record<string, StatRuneInfo> = {
   },
 };
 
+// 룬 문자열 ID -> 숫자 ID 매핑 (Riot API 표준)
+export const RUNE_ID_MAP: Record<string, number> = {
+  // Precision (8000)
+  PressTheAttack: 8005,
+  LethalTempo: 8008,
+  FleetFootwork: 8021,
+  Conqueror: 8010,
+  Overheal: 9101,
+  Triumph: 9111,
+  PresenceOfMind: 8009,
+  LegendAlacrity: 9104,
+  LegendTenacity: 9105,
+  LegendBloodline: 9103,
+  CoupDeGrace: 8014,
+  CutDown: 8017,
+  LastStand: 8299,
+
+  // Domination (8100)
+  Electrocute: 8112,
+  DarkHarvest: 8128,
+  HailOfBlades: 9923,
+  CheapShot: 8126,
+  TasteOfBlood: 8139,
+  SuddenImpact: 8143,
+  ZombieWard: 8136,
+  GhostPoro: 8120,
+  EyeballCollection: 8138,
+  TreasureHunter: 8135,
+  IngeniousHunter: 8134,
+  RelentlessHunter: 8105,
+  UltimateHunter: 8106,
+
+  // Sorcery (8200)
+  SummonAery: 8214,
+  ArcaneComet: 8229,
+  PhaseRush: 8230,
+  NullifyingOrb: 8224,
+  ManaflowBand: 8226,
+  NimbusCloak: 8275,
+  Transcendence: 8210,
+  Celerity: 8234,
+  AbsoluteFocus: 8233,
+  Scorch: 8237,
+  Waterwalking: 8232,
+  GatheringStorm: 8236,
+
+  // Resolve (8400)
+  GraspOfTheUndying: 8437,
+  Aftershock: 8439,
+  Guardian: 8465,
+  Demolish: 8446,
+  FontOfLife: 8463,
+  ShieldBash: 8401,
+  Conditioning: 8429,
+  SecondWind: 8444,
+  BonePlating: 8473,
+  Overgrowth: 8451,
+  Revitalize: 8453,
+  Unflinching: 8242,
+
+  // Inspiration (8300)
+  GlacialAugment: 8351,
+  UnsealedSpellbook: 8360,
+  FirstStrike: 8369,
+  HextechFlashtraption: 8306,
+  MagicalFootwear: 8304,
+  PerfectTiming: 8313,
+  FuturesMarket: 8321,
+  MinionDematerializer: 8316,
+  BiscuitDelivery: 8345,
+  CosmicInsight: 8347,
+  ApproachVelocity: 8410,
+  TimeWarpTonic: 8352,
+
+  // Stat Runes (5000번대)
+  AdaptiveForce: 5008,
+  AttackSpeed: 5005,
+  AbilityHaste: 5007,
+  AdaptiveForce2: 5008,
+  MovementSpeed: 5010,
+  HealthScaling: 5001,
+  Health: 5002,
+  Armor: 5003,
+  MagicResist: 5004,
+};
+
+// 숫자 ID -> 문자열 ID 역매핑
+export const RUNE_ID_REVERSE_MAP: Record<number, string> = Object.entries(RUNE_ID_MAP).reduce(
+  (acc, [strId, numId]) => {
+    acc[numId] = strId;
+    return acc;
+  },
+  {} as Record<number, string>
+);
+
+// 룬 숫자 ID 가져오기
+export function getRuneNumericId(stringId: string): number | undefined {
+  return RUNE_ID_MAP[stringId];
+}
+
+// 숫자 ID로 룬 정보 가져오기
+export function getRuneByNumericId(numericId: number): RuneInfo | StatRuneInfo | undefined {
+  const stringId = RUNE_ID_REVERSE_MAP[numericId];
+  if (!stringId) return undefined;
+  return KEYSTONES[stringId] || MINOR_RUNES[stringId] || STAT_RUNES[stringId];
+}
+
 // 룬 ID로 정보 가져오기
 export function getRuneInfo(runeId: string): RuneInfo | undefined {
   return KEYSTONES[runeId] || MINOR_RUNES[runeId];

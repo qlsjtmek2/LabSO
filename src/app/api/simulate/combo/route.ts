@@ -92,18 +92,31 @@ export async function POST(request: Request) {
       R: skillLevels[3]
     };
 
-    // combo 배열 (숫자 인덱스 or -1) -> 문자열 변환
-    // 클라이언트에서 [0, -1, 2] 등으로 보내면 ['Q', 'AA', 'E']로 변환
+    // combo 배열 (숫자 인덱스 or -1/-2) -> 문자열 변환
+    // 클라이언트에서 [0, -1, -2, 2] 등으로 보내면 ['Q', 'AA', 'P', 'E']로 변환
+    // -1 = AA (Auto Attack), -2 = P (Passive)
     const spellKeys = ['Q', 'W', 'E', 'R'];
-    const comboString = combo.map((c: number) => c === -1 ? 'AA' : spellKeys[c]);
+    const comboString = combo.map((c: number) => {
+      if (c === -1) return 'AA';
+      if (c === -2) return 'P';
+      return spellKeys[c];
+    });
 
     const events = championModel.simulateCombo(comboString, targetDummy, skillLevelMap);
 
     // 6. 결과 집계
     const totalDamage = events.reduce((sum, e) => sum + e.mitigatedDamage, 0);
+    const targetMaxHp = targetDummy.maxHp;
+    const damagePercent = (totalDamage / targetMaxHp) * 100;
+    const canKill = damagePercent >= 100;
+    const overkillDamage = canKill ? Math.round(totalDamage - targetMaxHp) : 0;
 
     return NextResponse.json({
       totalDamage: Math.round(totalDamage),
+      targetMaxHp,
+      damagePercent: Math.round(damagePercent * 10) / 10, // 소수점 1자리
+      canKill,
+      overkillDamage,
       events,
       championStats: (championModel as any).stats // 디버깅용
     });

@@ -1,6 +1,9 @@
 {
   "id": "AurelionSol",
   "name": "Aurelion Sol",
+  "roles": [
+    "Mage"
+  ],
   "baseStats": {
     "hp": 600,
     "hpPerLevel": 90,
@@ -17,80 +20,167 @@
     "range": 550,
     "moveSpeed": 340
   },
-  "mechanics": ["Mage", "Scaling", "Artillery"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Cosmic Creator",
-      "cooldown": [0],
-      "effects": [
-        {
-          "type": "buff",
-          "stack": { "name": "stardust", "max": 999 },
-          "logic": { "base": [0] }
-        }
-      ]
+      "cooldown": [
+        0
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
     },
     "Q": {
       "id": "Q",
       "name": "Breath of Light",
-      "cooldown": [3, 3, 3, 3, 3],
-      "cost": [35, 40, 45, 50, 55],
+      "cooldown": [
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "cost": [
+        35,
+        40,
+        45,
+        50,
+        55
+      ],
       "costType": "Mana",
-      "range": [750, 750, 750, 750, 750],
+      "range": [
+        750,
+        750,
+        750,
+        750,
+        750
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [15, 25, 35, 45, 55],
-            "scalings": [
-                { "stat": "ap", "ratio": 0.3 }
+            "base": [
+              45,
+              60,
+              75,
+              90,
+              105
             ],
-            "multiHit": 4,
-            "multiHitInterval": 0.25
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": [
+                  0.550000011920929,
+                  0.550000011920929,
+                  0.550000011920929,
+                  0.550000011920929,
+                  0.550000011920929
+                ]
+              }
+            ]
           }
-        },
-        {
-            "id": "Explosion",
-            "type": "damage",
-            "logic": {
-                "damageType": "Magical",
-                "base": [40, 50, 60, 70, 80],
-                "scalings": [
-                    { "stat": "ap", "ratio": 0.35 }
-                ],
-                "delay": 1.0
-            }
         }
       ]
     },
     "W": {
       "id": "W",
       "name": "Astral Flight",
-      "cooldown": [22, 20.5, 19, 17.5, 16],
-      "cost": [80, 85, 90, 95, 100],
+      "cooldown": [
+        22,
+        20.5,
+        19,
+        17.5,
+        16
+      ],
+      "cost": [
+        50,
+        55,
+        60,
+        65,
+        70
+      ],
       "costType": "Mana",
-      "effects": []
+      "range": [
+        1500,
+        1500,
+        1500,
+        1500,
+        1500
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Physical",
+            "base": [
+              340,
+              340,
+              340,
+              340,
+              340
+            ],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 1
+              }
+            ]
+          }
+        }
+      ]
     },
     "E": {
       "id": "E",
       "name": "Singularity",
-      "cooldown": [12, 12, 12, 12, 12],
-      "cost": [80, 85, 90, 95, 100],
+      "cooldown": [
+        12,
+        12,
+        12,
+        12,
+        12
+      ],
+      "cost": [
+        90,
+        90,
+        90,
+        90,
+        90
+      ],
       "costType": "Mana",
-      "range": [750, 750, 750, 750, 750],
+      "range": [
+        750,
+        750,
+        750,
+        750,
+        750
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [10, 15, 20, 25, 30],
-            "scalings": [
-                { "stat": "ap", "ratio": 0.16 }
+            "base": [
+              10,
+              15,
+              20,
+              25,
+              30
             ],
-            "multiHit": 5,
-            "multiHitInterval": 1.0
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": [
+                  0.11999999731779099,
+                  0.11999999731779099,
+                  0.11999999731779099,
+                  0.11999999731779099,
+                  0.11999999731779099
+                ]
+              }
+            ]
           }
         }
       ]
@@ -98,25 +188,30 @@
     "R": {
       "id": "R",
       "name": "Falling Star / The Skies Descend",
-      "cooldown": [120, 110, 100],
-      "cost": [100, 100, 100],
+      "cooldown": [
+        120,
+        110,
+        100
+      ],
+      "cost": [
+        100,
+        100,
+        100
+      ],
       "costType": "Mana",
-      "range": [1250, 1250, 1250],
+      "range": [
+        1250,
+        1250,
+        1250
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [150, 250, 350],
-            "scalings": [
-                { "stat": "ap", "ratio": 0.65 }
-            ]
+            "base": [],
+            "scalings": []
           }
-        },
-        {
-            "type": "cc",
-            "duration": 1.0,
-            "stack": { "name": "stunned", "max": 1 }
         }
       ]
     }

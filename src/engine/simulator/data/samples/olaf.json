@@ -1,6 +1,10 @@
 {
   "id": "Olaf",
   "name": "Olaf",
+  "roles": [
+    "Fighter",
+    "Tank"
+  ],
   "baseStats": {
     "hp": 645,
     "hpPerLevel": 119,
@@ -17,40 +21,56 @@
     "range": 125,
     "moveSpeed": 350
   },
-  "mechanics": ["Bruiser", "Berserker", "TrueDamage", "CC-Immune"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Berserker Rage",
-      "cooldown": [0],
-      "effects": [
-        {
-            "type": "buff",
-            "stack": { "name": "attackSpeed", "max": 1 },
-            "logic": { "base": [0.4, 0.6, 0.8, 1.0] },
-            "levelScaling": true
-        }
-      ]
+      "cooldown": [
+        0
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
     },
     "Q": {
       "id": "Q",
       "name": "Undertow",
-      "cooldown": [9],
-      "cost": [50, 55, 60, 65, 70],
+      "cooldown": [
+        9,
+        9,
+        9,
+        9,
+        9
+      ],
+      "cost": [
+        50,
+        55,
+        60,
+        65,
+        70
+      ],
       "costType": "Mana",
-      "range": [1000],
+      "range": [
+        1000,
+        1000,
+        1000,
+        1000,
+        1000
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [70, 120, 170, 220, 270],
-            "scalings": [
-                { "stat": "bonusAd", "ratio": 1.0 }
+            "base": [
+              80,
+              125,
+              170,
+              215,
+              260
             ],
-            "projectileSpeed": 1600,
-            "multiHit": 2,
-            "multiHitInterval": 2.0
+            "scalings": []
           }
         }
       ]
@@ -58,41 +78,83 @@
     "W": {
       "id": "W",
       "name": "Tough It Out",
-      "cooldown": [16, 15, 14, 13, 12],
-      "cost": [50],
+      "cooldown": [
+        16,
+        15,
+        14,
+        13,
+        12
+      ],
+      "cost": [
+        50,
+        50,
+        50,
+        50,
+        50
+      ],
       "costType": "Mana",
+      "range": [
+        700,
+        700,
+        700,
+        700,
+        700
+      ],
       "effects": [
         {
-          "type": "buff",
-          "stack": { "name": "attackSpeed", "max": 1 },
-          "logic": { "base": [0.4, 0.5, 0.6, 0.7, 0.8] }
-        },
-        {
-            "type": "shield",
-            "logic": {
-                "base": [10, 40, 70, 100, 130],
-                "scalings": [
-                    { "stat": "missingHp", "target": "self", "ratio": 0.175 }
-                ]
-            }
+          "type": "damage",
+          "logic": {
+            "damageType": "Physical",
+            "base": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "scalings": []
+          }
         }
       ]
     },
     "E": {
       "id": "E",
       "name": "Reckless Swing",
-      "cooldown": [11, 10, 9, 8, 7],
-      "cost": [0],
-      "range": [325],
+      "cooldown": [
+        11,
+        10,
+        9,
+        8,
+        7
+      ],
+      "cost": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "costType": "Mana",
+      "range": [
+        325,
+        325,
+        325,
+        325,
+        325
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "True",
-            "base": [70, 115, 160, 205, 250],
-            "scalings": [
-                { "stat": "ad", "ratio": 0.5 }
-            ]
+            "base": [
+              70,
+              115,
+              160,
+              205,
+              250
+            ],
+            "scalings": []
           }
         }
       ]
@@ -100,16 +162,34 @@
     "R": {
       "id": "R",
       "name": "Ragnarok",
-      "cooldown": [100, 90, 80],
-      "cost": [0],
+      "cooldown": [
+        100,
+        90,
+        80
+      ],
+      "cost": [
+        100,
+        100,
+        100
+      ],
+      "costType": "Mana",
+      "range": [
+        400,
+        400,
+        400
+      ],
       "effects": [
         {
-            "type": "buff",
-            "stack": { "name": "ad_bonus", "max": 1 },
-            "logic": { "base": [10, 20, 30] },
-            "scalings": [
-                { "stat": "ad", "ratio": 0.25 }
-            ]
+          "type": "damage",
+          "logic": {
+            "damageType": "Physical",
+            "base": [
+              0,
+              0,
+              0
+            ],
+            "scalings": []
+          }
         }
       ]
     }

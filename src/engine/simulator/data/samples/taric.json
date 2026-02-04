@@ -1,6 +1,10 @@
 {
   "id": "Taric",
   "name": "Taric",
+  "roles": [
+    "Support",
+    "Tank"
+  ],
   "baseStats": {
     "hp": 645,
     "hpPerLevel": 99,
@@ -17,45 +21,56 @@
     "range": 150,
     "moveSpeed": 340
   },
-  "mechanics": ["Tank", "Warden", "CC", "Heal", "Shield", "DoubleHit", "ArmorScaling"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Bravado",
-      "cooldown": [0],
-      "effects": [
-        {
-          "type": "damage",
-          "logic": {
-            "damageType": "Magical",
-            "base": [25, 29, 33, 37, 41, 45, 49, 53, 57, 61, 65, 69, 73, 77, 81, 85, 89, 93],
-            "levelScaling": true,
-            "scalings": [
-                { "stat": "armor", "ratio": 0.15 }
-            ],
-            "multiHit": 2,
-            "multiHitInterval": 0.1,
-            "onHitEffectiveness": 1.0
-          }
-        }
-      ]
+      "cooldown": [
+        0
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
     },
     "Q": {
       "id": "Q",
       "name": "Starlight's Touch",
-      "cooldown": [3],
-      "cost": [60, 70, 80, 90, 100],
+      "cooldown": [
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "cost": [
+        60,
+        60,
+        60,
+        60,
+        60
+      ],
       "costType": "Mana",
-      "range": [325],
+      "range": [
+        325,
+        325,
+        325,
+        325,
+        325
+      ],
       "effects": [
         {
-          "type": "heal",
+          "type": "damage",
           "logic": {
-            "base": [25, 30, 35, 40, 45],
-            "scalings": [
-                { "stat": "ap", "ratio": 0.15 },
-                { "stat": "bonusHp", "target": "self", "ratio": 0.01 }
-            ]
+            "damageType": "Physical",
+            "base": [
+              25,
+              25,
+              25,
+              25,
+              25
+            ],
+            "scalings": []
           }
         }
       ]
@@ -63,61 +78,124 @@
     "W": {
       "id": "W",
       "name": "Bastion",
-      "cooldown": [15],
-      "cost": [60],
+      "cooldown": [
+        15,
+        15,
+        15,
+        15,
+        15
+      ],
+      "cost": [
+        60,
+        60,
+        60,
+        60,
+        60
+      ],
+      "costType": "Mana",
+      "range": [
+        800,
+        800,
+        800,
+        800,
+        800
+      ],
       "effects": [
         {
-          "type": "shield",
+          "type": "damage",
           "logic": {
-              "base": [60, 80, 100, 120, 140],
-              "scalings": [
-                  { "stat": "ap", "ratio": 0.2 },
-                  { "stat": "bonusHp", "target": "self", "ratio": 0.1 }
-              ]
+            "damageType": "Physical",
+            "base": [],
+            "scalings": [
+              {
+                "stat": "bonusArmor",
+                "ratio": [
+                  0.05999999865889549,
+                  0.07000000029802322,
+                  0.07999999821186066,
+                  0.09000000357627869,
+                  0.10000000149011612
+                ]
+              }
+            ]
           }
-        },
-        {
-            "type": "buff",
-            "stack": { "name": "armor_bonus", "max": 1 },
-            "logic": { "base": [0.1, 0.11, 0.12, 0.13, 0.14] }
         }
       ]
     },
     "E": {
       "id": "E",
       "name": "Dazzle",
-      "cooldown": [16, 15, 14, 13, 12],
-      "cost": [40],
-      "range": [610],
+      "cooldown": [
+        16,
+        15,
+        14,
+        13,
+        12
+      ],
+      "cost": [
+        40,
+        40,
+        40,
+        40,
+        40
+      ],
+      "costType": "Mana",
+      "range": [
+        610,
+        610,
+        610,
+        610,
+        610
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [90, 130, 170, 210, 250],
-            "scalings": [
-                { "stat": "ap", "ratio": 0.5 },
-                { "stat": "armor", "ratio": 0.5 }
-            ]
+            "base": [
+              90,
+              130,
+              170,
+              210,
+              250
+            ],
+            "scalings": []
           }
-        },
-        {
-            "type": "cc",
-            "duration": 1.25,
-            "stack": { "name": "stunned", "max": 1 }
         }
       ]
     },
     "R": {
       "id": "R",
       "name": "Cosmic Radiance",
-      "cooldown": [180, 150, 120],
+      "cooldown": [
+        180,
+        150,
+        120
+      ],
+      "cost": [
+        100,
+        100,
+        100
+      ],
+      "costType": "Mana",
+      "range": [
+        400,
+        400,
+        400
+      ],
       "effects": [
         {
-            "type": "buff",
-            "stack": { "name": "invulnerable", "max": 1 },
-            "duration": 2.5,
-            "delay": 2.5
+          "type": "damage",
+          "logic": {
+            "damageType": "Physical",
+            "base": [],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.5
+              }
+            ]
+          }
         }
       ]
     }

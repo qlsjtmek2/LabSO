@@ -1,6 +1,9 @@
 {
   "id": "Ornn",
   "name": "Ornn",
+  "roles": [
+    "Tank"
+  ],
   "baseStats": {
     "hp": 660,
     "hpPerLevel": 109,
@@ -17,31 +20,56 @@
     "range": 175,
     "moveSpeed": 335
   },
-  "mechanics": ["Tank", "Vanguard", "CC", "Scaling", "Brittle"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Living Forge",
-      "cooldown": [0],
+      "cooldown": [
+        0
+      ],
+      "cost": [
+        0
+      ],
       "effects": []
     },
     "Q": {
       "id": "Q",
       "name": "Volcanic Rupture",
-      "cooldown": [9, 8.5, 8, 7.5, 7],
-      "cost": [45],
+      "cooldown": [
+        9,
+        8.5,
+        8,
+        7.5,
+        7
+      ],
+      "cost": [
+        45,
+        45,
+        45,
+        45,
+        45
+      ],
       "costType": "Mana",
-      "range": [800],
+      "range": [
+        800,
+        800,
+        800,
+        800,
+        800
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [20, 45, 70, 95, 120],
-            "scalings": [
-                { "stat": "ad", "ratio": 1.1 }
+            "base": [
+              20,
+              45,
+              70,
+              95,
+              120
             ],
-            "projectileSpeed": 1800
+            "scalings": []
           }
         }
       ]
@@ -49,79 +77,146 @@
     "W": {
       "id": "W",
       "name": "Bellows Breath",
-      "cooldown": [12, 11.5, 11, 10.5, 10],
-      "cost": [45, 50, 55, 60, 65],
+      "cooldown": [
+        12,
+        11.5,
+        11,
+        10.5,
+        10
+      ],
+      "cost": [
+        45,
+        50,
+        55,
+        60,
+        65
+      ],
       "costType": "Mana",
+      "range": [
+        25000,
+        25000,
+        25000,
+        25000,
+        25000
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [0],
-            "scalings": [
-                { "stat": "maxHp", "target": "enemy", "ratio": [0.12, 0.13, 0.14, 0.15, 0.16] }
-            ],
-            "multiHit": 5,
-            "multiHitInterval": 0.15
+            "base": [],
+            "scalings": []
           }
-        },
-        {
-            "type": "cc",
-            "duration": 0.75,
-            "stack": { "name": "brittle", "max": 1 }
         }
       ]
     },
     "E": {
       "id": "E",
       "name": "Searing Charge",
-      "cooldown": [14, 13.5, 13, 12.5, 12],
-      "cost": [35, 40, 45, 50, 55],
+      "cooldown": [
+        14,
+        13.5,
+        13,
+        12.5,
+        12
+      ],
+      "cost": [
+        35,
+        40,
+        45,
+        50,
+        55
+      ],
       "costType": "Mana",
-      "range": [450],
+      "range": [
+        450,
+        450,
+        450,
+        450,
+        450
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [80, 125, 170, 215, 260],
+            "base": [
+              80,
+              125,
+              170,
+              215,
+              260
+            ],
             "scalings": [
-                { "stat": "armor", "ratio": 0.4 },
-                { "stat": "mr", "ratio": 0.4 }
+              {
+                "stat": "armor",
+                "ratio": [
+                  0.4000000059604645,
+                  0.4000000059604645,
+                  0.4000000059604645,
+                  0.4000000059604645,
+                  0.4000000059604645
+                ]
+              },
+              {
+                "stat": "ap",
+                "ratio": [
+                  0.4000000059604645,
+                  0.4000000059604645,
+                  0.4000000059604645,
+                  0.4000000059604645,
+                  0.4000000059604645
+                ]
+              }
             ]
           }
-        },
-        {
-            "type": "cc",
-            "duration": 1.25,
-            "stack": { "name": "airborne", "max": 1 }
         }
       ]
     },
     "R": {
       "id": "R",
       "name": "Call of the Forge God",
-      "cooldown": [140, 120, 100],
-      "cost": [100],
+      "cooldown": [
+        140,
+        120,
+        100
+      ],
+      "cost": [
+        100,
+        100,
+        100
+      ],
       "costType": "Mana",
-      "range": [2500],
+      "range": [
+        2500,
+        2500,
+        2500
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [125, 175, 225],
-            "scalings": [
-                { "stat": "ap", "ratio": 0.2 }
+            "base": [
+              125,
+              175,
+              225,
+              275,
+              325
             ],
-            "multiHit": 2,
-            "multiHitInterval": 2.0
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": [
+                  0.20000000298023224,
+                  0.20000000298023224,
+                  0.20000000298023224,
+                  0.20000000298023224,
+                  0.20000000298023224
+                ]
+              }
+            ]
           }
-        },
-        {
-            "type": "cc",
-            "duration": 1.0,
-            "stack": { "name": "airborne", "max": 1 }
         }
       ]
     }

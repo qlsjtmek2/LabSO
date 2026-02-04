@@ -1,6 +1,10 @@
 {
   "id": "Taliyah",
   "name": "Taliyah",
+  "roles": [
+    "Mage",
+    "Support"
+  ],
   "baseStats": {
     "hp": 550,
     "hpPerLevel": 104,
@@ -17,39 +21,67 @@
     "range": 525,
     "moveSpeed": 330
   },
-  "mechanics": ["Mage", "Control", "AoE", "MultiHit", "Mobile"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Rock Surfing",
-      "cooldown": [0],
-      "effects": [
-        {
-            "type": "buff",
-            "stack": { "name": "moveSpeed", "max": 1 },
-            "logic": { "base": [0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5], "levelScaling": true }
-        }
-      ]
+      "cooldown": [
+        0
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
     },
     "Q": {
       "id": "Q",
       "name": "Threaded Volley",
-      "cooldown": [7, 6, 5, 4, 3],
-      "cost": [55, 60, 65, 70, 75],
+      "cooldown": [
+        7,
+        6,
+        5,
+        4,
+        3
+      ],
+      "cost": [
+        55,
+        60,
+        65,
+        70,
+        75
+      ],
       "costType": "Mana",
-      "range": [1000],
+      "range": [
+        1000,
+        1000,
+        1000,
+        1000,
+        1000
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [60, 80, 100, 120, 140],
-            "scalings": [
-                { "stat": "ap", "ratio": 0.5 }
+            "base": [
+              55,
+              72.5,
+              90,
+              107.5,
+              125
             ],
-            "multiHit": 5,
-            "multiHitInterval": 0.15,
-            "projectileSpeed": 2000
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": [
+                  0.5,
+                  0.5,
+                  0.5,
+                  0.5,
+                  0.5
+                ]
+              }
+            ]
           }
         }
       ]
@@ -57,45 +89,88 @@
     "W": {
       "id": "W",
       "name": "Seismic Shove",
-      "cooldown": [14, 12.5, 11, 9.5, 8],
-      "cost": [40, 30, 20, 10, 0],
+      "cooldown": [
+        14,
+        12.5,
+        11,
+        9.5,
+        8
+      ],
+      "cost": [
+        40,
+        30,
+        20,
+        10,
+        0
+      ],
       "costType": "Mana",
-      "range": [900],
+      "range": [
+        900,
+        900,
+        900,
+        900,
+        900
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
-            "damageType": "Magical",
-            "base": [60, 80, 100, 120, 140],
-            "scalings": [
-                { "stat": "ap", "ratio": 0.4 }
-            ]
+            "damageType": "Physical",
+            "base": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "scalings": []
           }
-        },
-        {
-            "type": "cc",
-            "duration": 0.75,
-            "stack": { "name": "airborne", "max": 1 }
         }
       ]
     },
     "E": {
       "id": "E",
       "name": "Unraveled Earth",
-      "cooldown": [14],
-      "cost": [90],
-      "range": [950],
+      "cooldown": [
+        14,
+        14,
+        14,
+        14,
+        14
+      ],
+      "cost": [
+        90,
+        90,
+        90,
+        90,
+        90
+      ],
+      "costType": "Mana",
+      "range": [
+        950,
+        950,
+        950,
+        950,
+        950
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [60, 90, 120, 150, 180],
-            "scalings": [
-                { "stat": "ap", "ratio": 0.6 }
+            "base": [
+              60,
+              105,
+              150,
+              195,
+              240
             ],
-            "multiHit": 4,
-            "multiHitInterval": 1.0
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.6000000238418579
+              }
+            ]
           }
         }
       ]
@@ -103,9 +178,36 @@
     "R": {
       "id": "R",
       "name": "Weaver's Wall",
-      "cooldown": [180, 150, 120],
-      "cost": [100],
-      "effects": []
+      "cooldown": [
+        180,
+        150,
+        120
+      ],
+      "cost": [
+        100,
+        100,
+        100
+      ],
+      "costType": "Mana",
+      "range": [
+        2500,
+        4500,
+        6500
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Physical",
+            "base": [
+              4,
+              4,
+              4
+            ],
+            "scalings": []
+          }
+        }
+      ]
     }
   }
 }

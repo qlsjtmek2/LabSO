@@ -1,6 +1,10 @@
 {
   "id": "Yuumi",
   "name": "Yuumi",
+  "roles": [
+    "Support",
+    "Mage"
+  ],
   "baseStats": {
     "hp": 500,
     "hpPerLevel": 69,
@@ -17,45 +21,69 @@
     "range": 425,
     "moveSpeed": 330
   },
-  "mechanics": ["Support", "Enchanter", "Untargetable", "Heal", "Shield", "MultiHit"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Feline Friendship",
-      "cooldown": [18, 17, 16, 15, 14],
-      "levelScaling": true,
-      "effects": [
-        {
-          "type": "shield",
-          "logic": {
-              "base": [25, 30, 40, 50, 65, 80, 100, 120, 145, 170, 200, 230, 265, 300, 340, 380, 425, 475],
-              "levelScaling": true,
-              "scalings": [{ "stat": "ap", "ratio": 0.25 }]
-          }
-        }
-      ]
+      "cooldown": [
+        0
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
     },
     "Q": {
       "id": "Q",
       "name": "Prowling Projectile",
-      "cooldown": [13, 12, 11, 10, 9, 8],
-      "cost": [50, 55, 60, 65, 70, 75],
+      "cooldown": [
+        6.5,
+        6.5,
+        6.5,
+        6.5,
+        6.5,
+        6.5
+      ],
+      "cost": [
+        50,
+        55,
+        60,
+        65,
+        70,
+        75
+      ],
       "costType": "Mana",
-      "range": [1150],
+      "range": [
+        25000,
+        25000,
+        25000,
+        25000,
+        25000,
+        25000
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [60, 90, 120, 150, 180, 210],
-            "scalings": [
-                { "stat": "ap", "ratio": 0.2 }
+            "base": [
+              60,
+              95,
+              130,
+              165,
+              200
             ],
-            "modifiers": [
-                {
-                    "condition": { "type": "position", "target": "self" },
-                    "multiplier": 1.35
-                }
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": [
+                  0.20000000298023224,
+                  0.20000000298023224,
+                  0.20000000298023224,
+                  0.20000000298023224,
+                  0.20000000298023224
+                ]
+              }
             ]
           }
         }
@@ -64,53 +92,129 @@
     "W": {
       "id": "W",
       "name": "You and Me!",
-      "cooldown": [10, 5, 0],
+      "cooldown": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "cost": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "costType": "Mana",
+      "range": [
+        25000,
+        25000,
+        25000,
+        25000,
+        25000
+      ],
       "effects": [
         {
-            "type": "buff",
-            "stack": { "name": "ap_bonus", "max": 1 },
-            "logic": { "base": [0], "scalings": [{ "stat": "ap", "ratio": [0.05, 0.07, 0.09, 0.11, 0.13] }] }
+          "type": "damage",
+          "logic": {
+            "damageType": "Physical",
+            "base": [],
+            "scalings": []
+          }
         }
       ]
     },
     "E": {
       "id": "E",
       "name": "Zoomies",
-      "cooldown": [12, 11.5, 11, 10.5, 10],
-      "cost": [80, 90, 100, 110, 120],
+      "cooldown": [
+        10,
+        10,
+        10,
+        10,
+        10
+      ],
+      "cost": [
+        80,
+        90,
+        100,
+        110,
+        120
+      ],
+      "costType": "Mana",
+      "range": [
+        25000,
+        25000,
+        25000,
+        25000,
+        25000
+      ],
       "effects": [
         {
-          "type": "shield",
+          "type": "damage",
           "logic": {
-              "base": [80, 110, 140, 170, 200],
-              "scalings": [
-                  { "stat": "ap", "ratio": 0.2 }
-              ]
+            "damageType": "Physical",
+            "base": [
+              65,
+              90,
+              115,
+              140,
+              165
+            ],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": [
+                  0.30000001192092896,
+                  0.30000001192092896,
+                  0.30000001192092896,
+                  0.30000001192092896,
+                  0.30000001192092896
+                ]
+              }
+            ]
           }
-        },
-        {
-            "type": "buff",
-            "stack": { "name": "attackSpeed", "max": 1 },
-            "logic": { "base": [0.25, 0.275, 0.3, 0.325, 0.35] }
         }
       ]
     },
     "R": {
       "id": "R",
       "name": "Final Chapter",
-      "cooldown": [120, 110, 100],
-      "cost": [100],
+      "cooldown": [
+        120,
+        110,
+        100
+      ],
+      "cost": [
+        100,
+        100,
+        100
+      ],
+      "costType": "Mana",
+      "range": [
+        1100,
+        1100,
+        1100
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [60, 80, 100],
-            "scalings": [
-                { "stat": "ap", "ratio": 0.15 }
+            "base": [
+              75,
+              125,
+              175,
+              225,
+              275
             ],
-            "multiHit": 5,
-            "multiHitInterval": 0.5
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.25
+              }
+            ]
           }
         }
       ]

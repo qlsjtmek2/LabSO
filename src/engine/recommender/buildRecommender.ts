@@ -121,7 +121,7 @@ export class BuildRecommender {
       geneticItems = bestIndividual.genes.items.map((id: number) => ({
         itemId: id,
         slot: 'core' as const,
-        reason: "유전 알고리즘 시뮬레이션 결과 최고의 효율을 보인 아이템입니다.",
+        reason: `시뮬레이션 최적화 (데미지: ${bestIndividual.stats.damage}, 생존: ${bestIndividual.stats.survivability}, 시너지: ${bestIndividual.stats.synergy})`,
         score: 1.0,
         ruleId: 'genetic-optimized'
       }));

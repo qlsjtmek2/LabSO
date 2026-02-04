@@ -1,6 +1,10 @@
 {
   "id": "Karma",
   "name": "Karma",
+  "roles": [
+    "Mage",
+    "Support"
+  ],
   "baseStats": {
     "hp": 630,
     "hpPerLevel": 109,
@@ -17,88 +21,151 @@
     "range": 525,
     "moveSpeed": 335
   },
-  "mechanics": ["Mage", "Support", "Shield", "Utility"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Gathering Fire",
-      "cooldown": [0],
+      "cooldown": [
+        0
+      ],
+      "cost": [
+        0
+      ],
       "effects": []
     },
     "Q": {
       "id": "Q",
-      "name": "Inner Flame / Soulflare",
-      "cooldown": [9, 8, 7, 6, 5],
-      "cost": [40, 50, 60, 70, 80],
+      "name": "Inner Flame",
+      "cooldown": [
+        9,
+        8,
+        7,
+        6,
+        5
+      ],
+      "cost": [
+        40,
+        50,
+        60,
+        70,
+        80
+      ],
       "costType": "Mana",
-      "range": [950],
+      "range": [
+        950,
+        950,
+        950,
+        950,
+        950
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [70, 120, 170, 220, 270],
-            "scalings": [
-                { "stat": "ap", "ratio": 0.7 }
+            "base": [
+              60,
+              110,
+              160,
+              210,
+              260
             ],
-            "projectileSpeed": 1700
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": [
+                  0.699999988079071,
+                  0.699999988079071,
+                  0.699999988079071,
+                  0.699999988079071,
+                  0.699999988079071
+                ]
+              }
+            ]
           }
-        },
-        {
-            "id": "Mantra_Q",
-            "type": "damage",
-            "logic": {
-                "damageType": "Magical",
-                "base": [40, 130, 220, 310],
-                "scalings": [
-                    { "stat": "ap", "ratio": 0.5 }
-                ],
-                "delay": 1.0
-            }
         }
       ]
     },
     "W": {
       "id": "W",
       "name": "Focused Resolve",
-      "cooldown": [12],
-      "cost": [50],
+      "cooldown": [
+        12,
+        12,
+        12,
+        12,
+        12
+      ],
+      "cost": [
+        50,
+        55,
+        60,
+        65,
+        70
+      ],
       "costType": "Mana",
-      "range": [675],
+      "range": [
+        675,
+        675,
+        675,
+        675,
+        675
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [40, 65, 90, 115, 140],
-            "scalings": [
-                { "stat": "ap", "ratio": 0.45 }
+            "base": [
+              0,
+              0,
+              0,
+              0,
+              0
             ],
-            "multiHit": 2,
-            "multiHitInterval": 2.0
+            "scalings": []
           }
-        },
-        {
-            "type": "cc",
-            "duration": 1.4,
-            "stack": { "name": "rooted", "max": 1 }
         }
       ]
     },
     "E": {
       "id": "E",
       "name": "Inspire",
-      "cooldown": [10, 9.5, 9, 8.5, 8],
-      "cost": [50],
+      "cooldown": [
+        10,
+        9.5,
+        9,
+        8.5,
+        8
+      ],
+      "cost": [
+        50,
+        55,
+        60,
+        65,
+        70
+      ],
       "costType": "Mana",
+      "range": [
+        800,
+        800,
+        800,
+        800,
+        800
+      ],
       "effects": [
         {
-          "type": "shield",
+          "type": "damage",
           "logic": {
-              "base": [80, 125, 170, 215, 260],
-              "scalings": [
-                  { "stat": "ap", "ratio": 0.45 }
-              ]
+            "damageType": "Physical",
+            "base": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "scalings": []
           }
         }
       ]
@@ -106,9 +173,40 @@
     "R": {
       "id": "R",
       "name": "Mantra",
-      "cooldown": [40, 38, 36, 34],
-      "cost": [0],
-      "effects": []
+      "cooldown": [
+        40,
+        38,
+        36,
+        34
+      ],
+      "cost": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "costType": "Mana",
+      "range": [
+        1100,
+        1100,
+        1100,
+        1100
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "scalings": []
+          }
+        }
+      ]
     }
   }
 }

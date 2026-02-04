@@ -1,6 +1,9 @@
 {
   "id": "Zoe",
   "name": "Zoe",
+  "roles": [
+    "Mage"
+  ],
   "baseStats": {
     "hp": 630,
     "hpPerLevel": 106,

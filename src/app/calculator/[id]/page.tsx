@@ -314,15 +314,16 @@ export default function CalculatorPage() {
                 </div>
 
                 <div className="flex justify-center gap-4 md:gap-6 mb-16 relative z-10 flex-wrap">
-                    {/* Passive */}
+                    {/* Passive - 클릭 시 콤보에 추가 (데미지가 있는 패시브용, 예: 카타리나 단검) */}
                     <div className="flex flex-col items-center gap-3">
-                        <div 
-                            className="w-20 h-20 md:w-24 md:h-24 rounded-full border-2 border-yellow-500/30 overflow-hidden shadow-lg cursor-help"
+                        <button
+                            onClick={() => setCombo([...combo, -2])}
+                            className="group relative w-20 h-20 md:w-24 md:h-24 rounded-full border-2 border-yellow-500/30 hover:border-yellow-500 overflow-hidden shadow-lg hover:scale-105 transition-all active:scale-95"
                             onMouseEnter={(e) => showTooltip(e, champion.passive.name, champion.passive.description)}
                             onMouseLeave={hideTooltip}
                         >
-                            <img src={`https://ddragon.leagueoflegends.com/cdn/${version}/img/passive/${champion.passive.image.full}`} className="w-full h-full object-cover" alt="P" />
-                        </div>
+                            <img src={`https://ddragon.leagueoflegends.com/cdn/${version}/img/passive/${champion.passive.image.full}`} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition" alt="P" />
+                        </button>
                         <span className="text-[10px] font-black text-yellow-500 uppercase tracking-widest">Passive</span>
                     </div>
 
@@ -378,8 +379,12 @@ export default function CalculatorPage() {
                         ) : (
                             combo.map((spellIdx, i) => (
                                 <div key={i} className="flex items-center gap-3 relative group cursor-pointer" onClick={() => setCombo(combo.filter((_, idx) => idx !== i))}>
-                                    <div className={`w-10 h-10 rounded flex items-center justify-center border font-black relative overflow-hidden ${spellIdx === -1 ? 'bg-orange-900/20 border-orange-500/50 text-orange-500' : 'bg-gray-800 border-gray-700 text-gray-400'}`}>
-                                        {spellIdx === -1 ? 'AA' : ['Q', 'W', 'E', 'R'][spellIdx]}
+                                    <div className={`w-10 h-10 rounded flex items-center justify-center border font-black relative overflow-hidden ${
+                                      spellIdx === -1 ? 'bg-orange-900/20 border-orange-500/50 text-orange-500'
+                                      : spellIdx === -2 ? 'bg-yellow-900/20 border-yellow-500/50 text-yellow-500'
+                                      : 'bg-gray-800 border-gray-700 text-gray-400'
+                                    }`}>
+                                        {spellIdx === -1 ? 'AA' : spellIdx === -2 ? 'P' : ['Q', 'W', 'E', 'R'][spellIdx]}
                                         <div className="absolute inset-0 bg-red-500/80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition text-white">✕</div>
                                     </div>
                                     {i < combo.length - 1 && <span className="text-gray-700">›</span>}

@@ -1,6 +1,10 @@
 {
   "id": "Zac",
   "name": "Zac",
+  "roles": [
+    "Tank",
+    "Fighter"
+  ],
   "baseStats": {
     "hp": 685,
     "hpPerLevel": 109,
@@ -17,62 +21,112 @@
     "range": 175,
     "moveSpeed": 340
   },
-  "mechanics": ["Tank", "Vanguard", "Heal", "CC", "AoE", "%MaxHP"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Cell Division",
-      "cooldown": [0],
-      "effects": [
-        {
-            "type": "heal",
-            "logic": {
-                "base": [0],
-                "scalings": [{ "stat": "maxHp", "target": "self", "ratio": 0.04 }]
-            }
-        }
-      ]
+      "cooldown": [
+        0
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
     },
     "Q": {
       "id": "Q",
       "name": "Stretching Strikes",
-      "cooldown": [14, 12.5, 11, 9.5, 8],
-      "cost": [0.08],
+      "cooldown": [
+        14,
+        12.5,
+        11,
+        9.5,
+        8
+      ],
+      "cost": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
       "costType": "CurrentHealth",
-      "range": [800],
+      "costRatio": [
+        0.08,
+        0.08,
+        0.08,
+        0.08,
+        0.08
+      ],
+      "range": [
+        800,
+        800,
+        800,
+        800,
+        800
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [40, 55, 70, 85, 100],
-            "scalings": [
-                { "stat": "maxHp", "target": "self", "ratio": 0.025 }
-            ]
+            "base": [
+              40,
+              55,
+              70,
+              85,
+              100
+            ],
+            "scalings": []
           }
-        },
-        {
-            "type": "cc",
-            "duration": 0.5,
-            "stack": { "name": "stunned", "max": 1 }
         }
       ]
     },
     "W": {
       "id": "W",
       "name": "Unstable Matter",
-      "cooldown": [5],
-      "cost": [0.04],
+      "cooldown": [
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "cost": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
       "costType": "CurrentHealth",
+      "costRatio": [
+        0.04,
+        0.04,
+        0.04,
+        0.04,
+        0.04
+      ],
+      "range": [
+        350,
+        350,
+        350,
+        350,
+        350
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [40, 50, 60, 70, 80],
-            "scalings": [
-                { "stat": "maxHp", "target": "enemy", "ratio": [0.04, 0.05, 0.06, 0.07, 0.08] }
-            ]
+            "base": [
+              40,
+              50,
+              60,
+              70,
+              80
+            ],
+            "scalings": []
           }
         }
       ]
@@ -80,43 +134,82 @@
     "E": {
       "id": "E",
       "name": "Elastic Slingshot",
-      "cooldown": [22, 19, 16, 13, 10],
-      "cost": [0.04],
+      "cooldown": [
+        22,
+        19,
+        16,
+        13,
+        10
+      ],
+      "cost": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
       "costType": "CurrentHealth",
-      "range": [1200],
+      "costRatio": [
+        0.04,
+        0.04,
+        0.04,
+        0.04,
+        0.04
+      ],
+      "range": [
+        300,
+        300,
+        300,
+        300,
+        300
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [60, 105, 150, 195, 240],
-            "scalings": [
-                { "stat": "ap", "ratio": 0.8 }
-            ]
+            "base": [
+              60,
+              105,
+              150,
+              195,
+              240
+            ],
+            "scalings": []
           }
-        },
-        {
-            "type": "cc",
-            "duration": 1.0,
-            "stack": { "name": "airborne", "max": 1 }
         }
       ]
     },
     "R": {
       "id": "R",
       "name": "Let's Bounce!",
-      "cooldown": [120, 105, 90],
+      "cooldown": [
+        120,
+        105,
+        90
+      ],
+      "cost": [
+        0,
+        0,
+        0
+      ],
+      "costType": "None",
+      "range": [
+        300,
+        300,
+        300
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [140, 210, 280],
-            "scalings": [
-                { "stat": "ap", "ratio": 0.4 }
+            "base": [
+              150,
+              250,
+              350
             ],
-            "multiHit": 4,
-            "multiHitInterval": 1.0
+            "scalings": []
           }
         }
       ]

@@ -1,6 +1,10 @@
 {
   "id": "Ekko",
   "name": "Ekko",
+  "roles": [
+    "Assassin",
+    "Mage"
+  ],
   "baseStats": {
     "hp": 655,
     "hpPerLevel": 99,
@@ -17,44 +21,56 @@
     "range": 125,
     "moveSpeed": 340
   },
-  "mechanics": ["Assassin", "Mobile", "Mage"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Z-Drive Resonance",
-      "cooldown": [5],
-      "effects": [
-        {
-          "type": "damage",
-          "logic": {
-            "damageType": "Magical",
-            "base": [30, 40, 50, 60, 70, 80, 85, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190],
-            "levelScaling": true,
-            "scalings": [
-                { "stat": "ap", "ratio": 0.8 }
-            ]
-          }
-        }
-      ]
+      "cooldown": [
+        0
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
     },
     "Q": {
       "id": "Q",
       "name": "Timewinder",
-      "cooldown": [9, 8.5, 8, 7.5, 7],
-      "cost": [50, 60, 70, 80, 90],
+      "cooldown": [
+        9,
+        8.5,
+        8,
+        7.5,
+        7
+      ],
+      "cost": [
+        50,
+        60,
+        70,
+        80,
+        90
+      ],
       "costType": "Mana",
-      "range": [1075],
+      "range": [
+        1075,
+        1075,
+        1075,
+        1075,
+        1075
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [60, 75, 90, 105, 120],
-            "scalings": [
-                { "stat": "ap", "ratio": 0.3 }
+            "base": [
+              70,
+              85,
+              100,
+              115,
+              130
             ],
-            "returnDamage": true,
-            "projectileSpeed": 1100
+            "scalings": []
           }
         }
       ]
@@ -62,43 +78,83 @@
     "W": {
       "id": "W",
       "name": "Parallel Convergence",
-      "cooldown": [22, 20, 18, 16, 14],
-      "cost": [30, 35, 40, 45, 50],
+      "cooldown": [
+        22,
+        20,
+        18,
+        16,
+        14
+      ],
+      "cost": [
+        30,
+        35,
+        40,
+        45,
+        50
+      ],
       "costType": "Mana",
-      "range": [1600],
+      "range": [
+        1600,
+        1600,
+        1600,
+        1600,
+        1600
+      ],
       "effects": [
         {
-          "type": "cc",
-          "duration": 2.25,
-          "stack": { "name": "stunned", "max": 1 }
-        },
-        {
-            "type": "shield",
-            "logic": {
-                "base": [70, 90, 110, 130, 150],
-                "scalings": [
-                    { "stat": "ap", "ratio": 1.5 }
-                ]
-            }
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              375,
+              375,
+              375,
+              375,
+              375
+            ],
+            "scalings": []
+          }
         }
       ]
     },
     "E": {
       "id": "E",
       "name": "Phase Dive",
-      "cooldown": [9, 8.5, 8, 7.5, 7],
-      "cost": [40, 45, 50, 55, 60],
+      "cooldown": [
+        9,
+        8.5,
+        8,
+        7.5,
+        7
+      ],
+      "cost": [
+        40,
+        45,
+        50,
+        55,
+        60
+      ],
       "costType": "Mana",
-      "range": [325],
+      "range": [
+        325,
+        325,
+        325,
+        325,
+        325
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [50, 75, 100, 125, 150],
-            "scalings": [
-                { "stat": "ap", "ratio": 0.4 }
-            ]
+            "base": [
+              50,
+              75,
+              100,
+              125,
+              150
+            ],
+            "scalings": []
           }
         }
       ]
@@ -106,29 +162,41 @@
     "R": {
       "id": "R",
       "name": "Chronobreak",
-      "cooldown": [110, 80, 50],
-      "cost": [100],
+      "cooldown": [
+        110,
+        80,
+        50
+      ],
+      "cost": [
+        100,
+        100,
+        100
+      ],
       "costType": "Mana",
-      "range": [850],
+      "range": [
+        850,
+        850,
+        850
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [200, 350, 500],
+            "base": [
+              200,
+              350,
+              500,
+              650,
+              800
+            ],
             "scalings": [
-                { "stat": "ap", "ratio": 1.75 }
+              {
+                "stat": "ap",
+                "ratio": 1.75
+              }
             ]
           }
-        },
-        {
-            "type": "heal",
-            "logic": {
-                "base": [100, 150, 200],
-                "scalings": [
-                    { "stat": "ap", "ratio": 0.6 }
-                ]
-            }
         }
       ]
     }

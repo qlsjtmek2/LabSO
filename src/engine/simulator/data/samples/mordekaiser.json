@@ -1,6 +1,10 @@
 {
   "id": "Mordekaiser",
   "name": "Mordekaiser",
+  "roles": [
+    "Fighter",
+    "Mage"
+  ],
   "baseStats": {
     "hp": 645,
     "hpPerLevel": 104,
@@ -17,50 +21,76 @@
     "range": 175,
     "moveSpeed": 335
   },
-  "mechanics": ["Bruiser", "Juggernaut", "AP", "AoE", "StatSteal"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Darkness Rise",
-      "cooldown": [0],
-      "effects": [
-        {
-          "type": "damage",
-          "logic": {
-            "damageType": "Magical",
-            "base": [5, 5.6, 6.2, 6.8, 7.4, 8, 8.6, 9.2, 9.8, 10.4, 11, 11.6, 12.2, 12.8, 13.4, 14, 14.6, 15.2],
-            "levelScaling": true,
-            "scalings": [
-                { "stat": "ap", "ratio": 0.3 },
-                { "stat": "maxHp", "target": "enemy", "ratio": [0.01, 0.01, 0.01, 0.01, 0.01, 0.02, 0.02, 0.02, 0.02, 0.03, 0.03, 0.03, 0.03, 0.04, 0.04, 0.04, 0.04, 0.05] }
-            ],
-            "multiHit": 5,
-            "multiHitInterval": 1.0
-          }
-        }
-      ]
+      "cooldown": [
+        0
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
     },
     "Q": {
       "id": "Q",
       "name": "Obliterate",
-      "cooldown": [8, 7, 6, 5, 4],
-      "cost": [0],
-      "costType": "None",
-      "range": [675],
+      "cooldown": [
+        8,
+        7,
+        6,
+        5,
+        4
+      ],
+      "cost": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "costType": "Mana",
+      "range": [
+        675,
+        675,
+        675,
+        675,
+        675
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [80, 115, 150, 185, 220],
-            "scalings": [
-                { "stat": "ap", "ratio": 0.75 }
+            "base": [
+              80,
+              115,
+              150,
+              185,
+              220
             ],
-            "modifiers": [
-                {
-                    "condition": { "type": "position", "target": "enemy" },
-                    "multiplier": 1.6
-                }
+            "scalings": [
+              {
+                "stat": "ad",
+                "ratio": [
+                  1.2000000476837158,
+                  1.2000000476837158,
+                  1.2000000476837158,
+                  1.2000000476837158,
+                  1.2000000476837158
+                ]
+              },
+              {
+                "stat": "ap",
+                "ratio": [
+                  0.699999988079071,
+                  0.699999988079071,
+                  0.699999988079071,
+                  0.699999988079071,
+                  0.699999988079071
+                ]
+              }
             ]
           }
         }
@@ -69,15 +99,46 @@
     "W": {
       "id": "W",
       "name": "Indestructible",
-      "cooldown": [12, 11, 10, 9, 8],
+      "cooldown": [
+        12,
+        11,
+        10,
+        9,
+        8
+      ],
+      "cost": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "costType": "Mana",
+      "range": [
+        25000,
+        25000,
+        25000,
+        25000,
+        25000
+      ],
       "effects": [
         {
-          "type": "shield",
+          "type": "damage",
           "logic": {
-              "base": [0],
-              "scalings": [
-                  { "stat": "maxHp", "target": "self", "ratio": 0.3 }
-              ]
+            "damageType": "Physical",
+            "base": [],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": [
+                  0.004999999888241291,
+                  0.004999999888241291,
+                  0.004999999888241291,
+                  0.004999999888241291,
+                  0.004999999888241291
+                ]
+              }
+            ]
           }
         }
       ]
@@ -85,36 +146,82 @@
     "E": {
       "id": "E",
       "name": "Death's Grasp",
-      "cooldown": [18, 16, 14, 12, 10],
-      "range": [700],
+      "cooldown": [
+        18,
+        16,
+        14,
+        12,
+        10
+      ],
+      "cost": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "costType": "Mana",
+      "range": [
+        700,
+        700,
+        700,
+        700,
+        700
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [60, 75, 90, 105, 120],
+            "base": [
+              60,
+              75,
+              90,
+              105,
+              120
+            ],
             "scalings": [
-                { "stat": "ap", "ratio": 0.4 }
+              {
+                "stat": "ap",
+                "ratio": 0.4000000059604645
+              }
             ]
           }
-        },
-        {
-            "type": "buff",
-            "stack": { "name": "magic_pen_passive", "max": 1 },
-            "logic": { "base": [0.05, 0.075, 0.1, 0.125, 0.15] }
         }
       ]
     },
     "R": {
       "id": "R",
       "name": "Realm of Death",
-      "cooldown": [140, 120, 100],
-      "range": [650],
+      "cooldown": [
+        140,
+        120,
+        100
+      ],
+      "cost": [
+        0,
+        0,
+        0
+      ],
+      "costType": "Mana",
+      "range": [
+        650,
+        650,
+        650
+      ],
       "effects": [
         {
-            "type": "buff",
-            "stack": { "name": "stat_steal", "max": 1 },
-            "logic": { "base": [0.1] }
+          "type": "damage",
+          "logic": {
+            "damageType": "Physical",
+            "base": [],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.6000000238418579
+              }
+            ]
+          }
         }
       ]
     }

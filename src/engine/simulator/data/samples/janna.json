@@ -1,6 +1,10 @@
 {
   "id": "Janna",
   "name": "Janna",
+  "roles": [
+    "Support",
+    "Mage"
+  ],
   "baseStats": {
     "hp": 570,
     "hpPerLevel": 90,
@@ -17,83 +21,140 @@
     "range": 550,
     "moveSpeed": 325
   },
-  "mechanics": ["Support", "CC", "Utility", "Shield"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Tailwind",
-      "cooldown": [0],
+      "cooldown": [
+        0
+      ],
+      "cost": [
+        0
+      ],
       "effects": []
     },
     "Q": {
       "id": "Q",
       "name": "Howling Gale",
-      "cooldown": [14],
-      "cost": [90, 95, 100, 105, 110],
+      "cooldown": [
+        14,
+        14,
+        14,
+        14,
+        14
+      ],
+      "cost": [
+        90,
+        95,
+        100,
+        105,
+        110
+      ],
       "costType": "Mana",
-      "range": [1075],
+      "range": [
+        1075,
+        1075,
+        1075,
+        1075,
+        1075
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [60, 85, 110, 135, 160],
-            "scalings": [
-                { "stat": "ap", "ratio": 0.35 }
+            "base": [
+              0,
+              0,
+              0,
+              0,
+              0
             ],
-            "modifiers": [
-                {
-                    "condition": { "type": "position", "target": "self" },
-                    "multiplier": 2.0
-                }
-            ]
+            "scalings": []
           }
-        },
-        {
-            "type": "cc",
-            "duration": 0.5,
-            "stack": { "name": "airborne", "max": 1 }
         }
       ]
     },
     "W": {
       "id": "W",
       "name": "Zephyr",
-      "cooldown": [12],
-      "cost": [50, 55, 60, 65, 70],
+      "cooldown": [
+        8,
+        7.5,
+        7,
+        6.5,
+        6
+      ],
+      "cost": [
+        50,
+        55,
+        60,
+        65,
+        70
+      ],
       "costType": "Mana",
+      "range": [
+        4294967295,
+        4294967295,
+        4294967295,
+        4294967295,
+        4294967295
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [55, 90, 125, 160, 195],
-            "scalings": [
-                { "stat": "ap", "ratio": 0.6 }
-            ]
+            "base": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "scalings": []
           }
-        },
-        {
-            "type": "cc",
-            "duration": 2.0,
-            "stack": { "name": "slowed", "max": 1 }
         }
       ]
     },
     "E": {
       "id": "E",
       "name": "Eye Of The Storm",
-      "cooldown": [16, 15, 14, 13, 12],
-      "cost": [70],
+      "cooldown": [
+        16,
+        15,
+        14,
+        13,
+        12
+      ],
+      "cost": [
+        70,
+        75,
+        80,
+        85,
+        90
+      ],
       "costType": "Mana",
+      "range": [
+        800,
+        800,
+        800,
+        800,
+        800
+      ],
       "effects": [
         {
-          "type": "shield",
+          "type": "damage",
           "logic": {
-              "base": [80, 115, 150, 185, 220],
-              "scalings": [
-                  { "stat": "ap", "ratio": 0.55 }
-              ]
+            "damageType": "Physical",
+            "base": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "scalings": []
           }
         }
       ]
@@ -101,20 +162,33 @@
     "R": {
       "id": "R",
       "name": "Monsoon",
-      "cooldown": [130, 115, 100],
-      "cost": [100],
+      "cooldown": [
+        130,
+        115,
+        100
+      ],
+      "cost": [
+        100,
+        100,
+        100
+      ],
       "costType": "Mana",
-      "range": [725],
+      "range": [
+        725,
+        725,
+        725
+      ],
       "effects": [
         {
-          "type": "heal",
+          "type": "damage",
           "logic": {
-            "base": [100, 150, 200],
-            "scalings": [
-                { "stat": "ap", "ratio": 0.5 }
+            "damageType": "Physical",
+            "base": [
+              0,
+              0,
+              0
             ],
-            "multiHit": 3,
-            "multiHitInterval": 1.0
+            "scalings": []
           }
         }
       ]

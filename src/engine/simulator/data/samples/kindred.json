@@ -1,6 +1,9 @@
 {
   "id": "Kindred",
   "name": "Kindred",
+  "roles": [
+    "Marksman"
+  ],
   "baseStats": {
     "hp": 595,
     "hpPerLevel": 104,
@@ -17,38 +20,56 @@
     "range": 500,
     "moveSpeed": 325
   },
-  "mechanics": ["Marksman", "Jungler", "Scaling", "Execute"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Mark of the Kindred",
-      "cooldown": [0],
-      "effects": [
-        {
-            "type": "buff",
-            "stack": { "name": "mark_stacks", "max": 99 },
-            "logic": { "base": [0] }
-        }
-      ]
+      "cooldown": [
+        0
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
     },
     "Q": {
       "id": "Q",
       "name": "Dance of Arrows",
-      "cooldown": [9],
-      "cost": [35],
+      "cooldown": [
+        9,
+        9,
+        9,
+        9,
+        9
+      ],
+      "cost": [
+        35,
+        35,
+        35,
+        35,
+        35
+      ],
       "costType": "Mana",
-      "range": [340],
+      "range": [
+        340,
+        340,
+        340,
+        340,
+        340
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [40, 65, 90, 115, 140],
-            "scalings": [
-                { "stat": "bonusAd", "ratio": 0.75 }
+            "base": [
+              40,
+              65,
+              90,
+              115,
+              140
             ],
-            "multiHit": 3,
-            "multiHitInterval": 0.1
+            "scalings": []
           }
         }
       ]
@@ -56,22 +77,41 @@
     "W": {
       "id": "W",
       "name": "Wolf's Frenzy",
-      "cooldown": [18, 17, 16, 15, 14],
-      "cost": [40],
+      "cooldown": [
+        18,
+        17,
+        16,
+        15,
+        14
+      ],
+      "cost": [
+        40,
+        40,
+        40,
+        40,
+        40
+      ],
       "costType": "Mana",
-      "range": [560],
+      "range": [
+        560,
+        560,
+        560,
+        560,
+        560
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [25, 30, 35, 40, 45],
-            "scalings": [
-                { "stat": "ad", "ratio": 0.2 },
-                { "stat": "currentHp", "target": "enemy", "ratio": 0.015 }
+            "base": [
+              40,
+              45,
+              50,
+              55,
+              60
             ],
-            "multiHit": 5,
-            "multiHitInterval": 1.0
+            "scalings": []
           }
         }
       ]
@@ -79,38 +119,75 @@
     "E": {
       "id": "E",
       "name": "Mounting Dread",
-      "cooldown": [14, 12.5, 11, 9.5, 8],
-      "cost": [0],
+      "cooldown": [
+        14,
+        12.5,
+        11,
+        9.5,
+        8
+      ],
+      "cost": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "costType": "Mana",
+      "range": [
+        500,
+        500,
+        500,
+        500,
+        500
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [80, 100, 120, 140, 160],
-            "scalings": [
-                { "stat": "bonusAd", "ratio": 0.8 },
-                { "stat": "missingHp", "target": "enemy", "ratio": [0.08, 0.08, 0.08, 0.08, 0.08] }
-            ]
+            "base": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "scalings": []
           }
-        },
-        {
-            "type": "cc",
-            "duration": 1.0,
-            "stack": { "name": "slowed", "max": 1 }
         }
       ]
     },
     "R": {
       "id": "R",
       "name": "Lamb's Respite",
-      "cooldown": [160, 140, 120],
-      "cost": [100],
+      "cooldown": [
+        160,
+        140,
+        120
+      ],
+      "cost": [
+        100,
+        100,
+        100
+      ],
       "costType": "Mana",
+      "range": [
+        500,
+        500,
+        500
+      ],
       "effects": [
         {
-          "type": "heal",
+          "type": "damage",
           "logic": {
-            "base": [225, 300, 375]
+            "damageType": "Physical",
+            "base": [
+              225,
+              300,
+              375
+            ],
+            "scalings": []
           }
         }
       ]

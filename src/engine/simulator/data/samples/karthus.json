@@ -1,6 +1,9 @@
 {
   "id": "Karthus",
   "name": "Karthus",
+  "roles": [
+    "Mage"
+  ],
   "baseStats": {
     "hp": 620,
     "hpPerLevel": 110,
@@ -17,38 +20,56 @@
     "range": 450,
     "moveSpeed": 335
   },
-  "mechanics": ["Mage", "Control", "AoE", "Global"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Death Defied",
-      "cooldown": [0],
+      "cooldown": [
+        0
+      ],
+      "cost": [
+        0
+      ],
       "effects": []
     },
     "Q": {
       "id": "Q",
       "name": "Lay Waste",
-      "cooldown": [0],
-      "cost": [20, 25, 30, 35, 40],
+      "cooldown": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "cost": [
+        20,
+        25,
+        30,
+        35,
+        40
+      ],
       "costType": "Mana",
-      "range": [875],
+      "range": [
+        875,
+        875,
+        875,
+        875,
+        875
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [45, 65, 85, 105, 125],
-            "scalings": [
-                { "stat": "ap", "ratio": 0.35 }
+            "base": [
+              45,
+              65,
+              85,
+              105,
+              125
             ],
-            "modifiers": [
-                {
-                    "condition": { "type": "position", "target": "enemy" },
-                    "multiplier": 2.0
-                }
-            ],
-            "multiHit": 3,
-            "multiHitInterval": 1.0
+            "scalings": []
           }
         }
       ]
@@ -56,35 +77,83 @@
     "W": {
       "id": "W",
       "name": "Wall of Pain",
-      "cooldown": [15],
-      "cost": [70],
+      "cooldown": [
+        15,
+        15,
+        15,
+        15,
+        15
+      ],
+      "cost": [
+        70,
+        70,
+        70,
+        70,
+        70
+      ],
       "costType": "Mana",
-      "range": [1000],
+      "range": [
+        1000,
+        1000,
+        1000,
+        1000,
+        1000
+      ],
       "effects": [
         {
-            "type": "buff",
-            "stack": { "name": "mr_reduction", "max": 1 },
-            "logic": { "base": [0.15] }
+          "type": "damage",
+          "logic": {
+            "damageType": "Physical",
+            "base": [
+              25,
+              25,
+              25,
+              25,
+              25
+            ],
+            "scalings": []
+          }
         }
       ]
     },
     "E": {
       "id": "E",
       "name": "Defile",
-      "cooldown": [0.5],
-      "cost": [30, 42, 54, 66, 78],
+      "cooldown": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "cost": [
+        30,
+        42,
+        54,
+        66,
+        78
+      ],
       "costType": "Mana",
+      "range": [
+        550,
+        550,
+        550,
+        550,
+        550
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [30, 50, 70, 90, 110],
-            "scalings": [
-                { "stat": "ap", "ratio": 0.2 }
+            "base": [
+              30,
+              50,
+              70,
+              90,
+              110
             ],
-            "multiHit": 5,
-            "multiHitInterval": 1.0
+            "scalings": []
           }
         }
       ]
@@ -92,19 +161,33 @@
     "R": {
       "id": "R",
       "name": "Requiem",
-      "cooldown": [200, 180, 160],
-      "cost": [100],
+      "cooldown": [
+        200,
+        180,
+        160
+      ],
+      "cost": [
+        100,
+        100,
+        100
+      ],
       "costType": "Mana",
+      "range": [
+        10000,
+        10000,
+        10000
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [200, 350, 500],
-            "scalings": [
-                { "stat": "ap", "ratio": 0.75 }
+            "base": [
+              0,
+              0,
+              0
             ],
-            "delay": 3.0
+            "scalings": []
           }
         }
       ]

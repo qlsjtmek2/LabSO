@@ -1,6 +1,9 @@
 {
   "id": "Kennen",
   "name": "Kennen",
+  "roles": [
+    "Mage"
+  ],
   "baseStats": {
     "hp": 580,
     "hpPerLevel": 98,
@@ -17,37 +20,56 @@
     "range": 550,
     "moveSpeed": 335
   },
-  "mechanics": ["Mage", "Marksman", "CC", "AoE", "Energy"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Mark of the Storm",
-      "cooldown": [0],
-      "effects": [
-        {
-            "type": "cc",
-            "duration": 1.25,
-            "stack": { "name": "stunned", "max": 1 }
-        }
-      ]
+      "cooldown": [
+        0
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
     },
     "Q": {
       "id": "Q",
       "name": "Thundering Shuriken",
-      "cooldown": [7, 6.25, 5.5, 4.75, 4],
-      "cost": [60, 55, 50, 45, 40],
+      "cooldown": [
+        7,
+        6.25,
+        5.5,
+        4.75,
+        4
+      ],
+      "cost": [
+        60,
+        55,
+        50,
+        45,
+        40
+      ],
       "costType": "Energy",
-      "range": [950],
+      "range": [
+        950,
+        950,
+        950,
+        950,
+        950
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [75, 125, 175, 225, 275],
-            "scalings": [
-                { "stat": "ap", "ratio": 0.85 }
+            "base": [
+              75,
+              125,
+              175,
+              225,
+              275
             ],
-            "projectileSpeed": 1700
+            "scalings": []
           }
         }
       ]
@@ -55,76 +77,117 @@
     "W": {
       "id": "W",
       "name": "Electrical Surge",
-      "cooldown": [13, 11.25, 9.5, 7.75, 6],
-      "cost": [40],
+      "cooldown": [
+        13,
+        11.25,
+        9.5,
+        7.75,
+        6
+      ],
+      "cost": [
+        40,
+        40,
+        40,
+        40,
+        40
+      ],
       "costType": "Energy",
+      "range": [
+        725,
+        725,
+        725,
+        725,
+        725
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [70, 95, 120, 145, 170],
-            "scalings": [
-                { "stat": "ap", "ratio": 0.8 }
-            ]
+            "base": [
+              70,
+              95,
+              120,
+              145,
+              170
+            ],
+            "scalings": []
           }
-        },
-        {
-            "id": "Passive_OnHit",
-            "type": "damage",
-            "logic": {
-                "damageType": "Magical",
-                "base": [0],
-                "scalings": [
-                    { "stat": "ad", "ratio": [0.2, 0.3, 0.4, 0.5, 0.6] },
-                    { "stat": "ap", "ratio": 0.25 }
-                ]
-            }
         }
       ]
     },
     "E": {
       "id": "E",
       "name": "Lightning Rush",
-      "cooldown": [10, 9, 8, 7, 6],
-      "cost": [80, 80, 80, 80, 80],
+      "cooldown": [
+        10,
+        9,
+        8,
+        7,
+        6
+      ],
+      "cost": [
+        80,
+        80,
+        80,
+        80,
+        80
+      ],
       "costType": "Energy",
+      "range": [
+        170,
+        170,
+        170,
+        170,
+        170
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [85, 125, 165, 205, 245],
-            "scalings": [
-                { "stat": "ap", "ratio": 0.8 }
-            ]
+            "base": [
+              85,
+              125,
+              165,
+              205,
+              245
+            ],
+            "scalings": []
           }
-        },
-        {
-            "type": "buff",
-            "stack": { "name": "attackSpeed", "max": 1 },
-            "logic": { "base": [0.4, 0.45, 0.5, 0.55, 0.6] }
         }
       ]
     },
     "R": {
       "id": "R",
       "name": "Slicing Maelstrom",
-      "cooldown": [120, 100, 80],
-      "cost": [0],
+      "cooldown": [
+        120,
+        100,
+        80
+      ],
+      "cost": [
+        0,
+        0,
+        0
+      ],
       "costType": "Energy",
-      "range": [550],
+      "range": [
+        550,
+        550,
+        550
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [40, 75, 110],
-            "scalings": [
-                { "stat": "ap", "ratio": 0.225 }
+            "base": [
+              0,
+              0,
+              0
             ],
-            "multiHit": 6,
-            "multiHitInterval": 0.5
+            "scalings": []
           }
         }
       ]

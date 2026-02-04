@@ -1,6 +1,10 @@
 {
   "id": "Nami",
   "name": "Nami",
+  "roles": [
+    "Support",
+    "Mage"
+  ],
   "baseStats": {
     "hp": 560,
     "hpPerLevel": 88,
@@ -17,55 +21,108 @@
     "range": 550,
     "moveSpeed": 335
   },
-  "mechanics": ["Support", "Enchanter", "CC", "Utility"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Surging Tides",
-      "cooldown": [0],
+      "cooldown": [
+        0
+      ],
+      "cost": [
+        0
+      ],
       "effects": []
     },
     "Q": {
       "id": "Q",
       "name": "Aqua Prison",
-      "cooldown": [12, 11, 10, 9, 8],
-      "cost": [60],
+      "cooldown": [
+        12,
+        11,
+        10,
+        9,
+        8
+      ],
+      "cost": [
+        60,
+        60,
+        60,
+        60,
+        60
+      ],
       "costType": "Mana",
-      "range": [875],
+      "range": [
+        875,
+        875,
+        875,
+        875,
+        875
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [75, 130, 185, 240, 295],
-            "scalings": [
-                { "stat": "ap", "ratio": 0.5 }
+            "base": [
+              75,
+              130,
+              185,
+              240,
+              295
             ],
-            "projectileSpeed": 1200
+            "scalings": []
           }
-        },
-        {
-            "type": "cc",
-            "duration": 1.5,
-            "stack": { "name": "stunned", "max": 1 }
         }
       ]
     },
     "W": {
       "id": "W",
       "name": "Ebb and Flow",
-      "cooldown": [10],
-      "cost": [70, 75, 80, 85, 90],
+      "cooldown": [
+        10,
+        10,
+        10,
+        10,
+        10
+      ],
+      "cost": [
+        70,
+        75,
+        80,
+        85,
+        90
+      ],
       "costType": "Mana",
-      "range": [725],
+      "range": [
+        725,
+        725,
+        725,
+        725,
+        725
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [60, 95, 130, 165, 200],
+            "base": [
+              60,
+              95,
+              130,
+              165,
+              200
+            ],
             "scalings": [
-                { "stat": "ap", "ratio": 0.5 }
+              {
+                "stat": "ap",
+                "ratio": [
+                  0.5,
+                  0.5,
+                  0.5,
+                  0.5,
+                  0.5
+                ]
+              }
             ]
           }
         }
@@ -74,21 +131,41 @@
     "E": {
       "id": "E",
       "name": "Tidecaller's Blessing",
-      "cooldown": [11],
-      "cost": [55, 60, 65, 70, 75],
+      "cooldown": [
+        11,
+        11,
+        11,
+        11,
+        11
+      ],
+      "cost": [
+        55,
+        60,
+        65,
+        70,
+        75
+      ],
       "costType": "Mana",
+      "range": [
+        800,
+        800,
+        800,
+        800,
+        800
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [20, 35, 50, 65, 80],
-            "scalings": [
-                { "stat": "ap", "ratio": 0.2 }
+            "base": [
+              20,
+              30,
+              40,
+              50,
+              60
             ],
-            "multiHit": 3,
-            "multiHitInterval": 1.0,
-            "onHitEffectiveness": 1.0
+            "scalings": []
           }
         }
       ]
@@ -96,25 +173,34 @@
     "R": {
       "id": "R",
       "name": "Tidal Wave",
-      "cooldown": [120, 110, 100],
-      "cost": [100],
+      "cooldown": [
+        120,
+        110,
+        100
+      ],
+      "cost": [
+        100,
+        100,
+        100
+      ],
       "costType": "Mana",
-      "range": [2550],
+      "range": [
+        2550,
+        2550,
+        2550
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [150, 250, 350],
-            "scalings": [
-                { "stat": "ap", "ratio": 0.6 }
-            ]
+            "base": [
+              150,
+              250,
+              350
+            ],
+            "scalings": []
           }
-        },
-        {
-            "type": "cc",
-            "duration": 1.0,
-            "stack": { "name": "airborne", "max": 1 }
         }
       ]
     }

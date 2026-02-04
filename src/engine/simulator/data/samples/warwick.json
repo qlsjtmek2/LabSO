@@ -1,6 +1,10 @@
 {
   "id": "Warwick",
   "name": "Warwick",
+  "roles": [
+    "Fighter",
+    "Tank"
+  ],
   "baseStats": {
     "hp": 620,
     "hpPerLevel": 99,
@@ -17,98 +21,190 @@
     "range": 125,
     "moveSpeed": 335
   },
-  "mechanics": ["Bruiser", "Diver", "Jungler", "Heal", "CC", "Suppress", "%MaxHP"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Eternal Hunger",
-      "cooldown": [0],
-      "effects": [
-        {
-          "type": "damage",
-          "logic": {
-            "damageType": "Magical",
-            "base": [12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46],
-            "levelScaling": true,
-            "scalings": [
-                { "stat": "bonusAd", "ratio": 0.15 },
-                { "stat": "ap", "ratio": 0.1 }
-            ],
-            "onHitEffectiveness": 1.0
-          }
-        }
-      ]
+      "cooldown": [
+        0
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
     },
     "Q": {
       "id": "Q",
       "name": "Jaws of the Beast",
-      "cooldown": [6],
-      "cost": [50, 60, 70, 80, 90],
+      "cooldown": [
+        8,
+        7.5,
+        7,
+        6.5,
+        6
+      ],
+      "cost": [
+        80,
+        85,
+        90,
+        95,
+        100
+      ],
       "costType": "Mana",
-      "range": [365],
+      "range": [
+        365,
+        365,
+        365,
+        365,
+        365
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [0],
+            "base": [],
             "scalings": [
-                { "stat": "ad", "ratio": 1.2 },
-                { "stat": "ap", "ratio": 1.0 },
-                { "stat": "maxHp", "target": "enemy", "ratio": [0.06, 0.07, 0.08, 0.09, 0.1] }
-            ],
-            "onHitEffectiveness": 1.0
+              {
+                "stat": "ad",
+                "ratio": [
+                  1.2000000476837158,
+                  1.2000000476837158,
+                  1.2000000476837158,
+                  1.2000000476837158,
+                  1.2000000476837158
+                ]
+              },
+              {
+                "stat": "ap",
+                "ratio": 1
+              }
+            ]
           }
-        },
-        {
-            "type": "heal",
-            "logic": {
-                "base": [0.25, 0.375, 0.5, 0.625, 0.75]
-            }
         }
       ]
     },
     "W": {
       "id": "W",
       "name": "Blood Hunt",
-      "cooldown": [120, 105, 90, 75, 60],
+      "cooldown": [
+        80,
+        70,
+        60,
+        50,
+        40
+      ],
+      "cost": [
+        55,
+        55,
+        55,
+        55,
+        55
+      ],
+      "costType": "Mana",
+      "range": [
+        4000,
+        4000,
+        4000,
+        4000,
+        4000
+      ],
       "effects": [
         {
-            "type": "buff",
-            "stack": { "name": "attackSpeed", "max": 1 },
-            "logic": { "base": [0.7, 0.8, 0.9, 1.0, 1.1] }
+          "type": "damage",
+          "logic": {
+            "damageType": "Physical",
+            "base": [
+              35,
+              42.5,
+              50,
+              57.5,
+              65
+            ],
+            "scalings": []
+          }
         }
       ]
     },
     "E": {
       "id": "E",
       "name": "Primal Howl",
-      "cooldown": [15, 14, 13, 12, 11],
+      "cooldown": [
+        15,
+        14,
+        13,
+        12,
+        11
+      ],
+      "cost": [
+        40,
+        40,
+        40,
+        40,
+        40
+      ],
+      "costType": "Mana",
+      "range": [
+        375,
+        375,
+        375,
+        375,
+        375
+      ],
       "effects": [
         {
-            "type": "buff",
-            "stack": { "name": "damage_reduction", "max": 1 },
-            "logic": { "base": [0.35, 0.4, 0.45, 0.5, 0.55] }
+          "type": "damage",
+          "logic": {
+            "damageType": "Physical",
+            "base": [
+              35,
+              40,
+              45,
+              50,
+              55
+            ],
+            "scalings": []
+          }
         }
       ]
     },
     "R": {
       "id": "R",
       "name": "Infinite Duress",
-      "cooldown": [110, 90, 70],
-      "cost": [100],
+      "cooldown": [
+        110,
+        90,
+        70
+      ],
+      "cost": [
+        100,
+        100,
+        100
+      ],
+      "costType": "Mana",
+      "range": [
+        25000,
+        25000,
+        25000
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [175, 350, 525],
-            "scalings": [
-                { "stat": "bonusAd", "ratio": 1.67 }
+            "base": [
+              175,
+              350,
+              525,
+              700,
+              875
             ],
-            "multiHit": 3,
-            "multiHitInterval": 0.5,
-            "onHitEffectiveness": 1.0
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 1.6699999570846558
+              }
+            ]
           }
         }
       ]

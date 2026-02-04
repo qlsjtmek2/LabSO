@@ -1,6 +1,10 @@
 {
   "id": "Fiddlesticks",
   "name": "Fiddlesticks",
+  "roles": [
+    "Mage",
+    "Support"
+  ],
   "baseStats": {
     "hp": 650,
     "hpPerLevel": 106,
@@ -17,57 +21,98 @@
     "range": 480,
     "moveSpeed": 335
   },
-  "mechanics": ["Mage", "Jungler", "Drain", "Fear"],
   "spells": {
     "P": {
       "id": "P",
       "name": "A Harmless Scarecrow",
-      "cooldown": [0],
+      "cooldown": [
+        0
+      ],
+      "cost": [
+        0
+      ],
       "effects": []
     },
     "Q": {
       "id": "Q",
       "name": "Terrify",
-      "cooldown": [15, 14.5, 14, 13.5, 13],
-      "cost": [65],
+      "cooldown": [
+        15,
+        14.5,
+        14,
+        13.5,
+        13
+      ],
+      "cost": [
+        65,
+        65,
+        65,
+        65,
+        65
+      ],
       "costType": "Mana",
-      "range": [575],
+      "range": [
+        575,
+        575,
+        575,
+        575,
+        575
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [6, 7, 8, 9, 10],
-            "scalings": [
-                { "stat": "currentHp", "target": "enemy", "ratio": 0.02 }
-            ]
+            "base": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "scalings": []
           }
-        },
-        {
-            "type": "cc",
-            "duration": 1.25,
-            "stack": { "name": "fear", "max": 1 }
         }
       ]
     },
     "W": {
       "id": "W",
       "name": "Bountiful Harvest",
-      "cooldown": [10, 9.5, 9, 8.5, 8],
-      "cost": [60, 65, 70, 75, 80],
+      "cooldown": [
+        10,
+        9.5,
+        9,
+        8.5,
+        8
+      ],
+      "cost": [
+        60,
+        65,
+        70,
+        75,
+        80
+      ],
       "costType": "Mana",
-      "range": [650],
+      "range": [
+        650,
+        650,
+        650,
+        650,
+        650
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [120, 160, 200, 240, 280],
-            "scalings": [
-                { "stat": "ap", "ratio": 0.35 }
+            "base": [
+              0,
+              0,
+              0,
+              0,
+              0
             ],
-            "multiHit": 5,
-            "multiHitInterval": 0.4
+            "scalings": []
           }
         }
       ]
@@ -75,19 +120,41 @@
     "E": {
       "id": "E",
       "name": "Reap",
-      "cooldown": [10, 9, 8, 7, 6],
-      "cost": [40, 45, 50, 55, 60],
+      "cooldown": [
+        10,
+        9,
+        8,
+        7,
+        6
+      ],
+      "cost": [
+        40,
+        45,
+        50,
+        55,
+        60
+      ],
       "costType": "Mana",
-      "range": [850],
+      "range": [
+        850,
+        850,
+        850,
+        850,
+        850
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [70, 105, 140, 175, 210],
-            "scalings": [
-                { "stat": "ap", "ratio": 0.5 }
-            ]
+            "base": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "scalings": []
           }
         }
       ]
@@ -95,21 +162,33 @@
     "R": {
       "id": "R",
       "name": "Crowstorm",
-      "cooldown": [140, 110, 80],
-      "cost": [100],
+      "cooldown": [
+        140,
+        110,
+        80
+      ],
+      "cost": [
+        100,
+        100,
+        100
+      ],
       "costType": "Mana",
-      "range": [800],
+      "range": [
+        800,
+        800,
+        800
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [750, 1250, 1750],
-            "scalings": [
-                { "stat": "ap", "ratio": 2.5 }
+            "base": [
+              125,
+              225,
+              325
             ],
-            "multiHit": 10,
-            "multiHitInterval": 0.5
+            "scalings": []
           }
         }
       ]

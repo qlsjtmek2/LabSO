@@ -1,6 +1,10 @@
 {
   "id": "Fiora",
   "name": "Fiora",
+  "roles": [
+    "Fighter",
+    "Assassin"
+  ],
   "baseStats": {
     "hp": 620,
     "hpPerLevel": 99,
@@ -17,43 +21,56 @@
     "range": 150,
     "moveSpeed": 345
   },
-  "mechanics": ["Skirmisher", "Duelist", "TrueDamage", "%MaxHP"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Duelist's Dance",
-      "cooldown": [0],
-      "effects": [
-        {
-          "type": "damage",
-          "logic": {
-            "damageType": "True",
-            "base": [0.03],
-            "scalings": [
-                { "stat": "maxHp", "target": "enemy", "ratio": 0.03 },
-                { "stat": "bonusAd", "ratio": 0.04 }
-            ]
-          }
-        }
-      ]
+      "cooldown": [
+        0
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
     },
     "Q": {
       "id": "Q",
       "name": "Lunge",
-      "cooldown": [13, 11.25, 9.5, 7.75, 6],
-      "cost": [20],
+      "cooldown": [
+        13,
+        11.25,
+        9.5,
+        7.75,
+        6
+      ],
+      "cost": [
+        20,
+        20,
+        20,
+        20,
+        20
+      ],
       "costType": "Mana",
-      "range": [400],
+      "range": [
+        400,
+        400,
+        400,
+        400,
+        400
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [70, 80, 90, 100, 110],
-            "scalings": [
-                { "stat": "bonusAd", "ratio": [0.9, 0.95, 1.0, 1.05, 1.1] }
+            "base": [
+              70,
+              80,
+              90,
+              100,
+              110
             ],
-            "onHitEffectiveness": 1.0
+            "scalings": []
           }
         }
       ]
@@ -61,61 +78,128 @@
     "W": {
       "id": "W",
       "name": "Riposte",
-      "cooldown": [24, 22, 20, 18, 16],
-      "cost": [50],
+      "cooldown": [
+        24,
+        22,
+        20,
+        18,
+        16
+      ],
+      "cost": [
+        50,
+        50,
+        50,
+        50,
+        50
+      ],
       "costType": "Mana",
-      "range": [750],
+      "range": [
+        750,
+        750,
+        750,
+        750,
+        750
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [110, 150, 190, 230, 270],
+            "base": [
+              110,
+              150,
+              190,
+              230,
+              270
+            ],
             "scalings": [
-                { "stat": "ap", "ratio": 1.0 }
+              {
+                "stat": "ap",
+                "ratio": 1
+              }
             ]
           }
-        },
-        {
-            "type": "cc",
-            "duration": 2.0,
-            "stack": { "name": "stunned", "max": 1 }
         }
       ]
     },
     "E": {
       "id": "E",
       "name": "Bladework",
-      "cooldown": [11, 10, 9, 8, 7],
-      "cost": [40],
+      "cooldown": [
+        11,
+        10,
+        9,
+        8,
+        7
+      ],
+      "cost": [
+        40,
+        40,
+        40,
+        40,
+        40
+      ],
       "costType": "Mana",
+      "range": [
+        425,
+        425,
+        425,
+        425,
+        425
+      ],
       "effects": [
         {
-          "type": "buff",
-          "stack": { "name": "attackSpeed", "max": 1 },
-          "logic": { "base": [0.5, 0.6, 0.7, 0.8, 0.9] }
+          "type": "damage",
+          "logic": {
+            "damageType": "Physical",
+            "base": [],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.10000000149011612
+              }
+            ]
+          }
         }
       ]
     },
     "R": {
       "id": "R",
       "name": "Grand Challenge",
-      "cooldown": [110, 90, 70],
-      "cost": [100],
+      "cooldown": [
+        110,
+        90,
+        70
+      ],
+      "cost": [
+        100,
+        100,
+        100
+      ],
       "costType": "Mana",
-      "range": [500],
+      "range": [
+        500,
+        500,
+        500
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "True",
-            "base": [0.03],
-            "scalings": [
-                { "stat": "maxHp", "target": "enemy", "ratio": 0.03 },
-                { "stat": "bonusAd", "ratio": 0.04 }
+            "base": [
+              75,
+              100,
+              125,
+              150,
+              175
             ],
-            "multiHit": 4,
-            "multiHitInterval": 1.0
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.6000000238418579
+              }
+            ]
           }
         }
       ]

@@ -1,6 +1,10 @@
 {
   "id": "Annie",
   "name": "Annie",
+  "roles": [
+    "Mage",
+    "Support"
+  ],
   "baseStats": {
     "hp": 560,
     "hpPerLevel": 96,
@@ -17,37 +21,67 @@
     "range": 625,
     "moveSpeed": 335
   },
-  "mechanics": ["Mage", "Burst", "Pet"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Pyromania",
-      "cooldown": [0],
-      "effects": [
-        {
-          "type": "cc",
-          "stack": { "name": "stunned", "max": 1 },
-          "duration": 1.25
-        }
-      ]
+      "cooldown": [
+        0
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
     },
     "Q": {
       "id": "Q",
       "name": "Disintegrate",
-      "cooldown": [4, 4, 4, 4, 4],
-      "cost": [60, 65, 70, 75, 80],
+      "cooldown": [
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "cost": [
+        60,
+        65,
+        70,
+        75,
+        80
+      ],
       "costType": "Mana",
-      "range": [625, 625, 625, 625, 625],
+      "range": [
+        625,
+        625,
+        625,
+        625,
+        625
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [70, 105, 140, 175, 210],
-            "scalings": [
-                { "stat": "ap", "ratio": 0.75 }
+            "base": [
+              80,
+              120,
+              160,
+              200,
+              240
             ],
-            "projectileSpeed": 1400
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": [
+                  0.800000011920929,
+                  0.800000011920929,
+                  0.800000011920929,
+                  0.800000011920929,
+                  0.800000011920929
+                ]
+              }
+            ]
           }
         }
       ]
@@ -55,18 +89,51 @@
     "W": {
       "id": "W",
       "name": "Incinerate",
-      "cooldown": [8, 8, 8, 8, 8],
-      "cost": [70, 80, 90, 100, 110],
+      "cooldown": [
+        7,
+        7,
+        7,
+        7,
+        7
+      ],
+      "cost": [
+        70,
+        75,
+        80,
+        85,
+        90
+      ],
       "costType": "Mana",
-      "range": [600, 600, 600, 600, 600],
+      "range": [
+        600,
+        600,
+        600,
+        600,
+        600
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [70, 115, 160, 205, 250],
+            "base": [
+              70,
+              110,
+              150,
+              190,
+              230
+            ],
             "scalings": [
-                { "stat": "ap", "ratio": 0.85 }
+              {
+                "stat": "ap",
+                "ratio": [
+                  0.800000011920929,
+                  0.800000011920929,
+                  0.800000011920929,
+                  0.800000011920929,
+                  0.800000011920929
+                ]
+              }
             ]
           }
         }
@@ -75,62 +142,88 @@
     "E": {
       "id": "E",
       "name": "Molten Shield",
-      "cooldown": [12, 11.5, 11, 10.5, 10],
-      "cost": [40, 40, 40, 40, 40],
+      "cooldown": [
+        12,
+        11.5,
+        11,
+        10.5,
+        10
+      ],
+      "cost": [
+        60,
+        65,
+        70,
+        75,
+        80
+      ],
       "costType": "Mana",
+      "range": [
+        800,
+        800,
+        800,
+        800,
+        800
+      ],
       "effects": [
         {
-          "type": "shield",
+          "type": "damage",
           "logic": {
-              "base": [60, 95, 130, 165, 200],
-              "scalings": [
-                  { "stat": "ap", "ratio": 0.4 }
-              ]
+            "damageType": "Magical",
+            "base": [
+              25,
+              35,
+              45,
+              55,
+              65
+            ],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.4000000059604645
+              }
+            ]
           }
-        },
-        {
-            "type": "damage",
-            "logic": {
-                "damageType": "Magical",
-                "base": [25, 35, 45, 55, 65],
-                "scalings": [
-                    { "stat": "ap", "ratio": 0.4 }
-                ]
-            }
         }
       ]
     },
     "R": {
       "id": "R",
       "name": "Summon: Tibbers",
-      "cooldown": [130, 115, 100],
-      "cost": [100, 100, 100],
+      "cooldown": [
+        130,
+        115,
+        100
+      ],
+      "cost": [
+        100,
+        100,
+        100
+      ],
       "costType": "Mana",
-      "range": [600, 600, 600],
+      "range": [
+        600,
+        600,
+        600
+      ],
       "effects": [
         {
-          "id": "Initial",
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [150, 275, 400],
+            "base": [
+              150,
+              275,
+              400,
+              525,
+              650
+            ],
             "scalings": [
-                { "stat": "ap", "ratio": 0.75 }
+              {
+                "stat": "ap",
+                "ratio": 0.75
+              }
             ]
           }
-        },
-        {
-            "id": "Tibbers_Aura",
-            "type": "damage",
-            "logic": {
-                "damageType": "Magical",
-                "base": [20, 30, 40],
-                "scalings": [
-                    { "stat": "ap", "ratio": 0.12 }
-                ],
-                "multiHit": 10,
-                "multiHitInterval": 1.0
-            }
         }
       ]
     }

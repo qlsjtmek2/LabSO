@@ -1,6 +1,10 @@
 {
   "id": "Blitzcrank",
   "name": "Blitzcrank",
+  "roles": [
+    "Tank",
+    "Support"
+  ],
   "baseStats": {
     "hp": 600,
     "hpPerLevel": 109,
@@ -17,111 +21,175 @@
     "range": 125,
     "moveSpeed": 325
   },
-  "mechanics": ["Tank", "CC", "Support"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Mana Barrier",
-      "cooldown": [90],
-      "effects": [
-        {
-          "type": "shield",
-          "logic": {
-              "base": [0.3],
-              "scalings": [
-                  { "stat": "mp", "ratio": 0.3 }
-              ]
-          }
-        }
-      ]
+      "cooldown": [
+        0
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
     },
     "Q": {
       "id": "Q",
       "name": "Rocket Grab",
-      "cooldown": [20, 19, 18, 17, 16],
-      "cost": [100, 100, 100, 100, 100],
+      "cooldown": [
+        20,
+        19,
+        18,
+        17,
+        16
+      ],
+      "cost": [
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
       "costType": "Mana",
-      "range": [1079, 1079, 1079, 1079, 1079],
+      "range": [
+        1079,
+        1079,
+        1079,
+        1079,
+        1079
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [105, 155, 205, 255, 305],
-            "scalings": [
-                { "stat": "ap", "ratio": 1.2 }
+            "base": [
+              90,
+              140,
+              190,
+              240,
+              290
             ],
-            "projectileSpeed": 1800
+            "scalings": []
           }
-        },
-        {
-            "type": "cc",
-            "duration": 1.0,
-            "stack": { "name": "stunned", "max": 1 }
         }
       ]
     },
     "W": {
       "id": "W",
       "name": "Overdrive",
-      "cooldown": [15, 15, 15, 15, 15],
-      "cost": [75, 75, 75, 75, 75],
+      "cooldown": [
+        15,
+        15,
+        15,
+        15,
+        15
+      ],
+      "cost": [
+        75,
+        75,
+        75,
+        75,
+        75
+      ],
       "costType": "Mana",
+      "range": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
       "effects": [
         {
-          "type": "buff",
-          "stack": { "name": "attackSpeed", "max": 1 },
-          "logic": { "base": [0.3, 0.4, 0.5, 0.6, 0.7] }
+          "type": "damage",
+          "logic": {
+            "damageType": "Physical",
+            "base": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "scalings": []
+          }
         }
       ]
     },
     "E": {
       "id": "E",
       "name": "Power Fist",
-      "cooldown": [7, 6.5, 6, 5.5, 5],
-      "cost": [25, 25, 25, 25, 25],
+      "cooldown": [
+        7,
+        6.5,
+        6,
+        5.5,
+        5
+      ],
+      "cost": [
+        25,
+        25,
+        25,
+        25,
+        25
+      ],
       "costType": "Mana",
-      "range": [300, 300, 300, 300, 300],
+      "range": [
+        300,
+        300,
+        300,
+        300,
+        300
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [0],
-            "scalings": [
-                { "stat": "ad", "ratio": 1.0 }
-            ]
+            "base": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "scalings": []
           }
-        },
-        {
-            "type": "cc",
-            "duration": 1.0,
-            "stack": { "name": "airborne", "max": 1 }
         }
       ]
     },
     "R": {
       "id": "R",
       "name": "Static Field",
-      "cooldown": [60, 40, 20],
-      "cost": [100, 100, 100],
+      "cooldown": [
+        60,
+        40,
+        20
+      ],
+      "cost": [
+        100,
+        100,
+        100
+      ],
       "costType": "Mana",
-      "range": [600, 600, 600],
+      "range": [
+        600,
+        600,
+        600
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [275, 450, 625],
-            "scalings": [
-                { "stat": "ap", "ratio": 1.0 }
-            ]
+            "base": [
+              0,
+              0,
+              0
+            ],
+            "scalings": []
           }
-        },
-        {
-            "type": "cc",
-            "duration": 0.5,
-            "stack": { "name": "suppressed", "max": 1 }
         }
       ]
     }

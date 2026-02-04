@@ -1,6 +1,10 @@
 {
   "id": "Jhin",
   "name": "Jhin",
+  "roles": [
+    "Marksman",
+    "Mage"
+  ],
   "baseStats": {
     "hp": 655,
     "hpPerLevel": 107,
@@ -17,42 +21,70 @@
     "range": 550,
     "moveSpeed": 330
   },
-  "mechanics": ["Marksman", "Sniper", "Execute", "CriticalStrike"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Whisper",
-      "cooldown": [0],
-      "effects": [
-        {
-          "id": "ExecutionShot",
-          "type": "damage",
-          "logic": {
-            "damageType": "Physical",
-            "base": [0],
-            "scalings": [
-                { "stat": "missingHp", "target": "enemy", "ratio": [0.15, 0.2, 0.25] }
-            ]
-          }
-        }
-      ]
+      "cooldown": [
+        0
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
     },
     "Q": {
       "id": "Q",
       "name": "Dancing Grenade",
-      "cooldown": [7, 6.5, 6, 5.5, 5],
-      "cost": [40, 45, 50, 55, 60],
+      "cooldown": [
+        7,
+        6.5,
+        6,
+        5.5,
+        5
+      ],
+      "cost": [
+        40,
+        45,
+        50,
+        55,
+        60
+      ],
       "costType": "Mana",
-      "range": [550],
+      "range": [
+        550,
+        550,
+        550,
+        550,
+        550
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [44, 69, 94, 119, 144],
+            "base": [
+              44,
+              69,
+              94,
+              119,
+              144
+            ],
             "scalings": [
-                { "stat": "ad", "ratio": [0.45, 0.525, 0.6, 0.675, 0.75] },
-                { "stat": "ap", "ratio": 0.6 }
+              {
+                "stat": "ad",
+                "ratio": [
+                  0.4399999976158142,
+                  0.5149999856948853,
+                  0.5899999737739563,
+                  0.6650000214576721,
+                  0.7400000095367432
+                ]
+              },
+              {
+                "stat": "ap",
+                "ratio": 0.6000000238418579
+              }
             ]
           }
         }
@@ -61,42 +93,96 @@
     "W": {
       "id": "W",
       "name": "Deadly Flourish",
-      "cooldown": [12],
-      "cost": [50],
+      "cooldown": [
+        12,
+        12,
+        12,
+        12,
+        12
+      ],
+      "cost": [
+        50,
+        55,
+        60,
+        65,
+        70
+      ],
       "costType": "Mana",
-      "range": [3000],
+      "range": [
+        3000,
+        3000,
+        3000,
+        3000,
+        3000
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [60, 95, 130, 165, 200],
+            "base": [
+              70,
+              105,
+              140,
+              175,
+              210
+            ],
             "scalings": [
-                { "stat": "ad", "ratio": 0.5 }
+              {
+                "stat": "ap",
+                "ratio": 0.5
+              }
             ]
           }
-        },
-        {
-            "type": "cc",
-            "duration": 1.25,
-            "stack": { "name": "rooted", "max": 1 }
         }
       ]
     },
     "E": {
       "id": "E",
       "name": "Captive Audience",
-      "cooldown": [2],
-      "cost": [30],
+      "cooldown": [
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "cost": [
+        30,
+        30,
+        30,
+        30,
+        30
+      ],
+      "costType": "Mana",
+      "range": [
+        750,
+        750,
+        750,
+        750,
+        750
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [20, 80, 140, 200, 260],
+            "base": [
+              20,
+              80,
+              140,
+              200,
+              260
+            ],
             "scalings": [
-                { "stat": "ad", "ratio": 1.2 },
-                { "stat": "ap", "ratio": 1.0 }
+              {
+                "stat": "ap",
+                "ratio": 1.2000000476837158
+              },
+              {
+                "stat": "ap",
+                "ratio": 1
+              }
             ]
           }
         }
@@ -105,26 +191,45 @@
     "R": {
       "id": "R",
       "name": "Curtain Call",
-      "cooldown": [120, 105, 90],
-      "cost": [100],
+      "cooldown": [
+        120,
+        105,
+        90
+      ],
+      "cost": [
+        100,
+        100,
+        100
+      ],
       "costType": "Mana",
-      "range": [25000],
+      "range": [
+        25000,
+        25000,
+        25000
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [64, 128, 192],
-            "scalings": [
-                { "stat": "ad", "ratio": 0.25 }
+            "base": [
+              64,
+              128,
+              192,
+              256,
+              320
             ],
-            "multiHit": 4,
-            "multiHitInterval": 1.0,
-            "modifiers": [
-                {
-                    "condition": { "type": "stat", "target": "enemy", "stat": "missingHp", "operator": ">", "value": 0 },
-                    "multiplier": 4.0
-                }
+            "scalings": [
+              {
+                "stat": "ad",
+                "ratio": [
+                  0.25,
+                  0.25,
+                  0.25,
+                  0.25,
+                  0.25
+                ]
+              }
             ]
           }
         }

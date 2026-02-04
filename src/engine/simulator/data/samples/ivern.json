@@ -1,6 +1,10 @@
 {
   "id": "Ivern",
   "name": "Ivern",
+  "roles": [
+    "Support",
+    "Mage"
+  ],
   "baseStats": {
     "hp": 630,
     "hpPerLevel": 99,
@@ -17,56 +21,114 @@
     "range": 475,
     "moveSpeed": 330
   },
-  "mechanics": ["Support", "Jungler", "Pet", "Shield"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Friend of the Forest",
-      "cooldown": [0],
+      "cooldown": [
+        0
+      ],
+      "cost": [
+        0
+      ],
       "effects": []
     },
     "Q": {
       "id": "Q",
       "name": "Rootcaller",
-      "cooldown": [14, 13, 12, 11, 10],
-      "cost": [60],
+      "cooldown": [
+        14,
+        13,
+        12,
+        11,
+        10
+      ],
+      "cost": [
+        60,
+        60,
+        60,
+        60,
+        60
+      ],
       "costType": "Mana",
-      "range": [1125],
+      "range": [
+        1125,
+        1125,
+        1125,
+        1125,
+        1125
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [80, 125, 170, 215, 260],
-            "scalings": [
-                { "stat": "ap", "ratio": 0.7 }
+            "base": [
+              80,
+              125,
+              170,
+              215,
+              260
             ],
-            "projectileSpeed": 1300
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": [
+                  0.699999988079071,
+                  0.699999988079071,
+                  0.699999988079071,
+                  0.699999988079071,
+                  0.699999988079071
+                ]
+              }
+            ]
           }
-        },
-        {
-            "type": "cc",
-            "duration": 1.2,
-            "stack": { "name": "rooted", "max": 1 }
         }
       ]
     },
     "W": {
       "id": "W",
       "name": "Brushmaker",
-      "cooldown": [0.5],
-      "cost": [30],
+      "cooldown": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "cost": [
+        30,
+        30,
+        30,
+        30,
+        30
+      ],
       "costType": "Mana",
+      "range": [
+        1150,
+        1150,
+        1150,
+        1150,
+        1150
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [20, 27.5, 35, 42.5, 50],
-            "scalings": [
-                { "stat": "ap", "ratio": 0.2 }
+            "base": [
+              20,
+              27.5,
+              35,
+              42.5,
+              50
             ],
-            "onHitEffectiveness": 1.0
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.20000000298023224
+              }
+            ]
           }
         }
       ]
@@ -74,51 +136,93 @@
     "E": {
       "id": "E",
       "name": "Triggerseed",
-      "cooldown": [11, 10, 9, 8, 7],
-      "cost": [70],
+      "cooldown": [
+        11,
+        10,
+        9,
+        8,
+        7
+      ],
+      "cost": [
+        70,
+        70,
+        70,
+        70,
+        70
+      ],
       "costType": "Mana",
-      "range": [750],
+      "range": [
+        750,
+        750,
+        750,
+        750,
+        750
+      ],
       "effects": [
         {
-          "type": "shield",
+          "type": "damage",
           "logic": {
-              "base": [85, 110, 135, 160, 185],
-              "scalings": [
-                  { "stat": "ap", "ratio": 0.5 }
-              ]
+            "damageType": "Magical",
+            "base": [
+              70,
+              90,
+              110,
+              130,
+              150
+            ],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": [
+                  0.800000011920929,
+                  0.800000011920929,
+                  0.800000011920929,
+                  0.800000011920929,
+                  0.800000011920929
+                ]
+              }
+            ]
           }
-        },
-        {
-            "id": "Explosion",
-            "type": "damage",
-            "logic": {
-                "damageType": "Magical",
-                "base": [70, 90, 110, 130, 150],
-                "scalings": [
-                    { "stat": "ap", "ratio": 0.8 }
-                ],
-                "delay": 2.0
-            }
         }
       ]
     },
     "R": {
       "id": "R",
       "name": "Daisy!",
-      "cooldown": [140, 130, 120],
-      "cost": [100],
+      "cooldown": [
+        140,
+        130,
+        120
+      ],
+      "cost": [
+        100,
+        100,
+        100
+      ],
       "costType": "Mana",
+      "range": [
+        600,
+        600,
+        600
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [70, 100, 130],
-            "scalings": [
-                { "stat": "ap", "ratio": 0.3 }
+            "base": [
+              90,
+              140,
+              190,
+              240,
+              290
             ],
-            "multiHit": 5,
-            "multiHitInterval": 1.0
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 0.5
+              }
+            ]
           }
         }
       ]

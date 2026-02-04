@@ -1,6 +1,10 @@
 {
   "id": "TahmKench",
   "name": "Tahm Kench",
+  "roles": [
+    "Tank",
+    "Support"
+  ],
   "baseStats": {
     "hp": 640,
     "hpPerLevel": 103,
@@ -17,93 +21,144 @@
     "range": 175,
     "moveSpeed": 335
   },
-  "mechanics": ["Tank", "Warden", "CC", "Heal", "Shield", "%MaxHP"],
   "spells": {
     "P": {
       "id": "P",
       "name": "An Acquired Taste",
-      "cooldown": [0],
-      "effects": [
-        {
-          "type": "damage",
-          "logic": {
-            "damageType": "Magical",
-            "base": [6, 10, 14, 18, 22, 26, 30, 34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74],
-            "levelScaling": true,
-            "scalings": [
-                { "stat": "bonusHp", "target": "self", "ratio": [0.025, 0.03, 0.035, 0.04, 0.045, 0.05] }
-            ]
-          }
-        }
-      ]
+      "cooldown": [
+        0
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
     },
     "Q": {
       "id": "Q",
       "name": "Tongue Lash",
-      "cooldown": [7, 6.5, 6, 5.5, 5],
-      "cost": [50],
+      "cooldown": [
+        7,
+        6.5,
+        6,
+        5.5,
+        5
+      ],
+      "cost": [
+        50,
+        46,
+        42,
+        38,
+        34
+      ],
       "costType": "Mana",
-      "range": [900],
+      "range": [
+        900,
+        900,
+        900,
+        900,
+        900
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [80, 130, 180, 230, 280],
-            "scalings": [
-                { "stat": "ap", "ratio": 1.0 }
+            "base": [
+              75,
+              120,
+              165,
+              210,
+              255
             ],
-            "projectileSpeed": 2800
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 1
+              }
+            ]
           }
-        },
-        {
-            "type": "heal",
-            "logic": {
-                "base": [10, 15, 20, 25, 30],
-                "scalings": [
-                    { "stat": "missingHp", "target": "self", "ratio": [0.05, 0.055, 0.06, 0.065, 0.07] }
-                ]
-            }
         }
       ]
     },
     "W": {
       "id": "W",
       "name": "Abyssal Dive",
-      "cooldown": [21, 20, 19, 18, 17],
-      "cost": [60, 75, 90, 105, 120],
+      "cooldown": [
+        21,
+        20,
+        19,
+        18,
+        17
+      ],
+      "cost": [
+        60,
+        75,
+        90,
+        105,
+        120
+      ],
       "costType": "Mana",
+      "range": [
+        1000,
+        1050,
+        1100,
+        1150,
+        1200
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [100, 135, 170, 205, 240],
-            "scalings": [
-                { "stat": "ap", "ratio": 1.5 }
+            "base": [
+              100,
+              135,
+              170,
+              205,
+              240
             ],
-            "delay": 1.35
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 1.5
+              }
+            ]
           }
-        },
-        {
-            "type": "cc",
-            "duration": 1.0,
-            "stack": { "name": "airborne", "max": 1 }
         }
       ]
     },
     "E": {
       "id": "E",
       "name": "Thick Skin",
-      "cooldown": [3],
+      "cooldown": [
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "cost": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "costType": "Mana",
+      "range": [
+        2400,
+        2400,
+        2400,
+        2400,
+        2400
+      ],
       "effects": [
         {
-          "type": "shield",
+          "type": "damage",
           "logic": {
-              "base": [0],
-              "scalings": [
-                  { "stat": "missingHp", "target": "self", "ratio": [0.15, 0.25, 0.35, 0.45] }
-              ]
+            "damageType": "Physical",
+            "base": [],
+            "scalings": []
           }
         }
       ]
@@ -111,18 +166,33 @@
     "R": {
       "id": "R",
       "name": "Devour",
-      "cooldown": [120, 100, 80],
-      "cost": [100],
+      "cooldown": [
+        0,
+        0,
+        0
+      ],
+      "cost": [
+        100,
+        100,
+        100
+      ],
+      "costType": "Mana",
+      "range": [
+        25000,
+        25000,
+        25000
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [100, 250, 400],
-            "scalings": [
-                { "stat": "maxHp", "target": "enemy", "ratio": [0.15, 0.15, 0.15] },
-                { "stat": "ap", "ratio": 0.0005 }
-            ]
+            "base": [
+              0,
+              0,
+              0
+            ],
+            "scalings": []
           }
         }
       ]

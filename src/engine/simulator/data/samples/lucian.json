@@ -1,6 +1,10 @@
 {
   "id": "Lucian",
   "name": "Lucian",
+  "roles": [
+    "Marksman",
+    "Assassin"
+  ],
   "baseStats": {
     "hp": 641,
     "hpPerLevel": 100,
@@ -17,43 +21,66 @@
     "range": 500,
     "moveSpeed": 335
   },
-  "mechanics": ["Marksman", "Mobile", "DoubleHit", "Burst"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Lightslinger",
-      "cooldown": [0],
-      "effects": [
-        {
-          "type": "damage",
-          "logic": {
-            "damageType": "Physical",
-            "base": [0],
-            "scalings": [
-                { "stat": "ad", "ratio": 1.5 }
-            ],
-            "multiHit": 2,
-            "multiHitInterval": 0.1,
-            "onHitEffectiveness": 1.0
-          }
-        }
-      ]
+      "cooldown": [
+        0
+      ],
+      "cost": [
+        0
+      ],
+      "effects": []
     },
     "Q": {
       "id": "Q",
       "name": "Piercing Light",
-      "cooldown": [9, 8, 7, 6, 5],
-      "cost": [48, 56, 64, 72, 80],
+      "cooldown": [
+        9,
+        8,
+        7,
+        6,
+        5
+      ],
+      "cost": [
+        48,
+        56,
+        64,
+        72,
+        80
+      ],
       "costType": "Mana",
-      "range": [500],
+      "range": [
+        500,
+        500,
+        500,
+        500,
+        500
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [85, 120, 155, 190, 225],
+            "base": [
+              80,
+              115,
+              150,
+              185,
+              220
+            ],
             "scalings": [
-                { "stat": "bonusAd", "ratio": [0.6, 0.75, 0.9, 1.05, 1.2] }
+              {
+                "stat": "bonusAd",
+                "ratio": [
+                  1,
+                  1,
+                  1,
+                  1,
+                  1
+                ]
+              }
             ]
           }
         }
@@ -62,20 +89,41 @@
     "W": {
       "id": "W",
       "name": "Ardent Blaze",
-      "cooldown": [14, 13, 12, 11, 10],
-      "cost": [60],
+      "cooldown": [
+        14,
+        13,
+        12,
+        11,
+        10
+      ],
+      "cost": [
+        60,
+        60,
+        60,
+        60,
+        60
+      ],
       "costType": "Mana",
-      "range": [900],
+      "range": [
+        900,
+        900,
+        900,
+        900,
+        900
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Magical",
-            "base": [75, 110, 145, 180, 215],
-            "scalings": [
-                { "stat": "ap", "ratio": 0.9 }
+            "base": [
+              75,
+              110,
+              145,
+              180,
+              215
             ],
-            "projectileSpeed": 1600
+            "scalings": []
           }
         }
       ]
@@ -83,32 +131,98 @@
     "E": {
       "id": "E",
       "name": "Relentless Pursuit",
-      "cooldown": [22, 20, 18, 16, 14],
-      "cost": [40, 30, 20, 10, 0],
+      "cooldown": [
+        18,
+        17,
+        16,
+        15,
+        14
+      ],
+      "cost": [
+        40,
+        30,
+        20,
+        10,
+        0
+      ],
       "costType": "Mana",
-      "range": [445],
-      "effects": []
-    },
-    "R": {
-      "id": "R",
-      "name": "The Culling",
-      "cooldown": [110, 100, 90],
-      "cost": [100],
-      "costType": "Mana",
-      "range": [1400],
+      "range": [
+        445,
+        445,
+        445,
+        445,
+        445
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [15, 30, 45],
-            "scalings": [
-                { "stat": "ad", "ratio": 0.25 },
-                { "stat": "ap", "ratio": 0.15 }
+            "base": [
+              1,
+              1,
+              1,
+              1,
+              1
             ],
-            "multiHit": 22,
-            "multiHitInterval": 0.1,
-            "onHitEffectiveness": 1.0
+            "scalings": []
+          }
+        }
+      ]
+    },
+    "R": {
+      "id": "R",
+      "name": "The Culling",
+      "cooldown": [
+        110,
+        100,
+        90
+      ],
+      "cost": [
+        100,
+        100,
+        100
+      ],
+      "costType": "Mana",
+      "range": [
+        1400,
+        1400,
+        1400
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Physical",
+            "base": [
+              15,
+              30,
+              45,
+              60,
+              75
+            ],
+            "scalings": [
+              {
+                "stat": "ad",
+                "ratio": [
+                  0.25,
+                  0.25,
+                  0.25,
+                  0.25,
+                  0.25
+                ]
+              },
+              {
+                "stat": "ap",
+                "ratio": [
+                  0.15000000596046448,
+                  0.15000000596046448,
+                  0.15000000596046448,
+                  0.15000000596046448,
+                  0.15000000596046448
+                ]
+              }
+            ]
           }
         }
       ]

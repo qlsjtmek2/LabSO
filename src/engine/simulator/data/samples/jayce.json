@@ -1,6 +1,10 @@
 {
   "id": "Jayce",
   "name": "Jayce",
+  "roles": [
+    "Fighter",
+    "Marksman"
+  ],
   "baseStats": {
     "hp": 590,
     "hpPerLevel": 109,
@@ -17,101 +21,245 @@
     "range": 125,
     "moveSpeed": 335
   },
-  "mechanics": ["Transformer", "Poke", "Assassin", "Burst"],
   "spells": {
     "P": {
       "id": "P",
       "name": "Hextech Capacitor",
-      "cooldown": [0],
+      "cooldown": [
+        0
+      ],
+      "cost": [
+        0
+      ],
       "effects": []
     },
     "Q": {
       "id": "Q",
-      "name": "Shock Blast (Cannon)",
-      "cooldown": [8],
-      "cost": [55, 60, 65, 70, 75],
+      "name": "To the Skies! / Shock Blast",
+      "cooldown": [
+        16,
+        14,
+        12,
+        10,
+        8,
+        6
+      ],
+      "cost": [
+        40,
+        40,
+        40,
+        40,
+        40,
+        40
+      ],
       "costType": "Mana",
-      "range": [1050],
+      "range": [
+        600,
+        600,
+        600,
+        600,
+        600,
+        600
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [55, 110, 165, 220, 275, 330],
-            "scalings": [
-                { "stat": "bonusAd", "ratio": 1.2 }
+            "base": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
             ],
-            "modifiers": [
-                {
-                    "condition": { "type": "buff", "target": "self", "buffName": "accelerated" },
-                    "multiplier": 1.4
-                }
-            ],
-            "projectileSpeed": 1450
+            "scalings": []
           }
         }
       ]
     },
     "W": {
       "id": "W",
-      "name": "Hyper Charge (Cannon)",
-      "cooldown": [13, 11.4, 9.8, 8.2, 6.6, 5],
-      "cost": [40],
+      "name": "Lightning Field / Hyper Charge",
+      "cooldown": [
+        10,
+        10,
+        10,
+        10,
+        10,
+        10
+      ],
+      "cost": [
+        40,
+        40,
+        40,
+        40,
+        40,
+        40
+      ],
       "costType": "Mana",
+      "range": [
+        285,
+        285,
+        285,
+        285,
+        285,
+        285
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
-            "damageType": "Physical",
-            "base": [0],
-            "scalings": [
-                { "stat": "ad", "ratio": [0.7, 0.78, 0.86, 0.94, 1.02, 1.1] }
+            "damageType": "Magical",
+            "base": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
             ],
-            "multiHit": 3,
-            "multiHitInterval": 0.15
+            "scalings": []
           }
         }
       ]
     },
     "E": {
       "id": "E",
-      "name": "Acceleration Gate (Cannon)",
-      "cooldown": [16],
-      "cost": [50],
+      "name": "Thundering Blow / Acceleration Gate",
+      "cooldown": [
+        20,
+        18,
+        16,
+        14,
+        12,
+        10
+      ],
+      "cost": [
+        55,
+        55,
+        55,
+        55,
+        55,
+        55
+      ],
       "costType": "Mana",
+      "range": [
+        240,
+        240,
+        240,
+        240,
+        240,
+        240
+      ],
       "effects": [
         {
-            "type": "buff",
-            "stack": { "name": "accelerated", "max": 1 },
-            "duration": 4.0
+          "type": "damage",
+          "logic": {
+            "damageType": "Magical",
+            "base": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "scalings": []
+          }
         }
       ]
     },
     "R": {
       "id": "R",
-      "name": "Mercury Hammer / Mercury Cannon",
-      "cooldown": [6],
-      "effects": [
-        {
-            "type": "buff",
-            "stack": { "name": "transform_bonus", "max": 1 },
-            "logic": { "base": [25, 65, 105, 145, 185] }
-        }
-      ]
-    },
-    "Q_Form2": {
-      "id": "Q_Form2",
-      "name": "To the Skies! (Hammer)",
-      "cooldown": [16, 14, 12, 10, 8, 6],
-      "cost": [40],
+      "name": "Mercury Cannon / Mercury Hammer",
+      "cooldown": [
+        6
+      ],
+      "cost": [
+        0
+      ],
+      "costType": "Mana",
+      "range": [
+        600
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
             "damageType": "Physical",
-            "base": [60, 105, 150, 195, 240, 285],
+            "base": [
+              0
+            ],
+            "scalings": []
+          }
+        }
+      ]
+    },
+    "Q_Form2": {
+      "id": "Q_Form2",
+      "name": "Q_Form2 (Form 2)",
+      "cooldown": [
+        0
+      ],
+      "cost": [
+        0
+      ],
+      "range": [
+        0
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Physical",
+            "base": [
+              60,
+              105,
+              150,
+              195,
+              240
+            ],
             "scalings": [
-                { "stat": "bonusAd", "ratio": 1.2 }
+              {
+                "stat": "ap",
+                "ratio": 1.350000023841858
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "W_Form2": {
+      "id": "W_Form2",
+      "name": "W_Form2 (Form 2)",
+      "cooldown": [
+        0
+      ],
+      "cost": [
+        0
+      ],
+      "range": [
+        0
+      ],
+      "effects": [
+        {
+          "type": "damage",
+          "logic": {
+            "damageType": "Physical",
+            "base": [
+              140,
+              200,
+              260,
+              320,
+              380
+            ],
+            "scalings": [
+              {
+                "stat": "ap",
+                "ratio": 1
+              }
             ]
           }
         }
@@ -119,18 +267,27 @@
     },
     "E_Form2": {
       "id": "E_Form2",
-      "name": "Thundering Blow (Hammer)",
-      "cooldown": [20, 18, 16, 14, 12, 10],
-      "cost": [40],
+      "name": "E_Form2 (Form 2)",
+      "cooldown": [
+        0
+      ],
+      "cost": [
+        0
+      ],
+      "range": [
+        0
+      ],
       "effects": [
         {
           "type": "damage",
           "logic": {
-            "damageType": "Magical",
-            "base": [0],
+            "damageType": "Physical",
+            "base": [],
             "scalings": [
-                { "stat": "bonusAd", "ratio": 1.0 },
-                { "stat": "maxHp", "target": "enemy", "ratio": [0.08, 0.104, 0.128, 0.152, 0.176, 0.2] }
+              {
+                "stat": "ap",
+                "ratio": 1
+              }
             ]
           }
         }
