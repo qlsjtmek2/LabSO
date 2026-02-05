@@ -11,10 +11,16 @@ LabSO is a web application designed to help League of Legends players optimize t
 - **Phase 1.6: Champion Data Precision (Done)**
     - All 172 champions implemented with high-precision skill data.
 - **Phase 2: Live Data Integration (Done)**
-    - [x] Dynamic item/rune data fetch (DataDragon 16.3.1).
-    - [x] Item implementation planning (Todolist created).
-    - [x] ItemFactory implementation (Complex logic: Active, Spellblade, On-Hit, etc.).
-    - [x] Simulator engine extension (Hooks & State: onActivate, onTick, etc.).
+    - [x] Dynamic item/rune data fetch.
+    - [x] ItemFactory implementation (Complex logic).
+    - [x] Simulator engine extension.
+- **Phase 3: Intelligent Optimization (Done)**
+    - [x] **FitnessCalculatorV2**: Role-based synergy logic (Mage -> AP, Marksman -> Crit).
+    - [x] **Intelligent Penalties**: Prevents inefficient builds (e.g., Mage buying AD).
+    - [x] **Rune-Item Synergy**: Scores interaction between Runes (Conqueror) and Items (Bruiser gear).
+- **Phase 4: Verification & Benchmarking (Done)**
+    - [x] Benchmarking script for key matchups (Ahri, Jinx, Zed, Ornn, Darius).
+    - [x] Verified build recommendations align with high-elo meta.
 
 ## Tech Stack
 
@@ -107,8 +113,10 @@ Access the application at `http://localhost:3000` (or the port you specified).
     *   **Simulation Settings:** Customize Champion Level, Skill Points, Stacks, Runes, and Target Dummy stats (Armor/MR/HP).
     *   **Visualization:** Power Curve graphs (Lv 6/11/16/18) showing Damage vs Survivability (EHP).
 
-3.  **Build Advisor:**
+3.  **Build Advisor (Intelligent):**
     *   Analyze team compositions and matchups.
+    *   **Role-Aware Optimization:** Understands champion roles (Mage, Assassin, Tank) to prioritize correct stats.
+    *   **Synergy Scoring:** Evaluates interaction between Champion + Runes + Items (e.g., Attack Speed items with Lethal Tempo).
     *   Recommend optimal builds using Genetic Algorithms (`simulatePowerCurve`).
     *   Provide strategy guides based on enemy composition (e.g. Anti-Tank, Anti-Assassin).
 
